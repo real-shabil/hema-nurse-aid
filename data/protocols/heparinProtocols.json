@@ -1,0 +1,66 @@
+{
+  "heparinProtocol": {
+    "bolusAllowedBelow": 46,
+    "notifyPhysicianAbove": 120,
+    "therapeuticRange": [55, 75],
+
+    "factors": {
+      "increaseStrong": 3,
+      "increaseModerate": 2,
+      "increaseMild": 1,
+      "decreaseMild": -1,
+      "decreaseModerate": -2,
+      "decreaseStrong": -3
+    },
+
+    "ranges": [
+      {
+        "maxAPTT": 36,
+        "action": "Give bolus and increase infusion",
+        "factorKey": "increaseStrong",
+        "bolus": true
+      },
+      {
+        "maxAPTT": 46,
+        "action": "Give bolus and increase infusion",
+        "factorKey": "increaseModerate",
+        "bolus": true
+      },
+      {
+        "maxAPTT": 56,
+        "action": "Increase infusion",
+        "factorKey": "increaseMild",
+        "bolus": false
+      },
+      {
+        "maxAPTT": 76,
+        "action": "Maintain current rate. Check aPTT after  6 hours",
+        "factorKey": null,
+        "bolus": false
+      },
+      {
+        "maxAPTT": 90,
+        "action": "Decrease infusion",
+        "factorKey": "decreaseMild",
+        "bolus": false
+      },
+      {
+        "maxAPTT": 105,
+        "action": "Decrease infusion",
+        "factorKey": "decreaseModerate",
+        "bolus": false
+      },
+      {
+        "maxAPTT": 121,
+        "action": "Hold 1 hr, then decrease infusion",
+        "factorKey": "decreaseStrong",
+        "bolus": false
+      }
+    ],
+
+    "aboveMax": {
+      "action": "Hold infusion and notify physician immediately",
+      "bolus": false
+    }
+  }
+}

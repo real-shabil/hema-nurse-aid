@@ -1,0 +1,260 @@
+{
+  "metadata": {
+    "version": "2.1",
+    "lastUpdated": "2025-10-28",
+    "description": "Chemotherapy protocol reference for leukemia and related hematologic malignancies."
+  },
+  "AML": {
+    "Induction": [
+      {
+        "protocolName": "3 + 7",
+        "sections": [
+          {
+            "title": "Days 1",
+            "drugs": [
+              "Idarubicin IV or Daunorubicin IV over 10 - 15 minutes (Days 1 - 3) <br> (Only via PICC line or Central line)",
+              "Cytarabine continuous IV infusion (Days 1 – 7)"
+              
+            ]
+          }
+        ]
+      }
+    ],
+    "Consolidation": [
+      {
+        "protocolName": "HiDAC",
+        "sections": [
+          {
+            "title": "Per Cycle (Days 1,3,5; up to 4 cycles)",
+            "drugs": [
+              "High-dose Cytarabine 3 g/m² IV over 3 hours every 12 hours"
+            ]
+          }
+        ]
+      },
+      {
+        "protocolName": "Azacitidine (HMA)",
+        "sections": [
+          {
+            "title": "Per 28-day Cycle (up to 12–24 months)",
+            "drugs": [
+              "Azacitidine 75 mg/m² SC/IV daily Days 1–7",
+              "For unfit patients; monitor for myelosuppression"
+            ]
+          }
+        ]
+      }
+    ],
+    "Relapse": [
+      {
+        "protocolName": "FLAG-IDA",
+        "sections": [
+          {
+            "title": "Days 1–5",
+            "drugs": [
+              "Fludarabine 30 mg/m² IV daily",
+              "High-dose Cytarabine 2 g/m² IV daily (after Fludarabine)",
+              "G-CSF 300–480 mcg SC daily (Days –2 to 11)"
+            ]
+          },
+          {
+            "title": "Days 7–9",
+            "drugs": [
+              "Idarubicin 10–12 mg/m² IV daily"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ALL": {
+    "Induction": [
+      {
+        "protocolName": "Hyper-CVAD",
+        "sections": [
+          {
+            "title": "Day 1",
+            "drugs": [
+              "Cyclophosphamide 300 mg/m² IV q12h for 6 doses + Mesna",
+              "Dexamethasone 40 mg PO (Days 1–4, 11–14)"
+            ]
+          },
+          {
+            "title": "Day 4",
+            "drugs": [
+              "Doxorubicin 50 mg/m² IV",
+              "Vincristine 2 mg IV"
+            ]
+          }
+        ]
+      }
+    ],
+    "Maintenance": [
+      {
+        "protocolName": "POMP",
+        "sections": [
+          {
+            "title": "Monthly (up to 2 years)",
+            "drugs": [
+              "Mercaptopurine 50 mg PO three times daily",
+              "Methotrexate 20 mg/m² PO weekly",
+              "Vincristine 2 mg IV monthly + Prednisone 200 mg PO × 5 days"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "APL": {
+    "Induction": [
+      {
+        "protocolName": "ATRA + Idarubicin",
+        "sections": [
+          {
+            "title": "Day 1 onward",
+            "drugs": [
+              "ATRA 45 mg/m²/day PO in two divided doses (until complete remission)"
+            ]
+          },
+          {
+            "title": "Days 2, 4, 6, 8",
+            "drugs": [
+              "Idarubicin 12 mg/m² IV bolus"
+            ]
+          }
+        ]
+      }
+    ],
+    "Consolidation": [
+      {
+        "protocolName": "ATRA + ATO",
+        "sections": [
+          {
+            "title": "Cycle 1 (4 weeks)",
+            "drugs": [
+              "Arsenic Trioxide (ATO) 0.15 mg/kg/day IV, 5 days/week × 4 weeks",
+              "ATRA 45 mg/m²/day PO, 2 weeks on / 2 weeks off"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "CML": {
+    "Chronic Phase": [
+      {
+        "protocolName": "TKI (e.g., Imatinib)",
+        "sections": [
+          {
+            "title": "Daily (ongoing)",
+            "drugs": [
+              "Imatinib 400 mg PO once daily",
+              "Alternative: Dasatinib 100 mg PO daily"
+            ]
+          }
+        ]
+      }
+    ],
+    "Blast Phase (Lymphoid)": [
+      {
+        "protocolName": "Hyper-CVAD-like",
+        "sections": [
+          {
+            "title": "Day 1",
+            "drugs": [
+              "Cyclophosphamide 300 mg/m² IV q12h × 6 + Mesna",
+              "Dexamethasone 40 mg PO × 4 days"
+            ]
+          },
+          {
+            "title": "Day 4",
+            "drugs": [
+              "Doxorubicin 50 mg/m² IV",
+              "Vincristine 2 mg IV",
+              "Add TKI (e.g., Imatinib)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "CLL": {
+    "First-Line (Fit Patients)": [
+      {
+        "protocolName": "FCR",
+        "sections": [
+          {
+            "title": "Days 1–3 (per 28-day cycle, up to 6)",
+            "drugs": [
+              "Fludarabine 25 mg/m² IV",
+              "Cyclophosphamide 250 mg/m² IV"
+            ]
+          },
+          {
+            "title": "Day 1",
+            "drugs": [
+              "Rituximab 375 mg/m² IV (Cycle 1) or 500 mg/m² (Cycles 2–6)"
+            ]
+          }
+        ]
+      }
+    ],
+    "Alternative (Older/Frail)": [
+      {
+        "protocolName": "BR",
+        "sections": [
+          {
+            "title": "Days 1–2 (per 28-day cycle, up to 6)",
+            "drugs": [
+              "Bendamustine 70–90 mg/m² IV"
+            ]
+          },
+          {
+            "title": "Day 1",
+            "drugs": [
+              "Rituximab 375 mg/m² IV (Cycle 1) or 500 mg/m² (Cycles 2–6)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "Lymphoma": {
+    "Standard (Aggressive NHL)": [
+      {
+        "protocolName": "CHOP",
+        "sections": [
+          {
+            "title": "Day 1 (per 21-day cycle, 6–8 cycles)",
+            "drugs": [
+              "Cyclophosphamide 750 mg/m² IV",
+              "Doxorubicin 50 mg/m² IV",
+              "Vincristine 1.4 mg/m² IV (max 2 mg)"
+            ]
+          },
+          {
+            "title": "Days 1–5",
+            "drugs": [
+              "Prednisone 100 mg PO daily"
+            ]
+          }
+        ]
+      }
+    ],
+    "With Immunotherapy": [
+      {
+        "protocolName": "R-CHOP",
+        "sections": [
+          {
+            "title": "Day 1 (add to CHOP)",
+            "drugs": [
+              "Rituximab 375 mg/m² IV"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+
+

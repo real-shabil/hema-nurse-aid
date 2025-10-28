@@ -1,0 +1,100 @@
+{
+  "chemotherapy": {
+    "title": "Common Chemotherapy Drugs",
+    "description": "Core cytotoxic agents used in leukemia and solid tumor regimens.",
+    "drugs": [
+      {
+        "name": "Cyclophosphamide",
+        "category": "Alkylating Agent",
+        "route": "IV infusion",
+        "keyPoints": [
+          "Hydrate patient before and after administration.",
+          "Monitor urine output; risk of hemorrhagic cystitis.",
+          "Use mesna for uroprotection if ordered."
+        ]
+      },
+      {
+        "name": "Cytarabine (Ara-C)",
+        "category": "Antimetabolite",
+        "route": "IV infusion or subcutaneous",
+        "keyPoints": [
+          "Monitor for cerebellar toxicity—perform neuro checks.",
+          "May cause conjunctivitis—use prophylactic steroid eye drops.",
+          "High-dose regimens require leucovorin rescue."
+        ]
+      },
+      {
+        "name": "Doxorubicin",
+        "category": "Anthracycline Antibiotic",
+        "route": "IV push (central line preferred)",
+        "keyPoints": [
+          "Cardiotoxic—obtain baseline ECG and ejection fraction.",
+          "Avoid extravasation; use vesicant precautions.",
+          "Causes red discoloration of urine for 24–48 hrs."
+        ]
+      },
+      {
+        "name": "Vincristine",
+        "category": "Vinca Alkaloid",
+        "route": "IV push (never intrathecal!)",
+        "keyPoints": [
+          "Fatal if given intrathecally.",
+          "Monitor for peripheral neuropathy and constipation.",
+          "Use warm compresses if extravasation suspected."
+        ]
+      },
+      {
+        "name": "Methotrexate",
+        "category": "Antimetabolite",
+        "route": "IV, oral, or intrathecal",
+        "keyPoints": [
+          "Requires leucovorin (Calcium folinate) rescue for high doses.",
+          "Monitor renal function and maintain hydration.",
+          "Avoid NSAIDs and cotrimoxazole during therapy."
+        ]
+      }
+    ]
+  },
+
+  "adjuvant": {
+    "title": "Adjuvant / Supportive Medications",
+    "description": "Medications used to prevent or manage chemotherapy-related toxicities.",
+    "drugs": [
+      {
+        "name": "Ondansetron",
+        "category": "Antiemetic",
+        "route": "IV or oral",
+        "keyPoints": [
+          "Administer 30 minutes before chemotherapy.",
+          "Monitor for headache and QT prolongation."
+        ]
+      },
+      {
+        "name": "Dexamethasone",
+        "category": "Corticosteroid",
+        "route": "IV or oral",
+        "keyPoints": [
+          "Used for nausea prevention and as part of chemotherapy regimens.",
+          "Monitor blood sugar and signs of infection."
+        ]
+      },
+      {
+        "name": "Filgrastim (G-CSF)",
+        "category": "Hematopoietic Growth Factor",
+        "route": "Subcutaneous injection",
+        "keyPoints": [
+          "Monitor CBC; stop when ANC > 1000 in two consecutive days"
+        ]
+      },
+      {
+        "name": "Allopurinol",
+        "category": "Uric Acid Reducer",
+        "route": "Oral",
+        "keyPoints": [
+          "Start before induction chemotherapy to prevent tumor lysis.",
+          "Encourage hydration and monitor uric acid levels."
+        ]
+      }
+    ]
+  }
+}

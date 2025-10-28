@@ -1,0 +1,107 @@
+<!-- =========================================================
+     🌿 CHEMOTHERAPY NURSE GUIDE — MAIN INTERFACE
+     ---------------------------------------------------------
+     Version:        1.0.0
+     Author:         Shabil Mohammed Kozhippattil
+     Role:           RN, Hematology/Oncology — KAMC, Jeddah
+     File Purpose:   Primary web interface for the Nursing 
+                     Informatics app — connects sections for
+                     leukemia protocols, medications, and
+                     calculations (BMI, BSA, Heparin, etc.)
+     ---------------------------------------------------------
+     Notes:
+       🩺 Responsive layout for desktop & mobile nurses
+       💉 Designed for quick bedside reference
+       ⚕️ Works with /css/styles.css and /js/*.js modules
+   ========================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chemotherapy Nurse Guide</title>
+
+        <!-- ====== Styles ====== -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+
+        <!-- =========================================================
+            HEADER
+        ========================================================= -->
+        <header>Chemotherapy Nurse Guide</header>
+
+
+        <!-- =========================================================
+            HOME SECTION
+        ========================================================= -->
+        <div class="container" id="home">
+        <h2 id="welcomeMessage">Welcome Nurse 👩‍⚕️</h2>
+        <p id="introText">
+            Select a section below to access chemo protocols, medications, 
+            and common calculations.
+        </p>
+
+        <div class="cards">
+            <div class="card" onclick="navigateToSection('leukemia')">Leukemia</div>
+            <div class="card" onclick="navigateToSection('medications')">Medications</div>
+            <div class="card" onclick="navigateToSection('calculations')">Calculations</div>
+        </div>
+        </div>
+
+
+        <!-- =========================================================
+            LEUKEMIA PROTOCOLS SECTION
+        ========================================================= -->
+        <div class="section" id="leukemia">
+        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+        <h2>Types of Leukemia</h2>
+        <div class="cards">
+            <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
+            <div class="card" onclick="openLeukemiaType('AML')">Acute Myeloid (AML)</div>
+            <div class="card" onclick="openLeukemiaType('CLL')">Chronic Lymphocytic (CLL)</div>
+            <div class="card" onclick="openLeukemiaType('CML')">Chronic Myeloid (CML)</div>
+        </div>
+        </div>
+
+        <div class="section" id="type">
+        <button class="back-btn" onclick="navigateToSection('leukemia')">← Back</button>
+        <h2 id="typeTitle"></h2>
+        <div id="protocolList"></div>
+        </div>
+
+
+        <!-- =========================================================
+            MEDICATIONS SECTION
+        ========================================================= -->
+        <div class="section" id="medications">
+        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+        <h2>Medications</h2>
+        <div id="medicationsList"></div>
+        </div>
+
+
+        <!-- =========================================================
+            CALCULATIONS SECTION
+        ========================================================= -->
+        <div class="section" id="calculations">
+        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+        <h2>Calculations</h2>
+        <div id="calculationsList" class="cards"></div>
+        <div id="calculationsContent"></div>
+        </div>
+
+
+        <!-- =========================================================
+            JAVASCRIPT SECTION
+        ========================================================= -->
+        <!-- Calculation functions (BMI, BSA, Heparin) -->
+        <script src="js/calculators.js"></script>
+
+        <!-- Main application logic -->
+        <script src="js/main.js"></script>
+
+    </body>
+</html>

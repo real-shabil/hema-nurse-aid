@@ -1,0 +1,46 @@
+{
+  "insulinProtocol": {
+    "type": "subcutaneous_prn",
+    "units": "IU",
+    "glucoseUnit": "mg/dL",
+
+    "lowDose": {
+      "title": "Low Dose Sliding Scale (PRN)",
+      "ranges": [
+        { "min": 70,  "max": 139, "action": "No insulin", "dose": 0 },
+        { "min": 140, "max": 179, "action": "Give 1 unit insulin SC", "dose": 1 },
+        { "min": 180, "max": 229, "action": "Give 2 units insulin SC", "dose": 2 },
+        { "min": 230, "max": 279, "action": "Give 3 units insulin SC", "dose": 3 },
+        { "min": 280, "max": 329, "action": "Give 4 units insulin SC", "dose": 4 },
+        { "min": 330, "max": 379, "action": "Give 5 units insulin SC", "dose": 5 },
+        { "min": 380, "max": 1000, "action": "Give 6 units insulin SC and notify physician", "dose": 6 }
+      ]
+    },
+
+    "moderateDose": {
+      "title": "Moderate Dose Sliding Scale (PRN)",
+      "ranges": [
+        { "min": 70,  "max": 139, "action": "No insulin", "dose": 0 },
+        { "min": 140, "max": 179, "action": "Give 2 units insulin SC", "dose": 2 },
+        { "min": 180, "max": 229, "action": "Give 3 units insulin SC", "dose": 3 },
+        { "min": 230, "max": 279, "action": "Give 4 units insulin SC", "dose": 4 },
+        { "min": 280, "max": 329, "action": "Give 5 units insulin SC", "dose": 5 },
+        { "min": 330, "max": 379, "action": "Give 6 units insulin SC", "dose": 6 },
+        { "min": 380, "max": 1000, "action": "Give 7 units insulin SC and notify physician", "dose": 7 }
+      ]
+    },
+
+    "highDose": {
+      "title": "High Dose Sliding Scale (PRN)",
+      "ranges": [
+        { "min": 70,  "max": 139, "action": "No insulin", "dose": 0 },
+        { "min": 140, "max": 179, "action": "Give 3 units insulin SC", "dose": 3 },
+        { "min": 180, "max": 229, "action": "Give 4 units insulin SC", "dose": 4 },
+        { "min": 230, "max": 279, "action": "Give 5 units insulin SC", "dose": 5 },
+        { "min": 280, "max": 329, "action": "Give 6 units insulin SC", "dose": 6 },
+        { "min": 330, "max": 379, "action": "Give 7 units insulin SC", "dose": 7 },
+        { "min": 380, "max": 1000, "action": "Give 8 units insulin SC and notify physician", "dose": 8 }
+      ]
+    }
+  }
+}
