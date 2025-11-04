@@ -198,6 +198,27 @@ function goHome() {
 
 
 /* =========================================================
+   🎮 GAMES
+   ========================================================= */
+function openGame(gameKey) {
+    const gameContent = document.getElementById("gameContent");
+    if (!gameContent) return;
+
+    gameContent.innerHTML = "";
+
+    if (gameKey === "wordle") {
+        if (typeof loadNurseWordle === "function") {
+            loadNurseWordle(gameContent);
+        } else {
+            gameContent.innerHTML = "<p>Wordle module unavailable.</p>";
+        }
+    } else {
+        gameContent.innerHTML = "<p>Game not available yet.</p>";
+    }
+}
+
+
+/* =========================================================
    5️⃣ LEUKEMIA PROTOCOL FUNCTIONS
    ========================================================= */
 function openLeukemiaType(type) {
@@ -415,4 +436,3 @@ function clearCalculation(calcKey) {
     const resultDiv = document.getElementById(`result-${calcKey}`);
     if (resultDiv) resultDiv.innerHTML = "";
 }
-
