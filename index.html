@@ -38,17 +38,19 @@
             HOME SECTION
         ========================================================= -->
         <div class="container" id="home">
-        <h2 id="welcomeMessage">Welcome Nurse 👩‍⚕️</h2>
-        <p id="introText">
-            Select a section below to access chemo protocols, medications, 
-            and common calculations.
-        </p>
+            <h2 id="welcomeMessage">Welcome Nurse 👩‍⚕️</h2>
+            <p id="introText">
+                Select a section below to access chemo protocols, medications, 
+                and common calculations.
+            </p>
 
-        <div class="cards">
-            <div class="card" onclick="navigateToSection('leukemia')">Leukemia</div>
-            <div class="card" onclick="navigateToSection('medications')">Medications</div>
-            <div class="card" onclick="navigateToSection('calculations')">Calculations</div>
-        </div>
+            <div class="cards">
+                <div class="card" onclick="navigateToSection('leukemia')">🩸Leukemia</div>
+                <div class="card" onclick="navigateToSection('medications')">💊Medications</div>
+                <div class="card" onclick="navigateToSection('calculations')">🧮Calculations</div>
+                <div class="card" onclick="navigateToSection('drugInteractions')">🧪Drug Interactions</div>
+                <div class="card" onclick="navigateToSection('games')">🎮Games</div>
+            </div>
         </div>
 
 
@@ -56,20 +58,20 @@
             LEUKEMIA PROTOCOLS SECTION
         ========================================================= -->
         <div class="section" id="leukemia">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <h2>Types of Leukemia</h2>
-        <div class="cards">
-            <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
-            <div class="card" onclick="openLeukemiaType('AML')">Acute Myeloid (AML)</div>
-            <div class="card" onclick="openLeukemiaType('CLL')">Chronic Lymphocytic (CLL)</div>
-            <div class="card" onclick="openLeukemiaType('CML')">Chronic Myeloid (CML)</div>
-        </div>
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Types of Leukemia</h2>
+            <div class="cards">
+                <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
+                <div class="card" onclick="openLeukemiaType('AML')">Acute Myeloid (AML)</div>
+                <div class="card" onclick="openLeukemiaType('CLL')">Chronic Lymphocytic (CLL)</div>
+                <div class="card" onclick="openLeukemiaType('CML')">Chronic Myeloid (CML)</div>
+            </div>
         </div>
 
         <div class="section" id="type">
-        <button class="back-btn" onclick="navigateToSection('leukemia')">← Back</button>
-        <h2 id="typeTitle"></h2>
-        <div id="protocolList"></div>
+            <button class="back-btn" onclick="navigateToSection('leukemia')">← Back</button>
+            <h2 id="typeTitle"></h2>
+            <div id="protocolList"></div>
         </div>
 
 
@@ -77,9 +79,11 @@
             MEDICATIONS SECTION
         ========================================================= -->
         <div class="section" id="medications">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <h2>Medications</h2>
-        <div id="medicationsList"></div>
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Medications</h2>
+            <div class="cards">
+                <div id="medicationsList"></div>
+            </div>   
         </div>
 
 
@@ -87,11 +91,63 @@
             CALCULATIONS SECTION
         ========================================================= -->
         <div class="section" id="calculations">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <h2>Calculations</h2>
-        <div id="calculationsList" class="cards"></div>
-        <div id="calculationsContent"></div>
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Calculations</h2>
+            <div id="calculationsList" class="cards"></div>
+            <div id="calculationsContent"></div>
         </div>
+
+
+        <!-- ============================================================
+            DRUG INTERACTIONS SECTION
+        ============================================================= -->
+        <div class="section" id="drugInteractions">
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <div class="section-heading">
+                <h2>💉 Drug Interactions</h2>
+                <span id="interactionDataStatus" class="badge badge-loading">Loading data...</span>
+            </div>
+
+            <div id="drugInteractionsContent" class="cards">
+                <div class="card card-full">
+                    <div class="interaction-inputs">
+                        <div class="input-group">
+                            <label for="drugA">Drug A</label>
+                            <input type="text" id="drugA" class="input-drug" placeholder="Search Drug A...">
+                            <div id="suggestionA" class="suggestion-box"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="drugB">Drug B</label>
+                            <input type="text" id="drugB" class="input-drug" placeholder="Search Drug B...">
+                            <div id="suggestionB" class="suggestion-box"></div>
+                        </div>
+
+                        <div class="btn-row">
+                            <button id="checkInteractionBtn" class="btn-primary">Check Interaction</button>
+                            <button id="clearInteractionBtn" class="btn-clear">Clear</button>
+                        </div>
+                    </div>
+
+                    <div id="interactionResult" class="result-box"></div>
+                    <div id="interactionHistory" class="result-box" hidden></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================
+            GAMES SECTION
+        ============================================================= -->
+        <div class="section" id="games">
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Games</h2>
+            <div class="cards">
+                <div class="card" onclick="openGame('wordle')">Wordle!</div>
+            </div>
+            <div id="gameContent"></div>
+        </div>
+
 
 
         <!-- =========================================================
@@ -100,8 +156,14 @@
         <!-- Calculation functions (BMI, BSA, Heparin) -->
         <script src="js/calculators.js"></script>
 
-        <!-- Main application logic -->
-        <script src="js/main.js"></script>
+        <!-- Feature helpers -->
+        <script src="js/drugInteractions.js" defer></script>
 
+        <!-- Main application logic -->
+        <script src="js/main.js" defer></script>
+
+        <script src="js/game.js" defer></script>
+
+        
     </body>
 </html>

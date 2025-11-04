@@ -1,0 +1,447 @@
+{
+  "lastUpdated": "2025-11-04",
+
+  "Amphotericin B (conventional, deoxycholate)": {
+    "0.9% Sodium Chloride": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Conventional amphotericin is not compatible with saline; precipitates/instability occur.",
+      "nursingManagement": "Infuse only in D5W through a dedicated line; do not Y-site with saline-based infusions."
+    },
+    "D5W (5% Dextrose)": {
+      "severity": "Compatible (vehicle)",
+      "type": "IV Compatibility",
+      "description": "Amphotericin is formulated for dextrose solutions.",
+      "nursingManagement": "Use D5W as the sole diluent/side infusion if needed."
+    },
+    "Liposomal Amphotericin B": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Different formulations are not interchangeable and should not mix.",
+      "nursingManagement": "Use separate, dedicated lines for each formulation."
+    }
+  },
+
+  "Acyclovir (IV)": {
+    "Vancomycin": {
+      "severity": "Incompatible (Y-site / variable)",
+      "type": "IV Compatibility",
+      "description": "Crystallization/precipitation can occur depending on concentration and pH.",
+      "nursingManagement": "Prefer separate lumen; if unavoidable, verify institutional compatibility table for specific concentrations."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable at usual clinical concentrations.",
+      "nursingManagement": "Flush line before and after other drugs."
+    },
+    "D5W (5% Dextrose)": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Generally stable in dextrose solutions.",
+      "nursingManagement": "Use standard line care; avoid mixing with high-pH/alkaline drugs."
+    }
+  },
+
+  "Calcium Gluconate": {
+    "Sodium Phosphate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Insoluble calcium phosphate forms rapidly on contact.",
+      "nursingManagement": "Never co-infuse; use separate lines or flush thoroughly between."
+    },
+    "Potassium Phosphate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Calcium and phosphate precipitate across a wide range of concentrations.",
+      "nursingManagement": "Do not Y-site; separate line required."
+    },
+    "Ceftriaxone": {
+      "severity": "Incompatible (Y-site) / Contraindicated",
+      "type": "IV Compatibility",
+      "description": "Calcium-ceftriaxone precipitates reported (especially in neonates).",
+      "nursingManagement": "Avoid any co-infusion; separate lines and time spacing with thorough flush."
+    }
+  },
+
+  "Ceftriaxone (IV)": {
+    "Calcium Gluconate": {
+      "severity": "Incompatible (Y-site) / Contraindicated",
+      "type": "IV Compatibility",
+      "description": "Risk of life-threatening calcium-ceftriaxone precipitates.",
+      "nursingManagement": "Do not co-administer via Y-site; ensure complete line separation and flushing."
+    },
+    "Sodium Bicarbonate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Alkaline solutions reduce stability and may cause precipitation.",
+      "nursingManagement": "Avoid co-infusion; use dedicated line."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable in normal saline at usual concentrations.",
+      "nursingManagement": "Standard line care and flushing."
+    }
+  },
+
+  "Dexamethasone (IV)": {
+    "Ondansetron (IV)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Commonly co-administered without precipitation.",
+      "nursingManagement": "Monitor site; flush between other incompatible agents."
+    },
+    "Metoclopramide (IV)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "No clinically significant physical incompatibility reported.",
+      "nursingManagement": "Routine line care."
+    }
+  },
+
+  "Dobutamine": {
+    "Sodium Bicarbonate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Alkaline pH reduces stability of catecholamine/inotrope solutions.",
+      "nursingManagement": "Do not mix; run via a separate lumen."
+    },
+    "Heparin (IV infusion)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Generally physically compatible at standard concentrations.",
+      "nursingManagement": "Use dedicated lumens when possible for titratable drips."
+    }
+  },
+
+  "Dopamine": {
+    "Sodium Bicarbonate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Alkaline solutions cause decomposition of dopamine.",
+      "nursingManagement": "Avoid co-infusion; separate lumen required."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable in NS at standard ICU concentrations.",
+      "nursingManagement": "Prefer dedicated lumen for vasoactive medications."
+    }
+  },
+
+  "Furosemide (IV)": {
+    "Phenytoin (IV)": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "High pH phenytoin solution is incompatible with many drugs including furosemide.",
+      "nursingManagement": "Do not Y-site; use separate line or flush very thoroughly with NS."
+    },
+    "D5W (5% Dextrose)": {
+      "severity": "Incompatible (as diluent for phenytoin)",
+      "type": "IV Compatibility",
+      "description": "Note for phenytoin: precipitates in dextrose solutions; NS only.",
+      "nursingManagement": "Keep furosemide separate when phenytoin is running; follow diluent rules."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Furosemide is stable in NS at usual concentrations.",
+      "nursingManagement": "Flush line between other medications."
+    }
+  },
+
+  "Heparin (IV infusion)": {
+    "Calcium Gluconate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Mixing may yield visible precipitate.",
+      "nursingManagement": "Do not co-infuse; flush line before/after heparin."
+    },
+    "Sodium Phosphate": {
+      "severity": "Compatible (dilute) / Monitor",
+      "type": "IV Compatibility",
+      "description": "Generally stable when adequately diluted, but monitor for cloudiness.",
+      "nursingManagement": "Use separate lumen if any doubt; inspect line for particulates."
+    },
+    "Dobutamine": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "No significant precipitation at typical ICU concentrations.",
+      "nursingManagement": "Prefer dedicated lumen for titration clarity."
+    }
+  },
+
+  "Hydrocortisone (IV)": {
+    "Ondansetron (IV)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "No physical incompatibility at standard doses.",
+      "nursingManagement": "Standard Y-site practice and flushing."
+    },
+    "Metoclopramide (IV)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Generally compatible in clinical concentrations.",
+      "nursingManagement": "Monitor site and tubing for haze/precipitate."
+    }
+  },
+
+  "Insulin Regular (IV infusion)": {
+    "Dextrose solutions": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Common ICU practice to Y-site with D10W/D20W for glycemic management.",
+      "nursingManagement": "Label lines clearly; frequent glucose checks."
+    },
+    "Potassium Chloride (IV infusion)": {
+      "severity": "Compatible (caution)",
+      "type": "IV Compatibility",
+      "description": "Often co-administered during hyperkalemia management; physical compatibility acceptable.",
+      "nursingManagement": "Use cardiac monitoring; follow local hyperkalemia protocol."
+    }
+  },
+
+  "Lipid Emulsion 20% (Intralipid/TPN lipids)": {
+    "Propofol": {
+      "severity": "Compatible (Y-site) / Policy-dependent",
+      "type": "IV Compatibility",
+      "description": "Both are lipid emulsions; many policies allow Y-site, others prefer separation.",
+      "nursingManagement": "Follow institutional policy; dedicate lumen if possible to avoid confusion."
+    },
+    "Most aqueous IV meds": {
+      "severity": "Variable (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Physical compatibility varies widely and may be concentration-dependent.",
+      "nursingManagement": "Prefer separate line for lipids; check local compatibility charts before Y-siting."
+    }
+  },
+
+  "Linezolid (IV)": {
+    "Aminophylline/Theophylline (IV)": {
+      "severity": "Incompatible (Y-site / variable)",
+      "type": "IV Compatibility",
+      "description": "Reports of haze/precipitation depending on concentrations and vehicles.",
+      "nursingManagement": "Avoid co-infusion; use separate lumen."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable in NS at typical concentrations.",
+      "nursingManagement": "Routine line care."
+    }
+  },
+
+  "Magnesium Sulphate (IV)": {
+    "Calcium Gluconate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Risk of precipitation and opposing ionic effects.",
+      "nursingManagement": "Infuse via separate lumen; flush well if switching."
+    },
+    "Potassium Chloride (IV)": {
+      "severity": "Compatible (Y-site) / Monitor",
+      "type": "IV Compatibility",
+      "description": "Often co-administered in ICU; generally no precipitation.",
+      "nursingManagement": "Monitor ECG and electrolytes during concurrent replacement."
+    }
+  },
+
+  "Metronidazole (IV)": {
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable in NS at usual concentrations.",
+      "nursingManagement": "Standard Y-site practice."
+    },
+    "Vancomycin": {
+      "severity": "Variable (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Compatibility depends on concentration and formulation.",
+      "nursingManagement": "Prefer separate lumen; verify local compatibility tables."
+    }
+  },
+
+  "Midazolam (IV infusion)": {
+    "Propofol": {
+      "severity": "Compatible (Y-site) / Monitor",
+      "type": "IV Compatibility",
+      "description": "No precipitation expected; both CNS depressants (clinical, not physical).",
+      "nursingManagement": "If sharing lumen, ensure line clarity and appropriate monitoring."
+    },
+    "Fentanyl (IV infusion)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "No physical incompatibility typically observed.",
+      "nursingManagement": "Label lines; titrate independently where possible."
+    }
+  },
+
+  "Noradrenaline (Norepinephrine)": {
+    "Sodium Bicarbonate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Alkaline solutions reduce catecholamine stability.",
+      "nursingManagement": "Use separate lumen; do not Y-site."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable in NS for carrier infusions.",
+      "nursingManagement": "Prefer a dedicated central lumen for vasoactive drips."
+    }
+  },
+
+  "Ondansetron (IV)": {
+    "Dexamethasone (IV)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "No precipitation at standard doses.",
+      "nursingManagement": "Routine monitoring."
+    },
+    "Metoclopramide (IV)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Generally no physical incompatibility.",
+      "nursingManagement": "Inspect line for cloudiness if multi-drug Y-siting."
+    }
+  },
+
+  "Phenytoin (IV, not fosphenytoin)": {
+    "D5W (5% Dextrose)": {
+      "severity": "Incompatible (vehicle)",
+      "type": "IV Compatibility",
+      "description": "Precipitates in dextrose; NS is required.",
+      "nursingManagement": "Use NS only; dedicated line preferred."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible (vehicle)",
+      "type": "IV Compatibility",
+      "description": "NS is the recommended diluent/carrier.",
+      "nursingManagement": "Avoid co-infusion with other meds; flush line before/after."
+    },
+    "Furosemide (IV)": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "pH-related precipitation with other alkaline drugs.",
+      "nursingManagement": "Do not Y-site; separate line mandatory."
+    }
+  },
+
+  "Piperacillin–Tazobactam (IV)": {
+    "Vancomycin (IV)": {
+      "severity": "Variable (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Physical compatibility depends on concentrations/vehicles; reports vary.",
+      "nursingManagement": "Prefer separate lumens; check local compatibility references for exact strengths."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable in NS at usual concentrations.",
+      "nursingManagement": "Routine line care."
+    }
+  },
+
+  "Potassium Chloride (IV)": {
+    "Magnesium Sulphate (IV)": {
+      "severity": "Compatible (Y-site) / Monitor",
+      "type": "IV Compatibility",
+      "description": "Commonly co-administered without precipitation.",
+      "nursingManagement": "Continuous ECG and electrolyte monitoring."
+    },
+    "Insulin Regular (IV)": {
+      "severity": "Compatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Used together in hyperkalemia protocols (physical compatibility acceptable).",
+      "nursingManagement": "Follow hyperkalemia protocol; label lines clearly."
+    }
+  },
+
+  "Propofol": {
+    "Lipid Emulsion 20%": {
+      "severity": "Compatible (Y-site) / Policy-dependent",
+      "type": "IV Compatibility",
+      "description": "Both lipid emulsions; many institutions allow Y-site but policies differ.",
+      "nursingManagement": "Follow hospital policy; separate line preferred for clarity."
+    },
+    "Most aqueous IV meds": {
+      "severity": "Variable (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Emulsion may not be compatible with all aqueous drugs.",
+      "nursingManagement": "Avoid mixing with other meds unless verified compatible."
+    }
+  },
+
+  "Sodium Bicarbonate (IV)": {
+    "Noradrenaline/Dopamine/Dobutamine": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Alkaline pH degrades catecholamines and some inotropes.",
+      "nursingManagement": "Run via separate, dedicated lumen."
+    },
+    "Calcium Gluconate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Carbonate formation/precipitation possible.",
+      "nursingManagement": "Avoid mixing; separate line and thorough flush if sequential."
+    },
+    "Phenytoin (IV)": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "pH/solubility issues cause precipitation.",
+      "nursingManagement": "Do not Y-site; NS-only line for phenytoin."
+    }
+  },
+
+  "Sodium Phosphate (IV)": {
+    "Calcium Gluconate": {
+      "severity": "Incompatible (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Forms insoluble calcium phosphate.",
+      "nursingManagement": "Never Y-site with calcium; separate line."
+    },
+    "Heparin (IV infusion)": {
+      "severity": "Compatible (dilute) / Monitor",
+      "type": "IV Compatibility",
+      "description": "Generally stable in dilute solutions.",
+      "nursingManagement": "Observe for haze/particles; prefer separate lumen if available."
+    }
+  },
+
+  "Total Parenteral Nutrition (TPN)": {
+    "Most IV medications": {
+      "severity": "Variable (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Compatibility depends on TPN composition (amino acids, lipids, electrolytes).",
+      "nursingManagement": "Best practice is a dedicated central lumen; consult pharmacy/compatibility charts before any Y-site."
+    },
+    "Lipid Emulsion 20%": {
+      "severity": "Compatible (as component)",
+      "type": "IV Compatibility",
+      "description": "Often co-infused as part of TPN or piggybacked per protocol.",
+      "nursingManagement": "Follow institutional TPN policy; use TPN-designated lumen."
+    }
+  },
+
+  "Vancomycin (IV)": {
+    "Acyclovir (IV)": {
+      "severity": "Incompatible (Y-site / variable)",
+      "type": "IV Compatibility",
+      "description": "Precipitation risk depending on pH/concentrations.",
+      "nursingManagement": "Prefer separate lumen; verify local tables if unavoidable."
+    },
+    "Piperacillin–Tazobactam (IV)": {
+      "severity": "Variable (Y-site)",
+      "type": "IV Compatibility",
+      "description": "Reports vary; some concentrations are physically compatible, others not.",
+      "nursingManagement": "Use separate lines for reliability; check local compatibility chart."
+    },
+    "0.9% Sodium Chloride": {
+      "severity": "Compatible",
+      "type": "IV Compatibility",
+      "description": "Stable in NS at typical concentrations.",
+      "nursingManagement": "Routine line care."
+    }
+  }
+}

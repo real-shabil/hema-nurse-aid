@@ -61,6 +61,13 @@
     "aboveMax": {
       "action": "Hold infusion and notify physician immediately",
       "bolus": false
+    },
+
+    "defaults": {
+        "bolus_units_per_kg": 80,
+        "infusion_units_per_kg_per_hour": 18,
+        "therapeutic_aptt_low": 46,
+        "therapeutic_aptt_high": 56
     }
   }
 }

@@ -1,100 +1,337 @@
 {
-  "chemotherapy": {
-    "title": "Common Chemotherapy Drugs",
-    "description": "Core cytotoxic agents used in leukemia and solid tumor regimens.",
-    "drugs": [
-      {
-        "name": "Cyclophosphamide",
-        "category": "Alkylating Agent",
-        "route": "IV infusion",
-        "keyPoints": [
-          "Hydrate patient before and after administration.",
-          "Monitor urine output; risk of hemorrhagic cystitis.",
-          "Use mesna for uroprotection if ordered."
+    "chemotherapy": {
+        "title": "Common Chemotherapy Drugs",
+        "description": "Core cytotoxic agents used in leukemia and solid tumor regimens.",
+        "drugs": [
+            {
+                "name": "6-Mercaptopurine",
+                "category": "Antimetabolite",
+                "route": "Oral",
+                "keyPoints": [
+                    "Give on an empty stomach; avoid milk products.",
+                    "Monitor CBC and liver enzymes regularly.",
+                    "Adjust dose for hepatic impairment."
+                ]
+            },
+            {
+                "name": "Bleomycin",
+                "category": "Antitumor Antibiotic",
+                "route": "IV, IM, or subcutaneous",
+                "keyPoints": [
+                    "Monitor for pulmonary toxicity; perform baseline PFTs.",
+                    "Observe for fever or chills after administration.",
+                    "Avoid giving with high oxygen concentrations."
+                ]
+            },
+            {
+                "name": "Busulfan",
+                "category": "Alkylating Agent",
+                "route": "Oral or IV infusion",
+                "keyPoints": [
+                    "Monitor for bone marrow suppression.",
+                    "Seizure prophylaxis may be required with high doses.",
+                    "Check for pulmonary fibrosis with long-term use."
+                ]
+            },
+            {
+                "name": "Cisplatin",
+                "category": "Platinum Compound",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Pre- and post-hydration essential to prevent nephrotoxicity.",
+                    "Monitor renal function and electrolytes (Mg, K).",
+                    "May cause ototoxicity—assess hearing regularly."
+                ]
+            },
+            {
+                "name": "Cyclophosphamide",
+                "category": "Alkylating Agent",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Hydrate patient before and after administration.",
+                    "Monitor urine output; risk of hemorrhagic cystitis.",
+                    "Use mesna for uroprotection if ordered."
+                ]
+            },
+            {
+                "name": "Cytarabine (Ara-C)",
+                "category": "Antimetabolite",
+                "route": "IV infusion or subcutaneous",
+                "keyPoints": [
+                    "Monitor for cerebellar toxicity—perform neuro checks.",
+                    "May cause conjunctivitis—use prophylactic steroid eye drops.",
+                    "High-dose regimens require leucovorin rescue."
+                ]
+            },
+            {
+                "name": "Daunorubicin",
+                "category": "Anthracycline Antibiotic",
+                "route": "IV push (central line preferred)",
+                "keyPoints": [
+                    "Cardiotoxic—check baseline ejection fraction.",
+                    "Use vesicant precautions; avoid extravasation.",
+                    "Red-orange urine discoloration is expected."
+                ]
+            },
+            {
+                "name": "Doxorubicin",
+                "category": "Anthracycline Antibiotic",
+                "route": "IV push (central line preferred)",
+                "keyPoints": [
+                    "Cardiotoxic—obtain baseline ECG and ejection fraction.",
+                    "Avoid extravasation; use vesicant precautions.",
+                    "Causes red discoloration of urine for 24–48 hrs."
+                ]
+            },
+            {
+                "name": "Etoposide",
+                "category": "Topoisomerase II Inhibitor",
+                "route": "IV infusion or oral",
+                "keyPoints": [
+                    "Administer slowly to avoid hypotension.",
+                    "Monitor CBC for bone marrow suppression.",
+                    "Use infusion pump; avoid rapid bolus."
+                ]
+            },
+            {
+                "name": "Ifosfamide",
+                "category": "Alkylating Agent",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Always co-administer mesna for uroprotection.",
+                    "Ensure aggressive hydration to prevent cystitis.",
+                    "Monitor mental status—risk of CNS toxicity."
+                ]
+            },
+            {
+                "name": "Methotrexate",
+                "category": "Antimetabolite",
+                "route": "IV, oral, or intrathecal",
+                "keyPoints": [
+                    "Requires leucovorin (Calcium folinate) rescue for high doses.",
+                    "Monitor renal function and maintain hydration.",
+                    "Avoid NSAIDs and cotrimoxazole during therapy."
+                ]
+            },
+            {
+                "name": "Vincristine",
+                "category": "Vinca Alkaloid",
+                "route": "IV push (never intrathecal!)",
+                "keyPoints": [
+                    "Fatal if given intrathecally.",
+                    "Monitor for peripheral neuropathy and constipation.",
+                    "Use warm compresses if extravasation suspected."
+                ]
+            }
         ]
-      },
-      {
-        "name": "Cytarabine (Ara-C)",
-        "category": "Antimetabolite",
-        "route": "IV infusion or subcutaneous",
-        "keyPoints": [
-          "Monitor for cerebellar toxicity—perform neuro checks.",
-          "May cause conjunctivitis—use prophylactic steroid eye drops.",
-          "High-dose regimens require leucovorin rescue."
-        ]
-      },
-      {
-        "name": "Doxorubicin",
-        "category": "Anthracycline Antibiotic",
-        "route": "IV push (central line preferred)",
-        "keyPoints": [
-          "Cardiotoxic—obtain baseline ECG and ejection fraction.",
-          "Avoid extravasation; use vesicant precautions.",
-          "Causes red discoloration of urine for 24–48 hrs."
-        ]
-      },
-      {
-        "name": "Vincristine",
-        "category": "Vinca Alkaloid",
-        "route": "IV push (never intrathecal!)",
-        "keyPoints": [
-          "Fatal if given intrathecally.",
-          "Monitor for peripheral neuropathy and constipation.",
-          "Use warm compresses if extravasation suspected."
-        ]
-      },
-      {
-        "name": "Methotrexate",
-        "category": "Antimetabolite",
-        "route": "IV, oral, or intrathecal",
-        "keyPoints": [
-          "Requires leucovorin (Calcium folinate) rescue for high doses.",
-          "Monitor renal function and maintain hydration.",
-          "Avoid NSAIDs and cotrimoxazole during therapy."
-        ]
-      }
-    ]
-  },
+    },
 
-  "adjuvant": {
-    "title": "Adjuvant / Supportive Medications",
-    "description": "Medications used to prevent or manage chemotherapy-related toxicities.",
-    "drugs": [
-      {
-        "name": "Ondansetron",
-        "category": "Antiemetic",
-        "route": "IV or oral",
-        "keyPoints": [
-          "Administer 30 minutes before chemotherapy.",
-          "Monitor for headache and QT prolongation."
+    "targetedTherapy": {
+        "title": "Common Targeted and Monoclonal Therapies",
+        "description": "Targeted biologic and molecular agents used in cancer treatment.",
+        "drugs": [
+            {
+                "name": "Atezolizumab",
+                "category": "PD-L1 Inhibitor (Immunotherapy)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Observe for fatigue, rash, or colitis symptoms.",
+                    "Assess for hepatitis or endocrinopathies.",
+                    "Do not restart after severe immune toxicity without physician review."
+                ]
+            },
+            {
+                "name": "Bevacizumab",
+                "category": "Monoclonal Antibody (VEGF Inhibitor)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Monitor blood pressure regularly.",
+                    "Assess for proteinuria before each cycle.",
+                    "Delay surgery until wound healing is complete."
+                ]
+            },
+            {
+                "name": "Bortezomib",
+                "category": "Proteasome Inhibitor",
+                "route": "IV or subcutaneous",
+                "keyPoints": [
+                    "Rotate injection sites to prevent local reactions.",
+                    "Monitor for peripheral neuropathy.",
+                    "Avoid intrathecal administration."
+                ]
+            },
+            {
+                "name": "Cetuximab",
+                "category": "Monoclonal Antibody (EGFR Inhibitor)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Premedicate to prevent infusion reactions.",
+                    "Monitor for acneiform rash—may indicate efficacy.",
+                    "Use sunscreen; skin more sensitive to sunlight."
+                ]
+            },
+            {
+                "name": "Imatinib",
+                "category": "Tyrosine Kinase Inhibitor",
+                "route": "Oral",
+                "keyPoints": [
+                    "Take with food and a full glass of water.",
+                    "Monitor for edema and liver function tests.",
+                    "Assess CBC for cytopenias."
+                ]
+            },
+            {
+                "name": "Nivolumab",
+                "category": "PD-1 Inhibitor (Immunotherapy)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Monitor for immune-related adverse events (colitis, hepatitis).",
+                    "Assess thyroid and liver function regularly.",
+                    "Interrupt therapy if severe autoimmune symptoms occur."
+                ]
+            },
+            {
+                "name": "Pembrolizumab",
+                "category": "PD-1 Inhibitor (Immunotherapy)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Monitor for infusion reactions and immune toxicities.",
+                    "Evaluate for cough or dyspnea—may indicate pneumonitis.",
+                    "Delay doses if autoimmune toxicity suspected."
+                ]
+            },
+            {
+                "name": "Rituximab",
+                "category": "Monoclonal Antibody (CD20)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Premedicate with antihistamine and acetaminophen.",
+                    "Monitor for infusion reactions—especially first dose.",
+                    "Avoid live vaccines during and after treatment."
+                ]
+            },
+            {
+                "name": "Sorafenib",
+                "category": "Multikinase Inhibitor",
+                "route": "Oral",
+                "keyPoints": [
+                    "Take on empty stomach (1 hr before or 2 hrs after meals).",
+                    "Monitor for hand-foot skin reaction and hypertension.",
+                    "Check liver function periodically."
+                ]
+            },
+            {
+                "name": "Trastuzumab",
+                "category": "Monoclonal Antibody (HER2)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Cardiotoxic—monitor LVEF before and during therapy.",
+                    "Observe for infusion-related reactions.",
+                    "Do not give concurrently with anthracyclines."
+                ]
+            }
         ]
-      },
-      {
-        "name": "Dexamethasone",
-        "category": "Corticosteroid",
-        "route": "IV or oral",
-        "keyPoints": [
-          "Used for nausea prevention and as part of chemotherapy regimens.",
-          "Monitor blood sugar and signs of infection."
+    },
+
+    "adjuvant": {
+        "title": "Adjuvant / Supportive Medications",
+        "description": "Medications used to prevent or manage chemotherapy-related side effects and toxicities.",
+        "drugs": [
+            {
+                "name": "Allopurinol",
+                "category": "Uric Acid Reducer",
+                "route": "Oral",
+                "keyPoints": [
+                    "Start before induction chemotherapy to prevent tumor lysis.",
+                    "Encourage hydration and monitor uric acid levels."
+                ]
+            },
+            {
+                "name": "Aprepitant",
+                "category": "NK1 Receptor Antagonist",
+                "route": "Oral or IV (fosaprepitant)",
+                "keyPoints": [
+                    "Used with 5-HT3 antagonist and steroid for highly emetogenic chemo.",
+                    "May reduce efficacy of hormonal contraceptives.",
+                    "Monitor for fatigue and hiccups."
+                ]
+            },
+            {
+                "name": "Dexamethasone",
+                "category": "Corticosteroid",
+                "route": "IV or oral",
+                "keyPoints": [
+                    "Used for nausea prevention and as part of chemotherapy regimens.",
+                    "Monitor blood sugar and signs of infection."
+                ]
+            },
+            {
+                "name": "Filgrastim (G-CSF)",
+                "category": "Hematopoietic Growth Factor",
+                "route": "Subcutaneous injection",
+                "keyPoints": [
+                    "Monitor CBC; stop when ANC > 1000 in two consecutive days."
+                ]
+            },
+            {
+                "name": "Furosemide",
+                "category": "Loop Diuretic",
+                "route": "IV or oral",
+                "keyPoints": [
+                    "Used to maintain urine output during high-dose cisplatin or hydration protocols.",
+                    "Monitor potassium and hydration status.",
+                    "Record input/output balance accurately."
+                ]
+            },
+            {
+                "name": "Leucovorin (Calcium Folinate)",
+                "category": "Folinic Acid Rescue",
+                "route": "IV or oral",
+                "keyPoints": [
+                    "Administer after high-dose methotrexate as rescue therapy.",
+                    "Monitor methotrexate levels if available.",
+                    "Do not confuse with folic acid (different indication)."
+                ]
+            },
+            {
+                "name": "Mesna",
+                "category": "Uroprotectant",
+                "route": "IV or oral",
+                "keyPoints": [
+                    "Always used with ifosfamide or high-dose cyclophosphamide.",
+                    "Protects bladder from hemorrhagic cystitis.",
+                    "Ensure hydration and monitor urine output."
+                ]
+            },
+            {
+                "name": "Ondansetron",
+                "category": "Antiemetic",
+                "route": "IV or oral",
+                "keyPoints": [
+                    "Administer 30 minutes before chemotherapy.",
+                    "Monitor for headache and QT prolongation."
+                ]
+            },
+            {
+                "name": "Palonosetron",
+                "category": "5-HT3 Antagonist (Antiemetic)",
+                "route": "IV infusion",
+                "keyPoints": [
+                    "Long-acting antiemetic—effective for delayed nausea.",
+                    "Usually given once per cycle before chemotherapy.",
+                    "Monitor for constipation and headache."
+                ]
+            },
+            {
+                "name": "Pegfilgrastim",
+                "category": "Long-acting G-CSF",
+                "route": "Subcutaneous injection",
+                "keyPoints": [
+                    "Administer at least 24 hours after chemotherapy.",
+                    "Do not give within 14 days before next cycle.",
+                    "Monitor for bone pain and WBC response."
+                ]
+            }
         ]
-      },
-      {
-        "name": "Filgrastim (G-CSF)",
-        "category": "Hematopoietic Growth Factor",
-        "route": "Subcutaneous injection",
-        "keyPoints": [
-          "Monitor CBC; stop when ANC > 1000 in two consecutive days"
-        ]
-      },
-      {
-        "name": "Allopurinol",
-        "category": "Uric Acid Reducer",
-        "route": "Oral",
-        "keyPoints": [
-          "Start before induction chemotherapy to prevent tumor lysis.",
-          "Encourage hydration and monitor uric acid levels."
-        ]
-      }
-    ]
-  }
+    }
 }

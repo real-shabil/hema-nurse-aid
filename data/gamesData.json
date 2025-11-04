@@ -1,0 +1,28 @@
+{
+  "wordle": {
+    "title": "Nurse Wordle",
+    "description": "Guess the hidden 5-letter nursing-related word.",
+    "rules": [
+      "Type any 5-letter word directly into the grid.",
+      "Green = correct letter in correct place.",
+      "Yellow = correct letter in wrong place.",
+      "Black = letter not in the word.",
+      "You have 6 attempts. Press Enter to check."
+    ],
+    "words": [
+      "NURSE", "CHEMO", "BLOOD", "CARER", "VITAL", "CURES", "DOSES", "HEART",
+      "PLATE", "ORDER", "NOTES", "SCRUB", "CATHS", "DRAIN", "CHECK", "CHART",
+      "SHIFT", "RATIO", "GLOVE", "DRESS", "CLEAN", "ROUND", "IVSET", "BANDA",
+      "FEVER", "ALERT", "CODED", "RINSE", "GAUZE", "TAPES", "NEEDY", "METER",
+      "OXYGE", "BRAIN", "BONES", "FLUID", "SALTS", "PAINS", "WOUND", "DROPS",
+      "LINEN", "ACUTE", "ONSET", "LABEL", "DILUT", "RAPID", "CHILL", "DOCTOR",
+      "NIGHT", "NOMAD", "SPINE", "LUNGS", "LIVER", "HANDS", "GLOWS", "TREAT",
+      "MEDIC", "BAGEL", "SHOCK", "RINGS", "SHIRT", "BLEED", "PULSE", "TIMER",
+      "STOOL", "SUGAR", "KNEES", "ARMOR", "TUBES", "STERN", "MASKS", "CLOSE",
+      "CLEAR", "DRAIN", "EDEMA", "RINSE", "CODES", "ALERT", "NOTES", "CHART",
+      "FIBER", "BASIN", "RAPID", "ADMIT", "IVDRI", "SALIN", "CLAMP", "LINES",
+      "WARDS", "SHIFT", "NIGHT", "FOLEY", "CLOTH", "TAPES", "ALBUM", "THERM",
+      "BANDS", "GAUZE", "CLEAN", "PLUGS", "SPONG"
+    ]
+  }
+}

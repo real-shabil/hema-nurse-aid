@@ -1,70 +1,71 @@
 {
   "bmi": {
-    "title": "Body Mass Index (BMI)",
-    "description": "BMI helps assess whether a person’s weight is in a healthy range based on their height and weight.",
-    "formula": "Formula: BMI = weight (kg) / [height (m)]²",
-    "inputFields": [
-      { "label": "Weight (kg)", "id": "weight", "placeholder": "e.g., 70" },
-      { "label": "Height (cm)", "id": "height", "placeholder": "e.g., 170" }
-    ]
+        "title": "Body Mass Index (BMI)",
+        "description": "BMI helps assess whether a person’s weight is in a healthy range based on their height and weight.",
+        "formula": "Formula: BMI = weight (kg) / [height (m)]²",
+        "inputFields": [
+            { "label": "Weight (kg)", "id": "weight", "placeholder": "e.g., 70" },
+            { "label": "Height (cm)", "id": "height", "placeholder": "e.g., 170" }
+        ]
   },
   "bsa": {
-    "title": "Body Surface Area (BSA)",
-    "description": "BSA is used to calculate chemotherapy dosages and infusion rates accurately.",
-    "formula": "Mosteller formula: √([height (cm) × weight (kg)] / 3600)",
-    "inputFields": [
-      { "label": "Weight (kg)", "id": "weight", "placeholder": "e.g., 70" },
-      { "label": "Height (cm)", "id": "height", "placeholder": "e.g., 170" }
-    ]
+        "title": "Body Surface Area (BSA)",
+        "description": "BSA is used to calculate chemotherapy dosages and infusion rates accurately.",
+        "formula": "Mosteller formula: √([height (cm) × weight (kg)] / 3600)",
+        "inputFields": [
+            { "label": "Weight (kg)", "id": "weight", "placeholder": "e.g., 70" },
+            { "label": "Height (cm)", "id": "height", "placeholder": "e.g., 170" }
+        ]
   },
 
   "heparin": {
-    "title": "Therapeutic Heparin Infusion",
-    "description": "Calculate initial bolus/infusion and aPTT-based adjustments. <br> PLEASE DOUBLE CHECK WITH PHYSICIAN ORDER",
-    "note": "Defaults: bolus 80 U/kg, infusion 18 U/kg/hr, therapeutic aPTT 60–80 s. Adjustment is weight × factor rule as per hospital protocol.",
-    "inputFields": [
-      {
-        "id": "syringe",
-        "label": "Syringe concentration",
-        "type": "select",
-        "options": [
-          { "label": "10,000 IU / 50 mL", "value": "10000" },
-          { "label": "25,000 IU / 50 mL", "value": "25000" }
-        ]
-      },
-      {
-        "id": "risk",
-        "label": "Risk algorithm",
-        "type": "select",
-        "options": [
-          { "label": "Low risk (default)", "value": "low" }
-        ]
-      },
-      { "id": "weight", "label": "Weight (kg)", "type": "number", "placeholder": "e.g. 70" },
-      { "id": "aptt", "label": "Current aPTT (seconds)", "type": "number", "placeholder": "e.g. 65" },
-      { "id": "currentRate", "label": "Current infusion rate", "type": "number", "placeholder": "Enter rate" },
-      { "id": "useInitial", "label": "Calculate initial bolus & infusion", "type": "checkbox" },
-      {
-        "id": "rateUnit",
-        "label": "Select Rate Unit",
-        "type": "select",
-        "options": [
-            { "label": "mL/hr", "value": "ml" },
-            { "label": "Units/hr", "value": "units" }
-        ]
-      }
-    ],
-    "defaults": {
-      "bolus_units_per_kg": 80,
-      "infusion_units_per_kg_per_hour": 18,
-      "therapeutic_aptt_low": 60,
-      "therapeutic_aptt_high": 80
-    }
+        "title": "Therapeutic Heparin Infusion",
+        "description": "Calculate initial bolus/infusion and aPTT-based adjustments. <br> PLEASE DOUBLE CHECK WITH PHYSICIAN ORDER",
+        "note": "Defaults: bolus 80 U/kg, infusion 18 U/kg/hr, therapeutic aPTT 60–80 s. Adjustment is weight × factor rule as per hospital protocol.",
+        "inputFields": [
+        {
+            "id": "syringe",
+            "label": "Syringe concentration",
+            "type": "select",
+            "options": [
+            { "label": "10,000 IU / 50 mL", "value": "10000" },
+            { "label": "25,000 IU / 50 mL", "value": "25000" }
+            ]
+        },
+        {
+            "id": "risk",
+            "label": "Risk algorithm",
+            "type": "select",
+            "options": [
+            { "label": "Low risk (default)", "value": "low" }
+            ]
+        },
+        { "id": "weight", "label": "Weight (kg)", "type": "number", "placeholder": "e.g. 70" },
+        { "id": "aptt", "label": "Current aPTT (seconds)", "type": "number", "placeholder": "e.g. 65" },
+        { "id": "currentRate", "label": "Current infusion rate", "type": "number", "placeholder": "Enter rate" },
+        { "id": "useInitial", "label": "Calculate initial bolus & infusion", "type": "checkbox" },
+        { "id": "orderedRate", "label": "Initial infusion rate (IU/kg/hr)", "type": "number", "placeholder": "e.g. 18" },
+        {
+            "id": "rateUnit",
+            "label": "Select Rate Unit",
+            "type": "select",
+            "options": [
+                { "label": "mL/hr", "value": "ml" },
+                { "label": "Units/hr", "value": "units" }
+            ]
+        }
+        ],
+        "defaults": {
+            "bolus_units_per_kg": 80,
+            "infusion_units_per_kg_per_hour": 18,
+            "therapeutic_aptt_low": 60,
+            "therapeutic_aptt_high": 80
+        }
   },
-  
+
   "insulin": {
     "title": "Insulin Sliding Scale (S/C PRN)",
-    "description": "Select insulin scale and enter current blood glucose to calculate correction dose.",
+    "description": "Select insulin scale and enter current blood glucose to calculate Insulin dose.",
     "inputFields": [
         {
         "id": "scale",
@@ -80,5 +81,4 @@
     ]
     }
 }
-
 

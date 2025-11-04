@@ -98,25 +98,74 @@ function calculateHeparin(calcKey) {
     const data = getGuidelines().heparinProtocol;
     if (!data) return alert("Heparin protocol not loaded.");
 
+    // === Input Extraction ===
     const weight = parseFloat(document.getElementById(`weight-${calcKey}`)?.value);
     const aptt = parseFloat(document.getElementById(`aptt-${calcKey}`)?.value);
     const currentRate = parseFloat(document.getElementById(`currentRate-${calcKey}`)?.value);
-    const rateUnit = document.getElementById(`rateUnit-${calcKey}`)?.value || "ml/hr";
+    const rateUnit = document.getElementById(`rateUnit-${calcKey}`)?.value || "mL/hr";
+    const syringeVal = document.getElementById(`syringe-${calcKey}`)?.value;
     const bolusChoice = document.querySelector(`input[name="bolusOption-${calcKey}"]:checked`)?.value;
+    const useInitial = document.getElementById(`useInitial-${calcKey}`)?.checked;
 
     const nurseAllowsBolus = bolusChoice === "with";
+    const IUperML = syringeVal === "25000" ? 500 : 200; // 25k/50mL → 500 IU/mL; 10k/50mL → 200 IU/mL
 
-    if (!weight || !aptt || !currentRate) {
-        showResult(calcKey, "Please enter all required values.");
+    /* =========================================================
+        🩺 INITIAL HEPARIN INFUSION MODE
+        ========================================================= */
+    if (useInitial) {
+        if (!weight) {
+        showResult(calcKey, "Please enter patient weight to start infusion.");
+        return;
+        }
+
+        const orderedRateInput = document.getElementById(`orderedRate-${calcKey}`);
+        const orderedRate = orderedRateInput ? parseFloat(orderedRateInput.value) : NaN;
+        const hasCustomRate = !isNaN(orderedRate) && orderedRate > 0;
+        const infusionPerKgHr =
+        hasCustomRate
+            ? orderedRate
+            : (data.defaults?.infusion_units_per_kg_per_hour || 18);
+
+        const infusionUhr = weight * infusionPerKgHr;
+        const infusionMLhr = infusionUhr / IUperML;
+
+        let bolusText = "No bolus (as per physician order)";
+        if (nurseAllowsBolus) {
+        const bolusUnits = Math.min(weight * data.defaults.bolus_units_per_kg, 5000);
+        const bolusML = bolusUnits / IUperML;
+        bolusText = `${bolusUnits.toFixed(0)} IU → ${bolusML.toFixed(2)} mL IV bolus`;
+        }
+
+        showResult(
+        calcKey,
+        `
+        <strong>Mode:</strong> Initial Heparin Infusion Start<br>
+        <strong>Weight:</strong> ${weight} kg<br>
+        <strong>Syringe:</strong> ${syringeVal} IU / 50 mL (${IUperML} IU/mL)<br>
+        <strong>Infusion Rate:</strong> ${infusionPerKgHr} IU/kg/hr (${hasCustomRate ? "as per physician order" : "protocol default"})<br>
+        <strong>Bolus:</strong> ${bolusText}<br>
+        <div class="infusion-final">
+            Start infusion at → <span>${infusionUhr.toFixed(0)} IU/hr = ${infusionMLhr.toFixed(2)} mL/hr</span>
+        </div>
+        `
+        );
         return;
     }
 
-    // Determine adjustment range
-    let action = "";
-    let factor = 0;
-    let bolusRequired = false;
+    /* =========================================================
+        🔄 CONTINUOUS HEPARIN INFUSION MODE
+        ========================================================= */
+    if (!weight || !aptt || !currentRate) {
+        showResult(calcKey, "Please enter weight, aPTT, and current rate.");
+        return;
+    }
 
     const range = data.ranges.find(r => aptt <= r.maxAPTT);
+    let action = "—",
+        factor = 0,
+        bolusRequired = false;
+
     if (range) {
         action = range.action;
         bolusRequired = range.bolus;
@@ -125,20 +174,28 @@ function calculateHeparin(calcKey) {
         action = data.aboveMax.action;
     }
 
-    // Base rate change
     const newRate = currentRate + factor;
     const finalRate = Math.max(newRate, 0);
 
-    // Bolus logic
-    let bolusText = "—";
-    if (bolusRequired && nurseAllowsBolus && aptt < data.bolusAllowedBelow) {
-        const bolusUnits = Math.min(weight * 80, 5000); // 80 IU/kg, max 5000 IU
-        bolusText = `${bolusUnits.toFixed(0)} IU IV bolus`;
-    } else {
-        bolusText = "No bolus required";
+    // --- Therapeutic zone feedback ---
+    const [lowTherapeutic, highTherapeutic] = data.therapeuticRange;
+    let therapeuticNote = "";
+    if (aptt >= lowTherapeutic && aptt <= highTherapeutic) {
+        therapeuticNote = "🩵 aPTT within therapeutic range. Maintain current rate.";
+    } else if (aptt < lowTherapeutic) {
+        therapeuticNote = "⬇️ aPTT below target — infusion may need increase.";
+    } else if (aptt > highTherapeutic) {
+        therapeuticNote = "⬆️ aPTT above target — consider rate reduction.";
     }
 
-    // Result display
+    // --- Bolus decision ---
+    let bolusText = "No bolus required";
+    if (bolusRequired && nurseAllowsBolus && aptt < data.bolusAllowedBelow) {
+        const bolusUnits = Math.min(weight * 80, 5000);
+        bolusText = `${bolusUnits.toFixed(0)} IU IV bolus`;
+    }
+
+    // --- Final result output ---
     showResult(
         calcKey,
         `
@@ -146,7 +203,8 @@ function calculateHeparin(calcKey) {
         <strong>Action:</strong> ${action}<br>
         <strong>Bolus:</strong> ${bolusText}<br>
         <div class="infusion-final">
-        Adjusted infusion rate → <span>${finalRate.toFixed(1)} ${rateUnit}</span>
+        ${therapeuticNote}<br>
+        Adjust infusion rate → <span>${currentRate.toFixed(1)} → ${finalRate.toFixed(1)} ${rateUnit}</span>
         </div>
         `
     );
@@ -154,48 +212,50 @@ function calculateHeparin(calcKey) {
 
 
 /* =========================================================
-   6️⃣ INSULIN CALCULATION
+   💉 INSULIN CALCULATION
    ========================================================= */
 function calculateInsulin(calcKey) {
-    const insulinProtocol = getGuidelines().insulinProtocol;
-    if (!insulinProtocol || !insulinProtocol.ranges) {
+    const insulinProtocol = clinicalGuidelines?.insulinProtocol;
+    if (!insulinProtocol) {
         alert("Insulin protocol not found.");
         return;
     }
 
     const glucose = parseFloat(document.getElementById(`glucose-${calcKey}`)?.value);
-    const scale = document.getElementById(`scale-${calcKey}`)?.value || "low";
+    const scale = document.getElementById(`scale-${calcKey}`)?.value || "lowDose";
 
     if (!glucose) {
         showResult(calcKey, "Please enter current glucose level.");
         return;
     }
 
-    // Adjust ranges by scale
-    const adjustment = scale === "moderate" ? 1 : scale === "high" ? 2 : 0;
-    let matched = insulinProtocol.ranges.find(r => glucose >= r.min && glucose <= r.max);
+    const selectedScale = insulinProtocol[scale];
+    if (!selectedScale || !selectedScale.ranges) {
+        showResult(calcKey, "Scale not found in insulin protocol.");
+        return;
+    }
 
+    const matched = selectedScale.ranges.find(r => glucose >= r.min && glucose <= r.max);
     if (!matched) {
         showResult(calcKey, "Glucose value out of range.");
         return;
     }
 
-    const adjustedDose = Math.max(matched.dose + adjustment, 0);
     const notifyText = matched.action.includes("notify") ? "⚠️ Notify physician" : "";
 
     showResult(
         calcKey,
         `
-        <strong>Blood Glucose:</strong> ${glucose} mg/dL<br>
-        <strong>Scale:</strong> ${scale.toUpperCase()} dose<br>
-        <strong>Recommended Action:</strong> ${matched.action.replace(/\d+ units/, `${adjustedDose} units`)}<br>
+        <strong>${selectedScale.title}</strong><br>
+        <strong>Blood Glucose:</strong> ${glucose} ${insulinProtocol.glucoseUnit}<br>
         ${notifyText ? `<em>${notifyText}</em><br>` : ""}
         <div class="infusion-final">
-        Final Dose → <span>${adjustedDose} units SC</span>
+            Administer <span>${matched.dose} ${insulinProtocol.units} SC</span> for ${glucose} ${insulinProtocol.glucoseUnit}.
         </div>
         `
     );
 }
+
 
 
 /* =========================================================
