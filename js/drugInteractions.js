@@ -132,6 +132,11 @@ function updateInteractionHistory(drugA, drugB, match) {
     const historyContainer = document.getElementById("interactionHistory");
     if (!historyContainer || !drugA || !drugB) return;
 
+    // Keep recording internally if needed but do not display history on the page.
+    historyContainer.hidden = true;
+    historyContainer.innerHTML = "";
+    return;
+
     const key = [drugA.toLowerCase(), drugB.toLowerCase()].sort().join("|");
     INTERACTION_HISTORY = INTERACTION_HISTORY.filter(entry => entry.key !== key);
     INTERACTION_HISTORY.unshift({
@@ -153,19 +158,9 @@ function renderInteractionHistory(container) {
         return;
     }
 
-    const listItems = INTERACTION_HISTORY.map(entry => {
-        const label = `${entry.drugA} + ${entry.drugB}`;
-        const severity = entry.match ? entry.match.severity : "No documented interaction";
-        return `<li><span class="history-label">${label}</span> — <span class="history-severity">${severity}</span></li>`;
-    }).join("");
-
-    container.hidden = false;
-    container.innerHTML = `
-        <h3>Recent lookups</h3>
-        <ul class="history-list">
-            ${listItems}
-        </ul>
-    `;
+    // Skip rendering to keep history off the page.
+    container.hidden = true;
+    container.innerHTML = "";
 }
 
 // Quick console validation
