@@ -43,51 +43,37 @@ function showResult(calcKey, html) {
 
 
 /* =========================================================
-   3️⃣ BMI CALCULATION
+   3️⃣ BMI CALCULATION & BSA CALCULATION
    ========================================================= */
-function calculateBMI(calcKey) {
-    const weight = parseFloat(document.getElementById(`weight-${calcKey}`)?.value);
-    const height = parseFloat(document.getElementById(`height-${calcKey}`)?.value);
+
+function calculateBodySize(calcKey) {
+    const weightInput = document.getElementById(`weight-${calcKey}`);
+    const heightInput = document.getElementById(`height-${calcKey}`);
     const resultDiv = document.getElementById(`result-${calcKey}`);
 
-    if (!weight || !height) {
-        resultDiv.innerHTML = "Enter weight and height.";
+    if (!weightInput || !heightInput || !resultDiv) return;
+
+    const weight = parseFloat(weightInput.value);
+    const heightCm = parseFloat(heightInput.value);
+
+    if (!weight || !heightCm || weight <= 0 || heightCm <= 0) {
+        resultDiv.innerHTML = "<p>Please enter valid height (cm) and weight (kg).</p>";
         return;
     }
 
-    const heightM = height / 100;
-    const bmi = (weight / (heightM ** 2)).toFixed(1);
-    const category =
-        bmi < 18.5
-        ? "Underweight"
-        : bmi < 25
-        ? "Normal"
-        : bmi < 30
-        ? "Overweight"
-        : "Obese";
+    const heightM = heightCm / 100;
 
-    showResult(
-        calcKey,
-        `BMI: <strong>${bmi}</strong> (${category})`
-    );
-}
+    // BMI
+    const bmi = weight / (heightM * heightM);
 
+    // BSA (Mosteller formula)
+    const bsa = Math.sqrt((heightCm * weight) / 3600);
 
-/* =========================================================
-   4️⃣ BSA CALCULATION
-   ========================================================= */
-function calculateBSA(calcKey) {
-    const weight = parseFloat(document.getElementById(`weight-${calcKey}`)?.value);
-    const height = parseFloat(document.getElementById(`height-${calcKey}`)?.value);
-    const resultDiv = document.getElementById(`result-${calcKey}`);
-
-    if (!weight || !height) {
-        resultDiv.innerHTML = "Enter weight and height.";
-        return;
-    }
-
-    const bsa = Math.sqrt((height * weight) / 3600).toFixed(2);
-    showResult(calcKey, `Body Surface Area (BSA): <strong>${bsa} m²</strong>`);
+    resultDiv.innerHTML = `
+        <p><strong>BMI:</strong> ${bmi.toFixed(1)} kg/m²</p>
+        <p><strong>BSA :</strong> ${bsa.toFixed(2)} m²</p>
+        <p class="calc-note">Note: Always interpret BMI & BSA in clinical context and follow unit policy.</p>
+    `;
 }
 
 

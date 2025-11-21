@@ -1,28 +1,42 @@
 {
-  "wordle": {
-    "title": "Nurse Wordle",
-    "description": "Guess the hidden 5-letter nursing-related word.",
-    "rules": [
-      "Type any 5-letter word directly into the grid.",
-      "Green = correct letter in correct place.",
-      "Yellow = correct letter in wrong place.",
-      "Black = letter not in the word.",
-      "You have 6 attempts. Press Enter to check."
-    ],
-    "words": [
-      "NURSE", "CHEMO", "BLOOD", "CARER", "VITAL", "CURES", "DOSES", "HEART",
-      "PLATE", "ORDER", "NOTES", "SCRUB", "CATHS", "DRAIN", "CHECK", "CHART",
-      "SHIFT", "RATIO", "GLOVE", "DRESS", "CLEAN", "ROUND", "IVSET", "BANDA",
-      "FEVER", "ALERT", "CODED", "RINSE", "GAUZE", "TAPES", "NEEDY", "METER",
-      "OXYGE", "BRAIN", "BONES", "FLUID", "SALTS", "PAINS", "WOUND", "DROPS",
-      "LINEN", "ACUTE", "ONSET", "LABEL", "DILUT", "RAPID", "CHILL", "DOCTOR",
-      "NIGHT", "NOMAD", "SPINE", "LUNGS", "LIVER", "HANDS", "GLOWS", "TREAT",
-      "MEDIC", "BAGEL", "SHOCK", "RINGS", "SHIRT", "BLEED", "PULSE", "TIMER",
-      "STOOL", "SUGAR", "KNEES", "ARMOR", "TUBES", "STERN", "MASKS", "CLOSE",
-      "CLEAR", "DRAIN", "EDEMA", "RINSE", "CODES", "ALERT", "NOTES", "CHART",
-      "FIBER", "BASIN", "RAPID", "ADMIT", "IVDRI", "SALIN", "CLAMP", "LINES",
-      "WARDS", "SHIFT", "NIGHT", "FOLEY", "CLOTH", "TAPES", "ALBUM", "THERM",
-      "BANDS", "GAUZE", "CLEAN", "PLUGS", "SPONG"
-    ]
-  }
+    "wordle": {
+        "title": "Nurse Wordle",
+        "description": "Guess the hidden 5-letter English word.",
+        "rules": [
+            "Enter any 5-letter word in the grid.",
+            "🟩 Green = correct letter in correct position.",
+            "🟨 Yellow = letter is in the word but wrong position.",
+            "⬛ Gray = letter not in the word.",
+            "You have 6 tries to guess the hidden word. Press Enter to submit."
+        ],
+        "difficulty": "easy",
+        "language": "EN",
+        "words": [
+            "APPLE", "BEACH", "CLOUD", "DREAM", "EARTH", "FAITH", "GRAPE", "HOUSE", "IDEAL", "JOKER",
+            "KNIFE", "LIGHT", "MONEY", "NORTH", "OCEAN", "PEACH", "QUIET", "RIVER", "SMILE", "TABLE",
+            "UNDER", "VOICE", "WATER", "YOUTH", "ZEBRA", "BRAVE", "CANDY", "DELTA", "ENJOY", "FRESH",
+            "GIANT", "HAPPY", "INNER", "JUICE", "LEMON", "MUSIC", "NOBLE", "OPERA", "PARTY", "QUICK",
+            "ROYAL", "SOLID", "TIGER", "UNION", "VALOR", "WORLD", "YUMMY", "ANGEL", "BROWN", "CHAIR",
+            "DANCE", "EARLY", "FAIRY", "GLASS", "HEART", "IMAGE", "LAUGH", "MAGIC", "OASIS", "PLANT",
+            "QUIRK", "RANGE", "SWEET", "THINK", "UNITY", "VIVID", "WORTH", "ZESTY", "BLEND", "CHESS",
+            "DAILY", "EAGLE", "FIELD", "GRASS", "HONEY", "LUNCH", "MAYBE", "OFFER", "PEARL", "RIDER",
+            "SHINE", "TASTE", "TREAT", "WINDY", "YEARN", "ALIVE", "BRING", "CLEAR", "DOING", "FLOOD",
+            "GREAT", "HUMAN", "LEARN", "MIGHT", "OCCUR", "PIANO", "ROUND", "SOUND", "TRUST", "WOMAN",
+            "WRITE", "ADORE", "BEGUN", "CARRY", "DETER", "ELDER", "FLAME", "GRAIN", "HUMOR", "LAYER",
+            "METAL", "NEVER", "OPTIC", "PEARL", "QUAIL", "RADIO", "SHORE", "THINK", "URBAN", "WHEEL",
+            "AMONG", "BREAD", "COVER", "DRAFT", "ELITE", "FRAIL", "GLOVE", "HOVER", "LEVEL", "MORAL",
+            "NERVE", "OPINE", "PRIDE", "QUEST", "RUSTY", "SPICE", "THROW", "USAGE", "WATCH", "YIELD",
+            "ALERT", "BLANK", "CATCH", "DEALT", "FANCY", "GRACE", "HOTEL", "LIMIT", "MODEL", "NIGHT",
+            "ORDER", "PAINT", "QUILT", "REACT", "SOLVE", "THORN", "UPSET", "VISIT", "WORTH", "YEAST",
+            "ACORN", "BASIC", "CLOWN", "DREAM", "EVERY", "FLOOR", "GRAND", "HUMID", "LASER", "MOVER",
+            "NOISE", "OLIVE", "PILOT", "QUEST", "RIDER", "SHEEP", "TRAIN", "VALUE", "WHOLE", "YOUNG",
+            "AGREE", "BLAZE", "CYCLE", "DOUBT", "FIBER", "GLORY", "HABIT", "ISSUE", "LARGE", "MOTOR",
+            "OPENS", "PRESS", "RIVAL", "SCALE", "TOWER", "VIVID", "WORRY", "YOURS", "ADMIT", "BLESS",
+            "CRAFT", "DRINK", "FRUIT", "GRASS", "HOUSE", "LUNCH", "MIGHT", "NOVEL", "ORBIT", "PRIZE",
+            "RIGHT", "SHELF", "TRIAL", "VISIT", "WOMAN", "YIELD", "AFTER", "BLEND", "CREAM", "EAGER",
+            "FAITH", "GREEN", "HAPPY", "LEMON", "MONEY", "OCEAN", "PLANT", "QUIET", "RIVER", "SWEET",
+            "UNITY", "VALUE", "WATER", "YOUNG", "BRAIN", "CLEAN", "DOING", "FRONT", "GREAT", "LAUGH",
+            "MAGIC", "NOBLE", "ROUND", "SMILE", "TRUST", "WRITE"
+        ]
+    }
 }

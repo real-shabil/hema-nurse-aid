@@ -45,8 +45,8 @@
             </p>
 
             <div class="cards">
-                <div class="card" onclick="navigateToSection('leukemia')">🩸Leukemia</div>
-                <div class="card" onclick="navigateToSection('medications')">💊Medications</div>
+                <div class="card" onclick="navigateToSection('leukemia')">🩸Hemato-Oncology</div>
+                <div class="card" onclick="openMedicationsSection()">💊Medications</div>
                 <div class="card" onclick="navigateToSection('calculations')">🧮Calculations</div>
                 <div class="card" onclick="navigateToSection('drugInteractions')">🧪Drug Interactions</div>
                 <div class="card" onclick="navigateToSection('games')">🎮Games</div>
@@ -55,23 +55,28 @@
 
 
         <!-- =========================================================
-            LEUKEMIA PROTOCOLS SECTION
+            CHEMOTHERAPY PROTOCOLS SECTION
         ========================================================= -->
         <div class="section" id="leukemia">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-            <h2>Types of Leukemia</h2>
+            <h2>Hemato-Oncology Conditions</h2>
             <div class="cards">
-                <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
                 <div class="card" onclick="openLeukemiaType('AML')">Acute Myeloid (AML)</div>
-                <div class="card" onclick="openLeukemiaType('CLL')">Chronic Lymphocytic (CLL)</div>
+                <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
                 <div class="card" onclick="openLeukemiaType('CML')">Chronic Myeloid (CML)</div>
+                <div class="card" onclick="openLeukemiaType('CLL')">Chronic Lymphocytic (CLL)</div>
+                <div class="card" onclick="openLeukemiaType('APL')">Acute Promyelocytic Leukemia (APL)</div>
+                <div class="card" onclick="openLeukemiaType('MM')">Multiple Myeloma (MM)</div>
+                <div class="card" onclick="openLeukemiaType('HL')">Hodgkin Lymphoma (HL)</div>
+                <div class="card" onclick="openLeukemiaType('NHL')">Non-Hodgkin Lymphoma (NHL)</div>
+                <div class="card" onclick="openLeukemiaType('MDS')">Myelodysplastic Syndromes (MDS)</div>
             </div>
         </div>
 
         <div class="section" id="type">
             <button class="back-btn" onclick="navigateToSection('leukemia')">← Back</button>
             <h2 id="typeTitle"></h2>
-            <div id="protocolList"></div>
+            <div id="protocolList" class="protocols-container"></div>
         </div>
 
 
@@ -81,9 +86,24 @@
         <div class="section" id="medications">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <h2>Medications</h2>
+
             <div class="cards">
-                <div id="medicationsList"></div>
-            </div>   
+                <div class="card" onclick="openMedicationGroup('chemotherapy')">
+                    Chemotherapy Drugs
+                </div>
+                <div class="card" onclick="openMedicationGroup('targetedTherapy')">
+                    Targeted / Monoclonal Therapy
+                </div>
+                <div class="card" onclick="openMedicationGroup('supportiveTherapy')">
+                    Supportive / Adjuvant Medications
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="medType">
+            <button class="back-btn" onclick="navigateToSection('medications')">← Back</button>
+            <h2 id="medTypeTitle"></h2>
+            <div id="medicationsList" class="protocols-container"></div>
         </div>
 
 
@@ -105,21 +125,20 @@
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <div class="section-heading">
                 <h2>💉 Drug Interactions</h2>
-                <span id="interactionDataStatus" class="badge badge-loading">Loading data…</span>
             </div>
 
             <div id="drugInteractionsContent" class="cards">
                 <div class="card card-full">
                     <div class="interaction-inputs">
                         <div class="input-group">
-                            <label for="drugA">Drug A</label>
-                            <input type="text" id="drugA" class="input-drug" placeholder="Search Drug A…">
+                            <label for="drugA">First Medication</label>
+                            <input type="text" id="drugA" class="input-drug input-field" placeholder="Search First Medications">
                             <div id="suggestionA" class="suggestion-box"></div>
                         </div>
 
                         <div class="input-group">
-                            <label for="drugB">Drug B</label>
-                            <input type="text" id="drugB" class="input-drug" placeholder="Search Drug B…">
+                            <label for="drugB">Second Medication</label>
+                            <input type="text" id="drugB" class="input-drug input-field" placeholder="Search Second Medications">
                             <div id="suggestionB" class="suggestion-box"></div>
                         </div>
 
@@ -142,13 +161,15 @@
         <div class="section" id="games">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <h2>Games</h2>
+
             <div class="cards">
-                <div class="card" onclick="openGame('wordle')">Wordle!</div>
+                <div class="card" onclick="openGame('wordle')">
+                    Wordle!
+                </div>
             </div>
-            <div id="gameContent"></div>
+
+            <div id="gameContent" class="game-panel" hidden></div>
         </div>
-
-
 
         <!-- =========================================================
             JAVASCRIPT SECTION
@@ -159,11 +180,14 @@
         <!-- Feature helpers -->
         <script src="js/drugInteractions.js" defer></script>
 
+        <script src="js/game.js" defer></script>
+
+        <script src="js/chemoMedications.js" defer></script>
+
+        <script src="js/chemoProtocols.js"></script>
+
         <!-- Main application logic -->
         <script src="js/main.js" defer></script>
 
-        <script src="js/game.js" defer></script>
-
-        
     </body>
 </html>

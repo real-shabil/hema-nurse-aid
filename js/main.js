@@ -27,6 +27,7 @@ let medicationsData = {};
 let calculationsData = {};
 let clinicalGuidelines = {};
 let drugInteractionsData = {};
+let currentGameKey = null;
 
 
 /* =========================================================
@@ -35,6 +36,7 @@ let drugInteractionsData = {};
 document.addEventListener("DOMContentLoaded", () => {
     personalizeGreeting();
     setupDrugInteractionControls();
+    loadMedicationData();
     goHome();
 });
 
@@ -109,21 +111,6 @@ function setupDrugInteractionControls() {
 /* =========================================================
    3️⃣ INITIAL DATA LOAD
    ========================================================= */
-fetch("data/protocols/chemoProtocols.json")
-    .then(res => res.json())
-    .then(data => {
-        leukemiaProtocols = data;
-        goHome();
-    })
-    .catch(err => console.error("Error loading chemoProtocols.json:", err));
-
-fetch("data/medicationsData.json")
-    .then(res => res.json())
-    .then(data => {
-        medicationsData = data;
-    })
-    .catch(err => console.error("Error loading medicationsData.json:", err));
-
 fetch("data/calculationsData.json")
     .then(res => res.json())
     .then(data => {
@@ -189,7 +176,6 @@ function navigateToSection(id) {
     target.style.display = "block";
 
     if (id === "calculations") loadCalculationsMenu();
-    if (id === "medications") loadMedicationsMenu();
 }
 
 function goHome() {
@@ -200,106 +186,68 @@ function goHome() {
 /* =========================================================
    🎮 GAMES
    ========================================================= */
-function openGame(gameKey) {
-    const gameContent = document.getElementById("gameContent");
-    if (!gameContent) return;
-
-    gameContent.innerHTML = "";
-
-    if (gameKey === "wordle") {
-        if (typeof loadNurseWordle === "function") {
-            loadNurseWordle(gameContent);
-        } else {
-            gameContent.innerHTML = "<p>Wordle module unavailable.</p>";
-        }
-    } else {
-        gameContent.innerHTML = "<p>Game not available yet.</p>";
-    }
-}
-
 
 /* =========================================================
-   5️⃣ LEUKEMIA PROTOCOL FUNCTIONS
+   🎮 GAMES
    ========================================================= */
-function openLeukemiaType(type) {
-    navigateToSection("type");
-    const titleEl = document.getElementById("typeTitle");
-    if (titleEl) titleEl.innerText = `${type} Chemotherapy Protocols`;
 
-    const selected = leukemiaProtocols[type];
-    const list = document.getElementById("protocolList");
-    if (!list) return;
+window.openGame = function openGame(gameKey) {
+    console.log("[Games] openGame called with:", gameKey);
 
-    list.innerHTML = "";
-    if (!selected) {
-        list.innerHTML = "<p>No protocols available.</p>";
+    const panel = document.getElementById("gameContent");
+    if (!panel) {
+        console.error("[Games] ❌ #gameContent not found in DOM.");
         return;
     }
 
-    Object.keys(selected).forEach(phase => {
-        const phaseDiv = document.createElement("div");
-        phaseDiv.classList.add("phase-card");
-        phaseDiv.innerHTML = `<h3>${phase}</h3>`;
+    const isSameOpen =
+        currentGameKey === gameKey && !panel.hasAttribute("hidden");
 
-        selected[phase].forEach(protocol => {
-            const protocolDiv = document.createElement("div");
-            protocolDiv.classList.add("protocol-card");
-            protocolDiv.innerHTML = `
-                <h4>${protocol.protocolName}</h4>
-                ${protocol.description ? `<p>${protocol.description}</p>` : ""}
-                ${
-                    protocol.sections && protocol.sections.length
-                        ? protocol.sections
-                              .map(
-                                  section => `
-                            <div class="protocol-section">
-                                <strong>${section.title}</strong>
-                                <ul>${section.drugs.map(drug => `<li>${drug}</li>`).join("")}</ul>
-                            </div>`
-                              )
-                              .join("")
-                        : ""
-                }
-            `;
-            phaseDiv.appendChild(protocolDiv);
-        });
+    // If same game clicked again → collapse panel
+    if (isSameOpen) {
+        console.log("[Games] Same game clicked, collapsing panel.");
+        panel.setAttribute("hidden", "");
+        panel.innerHTML = "";
+        currentGameKey = null;
+        return;
+    }
 
-        list.appendChild(phaseDiv);
-    });
-}
+    currentGameKey = gameKey;
+    panel.removeAttribute("hidden");
 
+    // Wrap game inside a card for UI consistency
+    panel.innerHTML = `
+        <div class="game-wrapper-card">
+            <h3 class="game-title">
+                ${gameKey === "wordle" ? "Nurse Wordle" : "Game"}
+            </h3>
+            <div id="gameInner" class="game-inner"></div>
+        </div>
+    `;
 
-/* =========================================================
-   6️⃣ MEDICATIONS SECTION
-   ========================================================= */
-function loadMedicationsMenu() {
-    const listDiv = document.getElementById("medicationsList");
-    if (!listDiv) return;
-    listDiv.innerHTML = "";
+    const inner = document.getElementById("gameInner");
+    if (!inner) {
+        console.error("[Games] ❌ #gameInner not found after rendering.");
+        return;
+    }
 
-    Object.keys(medicationsData).forEach(categoryKey => {
-        const category = medicationsData[categoryKey];
-        const section = document.createElement("div");
-        section.classList.add("phase-card");
+    if (gameKey === "wordle") {
+        if (typeof loadNurseWordle === "function") {
+            console.log("[Games] Calling loadNurseWordle...");
+            loadNurseWordle(inner);
+        } else {
+            console.error("[Games] ❌ loadNurseWordle is not a function.");
+            inner.innerHTML = "<p>Wordle module unavailable.</p>";
+        }
+    } else {
+        inner.innerHTML = "<p>Game not available yet.</p>";
+    }
 
-        section.innerHTML = `
-            <h3>${category.title}</h3>
-            <p>${category.description}</p>
-            ${category.drugs
-                .map(
-                    drug => `
-                    <div class="protocol-card">
-                        <h4>${drug.name}</h4>
-                        <p><strong>Class:</strong> ${drug.category}</p>
-                        <p><strong>Common Route:</strong> ${drug.route}</p>
-                        <p><strong>Nursing Tips:</strong> ${drug.keyPoints.join(", ")}</p>
-                    </div>`
-                )
-                .join("")}
-        `;
-        listDiv.appendChild(section);
-    });
-}
+    if (panel.scrollIntoView) {
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+};
+
 
 
 /* =========================================================
@@ -310,16 +258,23 @@ function loadCalculationsMenu() {
     if (!listDiv) return;
 
     listDiv.innerHTML = Object.keys(calculationsData)
-        .map(
-            key => `
-            <div class="card" id="${key}-card">
-                <div class="card-header" onclick="openCalculation('${key}', event)">
-                    ${calculationsData[key].title}
+        .map(key => {
+            const calc = calculationsData[key];
+            return `
+                <div class="phase-card" id="${key}-card">
+                    <button type="button"
+                            class="phase-toggle"
+                            onclick="openCalculation('${key}', event)">
+                        <h3>${calc.title}</h3>
+                        <span class="collapsible-icon" aria-hidden="true">+</span>
+                    </button>
+                    <!-- The form will be injected here by openCalculation() -->
                 </div>
-            </div>`
-        )
+            `;
+        })
         .join("");
 }
+
 
 function openCalculation(calcKey, event) {
     if (event) event.stopPropagation();
@@ -353,7 +308,7 @@ function openCalculation(calcKey, event) {
             if (f.type === "select") {
                 if (f.id === "rateUnit") return "";
                 const opts = f.options.map(o => `<option value="${o.value}">${o.label}</option>`).join("");
-                return `<label for="${fid}">${f.label}</label><select id="${fid}">${opts}</select>`;
+                return `<label for="${fid}">${f.label}</label><select id="${fid}" class="input-field">${opts}</select>`;
             } else if (f.type === "checkbox") {
                 return `<label><input type="checkbox" id="${fid}"> ${f.label}</label>`;
             } else {
@@ -361,8 +316,8 @@ function openCalculation(calcKey, event) {
                     const rateUnitField = calc.inputFields.find(x => x.id === "rateUnit");
                     return `<label for="${fid}">${f.label}</label>
                         <div class="calc-rate-row">
-                            <input type="number" id="${fid}" placeholder="${f.placeholder || ""}">
-                            <select id="${rateUnitField.id}-${calcKey}">
+                            <input type="number" id="${fid}" class="input-field" placeholder="${f.placeholder || ""}">
+                            <select id="${rateUnitField.id}-${calcKey}" class="input-field">
                                 ${rateUnitField.options
                                     .map(o => `<option value="${o.value}">${o.label}</option>`)
                                     .join("")}
@@ -370,7 +325,7 @@ function openCalculation(calcKey, event) {
                         </div>`;
                 } else {
                     return `<label for="${fid}">${f.label}</label>
-                        <input type="number" id="${fid}" placeholder="${f.placeholder || ""}">`;
+                        <input type="number" id="${fid}" class="input-field" placeholder="${f.placeholder || ""}">`;
                 }
             }
         })
@@ -383,7 +338,7 @@ function openCalculation(calcKey, event) {
             <button type="button" onclick="calculate('${calcKey}')">Calculate</button>
             <button type="button" class="btn-clear" onclick="clearCalculation('${calcKey}')">Clear</button>
         </div>
-        <div id="result-${calcKey}" class="calc-result"></div>
+        <div id="result-${calcKey}" class="calc-result info-panel"></div>
     `;
 
     if (calcKey === "heparin") {
@@ -402,7 +357,7 @@ function openCalculation(calcKey, event) {
                 <button type="button" onclick="calculate('${calcKey}')">Calculate</button>
                 <button type="button" class="btn-clear" onclick="clearCalculation('${calcKey}')">Clear</button>
             </div>
-            <div id="result-${calcKey}" class="calc-result"></div>
+            <div id="result-${calcKey}" class="calc-result info-panel"></div>
         `;
         form.innerHTML = content;
     }
@@ -417,10 +372,9 @@ function openCalculation(calcKey, event) {
    ========================================================= */
 function calculate(calcKey) {
     const calcFunctions = {
-        bmi: calculateBMI,
-        bsa: calculateBSA,
         heparin: calculateHeparin,
-        insulin: calculateInsulin
+        insulin: calculateInsulin,
+        bodySize: calculateBodySize
     };
     if (calcFunctions[calcKey]) calcFunctions[calcKey](calcKey);
     else console.warn(`No calculator found for key: ${calcKey}`);
@@ -436,3 +390,6 @@ function clearCalculation(calcKey) {
     const resultDiv = document.getElementById(`result-${calcKey}`);
     if (resultDiv) resultDiv.innerHTML = "";
 }
+
+
+window.loadNurseWordle = loadNurseWordle;

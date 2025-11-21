@@ -1,260 +1,1702 @@
 {
-  "metadata": {
-    "version": "2.1",
-    "lastUpdated": "2025-10-28",
-    "description": "Chemotherapy protocol reference for leukemia and related hematologic malignancies."
-  },
-  "AML": {
-    "Induction": [
-      {
-        "protocolName": "3 + 7",
-        "sections": [
-          {
-            "title": "Days 1",
-            "drugs": [
-              "Idarubicin IV or Daunorubicin IV over 10 - 15 minutes (Days 1 - 3) <br> (Only via PICC line or Central line)",
-              "Cytarabine continuous IV infusion (Days 1 – 7)"
-              
+    "AML": {
+        "Induction Therapy": {
+            "goal": "To achieve complete remission by eradicating visible leukemic blasts and restoring normal hematopoiesis.",
+            "protocols": [
+                {
+                    "protocolName": "3+7 (Daunorubicin/Idarubicin + Cytarabine)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–3",
+                            "name": "Daunorubicin or Idarubicin",
+                            "dose": "60 mg/m²/day or 2 mg/m²/day ",
+                            "route": "IV",
+                            "duration": "15–30 min"
+                        },
+                        {
+                            "day": "Days 1–7",
+                            "name": "Cytarabine",
+                            "dose": "100–200 mg/m²/day",
+                            "route": "IV continuous infusion",
+                            "duration": "24 hours"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Administer anthracycline (Daunorubicin/Idarubicin) only after completion of the previous day's Cytarabine infusion.",
+                        "Use central venous line (PICC/CVC) — avoid peripheral veins.",
+                        "Start Prednisolone eye drops 2 hours before Cytarabine and continue for 24 hours after last dose.",
+                        "Side effects: Nausea and Vomiting"
+                    ]
+                },
+                {
+                    "protocolName": "FLAG-IDA (Fludarabine + Cytarabine + G-CSF + Idarubicin)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–5",
+                            "name": "Fludarabine",
+                            "dose": "30 mg/m²/day",
+                            "route": "IV",
+                            "duration": "30 min"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Cytarabine",
+                            "dose": "2 g/m²/day",
+                            "route": "IV infusion",
+                            "duration": "4 hours"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Filgrastim (G-CSF)",
+                            "dose": "5 µg/kg/day",
+                            "route": "SC",
+                            "duration": "Start 24 h before chemo"
+                        },
+                        {
+                            "day": "Days 1–3",
+                            "name": "Idarubicin",
+                            "dose": "10 mg/m²/day",
+                            "route": "IV",
+                            "duration": "30 min"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Start G-CSF 24 hours before chemotherapy and continue until neutrophil recovery.",
+                        "Use strict aseptic technique — high infection risk during profound cytopenia.",
+                        "Monitor for neurotoxicity during high-dose Cytarabine infusion."
+                    ]
+                },
+                {
+                    "protocolName": "CLAG-M (Cladribine + Cytarabine + G-CSF + Mitoxantrone)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–5",
+                            "name": "Cladribine",
+                            "dose": "5 mg/m²/day",
+                            "route": "IV infusion",
+                            "duration": "1–2 hours"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Cytarabine",
+                            "dose": "2 g/m²/day",
+                            "route": "IV infusion",
+                            "duration": "4 hours"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Filgrastim (G-CSF)",
+                            "dose": "5 µg/kg/day",
+                            "route": "SC",
+                            "duration": "Start 24 h before chemo"
+                        },
+                        {
+                            "day": "Days 1–3",
+                            "name": "Mitoxantrone",
+                            "dose": "10 mg/m²/day",
+                            "route": "IV",
+                            "duration": "30 min"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Ensure adequate hydration and allopurinol for tumor lysis prevention.",
+                        "Monitor for cardiac toxicity due to Mitoxantrone.",
+                        "Continue G-CSF until post-nadir recovery."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ],
-    "Consolidation": [
-      {
-        "protocolName": "HiDAC",
-        "sections": [
-          {
-            "title": "Per Cycle (Days 1,3,5; up to 4 cycles)",
-            "drugs": [
-              "High-dose Cytarabine 3 g/m² IV over 3 hours every 12 hours"
+        },
+        "Consolidation Therapy": {
+            "goal": "To eliminate residual leukemic cells and consolidate remission achieved during induction.",
+            "protocols": [
+                {
+                    "protocolName": "HiDAC (High-Dose Cytarabine)",
+                    "drugs": [
+                        {
+                            "day": "Days 1, 3, 5",
+                            "name": "Cytarabine",
+                            "dose": "3 g/m² every 12 hours",
+                            "route": "IV infusion",
+                            "duration": "3 hours"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Administer via central line only — high risk of phlebitis with peripheral access.",
+                        "Start Prednisolone eye drops before the first Cytarabine dose and continue for 48 hours after the last dose to prevent conjunctivitis.",
+                        "Monitor for neurotoxicity (e.g., ataxia, confusion) — perform neuro checks before each dose.",
+                        "Ensure adequate hydration and monitor renal function to reduce toxicity."
+                    ]
+                },
+                {
+                    "protocolName": "Intermediate-Dose Cytarabine",
+                    "drugs": [
+                        {
+                            "day": "Days 1–5",
+                            "name": "Cytarabine",
+                            "dose": "1–1.5 g/m² every 12 hours",
+                            "route": "IV infusion",
+                            "duration": "3 hours"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Use central access; avoid peripheral lines for repeated high-dose infusions.",
+                        "Implement neuro checks and monitor for cerebellar toxicity throughout treatment.",
+                        "Eye drop prophylaxis required for all patients.",
+                        "Assess for cumulative myelosuppression — expect delayed neutrophil and platelet recovery."
+                    ]
+                }
             ]
-          }
-        ]
-      },
-      {
-        "protocolName": "Azacitidine (HMA)",
-        "sections": [
-          {
-            "title": "Per 28-day Cycle (up to 12–24 months)",
-            "drugs": [
-              "Azacitidine 75 mg/m² SC/IV daily Days 1–7",
-              "For unfit patients; monitor for myelosuppression"
+        },
+        "Maintenance Therapy": {
+            "goal": "To maintain remission, prolong survival, and delay relapse in patients not undergoing transplant.",
+            "protocols": [
+                {
+                    "protocolName": "Oral Azacitidine (CC-486)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–14 of each 28-day cycle",
+                            "name": "Oral Azacitidine (CC-486)",
+                            "dose": "300 mg orally once daily",
+                            "route": "PO",
+                            "duration": "With or without food"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Nausea, vomiting, and diarrhea are common. Provide antiemetics as needed."
+                    ]
+                },
+                {
+                    "protocolName": "Low-Dose Cytarabine Maintenance",
+                    "drugs": [
+                        {
+                            "day": "Twice weekly (e.g., Mon/Thu)",
+                            "name": "Cytarabine",
+                            "dose": "20 mg/m²",
+                            "route": "SC",
+                            "duration": "Single daily injection"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Provide patient/caregiver injection training or schedule in outpatient unit.",
+                        "Monitor for injection site reactions or bruising.",
+                        "Schedule regular CBCs and renal/liver monitoring during treatment.",
+                        "Continue until toxicity, relapse, or loss of response."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ],
-    "Relapse": [
-      {
-        "protocolName": "FLAG-IDA",
-        "sections": [
-          {
-            "title": "Days 1–5",
-            "drugs": [
-              "Fludarabine 30 mg/m² IV daily",
-              "High-dose Cytarabine 2 g/m² IV daily (after Fludarabine)",
-              "G-CSF 300–480 mcg SC daily (Days –2 to 11)"
+        },
+        "Post-Maintenance Surveillance": {
+            "goal": "To detect relapse early, manage long-term toxicities, and support recovery and quality of life in patients after completing therapy.",
+            "protocols": [
+                {
+                    "protocolName": "Routine Monitoring",
+                    "drugs": [],
+                    "nursingTips": [
+                        "Schedule CBC every 1–3 months for the first 2 years, then space to every 3–6 months.",
+                        "Perform bone marrow biopsy if abnormal counts or symptoms suggest relapse.",
+                        "Use MRD testing if available to detect molecular relapse early."
+                    ]
+                },
+                {
+                    "protocolName": "Supportive Care",
+                    "drugs": [],
+                    "nursingTips": [
+                        "Administer yearly influenza vaccine and pneumococcal revaccination every 5 years.",
+                        "Monitor cardiac and renal function every 6–12 months, especially if prior anthracyclines were used.",
+                        "Assess for fatigue, mental health, and overall quality of life regularly.",
+                        "Offer fertility and nutritional counseling where relevant."
+                    ]
+                },
+                {
+                    "protocolName": "Relapse Planning",
+                    "drugs": [],
+                    "nursingTips": [
+                        "For MRD-positive or clinical relapse, evaluate for salvage options such as Venetoclax + Azacitidine or FLAG-IDA.",
+                        "Refer transplant-eligible patients promptly to transplant team.",
+                        "Consider palliative or low-intensity regimens for those unfit for intensive therapy."
+                    ]
+                }
             ]
-          },
-          {
-            "title": "Days 7–9",
-            "drugs": [
-              "Idarubicin 10–12 mg/m² IV daily"
+        },
+        "Salvage Therapy": {
+            "goal": "To reinduce remission in patients with relapsed or refractory AML and offer bridge to transplant when eligible.",
+            "protocols": [
+                {
+                    "protocolName": "FLAG-IDA (Fludarabine + Cytarabine + G-CSF + Idarubicin)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–5",
+                            "name": "Fludarabine",
+                            "dose": "30 mg/m²/day",
+                            "route": "IV",
+                            "duration": "30 min"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Cytarabine",
+                            "dose": "2 g/m²/day",
+                            "route": "IV infusion",
+                            "duration": "4 hours"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Filgrastim (G-CSF)",
+                            "dose": "5 µg/kg/day",
+                            "route": "SC",
+                            "duration": "Start 24 h before chemo"
+                        },
+                        {
+                            "day": "Days 1–3",
+                            "name": "Idarubicin",
+                            "dose": "10 mg/m²/day",
+                            "route": "IV",
+                            "duration": "30 min"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Ensure strict infection prevention — high neutropenic risk.",
+                        "Hydration and tumor lysis prophylaxis (e.g., allopurinol) required.",
+                        "Monitor cardiac function due to cumulative anthracycline exposure."
+                    ]
+                },
+                {
+                    "protocolName": "Venetoclax + Azacitidine",
+                    "drugs": [
+                        {
+                            "day": "Days 1–28",
+                            "name": "Venetoclax",
+                            "dose": "400 mg daily",
+                            "route": "PO",
+                            "duration": "Daily with ramp-up"
+                        },
+                        {
+                            "day": "Days 1–7",
+                            "name": "Azacitidine",
+                            "dose": "75 mg/m²/day",
+                            "route": "SC or IV",
+                            "duration": "Once daily"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Start with dose ramp-up for Venetoclax to avoid tumor lysis.",
+                        "Monitor for cytopenias and infections — antifungal prophylaxis advised.",
+                        "Used especially in older/unfit patients or those with IDH mutations."
+                    ]
+                },
+                {
+                    "protocolName": "CPX-351 (Liposomal Daunorubicin + Cytarabine)",
+                    "drugs": [
+                        {
+                            "day": "Days 1, 3, 5",
+                            "name": "CPX-351 (Vyxeos)",
+                            "dose": "44 mg/m² daunorubicin + 100 mg/m² cytarabine",
+                            "route": "IV infusion",
+                            "duration": "90 minutes"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Indicated for therapy-related AML or AML with MDS-related changes.",
+                        "Monitor for delayed count recovery — expect prolonged neutropenia.",
+                        "Administer via central line; premedicate to prevent infusion reactions."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ]
-  },
-  "ALL": {
-    "Induction": [
-      {
-        "protocolName": "Hyper-CVAD",
-        "sections": [
-          {
-            "title": "Day 1",
-            "drugs": [
-              "Cyclophosphamide 300 mg/m² IV q12h for 6 doses + Mesna",
-              "Dexamethasone 40 mg PO (Days 1–4, 11–14)"
+        }
+    },
+
+    "ALL": {
+        "Induction Therapy": {
+            "goal": "To achieve complete remission with age- and subtype-appropriate regimens.",
+            "protocols": [
+                {
+                    "protocolName": "Ph+ ALL – Ponatinib + Blinatumomab",
+                    "drugs": [
+                        { "day": "Cycle 1–2", "name": "Ponatinib", "dose": "30 mg daily", "route": "Oral", "duration": "Continuous" },
+                        { "day": "Cycle 1–2", "name": "Blinatumomab", "dose": "9 mcg/day → 28 mcg/day", "route": "IV", "duration": "28 days continuous infusion" }
+                    ],
+                    "nursingTips": [
+                        "Monitor for cytokine release and neurotoxicity; ensure dedicated IV line for Blinatumomab."
+                    ]
+                },
+                {
+                    "protocolName": "Ph– ALL (14–50 yrs) – R-BFM + Blinatumomab",
+                    "drugs": [
+                        { "day": "1–33", "name": "BFM protocol drugs", "dose": "Per schedule", "route": "Various", "duration": "33 days" },
+                        { "day": "Post induction", "name": "Blinatumomab", "dose": "As per MRD status", "route": "IV", "duration": "28 days" }
+                    ],
+                    "nursingTips": [
+                        "Ensure adherence to schedule; monitor LFTs and blood counts."
+                    ]
+                }
             ]
-          },
-          {
-            "title": "Day 4",
-            "drugs": [
-              "Doxorubicin 50 mg/m² IV",
-              "Vincristine 2 mg IV"
+        },
+
+        "Consolidation Therapy": {
+            "goal": "To eliminate residual disease after induction. Uses HyperCVAD A & B alternate 8 cycles every 28 days",
+            "protocols": [
+                {
+                    "protocolName": "HyperCVAD Cycle A",
+                    "drugs": [
+                        {
+                            "day": "Day 1-3",
+                            "name": "Cyclophosphamide",
+                            "dose": "300 mg/m² every 12 hours × 6 doses",
+                            "route": "IV",
+                            "duration": "Over 3 hours"
+                        },
+                        {
+                            "day": "Day 1–3",
+                            "name": "Mesna",
+                            "dose": "600 mg/m²/day (divided doses)",
+                            "route": "IV/PO",
+                            "duration": "Given with cyclophosphamide"
+                        },
+                        {
+                            "day": "Day 1-4",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg",
+                            "route": "PO/IV",
+                            "duration": "4 Days"
+                        },
+                        {
+                            "day": "Day 4",
+                            "name": "Doxorubicin",
+                            "dose": "50 mg/m²",
+                            "route": "IV",
+                            "duration": "Over 4 hours"
+                        },
+                        {
+                            "day": "Day 4",
+                            "name": "Vincristine",
+                            "dose": "2 mg",
+                            "route": "IV",
+                            "duration": "Push"
+                        },
+                        {
+                            "day": "Day 11-14",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg",
+                            "route": "PO/IV",
+                            "duration": "4 Days"
+                        },
+                        {
+                            "day": "Day 11",
+                            "name": "Vincristine",
+                            "dose": "2 mg",
+                            "route": "IV",
+                            "duration": "Push"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Monitor for hemorrhagic cystitis; ensure adequate Mesna coverage.",
+                        "Strict fluid intake/output monitoring during Cyclophosphamide.",
+                        "BM before Vincristine, check for constipation, neuropathy",
+                        "Check cardiac function before Doxorubicin; watch for infusion reactions."
+                    ]
+                },
+                {
+                    "protocolName": "HyperCVAD Cycle B",
+                    "drugs": [
+                        {
+                            "day": "Day 1",
+                            "name": "Methotrexate (High Dose)",
+                            "dose": "1 g/m²",
+                            "route": "IV",
+                            "duration": "Over 24 hours"
+                        },
+                        {
+                            "day": "Day 1-3",
+                            "name": "Methylprednisolone",
+                            "dose": "50 mg every 12 hours",
+                            "route": "IV",
+                            "duration": "3 Days"
+                        },
+                        {
+                            "day": "Day 2 (36 hours after start of MTX)",
+                            "name": "Leucovorin Rescue",
+                            "dose": "15 mg every 6 hours",
+                            "route": "IV/PO",
+                            "duration": "Until methotrexate level <0.1"
+                        },
+                        {
+                            "day": "Day 2-3",
+                            "name": "Cytarabine",
+                            "dose": "3 g/m² every 12 hours × 4 doses",
+                            "route": "IV",
+                            "duration": "Over 3 hours"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Check urine pH daily and maintain pH > 8 during high-dose Methotrexate.",
+                        "MTX level daily 24 hours after MTX started",
+                        "Monitor for Cytarabine",
+                        "Ensure steroid-induced hyperglycemia monitoring.",
+                        "Eye-drop prophylaxis required for high-dose Cytarabine (Prednisolone drops)."
+                    ]
+                }
+
             ]
-          }
-        ]
-      }
-    ],
-    "Maintenance": [
-      {
-        "protocolName": "POMP",
-        "sections": [
-          {
-            "title": "Monthly (up to 2 years)",
-            "drugs": [
-              "Mercaptopurine 50 mg PO three times daily",
-              "Methotrexate 20 mg/m² PO weekly",
-              "Vincristine 2 mg IV monthly + Prednisone 200 mg PO × 5 days"
+        },
+ 
+        "Maintenance Therapy": {
+            "goal": "To maintain remission and prevent relapse.",
+            "protocols": [
+                {
+                    "protocolName": "POMP Regimen",
+                    "drugs": [
+                        { "day": "Daily", "name": "6-Mercaptopurine", "dose": "50–75 mg/m²", "route": "Oral", "duration": "2 years" },
+                        { "day": "Weekly", "name": "Methotrexate", "dose": "20 mg/m²", "route": "Oral", "duration": "2 years" },
+                        { "day": "Monthly", "name": "Vincristine", "dose": "1.4 mg/m²", "route": "IV", "duration": "Monthly" },
+                        { "day": "Monthly", "name": "Prednisone", "dose": "40 mg/m²", "route": "Oral", "duration": "5 days each cycle" }
+                    ],
+                    "nursingTips": [
+                        "Monitor CBC, LFTs, and infection signs; encourage adherence to oral meds."
+                    ]
+                
+                }
             ]
-          }
-        ]
-      }
-    ]
-  },
-  "APL": {
-    "Induction": [
-      {
-        "protocolName": "ATRA + Idarubicin",
-        "sections": [
-          {
-            "title": "Day 1 onward",
-            "drugs": [
-              "ATRA 45 mg/m²/day PO in two divided doses (until complete remission)"
+        },
+
+        "CNS Prophylaxis": {
+            "goal": "To prevent central nervous system relapse.",
+            "protocols": [
+                {
+                    "protocolName": "Intrathecal Therapy",
+                    "drugs": [
+                        { "day": "Scheduled", "name": "Methotrexate ± Cytarabine ± Hydrocortisone", "dose": "Per center protocol", "route": "Intrathecal", "duration": "As scheduled" }
+                    ],
+                    "nursingTips": [
+                        "Ensure proper patient positioning post-procedure; monitor for headache or nausea."
+                    ]
+                }
             ]
-          },
-          {
-            "title": "Days 2, 4, 6, 8",
-            "drugs": [
-              "Idarubicin 12 mg/m² IV bolus"
+        },
+
+        "Salvage / Relapse Therapy": {
+            "goal": "To achieve remission in relapsed or refractory cases.",
+            "protocols": [
+                {
+                    "protocolName": "Blinatumomab / Inotuzumab / CAR-T",
+                    "drugs": [
+                        { "name": "Blinatumomab", "dose": "As per MRD status", "route": "IV", "duration": "Continuous 28 days" },
+                        { "name": "Inotuzumab ozogamicin", "dose": "0.8 mg/m² → 0.5 mg/m²", "route": "IV", "duration": "Cycle-based" }
+                    ],
+                    "nursingTips": [
+                        "Monitor for cytokine release and veno-occlusive disease; consider transplant if eligible."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ],
-    "Consolidation": [
-      {
-        "protocolName": "ATRA + ATO",
-        "sections": [
-          {
-            "title": "Cycle 1 (4 weeks)",
-            "drugs": [
-              "Arsenic Trioxide (ATO) 0.15 mg/kg/day IV, 5 days/week × 4 weeks",
-              "ATRA 45 mg/m²/day PO, 2 weeks on / 2 weeks off"
+        }
+    },
+
+    "CML": {
+        "Chronic Phase": {
+            "goal": "To suppress BCR-ABL activity, prevent progression, and maintain long-term remission.",
+            "protocols": [
+                {
+                    "protocolName": "Imatinib (First-Line TKI)",
+                    "drugs": [
+                      {
+                        "day": "Daily",
+                        "name": "Imatinib",
+                        "dose": "400 mg once daily",
+                        "route": "Oral",
+                        "duration": "Continuous"
+                      }
+                    ],
+                    "nursingTips": [
+                        "Monitor CBC and liver enzymes every 2–4 weeks initially.",
+                        "Assess adherence — missed doses can lead to resistance.",
+                        "Take with food and a full glass of water to reduce GI upset."
+                    ]
+                },
+                {
+                  "protocolName": "Dasatinib",
+                  "drugs": [
+                      {
+                          "day": "Daily",
+                          "name": "Dasatinib",
+                          "dose": "100 mg once daily",
+                          "route": "Oral",
+                          "duration": "Continuous"
+                      }
+                  ],
+                  "nursingTips": [
+                    "Monitor for pleural effusion — report dyspnea or cough.",
+                    "Avoid concurrent PPIs (reduces absorption).",
+                    "Frequent CBC checks due to potential cytopenias."
+                  ]
+                },
+                {
+                    "protocolName": "Nilotinib",
+                    "drugs": [
+                        {
+                            "day": "Every 12 hours",
+                            "name": "Nilotinib",
+                            "dose": "300 mg twice daily",
+                            "route": "Oral",
+                            "duration": "Continuous"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Give on an empty stomach (avoid food 2 hours before and 1 hour after).",
+                        "Monitor ECG for QT prolongation.",
+                        "Frequent monitoring of glucose and lipids."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ]
-  },
-  "CML": {
-    "Chronic Phase": [
-      {
-        "protocolName": "TKI (e.g., Imatinib)",
-        "sections": [
-          {
-            "title": "Daily (ongoing)",
-            "drugs": [
-              "Imatinib 400 mg PO once daily",
-              "Alternative: Dasatinib 100 mg PO daily"
+        },
+
+        "Accelerated Phase": {
+          "goal": "To regain hematologic control and prevent transition to blast crisis.",
+          "protocols": [
+            {
+              "protocolName": "High-Dose Imatinib",
+              "drugs": [
+                {
+                  "day": "Daily",
+                  "name": "Imatinib",
+                  "dose": "600–800 mg daily",
+                  "route": "Oral",
+                  "duration": "Continuous"
+                }
+              ],
+              "nursingTips": [
+                "Increased GI and edema risk at higher doses.",
+                "Monitor BCR-ABL transcript levels every 3 months."
+              ]
+            },
+            {
+              "protocolName": "Second-Generation TKI (Dasatinib/Nilotinib)",
+              "drugs": [
+                {
+                  "day": "Daily",
+                  "name": "Dasatinib or Nilotinib",
+                  "dose": "Per guideline",
+                  "route": "Oral",
+                  "duration": "Continuous"
+                }
+              ],
+              "nursingTips": [
+                "Used when resistance or intolerance to Imatinib occurs.",
+                "Monitor for severe myelosuppression."
+              ]
+            }
+          ]
+        },
+
+        "Blast Crisis": {
+          "goal": "To rapidly control blast proliferation and prepare for transplant when possible.",
+          "protocols": [
+            {
+              "protocolName": "Third-Generation TKI (Ponatinib)",
+              "drugs": [
+                {
+                  "day": "Daily",
+                  "name": "Ponatinib",
+                  "dose": "15–45 mg daily (mutation-dependent)",
+                  "route": "Oral",
+                  "duration": "Continuous"
+                }
+              ],
+              "nursingTips": [
+                "Effective against T315I mutation.",
+                "Monitor for hypertension and vascular events.",
+                "Frequent CBC and liver function monitoring required."
+              ]
+            },
+
+            {
+              "protocolName": "HyperCVAD A",
+              "drugs": [
+                { "day": "Days 1–3", "name": "Cyclophosphamide", "dose": "300 mg/m² every 12 hours", "route": "IV", "duration": "6 doses" },
+                { "day": "Day 1–3", "name": "Mesna", "dose": "Per protocol", "route": "IV", "duration": "Uroprotection" },
+                { "day": "Day 4 & 11", "name": "Vincristine", "dose": "2 mg", "route": "IV", "duration": "Rapid push" },
+                { "day": "Day 4", "name": "Doxorubicin (Adriamycin)", "dose": "50 mg/m²", "route": "IV", "duration": "Administer slowly" },
+                { "day": "Days 1–4 & 11–14", "name": "Dexamethasone", "dose": "40 mg/day", "route": "Oral/IV", "duration": "Steroid backbone" }
+              ],
+              "nursingTips": [
+                "Hyperhydration and Mesna are mandatory to prevent hemorrhagic cystitis.",
+                "Monitor for neurotoxicity with vincristine.",
+                "Track cardiac function due to anthracycline exposure.",
+                "Monitor glucose during steroid pulses."
+              ]
+            },
+
+            {
+              "protocolName": "HyperCVAD B",
+              "drugs": [
+                { "day": "Day 1", "name": "Methotrexate", "dose": "1 g/m²", "route": "IV", "duration": "Over several hours" },
+                { "day": "Day 2", "name": "Cytarabine", "dose": "3 g/m² every 12 hours × 2 doses", "route": "IV", "duration": "High-dose" },
+                { "day": "Multiple Days", "name": "Leucovorin Rescue", "dose": "Per protocol", "route": "IV/Oral", "duration": "Begin 24 hours post-MTX" }
+              ],
+              "nursingTips": [
+                "Strict hydration and urine alkalinization required for MTX safety.",
+                "Monitor for cerebellar toxicity with high-dose Cytarabine.",
+                "Daily lab monitoring: renal function, MTX levels.",
+                "Eye drop prophylaxis for Cytarabine."
+              ]
+            }
+          ]
+        }
+    },
+
+    "CLL": {
+        "Frontline Therapy": {
+            "goal": "To control disease, achieve deep remissions, and minimize treatment toxicity using targeted or chemo-immunotherapy regimens.",
+            "protocols": [
+                {
+                    "protocolName": "Venetoclax + Obinutuzumab (Modern First-Line)",
+                    "drugs": [
+                        { "day": "Cycle 1 (Day 1, 2, 8, 15)", "name": "Obinutuzumab", "dose": "100 mg → 900 mg → 1000 mg", "route": "IV", "duration": "Per infusion protocol" },
+                        { "day": "Cycle 1–6", "name": "Venetoclax", "dose": "20 → 50 → 100 → 200 → 400 mg ramp-up", "route": "PO", "duration": "Daily after ramp-up" }
+                    ],
+                    "nursingTips": [
+                        "TLS risk highest during Venetoclax ramp-up; ensure hydration and monitoring.",
+                        "Premedicate before Obinutuzumab to avoid infusion reactions.",
+                        "Monitor lymphocyte count and tumor burden closely."
+                    ]
+                },
+                {
+                    "protocolName": "Acalabrutinib (BTK Inhibitor)",
+                    "drugs": [
+                        { "day": "Continuous", "name": "Acalabrutinib", "dose": "100 mg twice daily", "route": "PO", "duration": "Continuous" }
+                    ],
+                    "nursingTips": [
+                        "Lower bleeding risk than ibrutinib but still significant; assess platelet inhibitors.",
+                        "Avoid PPIs — reduces Acalabrutinib absorption.",
+                        "Monitor for headaches; usually improves with caffeine or simple analgesics."
+                    ]
+                },
+                {
+                    "protocolName": "Zanubrutinib",
+                    "drugs": [
+                        { "day": "Continuous", "name": "Zanubrutinib", "dose": "160 mg twice daily or 320 mg daily", "route": "PO", "duration": "Continuous" }
+                    ],
+                    "nursingTips": [
+                        "Monitor BP and heart rhythm; BTK inhibitors increase AF risk.",
+                        "Check for bruising or minor bleeding.",
+                        "Preferred over ibrutinib due to better tolerability."
+                    ]
+                },
+                {
+                    "protocolName": "Ibrutinib (Older BTKi)",
+                    "drugs": [
+                        { "day": "Continuous", "name": "Ibrutinib", "dose": "420 mg daily", "route": "PO", "duration": "Continuous" }
+                    ],
+                    "nursingTips": [
+                        "Higher cardiac toxicity than newer BTKi; monitor for palpitations.",
+                        "Watch for bruising, diarrhea, muscle cramps.",
+                        "Avoid strong CYP3A inhibitors."
+                    ]
+                },
+                {
+                    "protocolName": "FCR (Fludarabine + Cyclophosphamide + Rituximab) — Classic",
+                    "drugs": [
+                        { "day": "Days 1–3", "name": "Fludarabine", "dose": "25 mg/m²", "route": "IV", "duration": "Per protocol" },
+                        { "day": "Days 1–3", "name": "Cyclophosphamide", "dose": "250 mg/m²", "route": "IV", "duration": "Per protocol" },
+                        { "day": "Day 1", "name": "Rituximab", "dose": "375 mg/m² first cycle → 500 mg/m²", "route": "IV", "duration": "Premedicate required" }
+                    ],
+                    "nursingTips": [
+                        "High immunosuppression risk — infection prophylaxis necessary.",
+                        "Requires antiviral + PJP prophylaxis.",
+                        "Monitor for hemolysis in del(17p) or TP53 mutation (FCR not recommended)."
+                    ]
+                },
+                {
+                    "protocolName": "BR (Bendamustine + Rituximab) — Classic",
+                    "drugs": [
+                        { "day": "Days 1–2", "name": "Bendamustine", "dose": "90 mg/m²", "route": "IV", "duration": "Per protocol" },
+                        { "day": "Day 1", "name": "Rituximab", "dose": "375–500 mg/m²", "route": "IV", "duration": "Premedicate required" }
+                    ],
+                    "nursingTips": [
+                        "Better tolerated than FCR for older adults.",
+                        "Expect cytopenias after cycle 2–3; monitor CBC closely.",
+                        "Give antiviral and PJP prophylaxis."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ],
-    "Blast Phase (Lymphoid)": [
-      {
-        "protocolName": "Hyper-CVAD-like",
-        "sections": [
-          {
-            "title": "Day 1",
-            "drugs": [
-              "Cyclophosphamide 300 mg/m² IV q12h × 6 + Mesna",
-              "Dexamethasone 40 mg PO × 4 days"
+        },
+
+        "Relapsed/Refractory Therapy": {
+            "goal": "To achieve durable remission in patients who relapse after first-line treatment or have high-risk genetic profiles.",
+            "protocols": [
+                {
+                    "protocolName": "Venetoclax + Rituximab (Modern R/R)",
+                    "drugs": [
+                        { "day": "Cycle 1–6", "name": "Venetoclax", "dose": "20 → 400 mg ramp-up", "route": "PO", "duration": "Daily" },
+                        { "day": "Cycle 1–6", "name": "Rituximab", "dose": "375 mg/m² → 500 mg/m²", "route": "IV", "duration": "Per schedule" }
+                    ],
+                    "nursingTips": [
+                        "Highest TLS risk occurs at treatment initiation.",
+                        "Needs tumor lysis prophylaxis and lab checks.",
+                        "Monitor neutropenia — common with Venetoclax."
+                    ]
+                },
+                {
+                    "protocolName": "Acalabrutinib (BTKi)",
+                    "drugs": [
+                        { "day": "Continuous", "name": "Acalabrutinib", "dose": "100 mg BID", "route": "PO", "duration": "Continuous" }
+                    ],
+                    "nursingTips": [
+                        "Preferred for patients intolerant to ibrutinib.",
+                        "Monitor for headaches, AFib, bleeding.",
+                        "Avoid PPIs."
+                    ]
+                },
+                {
+                    "protocolName": "Pirtobrutinib (Next-Gen BTKi)",
+                    "drugs": [
+                        { "day": "Continuous", "name": "Pirtobrutinib", "dose": "200 mg daily", "route": "PO", "duration": "Continuous" }
+                    ],
+                    "nursingTips": [
+                        "Useful even after failure of other BTK inhibitors.",
+                        "Generally well tolerated; monitor for infections.",
+                        "Check for bleeding/bruising."
+                    ]
+                },
+                {
+                    "protocolName": "High-Dose Steroids + Rituximab (Classic R/R)",
+                    "drugs": [
+                        { "day": "Days 1–3", "name": "Methylprednisolone", "dose": "1 g/day", "route": "IV", "duration": "3 days" },
+                        { "day": "Day 1", "name": "Rituximab", "dose": "375 mg/m²", "route": "IV", "duration": "Premedicate" }
+                    ],
+                    "nursingTips": [
+                        "Used for refractory CLL or auto-immune cytopenias.",
+                        "High hyperglycemia risk — monitor sugars.",
+                        "Monitor for infusion reactions."
+                    ]
+                }
             ]
-          },
-          {
-            "title": "Day 4",
-            "drugs": [
-              "Doxorubicin 50 mg/m² IV",
-              "Vincristine 2 mg IV",
-              "Add TKI (e.g., Imatinib)"
+        },
+
+        "Supportive Care": {
+            "goal": "To manage complications associated with CLL and its treatments.",
+            "protocols": [
+                {
+                    "protocolName": "Infection Prophylaxis",
+                    "drugs": [],
+                    "nursingTips": [
+                        "Give antiviral prophylaxis during anti-CD20 or FCR/BR therapy.",
+                        "Provide PJP prophylaxis with fludarabine-based regimens.",
+                        "Vaccinate (influenza, COVID, pneumococcal) — avoid live vaccines."
+                    ]
+                },
+                {
+                    "protocolName": "Hypogammaglobulinemia Management",
+                    "drugs": [
+                        { "day": "Monthly", "name": "IVIG", "dose": "0.3–0.5 g/kg", "route": "IV", "duration": "Slow infusion" }
+                    ],
+                    "nursingTips": [
+                        "Indicated for recurrent bacterial infections.",
+                        "Monitor for allergic reactions or headache."
+                    ]
+                },
+                {
+                    "protocolName": "Tumor Lysis Syndrome Prevention",
+                    "drugs": [
+                        { "day": "Per protocol", "name": "Allopurinol", "dose": "100–300 mg/day", "route": "PO", "duration": "Start 2–3 days prior" },
+                        { "day": "High-risk cases", "name": "Rasburicase", "dose": "6 mg single dose", "route": "IV", "duration": "One-time" }
+                    ],
+                    "nursingTips": [
+                        "TLS risk highest with Venetoclax initiation.",
+                        "Ensure aggressive hydration and serial labs.",
+                        "Monitor potassium, uric acid, phosphate closely."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ]
-  },
-  "CLL": {
-    "First-Line (Fit Patients)": [
-      {
-        "protocolName": "FCR",
-        "sections": [
-          {
-            "title": "Days 1–3 (per 28-day cycle, up to 6)",
-            "drugs": [
-              "Fludarabine 25 mg/m² IV",
-              "Cyclophosphamide 250 mg/m² IV"
+        }
+    },
+
+    "APL": {
+        "Induction Therapy": {
+            "goal": "To achieve remission by rapidly reducing leukemic promyelocytes using differentiation therapy.",
+            "protocols": [
+                {
+                    "protocolName": "ATRA + ATO (Standard-Risk APL)",
+                    "drugs": [
+                        { "day": "Day 1–Induction complete", "name": "ATRA (Tretinoin)", "dose": "45 mg/m²/day divided BID", "route": "Oral", "duration": "Daily" },
+                        { "day": "Days 1–42", "name": "Arsenic Trioxide (ATO)", "dose": "0.15 mg/kg/day", "route": "IV", "duration": "Daily infusion" }
+                    ],
+                    "nursingTips": [
+                        "Monitor QTc closely — correct low potassium and magnesium before ATO.",
+                        "Watch for differentiation syndrome (fever, dyspnea, weight gain) — start steroids immediately.",
+                        "Ensure central line access for repeated ATO infusions."
+                    ]
+                },
+                {
+                    "protocolName": "ATRA + Anthracycline (High-Risk APL)",
+                    "drugs": [
+                        { "day": "Day 1–Induction complete", "name": "ATRA (Tretinoin)", "dose": "45 mg/m²/day divided BID", "route": "Oral", "duration": "Daily" },
+                        { "day": "Day 1", "name": "Idarubicin", "dose": "12 mg/m²", "route": "IV", "duration": "Single dose or per protocol" },
+                        { "day": "Additional", "name": "ATO (optional)", "dose": "0.15 mg/kg/day", "route": "IV", "duration": "Center-specific" }
+                    ],
+                    "nursingTips": [
+                        "High-risk APL = WBC > 10 × 10⁹/L — requires anthracycline support.",
+                        "Monitor for coagulopathy — APL patients have DIC risk.",
+                        "Check cardiac function when using anthracyclines."
+                    ]
+                }
             ]
-          },
-          {
-            "title": "Day 1",
-            "drugs": [
-              "Rituximab 375 mg/m² IV (Cycle 1) or 500 mg/m² (Cycles 2–6)"
+        },
+
+        "Consolidation Therapy": {
+            "goal": "To deepen remission and eliminate minimal residual disease.",
+            "protocols": [
+                {
+                    "protocolName": "ATRA + ATO Cycles (Standard-Risk)",
+                    "drugs": [
+                        { "day": "ATRA", "name": "ATRA", "dose": "45 mg/m²/day", "route": "Oral", "duration": "2 weeks on / 2 weeks off" },
+                        { "day": "ATO", "name": "Arsenic Trioxide", "dose": "0.15 mg/kg/day", "route": "IV", "duration": "5 days/week × 4 weeks per cycle" }
+                    ],
+                    "nursingTips": [
+                        "QTc monitoring remains critical during consolidation.",
+                        "Hydration reduces ATO toxicity.",
+                        "Assess LFTs weekly; hold if severe elevation."
+                    ]
+                },
+                {
+                    "protocolName": "ATRA + Chemotherapy (High-Risk)",
+                    "drugs": [
+                        { "day": "Cycle-based", "name": "ATRA", "dose": "45 mg/m²/day", "route": "Oral", "duration": "As per cycle" },
+                        { "day": "Cycle-based", "name": "Anthracycline (Idarubicin or Daunorubicin)", "dose": "Per protocol", "route": "IV", "duration": "Per cycle" }
+                    ],
+                    "nursingTips": [
+                        "Monitor cumulative anthracycline exposure.",
+                        "Consider ATO addition based on MRD levels.",
+                        "Expected cytopenias — monitor CBC regularly."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ],
-    "Alternative (Older/Frail)": [
-      {
-        "protocolName": "BR",
-        "sections": [
-          {
-            "title": "Days 1–2 (per 28-day cycle, up to 6)",
-            "drugs": [
-              "Bendamustine 70–90 mg/m² IV"
+        },
+
+        "Maintenance Therapy": {
+            "goal": "To prevent relapse after achieving molecular remission, especially in high-risk patients.",
+            "protocols": [
+                {
+                    "protocolName": "ATRA + 6-MP + Methotrexate",
+                    "drugs": [
+                        { "day": "Days 1–14 (every 3 months)", "name": "ATRA", "dose": "45 mg/m²/day", "route": "Oral", "duration": "14-day pulse" },
+                        { "day": "Daily", "name": "6-Mercaptopurine", "dose": "50–75 mg/m²/day", "route": "Oral", "duration": "Continuous" },
+                        { "day": "Weekly", "name": "Methotrexate", "dose": "15 mg/m²", "route": "Oral", "duration": "Weekly" }
+                    ],
+                    "nursingTips": [
+                        "CBC and LFT monitoring mandatory due to 6-MP and MTX toxicity.",
+                        "Educate patient to avoid alcohol with methotrexate.",
+                        "Check for mucositis and bone marrow suppression."
+                    ]
+                }
             ]
-          },
-          {
-            "title": "Day 1",
-            "drugs": [
-              "Rituximab 375 mg/m² IV (Cycle 1) or 500 mg/m² (Cycles 2–6)"
+        },
+
+        "Supportive Care": {
+            "goal": "To manage complications unique to APL, especially coagulopathy and differentiation syndrome.",
+            "protocols": [
+                {
+                    "protocolName": "Coagulopathy Management",
+                    "drugs": [
+                        { "day": "As needed", "name": "Cryoprecipitate", "dose": "Maintain fibrinogen > 150 mg/dL", "route": "IV", "duration": "Per transfusion" },
+                        { "day": "As needed", "name": "Platelets", "dose": "Maintain > 30–50 ×10⁹/L", "route": "IV", "duration": "Per transfusion" }
+                    ],
+                    "nursingTips": [
+                        "APL induction frequently presents with DIC.",
+                        "Maintain aggressive transfusion support early in treatment.",
+                        "Monitor coagulation profile daily during induction."
+                    ]
+                },
+                {
+                    "protocolName": "Differentiation Syndrome Prophylaxis",
+                    "drugs": [
+                        { "day": "Early sign onset", "name": "Dexamethasone", "dose": "10 mg IV twice daily", "route": "IV", "duration": "Until symptoms resolve" }
+                    ],
+                    "nursingTips": [
+                        "Symptoms: fever, dyspnea, weight gain, edema.",
+                        "Start steroids immediately — do NOT wait for confirmatory tests.",
+                        "Hold ATRA/ATO temporarily in severe cases."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ]
-  },
-  "Lymphoma": {
-    "Standard (Aggressive NHL)": [
-      {
-        "protocolName": "CHOP",
-        "sections": [
-          {
-            "title": "Day 1 (per 21-day cycle, 6–8 cycles)",
-            "drugs": [
-              "Cyclophosphamide 750 mg/m² IV",
-              "Doxorubicin 50 mg/m² IV",
-              "Vincristine 1.4 mg/m² IV (max 2 mg)"
+        }
+    },
+
+    "MM": {
+        "Induction Therapy": {
+            "goal": "To achieve rapid disease control and prepare eligible patients for stem-cell transplantation.",
+            "protocols": [
+                {
+                    "protocolName": "VRd (Bortezomib + Lenalidomide + Dexamethasone)",
+                    "drugs": [
+                        {
+                            "day": "Days 1, 4, 8, 11",
+                            "name": "Bortezomib",
+                            "dose": "1.3 mg/m²",
+                            "route": "SC or IV",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Days 1–14",
+                            "name": "Lenalidomide",
+                            "dose": "25 mg daily",
+                            "route": "PO",
+                            "duration": "Daily × 14 days"
+                        },
+                        {
+                            "day": "Days 1, 8, 15",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg",
+                            "route": "PO/IV",
+                            "duration": "Weekly"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Use SC route for bortezomib to reduce neuropathy risk.",
+                        "Monitor CBC; both bortezomib and lenalidomide cause cytopenia.",
+                        "Start antiviral prophylaxis (acyclovir) to prevent VZV reactivation."
+                    ]
+                },
+                {
+                    "protocolName": "Dara-VRd (Daratumumab + VRd)",
+                    "drugs": [
+                        {
+                            "day": "Weekly during cycles 1–2",
+                            "name": "Daratumumab",
+                            "dose": "16 mg/kg (IV) or 1,800 mg (SC)",
+                            "route": "IV/SC",
+                            "duration": "As per infusion protocol"
+                        },
+                        {
+                            "day": "Days 1, 4, 8, 11",
+                            "name": "Bortezomib",
+                            "dose": "1.3 mg/m²",
+                            "route": "SC",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Days 1–14",
+                            "name": "Lenalidomide",
+                            "dose": "25 mg",
+                            "route": "PO",
+                            "duration": "Daily"
+                        },
+                        {
+                            "day": "Days 1, 8, 15",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg",
+                            "route": "PO/IV",
+                            "duration": "Weekly"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Premedicate Daratumumab: steroid, antihistamine, antipyretic.",
+                        "Monitor closely for infusion-related reactions during first dose.",
+                        "Ensure antiviral prophylaxis and infection monitoring."
+                    ]
+                },
+                {
+                    "protocolName": "KRd (Carfilzomib + Lenalidomide + Dexamethasone)",
+                    "drugs": [
+                        {
+                            "day": "Days 1, 2, 8, 9, 15, 16",
+                            "name": "Carfilzomib",
+                            "dose": "20 mg/m² → 36–56 mg/m²",
+                            "route": "IV",
+                            "duration": "30 minutes"
+                        },
+                        {
+                            "day": "Days 1–21",
+                            "name": "Lenalidomide",
+                            "dose": "25 mg daily",
+                            "route": "PO",
+                            "duration": "Daily × 21 days"
+                        },
+                        {
+                            "day": "Weekly",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg",
+                            "route": "PO/IV",
+                            "duration": "Weekly"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Monitor for hypertension and cardiac events—carfilzomib increases risk.",
+                        "Ensure hydration pre- and post-infusion.",
+                        "Avoid in uncontrolled cardiac conditions."
+                    ]
+                }
             ]
-          },
-          {
-            "title": "Days 1–5",
-            "drugs": [
-              "Prednisone 100 mg PO daily"
+        },
+
+        "Consolidation Therapy": {
+            "goal": "To deepen response after induction or following autologous stem-cell transplantation.",
+            "protocols": [
+                {
+                    "protocolName": "Post-Transplant VRd × 2–4 cycles",
+                    "drugs": [
+                        { "day": "1, 4, 8, 11", "name": "Bortezomib", "dose": "1.3 mg/m²", "route": "SC", "duration": "Bolus" },
+                        { "day": "1–14", "name": "Lenalidomide", "dose": "10–15 mg", "route": "PO", "duration": "Daily" },
+                        { "day": "1, 8, 15", "name": "Dexamethasone", "dose": "20–40 mg", "route": "PO/IV", "duration": "Weekly" }
+                    ],
+                    "nursingTips": [
+                        "Often used for high-risk cytogenetics.",
+                        "Continue antiviral prophylaxis with bortezomib.",
+                        "Monitor neuropathy and blood counts."
+                    ]
+                },
+                {
+                    "protocolName": "KRd Consolidation",
+                    "drugs": [
+                        { "day": "1, 2, 8, 9, 15, 16", "name": "Carfilzomib", "dose": "36–56 mg/m²", "route": "IV", "duration": "30 minutes" },
+                        { "day": "1–21", "name": "Lenalidomide", "dose": "10–15 mg", "route": "PO", "duration": "Daily" },
+                        { "day": "Weekly", "name": "Dexamethasone", "dose": "20–40 mg", "route": "PO/IV", "duration": "Weekly" }
+                    ],
+                    "nursingTips": [
+                        "Used especially in high-risk cytogenetics (del17p, t(4;14)).",
+                        "Monitor BP and cardiac status during carfilzomib."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ],
-    "With Immunotherapy": [
-      {
-        "protocolName": "R-CHOP",
-        "sections": [
-          {
-            "title": "Day 1 (add to CHOP)",
-            "drugs": [
-              "Rituximab 375 mg/m² IV"
+        },
+
+        "Maintenance Therapy": {
+            "goal": "To prolong progression-free survival and maintain remission after induction or transplant.",
+            "protocols": [
+                {
+                    "protocolName": "Lenalidomide Maintenance",
+                    "drugs": [
+                        {
+                            "day": "Days 1–21 of each 28-day cycle",
+                            "name": "Lenalidomide",
+                            "dose": "10 mg",
+                            "route": "PO",
+                            "duration": "Daily × 21 days"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Monitor for cytopenias every cycle.",
+                        "Assess thrombosis risk → consider aspirin prophylaxis.",
+                        "Watch for fatigue and secondary malignancy risk."
+                    ]
+                },
+                {
+                    "protocolName": "Bortezomib Maintenance (High-Risk)",
+                    "drugs": [
+                        {
+                            "day": "Every 2 weeks",
+                            "name": "Bortezomib",
+                            "dose": "1.3 mg/m²",
+                            "route": "SC",
+                            "duration": "Bolus"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Preferred for high-risk cytogenetics (del17p, t(4;14)).",
+                        "Monitor for neuropathy and shingles reactivation.",
+                        "Continue antiviral prophylaxis."
+                    ]
+                }
             ]
-          }
-        ]
-      }
-    ]
-  }
+        },
+
+        "Relapsed/Refractory Therapy": {
+            "goal": "To regain disease control after progression and improve survival.",
+            "protocols": [
+                {
+                    "protocolName": "Daratumumab (Mono or Combo)",
+                    "drugs": [
+                        { "day": "Weekly × 8 then spaced", "name": "Daratumumab", "dose": "16 mg/kg IV or 1,800 mg SC", "route": "IV/SC", "duration": "As per schedule" }
+                    ],
+                    "nursingTips": [
+                        "Premedicate with steroid, antihistamine, antipyretic.",
+                        "Monitor for infusion reactions—most occur with first dose.",
+                        "Ensure blood bank aware: daratumumab interferes with crossmatching."
+                    ]
+                },
+                {
+                    "protocolName": "Carfilzomib + Dexamethasone (Kd)",
+                    "drugs": [
+                        { "day": "1, 2, 8, 9, 15, 16", "name": "Carfilzomib", "dose": "56–70 mg/m²", "route": "IV","duration": "30 minutes" },
+                        { "day": "Weekly", "name": "Dexamethasone", "dose": "40 mg", "route": "PO/IV", "duration": "Weekly" }
+                    ],
+                    "nursingTips": [
+                        "Monitor for cardiac failure, hypertension, and dyspnea.",
+                        "Hydrate before infusion but avoid fluid overload."
+                    ]
+                },
+                {
+                    "protocolName": "Pomalidomide + Dexamethasone",
+                    "drugs": [
+                        { "day": "Days 1–21", "name": "Pomalidomide", "dose": "4 mg", "route": "PO", "duration": "Daily" },
+                        { "day": "Weekly", "name": "Dexamethasone", "dose": "20–40 mg", "route": "PO/IV", "duration": "Weekly" }
+                    ],
+                    "nursingTips": [
+                        "Monitor cytopenias—pomalidomide causes severe neutropenia.",
+                        "Thrombosis prophylaxis required.",
+                        "Watch for infection and fatigue."
+                    ]
+                },
+                {
+                    "protocolName": "Teclistamab (Bispecific Antibody)",
+                    "drugs": [
+                        { "day": "Dose escalation then weekly", "name": "Teclistamab", "dose": "Step-up dosing", "route": "SC", "duration": "Weekly" }
+                    ],
+                    "nursingTips": [
+                        "Monitor for CRS (cytokine release syndrome) — fever, hypotension.",
+                        "Monitor for ICANS (neurotoxicity).",
+                        "Hospital admission recommended during initial step-up dosing."
+                    ]
+                }
+            ]
+        }
+    },
+
+    "HL": {
+        "First-Line Therapy": {
+            "goal": "To achieve complete remission using combination chemotherapy with or without radiotherapy.",
+            "protocols": [
+                {
+                    "protocolName": "ABVD (Doxorubicin + Bleomycin + Vinblastine + Dacarbazine)",
+                    "drugs": [
+                        {
+                            "day": "Day 1 & 15 (28-day cycle)",
+                            "name": "Doxorubicin (Adriamycin)",
+                            "dose": "25 mg/m²",
+                            "route": "IV",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Day 1 & 15",
+                            "name": "Bleomycin",
+                            "dose": "10 units/m²",
+                            "route": "IV",
+                            "duration": "Slow push / short infusion"
+                        },
+                        {
+                            "day": "Day 1 & 15",
+                            "name": "Vinblastine",
+                            "dose": "6 mg/m²",
+                            "route": "IV",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Day 1 & 15",
+                            "name": "Dacarbazine",
+                            "dose": "375 mg/m²",
+                            "route": "IV",
+                            "duration": "30–60 min"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Monitor pulmonary function – bleomycin is associated with lung toxicity.",
+                        "Avoid giving supplemental oxygen unless necessary.",
+                        "Anthracycline (doxorubicin) may cause cardiotoxicity – check baseline EF.",
+                        "Use central access due to vesicant risk (vinblastine, doxorubicin)."
+                    ]
+                },
+                {
+                    "protocolName": "Brentuximab + AVD (ECHELON-1 regimen)",
+                    "drugs": [
+                        {
+                            "day": "Day 1 & 15",
+                            "name": "Brentuximab Vedotin",
+                            "dose": "1.2 mg/kg",
+                            "route": "IV",
+                            "duration": "30 min"
+                        },
+                        {
+                            "day": "Day 1 & 15",
+                            "name": "Doxorubicin",
+                            "dose": "25 mg/m²",
+                            "route": "IV",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Day 1 & 15",
+                            "name": "Vinblastine",
+                            "dose": "6 mg/m²",
+                            "route": "IV",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Day 1 & 15",
+                            "name": "Dacarbazine",
+                            "dose": "375 mg/m²",
+                            "route": "IV",
+                            "duration": "30–60 min"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Brentuximab may cause peripheral neuropathy – monitor closely.",
+                        "Avoid bleomycin when giving Brentuximab.",
+                        "Premedicate as per protocol to reduce infusion reactions.",
+                        "Monitor liver enzymes and CBC every cycle."
+                    ]
+                }
+            ]
+        },
+
+        "Second-Line / Salvage Therapy": {
+            "goal": "To achieve remission in relapsed or refractory disease and prepare for autologous stem-cell transplant (ASCT).",
+            "protocols": [
+                {
+                    "protocolName": "ICE (Ifosfamide + Carboplatin + Etoposide)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–3",
+                            "name": "Ifosfamide + Mesna",
+                            "dose": "5 g/m² total",
+                            "route": "IV",
+                            "duration": "Continuous or fractionated"
+                        },
+                        {
+                            "day": "Day 2",
+                            "name": "Carboplatin",
+                            "dose": "AUC 5",
+                            "route": "IV",
+                            "duration": "60 min"
+                        },
+                        {
+                            "day": "Days 1–3",
+                            "name": "Etoposide",
+                            "dose": "100 mg/m²/day",
+                            "route": "IV",
+                            "duration": "60 min"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Mesna must be given with ifosfamide to prevent hemorrhagic cystitis.",
+                        "Ensure daily urinalysis for hematuria on ifosfamide.",
+                        "Monitor nephrotoxicity and electrolytes (carboplatin).",
+                        "High risk of neutropenia – G-CSF support recommended."
+                    ]
+                },
+                {
+                    "protocolName": "GDP (Gemcitabine + Dexamethasone + Cisplatin)",
+                    "drugs": [
+                        {
+                            "day": "Days 1 & 8",
+                            "name": "Gemcitabine",
+                            "dose": "1000 mg/m²",
+                            "route": "IV",
+                            "duration": "30 min"
+                        },
+                        {
+                            "day": "Days 1–4",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg",
+                            "route": "PO/IV",
+                            "duration": "Daily × 4 days"
+                        },
+                        {
+                            "day": "Day 1",
+                            "name": "Cisplatin",
+                            "dose": "75 mg/m²",
+                            "route": "IV",
+                            "duration": "Continuous or split dosing"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Hydrate before and after cisplatin to reduce kidney injury.",
+                        "Monitor for ototoxicity and neuropathy.",
+                        "Gemcitabine may cause thrombocytopenia—check CBC before each dose.",
+                        "Encourage good oral hydration throughout treatment."
+                    ]
+                }
+            ]
+        },
+
+        "Maintenance / Post-Transplant": {
+            "goal": "To prolong remission after autologous stem-cell transplantation.",
+            "protocols": [
+                {
+                    "protocolName": "Brentuximab Maintenance",
+                    "drugs": [
+                        {
+                            "day": "Every 3 weeks",
+                            "name": "Brentuximab Vedotin",
+                            "dose": "1.8 mg/kg",
+                            "route": "IV",
+                            "duration": "30 minutes"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Preferred in high-risk relapsed HL post-ASCT.",
+                        "Monitor neuropathy and liver function each cycle.",
+                        "Premedicate if prior infusion reactions occurred."
+                    ]
+                }
+            ]
+        }
+    },
+
+    "NHL": {
+        "First-Line Therapy": {
+            "goal": "To achieve remission using subtype-specific chemotherapy and targeted agents.",
+            "protocols": [
+                {
+                    "protocolName": "R-CHOP (DLBCL Standard)",
+                    "drugs": [
+                        {
+                            "day": "Day 1",
+                            "name": "Rituximab",
+                            "dose": "375 mg/m²",
+                            "route": "IV",
+                            "duration": "Varies (slow initial titration)"
+                        },
+                        {
+                            "day": "Day 1",
+                            "name": "Cyclophosphamide",
+                            "dose": "750 mg/m²",
+                            "route": "IV",
+                            "duration": "30–60 min"
+                        },
+                        {
+                            "day": "Day 1",
+                            "name": "Doxorubicin",
+                            "dose": "50 mg/m²",
+                            "route": "IV",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Day 1",
+                            "name": "Vincristine",
+                            "dose": "1.4 mg/m² (max 2 mg)",
+                            "route": "IV",
+                            "duration": "Bolus"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Prednisone",
+                            "dose": "100 mg/day",
+                            "route": "PO",
+                            "duration": "5 days"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Pre-medicate before Rituximab (acetaminophen + antihistamine).",
+                        "Monitor closely during first Rituximab infusion for infusion reactions.",
+                        "Vincristine is a vesicant—avoid extravasation and NEVER give intrathecally.",
+                        "Check cardiac function before doxorubicin (anthracycline)."
+                    ]
+                },
+                {
+                    "protocolName": "R-EPOCH (DLBCL, high-risk or double-hit)",
+                    "drugs": [
+                        {
+                            "day": "Day 1",
+                            "name": "Rituximab",
+                            "dose": "375 mg/m²",
+                            "route": "IV",
+                            "duration": "Slow titrated infusion"
+                        },
+                        {
+                            "day": "Days 1–4",
+                            "name": "Etoposide",
+                            "dose": "50 mg/m²/day",
+                            "route": "IV",
+                            "duration": "Continuous infusion"
+                        },
+                        {
+                            "day": "Days 1–4",
+                            "name": "Doxorubicin",
+                            "dose": "10 mg/m²/day",
+                            "route": "IV",
+                            "duration": "Continuous infusion"
+                        },
+                        {
+                            "day": "Days 1–4",
+                            "name": "Vincristine",
+                            "dose": "0.4 mg/m²/day",
+                            "route": "IV",
+                            "duration": "Continuous infusion"
+                        },
+                        {
+                            "day": "Day 5",
+                            "name": "Cyclophosphamide",
+                            "dose": "750 mg/m²",
+                            "route": "IV",
+                            "duration": "60 min"
+                        },
+                        {
+                            "day": "Days 1–5",
+                            "name": "Prednisone",
+                            "dose": "60 mg/m²/day",
+                            "route": "PO",
+                            "duration": "5 days"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Requires central line—multiple continuous infusions.",
+                        "Vincristine/doxorubicin/etoposide in same CVC lumen for continuous infusion.",
+                        "Monitor tumor lysis risk in high-grade lymphomas.",
+                        "Daily CBC monitoring due to high risk of cytopenias."
+                    ]
+                },
+                {
+                    "protocolName": "Bendamustine + Rituximab (BR) — Follicular / Indolent NHL",
+                    "drugs": [
+                        {
+                            "day": "Day 1",
+                            "name": "Rituximab",
+                            "dose": "375 mg/m²",
+                            "route": "IV",
+                            "duration": "Slow initial infusion"
+                        },
+                        {
+                            "day": "Days 1–2",
+                            "name": "Bendamustine",
+                            "dose": "90 mg/m²/day",
+                            "route": "IV",
+                            "duration": "30–60 min"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Give antiviral prophylaxis (risk of HBV and viral reactivation).",
+                        "Infusion reactions possible with Rituximab—observe closely.",
+                        "High risk of lymphopenia—monitor for infections.",
+                        "Ensure good hydration to prevent nausea and headaches."
+                    ]
+                }
+            ]
+        },
+
+        "Second-Line / Relapsed Therapy": {
+            "goal": "To achieve disease control or remission and prepare eligible patients for transplant.",
+            "protocols": [
+                {
+                    "protocolName": "DHAP (Dexamethasone + High-Dose Cytarabine + Cisplatin)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–4",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg/day",
+                            "route": "IV/PO",
+                            "duration": "4 days"
+                        },
+                        {
+                            "day": "Day 1",
+                            "name": "Cisplatin",
+                            "dose": "100 mg/m²",
+                            "route": "IV",
+                            "duration": "24-hour continuous infusion"
+                        },
+                        {
+                            "day": "Day 2",
+                            "name": "Cytarabine",
+                            "dose": "2 g/m² × 2 doses",
+                            "route": "IV",
+                            "duration": "3-hour infusion each"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Hydrate aggressively with cisplatin—monitor renal function.",
+                        "Check neuro signs before each high-dose cytarabine dose.",
+                        "High nausea risk—use triple antiemetic prophylaxis.",
+                        "Monitor electrolytes during cisplatin infusion."
+                    ]
+                },
+                {
+                    "protocolName": "R-GDP (Rituximab + Gemcitabine + Dexamethasone + Cisplatin)",
+                    "drugs": [
+                        {
+                            "day": "Day 1",
+                            "name": "Rituximab",
+                            "dose": "375 mg/m²",
+                            "route": "IV",
+                            "duration": "Slow titrated infusion"
+                        },
+                        {
+                            "day": "Days 1 & 8",
+                            "name": "Gemcitabine",
+                            "dose": "1000 mg/m²",
+                            "route": "IV",
+                            "duration": "30 min"
+                        },
+                        {
+                            "day": "Days 1–4",
+                            "name": "Dexamethasone",
+                            "dose": "40 mg/day",
+                            "route": "PO/IV",
+                            "duration": "4 days"
+                        },
+                        {
+                            "day": "Day 1 or 2",
+                            "name": "Cisplatin",
+                            "dose": "75 mg/m²",
+                            "route": "IV",
+                            "duration": "Varies"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Check CBC before each gemcitabine dose—risk of thrombocytopenia.",
+                        "Monitor for cisplatin nephrotoxicity.",
+                        "Premedicate before Rituximab.",
+                        "Use adequate hydration to prevent nausea and renal injury."
+                    ]
+                }
+            ]
+        },
+
+        "Maintenance Therapy": {
+            "goal": "To prolong remission, especially in follicular and indolent lymphomas.",
+            "protocols": [
+                {
+                    "protocolName": "Rituximab Maintenance",
+                    "drugs": [
+                        {
+                            "day": "Every 2–3 months",
+                            "name": "Rituximab",
+                            "dose": "375 mg/m²",
+                            "route": "IV",
+                            "duration": "Titrated infusion"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Used after BR or R-CHOP in follicular lymphoma.",
+                        "Monitor for infusion reactions throughout therapy.",
+                        "Assess immunoglobulin levels periodically (risk of hypogammaglobulinemia).",
+                        "Screen for HBV before initiation and during therapy."
+                    ]
+                }
+            ]
+        }
+    },
+
+    "MDS": {
+        "Supportive & Symptom-Directed Therapy": {
+            "goal": "To improve quality of life, correct cytopenias, and reduce transfusion dependency.",
+            "protocols": [
+                {
+                    "protocolName": "Erythropoietin-Stimulating Agents (ESA)",
+                    "drugs": [
+                        {
+                            "day": "Weekly / Q2 weeks",
+                            "name": "Erythropoietin (EPO)",
+                            "dose": "40,000–60,000 units",
+                            "route": "SC",
+                            "duration": "Once weekly or every 2 weeks"
+                        },
+                        {
+                            "day": "Weekly",
+                            "name": "Darbepoetin",
+                            "dose": "150–300 mcg",
+                            "route": "SC",
+                            "duration": "Weekly"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Monitor CBC every 2–4 weeks to assess response.",
+                        "Used mainly for lower-risk MDS with anemia.",
+                        "Avoid ESA if Hgb > 12 g/dL due to thrombotic risk.",
+                        "Check iron studies and replace iron if low."
+                    ]
+                },
+                {
+                    "protocolName": "Luspatercept (for ring sideroblast MDS)",
+                    "drugs": [
+                        {
+                            "day": "Every 3 weeks",
+                            "name": "Luspatercept",
+                            "dose": "1 mg/kg (titrate to 1.75 mg/kg)",
+                            "route": "SC",
+                            "duration": "Q3 weeks"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Used in lower-risk MDS with ring sideroblasts or SF3B1 mutation.",
+                        "Monitor for hypertension and injection-site reactions.",
+                        "Assess transfusion needs to evaluate response."
+                    ]
+                }
+            ]
+        },
+
+        "Disease-Modifying Therapy (Intermediate / High-Risk)": {
+            "goal": "To reduce blast progression, delay evolution to AML, and improve survival.",
+            "protocols": [
+                {
+                    "protocolName": "Azacitidine (AZA)",
+                    "drugs": [
+                        {
+                            "day": "Days 1–7",
+                            "name": "Azacitidine",
+                            "dose": "75 mg/m²/day",
+                            "route": "SC or IV",
+                            "duration": "Once daily"
+                        }
+                    ],
+                    "nursingTips": [
+                        "This is the most standard first-line therapy for high-risk MDS.",
+                        "Responses may take 4–6 cycles—continue unless clear progression.",
+                        "Monitor for cytopenias; dose delays are common.",
+                        "Premedicate for nausea; SC injections may cause local irritation."
+                    ]
+                },
+                {
+                    "protocolName": "Decitabine",
+                    "drugs": [
+                        {
+                            "day": "Days 1–5",
+                            "name": "Decitabine",
+                            "dose": "20 mg/m²/day",
+                            "route": "IV",
+                            "duration": "1 hour infusion"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Equivalent alternative to azacitidine for higher-risk MDS.",
+                        "Higher risk of neutropenia—monitor CBC closely.",
+                        "Antimicrobial prophylaxis is often recommended."
+                    ]
+                }
+            ]
+        },
+
+        "High-Risk / TP53-Mutated Disease": {
+            "goal": "To control aggressive disease, bridge to transplant, or offer low-intensity treatment for non-transplant candidates.",
+            "protocols": [
+                {
+                    "protocolName": "Azacitidine + Venetoclax",
+                    "drugs": [
+                        {
+                            "day": "Days 1–7",
+                            "name": "Azacitidine",
+                            "dose": "75 mg/m²/day",
+                            "route": "SC or IV",
+                            "duration": "Daily"
+                        },
+                        {
+                            "day": "Days 1–14 or 1–21",
+                            "name": "Venetoclax",
+                            "dose": "100–400 mg/day (ramp-up)",
+                            "route": "PO",
+                            "duration": "Daily with ramp-up"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Monitor for tumor lysis syndrome—especially first cycle.",
+                        "Significant neutropenia risk—expect antimicrobial prophylaxis.",
+                        "Used for very high-risk, TP53-mutated, or AML-evolving MDS."
+                    ]
+                },
+                {
+                    "protocolName": "CPX-351 (for AML-transformed MDS)",
+                    "drugs": [
+                        {
+                            "day": "Days 1, 3, 5",
+                            "name": "CPX-351 (Vyxeos)",
+                            "dose": "44 mg/m² daunorubicin + 100 mg/m² cytarabine",
+                            "route": "IV",
+                            "duration": "90 min infusion"
+                        }
+                    ],
+                    "nursingTips": [
+                        "Used when MDS evolves to AML or in therapy-related MDS.",
+                        "Expect prolonged cytopenias—supportive care essential.",
+                        "Central line required; premedicate to prevent infusion reactions."
+                    ]
+                }
+            ]
+        }
+    }
+
 }
-
-

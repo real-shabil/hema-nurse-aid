@@ -1,441 +1,530 @@
 /* =========================================================
-   🌿 CHEMOTHERAPY NURSE GUIDE — STYLESHEET
-   ---------------------------------------------------------
-   Version:        1.0.0
-   Author:         Shabil Mohammed Kozhippattil
-   Role:           RN, Hematology/Oncology — KAMC, Jeddah
-   App Purpose:    Nursing informatics tool for protocols,
-                   medication info, and infusion calculations.
-   ---------------------------------------------------------
-   Structure:
-     1️⃣ Base & Layout
-     2️⃣ Navigation & Cards
-     3️⃣ Protocol & Phase Blocks
-     4️⃣ Calculations Section
-         a) Layout
-         b) Buttons
-         c) Bolus Options
-         d) Result Box
-     5️⃣ Personalization
-   ========================================================= */
+🌿 CHEMOTHERAPY NURSE GUIDE — STYLESHEET
+---------------------------------------------------------
+Version:        1.0.1
+Author:         Shabil Mohammed Kozhippattil
+Role:           RN, Hematology/Oncology — KAMC, Jeddah
+App Purpose:    Nursing informatics tool for protocols,
+medication info, and infusion calculations.
+---------------------------------------------------------
+Structure:
+Base & Layout
+Navigation & Cards
+Protocol & Phase Blocks
+Calculations Section
+a) Layout
+b) Buttons
+c) Bolus Options
+d) Result Box
+Personalization
+========================================================= */
 
 
 /* =========================================================
-   1️⃣ BASE & LAYOUT
-   ========================================================= */
+BASE & LAYOUT
+========================================================= */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f7f8fa;
-  scroll-behavior: smooth;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f8fa;
+    scroll-behavior: smooth;
 }
 
 header {
-  position: sticky;
-  top: 0;
-  background: #004d40;
-  color: white;
-  text-align: center;
-  padding: 12px 0;
-  font-size: 1.2em;
-  z-index: 1000;
+    position: sticky;
+    top: 0;
+    background: #004d40;
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 1.2em;
+    z-index: 1000;
 }
 
 .container {
-  padding: 16px;
+    padding: 16px;
 }
 
 .section {
-  display: none;
-  padding: 16px;
+    display: none;
+    padding: 16px;
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
 }
 
 @media (min-width: 768px) {
-  .cards {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
 }
 
 
 /* =========================================================
-   2️⃣ NAVIGATION & CARDS
-   ========================================================= */
+NAVIGATION & CARDS
+========================================================= */
 .card {
-  background: white;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  font-weight: bold;
-  transition: transform 0.2s, background 0.2s;
-  cursor: pointer;
+    --info-card-padding: 20px;
+    --info-card-radius: 16px;
+    --info-card-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    font-weight: bold;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  background: #e8f5e9;
-}
-
-.card:focus-visible {
-  outline: 3px solid #80cbc4;
-  outline-offset: 2px;
-  transform: scale(1.03);
-  background: #e8f5e9;
-}
 
 .back-btn {
-  background: #004d40;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  cursor: pointer;
+    background: #004d40;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .back-btn:focus-visible {
-  outline: 3px solid #80cbc4;
-  outline-offset: 2px;
+    outline: 3px solid #80cbc4;
+    outline-offset: 2px;
 }
 
+#medType .protocols-container {
+    overflow: visible;
+}
 
 /* =========================================================
-   3️⃣ PROTOCOL & PHASE BLOCKS
-   ========================================================= */
+PROTOCOL & PHASE BLOCKS
+========================================================= */
 .phase-card {
-  background: #fff;
-  border-left: 5px solid #004d40;
-  margin: 10px 0;
-  padding: 12px 16px;
-  border-radius: 10px;
-}
-
-.phase-title {
-  font-weight: bold;
-  color: #004d40;
-  margin-bottom: 6px;
-}
-
-.phase-protocol {
-  font-weight: 600;
+    background: #fff;
+    border-left: 5px solid #004d40;
+    margin: 10px 0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .phase-description {
-  margin-top: 6px;
-  font-size: 0.95em;
+    margin-top: 6px;
+    font-size: 0.95em;
 }
 
-.phase-block {
-  background: #f9f9fb;
-  border-radius: 12px;
-  padding: 10px 15px;
-  margin-bottom: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+/* Shared white card styling for reusable content blocks */
+.info-card,
+.card {
+    --info-card-padding: 16px;
+    --info-card-radius: 12px;
+    --info-card-border: none;
+    --info-card-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block;
+    background: #fff;
+    padding: var(--info-card-padding);
+    border-radius: var(--info-card-radius);
+    border: var(--info-card-border);
+    box-shadow: var(--info-card-shadow);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.info-card:focus-visible,
+.card:focus-visible {
+    outline: 3px solid #80cbc4;
+    outline-offset: 2px;
+    transform: scale(1.02);
+    background: #e8f5e9;
+}
+
+.info-card:active,
+.card:active {
+    background-color: #d0f0dc;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+}
+
+@media (hover:hover) {
+    .info-card:hover,
+    .card:hover {
+        background: #e8f5e9;
+        transform: scale(1.02);
+    }
 }
 
 .protocol-card {
-  background: white;
-  border-radius: 10px;
-  padding: 12px;
-  margin-top: 8px;
-  border: 1px solid #ddd;
+    --info-card-padding: 12px;
+    --info-card-radius: 10px;
+    --info-card-border: 1px solid #ddd;
+    --info-card-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-top: 8px;
 }
 
 .protocol-card h4 {
-  color: #2a6db3;
-  margin-bottom: 6px;
+    color: #2a6db3;
+    margin-bottom: 6px;
 }
 
-.protocol-section h5 {
-  color: #444;
-  font-size: 14px;
-  margin-top: 4px;
+.phase-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #004d40;
+    padding: 0;
+    text-align: left;
 }
 
-.protocol-section ul {
-  padding-left: 18px;
-  margin-top: 4px;
+.phase-toggle h3 {
+    flex: 1;
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
+
+.phase-toggle:focus-visible {
+    outline: 3px solid #80cbc4;
+    outline-offset: 2px;
+}
+
+.collapsible-icon {
+    font-size: 1.2rem;
+    transition: transform 0.25s ease;
+}
+
+.phase-card.is-expanded .collapsible-icon {
+    transform: rotate(45deg);
+}
+
+.phase-content {
+    padding-top: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding-top 0.25s ease;
+}
+
+.phase-card.is-expanded .phase-content {
+    opacity: 1;
+    padding-top: 12px;
+}
+
+/* Shared styling for tinted info panels */
+.info-panel {
+    background-color: #f1f9ff;
+    border: 1px solid #cce5ff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Hidden details block (expand when active) */
+.protocol-details {
+    display: none;
+    margin-top: 8px;
+    padding: 10px 12px;
+}
+
+/* Drug text style inside expanded block */
+.protocol-details .drug-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+.protocol-details .drug-day {
+    display: block;
+    font-weight: 600;
+    color: #005b7f;
+    margin-right: 6px;
+    font-size: 0.95rem;
+}
+.protocol-details .drug-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.protocol-details .drug-dose {
+    font-style: italic;
+    color: #333;
+}
+.protocol-details .drug-route {
+    font-weight: 700;
+    font-style: italic;
+}
+.protocol-details .drug-duration {
+    font-style: italic;
+    color: #d13b3b; /* red tone */
+}
+
+
 
 
 /* =========================================================
-   4️⃣ CALCULATIONS SECTION
-   ========================================================= */
-
-/* (a) Layout */
-#calculationsList .card {
-  margin: 8px 0;
-  text-align: center;
-}
+CALCULATIONS SECTION
+========================================================= */
 
 .calc-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
 }
 
-.calc-form input,
-.calc-form select {
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 1rem;
-  color: #333;
-  box-sizing: border-box;
-  outline: none;
+.calc-form .input-field,
+.interaction-inputs .input-field {
+    width: 100%;
 }
 
-.calc-form input:focus,
-.calc-form select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+.input-field {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    padding: 8px 10px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
 }
 
 .calc-rate-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
 }
 
 .calc-rate-row input[type="number"] {
-  flex: 1;
+    flex: 1;
 }
 
-.calc-rate-row select {
-  width: 120px;
+.calc-rate-row select.input-field {
+    width: 120px;
 }
 
 /* (b) Buttons */
 .calc-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.calc-buttons button,
+.btn-row button {
+    flex: 1;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    color: white;
 }
 
 .calc-buttons button {
-  flex: 1;
-  border: none;
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-  transition: background 0.2s;
+    padding: 8px;
 }
 
-.calc-buttons button:hover {
-  opacity: 0.9;
+.btn-row button {
+    padding: 10px;
 }
 
-.calc-buttons button:focus-visible {
-  outline: 3px solid #80cbc4;
-  outline-offset: 2px;
-}
-
-.calc-buttons .btn-clear {
-  background-color: #dc3545;
-}
-
-.calc-buttons .btn-clear:hover {
-  background-color: #b02a37;
-}
-
-.calc-buttons button:not(.btn-clear) {
-  background-color: #28a745;
-}
-
-.calc-buttons button:not(.btn-clear):hover {
-  background-color: #218838;
+.calc-buttons button:focus-visible,
+.btn-row button:focus-visible {
+    outline: 3px solid #80cbc4;
+    outline-offset: 2px;
 }
 
 /* (c) Bolus Options */
 .calc-bolus-option {
-  display: flex;
-  gap: 12px;
-  margin: 8px 0 12px;
-  font-weight: bold;
+    display: flex;
+    gap: 12px;
+    margin: 8px 0 12px;
+    font-weight: bold;
 }
 
 .calc-bolus-option label {
-  cursor: pointer;
-  font-size: 0.95rem;
+    cursor: pointer;
+    font-size: 0.95rem;
 }
 
 /* (d) Result Box */
 .calc-result {
-  margin-top: 8px;
-  padding: 8px;
-  background-color: #f1f9ff;
-  border: 1px solid #cce5ff;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    margin-top: 8px;
+    padding: 8px;
 }
 
 .result-box {
-  text-align: left;
-  font-size: 0.95rem;
-  line-height: 1.5;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .infusion-final {
-  font-weight: 700;
-  font-size: 1.05rem;
-  margin-top: 6px;
-  border-top: 1px solid #ccc;
-  padding-top: 6px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-top: 6px;
+    border-top: 1px solid #ccc;
+    padding-top: 6px;
 }
 
 .infusion-final span {
-  color: #004b8d;
+    color: #004b8d;
 }
 
 .section-heading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 999px;
-  padding: 4px 10px;
-  color: #004d40;
-  background-color: #e0f2f1;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 4px 10px;
+    color: #004d40;
+    background-color: #e0f2f1;
 }
 
 .badge-loading {
-  color: #795548;
-  background-color: #ffe0b2;
+    color: #795548;
+    background-color: #ffe0b2;
 }
 
 .badge-success {
-  color: #1b5e20;
-  background-color: #c8e6c9;
+    color: #1b5e20;
+    background-color: #c8e6c9;
 }
 
 .badge-error {
-  color: #b71c1c;
-  background-color: #ffcdd2;
+    color: #b71c1c;
+    background-color: #ffcdd2;
 }
 
 .card-full {
-  grid-column: 1 / -1;
-  cursor: default;
-}
-
-.card-full:hover {
-  transform: none;
-  background: white;
+    grid-column: 1 / -1;
+    cursor: default;
 }
 
 .interaction-inputs {
-  display: grid;
-  gap: 12px;
-  margin-bottom: 16px;
+    display: grid;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .interaction-inputs .input-group {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .interaction-inputs label {
-  font-weight: 600;
+    font-weight: 600;
 }
 
-.interaction-inputs input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.interaction-inputs input.input-field[type="text"],
+.interaction-inputs input.input-field[type="search"] {
+    padding: 12px 14px;
 }
 
 .btn-row {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
-.btn-row button {
-  flex: 1;
-  border: none;
-  padding: 10px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.btn-row button:focus-visible {
-  outline: 3px solid #80cbc4;
-  outline-offset: 2px;
-}
-
-.btn-primary {
-  background-color: #28a745;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #218838;
+.btn-primary,
+.calc-buttons button:not(.btn-clear) {
+    background-color: #28a745;
+    color: white;
 }
 
 .btn-clear {
-  background-color: #dc3545;
-  color: white;
+    background-color: #dc3545;
+    color: white;
 }
 
-.btn-clear:hover {
-  background-color: #b02a37;
+.nursing-tips {
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    color: #004b8d;
 }
 
-.history-list {
-  margin: 0;
-  padding-left: 18px;
-  font-size: 0.9rem;
+.nursing-tips strong {
+    color: #004b8d;
+    display: block;
+    margin-bottom: 4px;
 }
 
-.history-list li {
-  margin-bottom: 4px;
-}
-
-.history-label {
-  font-weight: 600;
-}
-
-.history-severity {
-  color: #2a6db3;
-}
 
 /* =========================================================
-    DRUG INTERACTIONS SUGGESTION BOX
-   ---------------------------------------------------------
-
+DRUG INTERACTIONS SUGGESTION BOX
+--------------------------------------------------------- */
+/* Suggestion box container */
 .suggestion-box {
     position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    max-height: 160px;
-    overflow-y: auto;
-    z-index: 200;
+    z-index: 1000;
     width: 100%;
+    max-height: 220px;
+    overflow-y: auto;
+
+    background: #f2f7fb; /* medical clean blue */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+
+    padding: 6px 0;
+    margin-top: 4px;
+
+    opacity: 0;
+    transform: translateY(-5px);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
 }
+
+/* When suggestions appear */
+.suggestion-box.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Suggestion items */
+.suggestion-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 6px;
+    margin: 2px 6px;
+    transition: background 0.15s ease;
+}
+
+/* Hover effect */
+.suggestion-item:hover {
+    background: #e2edf7;  /* soft hover */
+}
+
+/* Scrollbar styling (optional) */
+.suggestion-box::-webkit-scrollbar {
+    width: 7px;
+}
+
+.suggestion-box::-webkit-scrollbar-thumb {
+    background: #cdd8e4;
+    border-radius: 10px;
+}
+
 
 .suggestion-item {
     padding: 6px 10px;
@@ -443,18 +532,13 @@ header {
     font-size: 0.95rem;
 }
 
-.suggestion-item:hover {
-    background-color: #f1f9ff;
-}
-
+/* =========================================================
+🎮 NURSE WORDLE — GAME STYLES V: 1.0.1
+========================================================= */
 
 /* =========================================================
-   🎮 NURSE WORDLE — GAME STYLES V: 1.0.1
-   ---------------------------------------------------------
-
-/* =========================================================
-   1️⃣ MODAL OVERLAY & CONTAINER
-   ========================================================= */
+MODAL OVERLAY & CONTAINER
+========================================================= */
 .wordle-modal {
     position: fixed;
     inset: 0;
@@ -477,10 +561,27 @@ header {
     animation: fadeIn 0.3s ease;
 }
 
+.wordle-modal-content h3 {
+    margin-top: 0;
+}
+
+/* Close button (used in modal) */
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    transition: color 0.2s ease;
+}
 
 /* =========================================================
-   2️⃣ EXAMPLE GRID (IN RULES MODAL)
-   ========================================================= */
+EXAMPLE GRID (IN RULES MODAL)
+========================================================= */
 .wordle-example-grid {
     display: grid;
     grid-template-columns: repeat(4, 50px);
@@ -503,35 +604,31 @@ header {
     color: #333;
 }
 
-
 /* =========================================================
-   ✅ SHARED COLOR STATES (used by both modal + main grid)
-   ========================================================= */
-.cell.correct,
+✅ SHARED COLOR STATES (modal example + main grid)
+========================================================= */
+.wordle-example-grid .cell.correct,
 .wordle-cell.correct {
     background-color: #2e7d32;
     border-color: #2e7d32;
     color: #fff;
 }
 
-.cell.present,
+.wordle-example-grid .cell.present,
 .wordle-cell.present {
     background-color: #f9a825;
     border-color: #f9a825;
     color: #fff;
 }
 
-.cell.absent,
+.wordle-example-grid .cell.absent,
 .wordle-cell.absent {
     background-color: #9e9e9e;
     border-color: #9e9e9e;
     color: #fff;
 }
 
-
-/* =========================================================
-   3️⃣ RULES TEXT & CLOSE BUTTON
-   ========================================================= */
+/* Rules text in modal */
 .wordle-rules-text p {
     text-align: left;
     margin: 6px 0;
@@ -539,113 +636,137 @@ header {
     color: #333;
 }
 
-.close-btn {
-    position: absolute;
-    top: 6px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #666;
-    cursor: pointer;
-    transition: color 0.2s ease;
+/* =========================================================
+🎮 GAME WRAPPER (Card around the game)
+========================================================= */
+.game-wrapper-card {
+    padding: 16px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    margin-top: 16px;
 }
 
-.close-btn:hover {
-    color: #000;
+.game-title {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
 }
 
+.game-inner {
+    margin-top: 8px;
+}
+
+/* Optional: if you use class="game-panel" on #gameContent */
+.game-panel {
+    margin-top: 12px;
+}
+
+.game-panel[hidden] {
+    display: none;
+}
 
 /* =========================================================
-   4️⃣ MAIN WORDLE GRID
-   ========================================================= */
-.wordle-grid {
-    display: grid;
-    grid-template-rows: repeat(6, 50px); /* 6 rows */
-    grid-template-columns: repeat(5, 50px); /* 5 columns */
-    gap: 8px;
-    justify-content: center;
-    width: max-content;
+🧩 NURSE WORDLE MAIN GRID
+========================================================= */
+.wordle-container {
+    max-width: 420px;
     margin: 0 auto;
+    padding: 12px 0;
 }
 
+.wordle-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
 
+.wordle-hint {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.info-btn {
+    border: none;
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background: #eef;
+}
+
+/* Grid layout */
+.wordle-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-top: 8px;
+    justify-items: center;
+}
+
+/* Individual cells */
 .wordle-cell {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    border: 2px solid #ccc;
-    background-color: #fff;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.3rem;
+    width: 48px;
+    aspect-ratio: 1 / 1;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 600;
     text-transform: uppercase;
-    transition: background-color 0.25s, border-color 0.25s, transform 0.1s ease;
-    position: relative;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    user-select: none;
+    transition: transform 0.1s ease, background-color 0.1s ease, border-color 0.1s ease;
 }
 
 .wordle-cell.filled {
-    transform: scale(1.05);
+    border-color: #999;
 }
 
 .wordle-cell.cursor {
     border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
 }
 
-.wordle-cell.cursor::after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 60%;
-    background-color: #1976d2;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: wordle-caret-blink 1s steps(1) infinite;
-}
-
+/* Hidden input (for keyboard handling) */
 .wordle-hidden-input {
     position: absolute;
-    left: -9999px;
-    top: 0;
-    width: 1px;
-    height: 1px;
     opacity: 0;
-    border: 0;
-    padding: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
 }
 
-
 /* =========================================================
-   5️⃣ ANIMATIONS
-   ========================================================= */
+ANIMATIONS
+========================================================= */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(-8px);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
 }
 
 @keyframes wordle-caret-blink {
     0%, 50% {
         opacity: 1;
     }
-    50.01%, 100% {
-        opacity: 0;
-    }
+50.01%, 100% {
+    opacity: 0;
+}
 }
 
 /* =========================================================
-   6️⃣ PERSONALIZATION
-   ========================================================= */
+PERSONALIZATION
+========================================================= */
 .change-name-btn {
     margin-top: 6px;
     font-size: 0.8rem;
@@ -654,8 +775,4 @@ header {
     border: none;
     cursor: pointer;
     text-decoration: underline;
-}
-
-.change-name-btn:hover {
-    color: #0056b3;
 }
