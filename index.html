@@ -26,7 +26,32 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
-    <body>
+    <body>  
+        <!-- Onboarding Modal -->
+        <div id="onboardingModal" class="onboard-overlay" style="display:none;">
+            <div class="onboard-box">
+                <h2>Welcome to Hema Nurse Aid</h2>
+
+                <label>Enter your name:</label>
+                <input type="text" id="onboardName" placeholder="Your name">
+
+                <div class="disclaimer">
+                    <strong>Disclaimer:</strong>
+                    <p>
+                        This app is a supportive tool only. It does not replace physician orders,
+                        hospital policies, or clinical judgment. Always verify information using
+                        official hospital guidelines.
+                    </p>
+                </div>
+
+                <label class="agreeLabel">
+                    <input type="checkbox" id="agreeCheck">
+                    I understand and agree
+                </label>
+
+                <button id="onboardSubmit" disabled>Continue</button>
+            </div>
+        </div>
 
         <!-- =========================================================
             HEADER

@@ -776,3 +776,86 @@ PERSONALIZATION
     cursor: pointer;
     text-decoration: underline;
 }
+/* =========================================================
+ONBOARDING MODAL (Name + Disclaimer)
+Matches your app's card & green hospital theme
+========================================================= */
+
+.onboard-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    animation: fadeIn 0.25s ease;
+}
+
+.onboard-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 360px;
+    padding: 20px 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.onboard-box h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: #004d40;
+    font-weight: 700;
+}
+
+#onboardName {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.disclaimer {
+    background: #fff3cd;
+    border: 1px solid #ffecb5;
+    padding: 10px;
+    margin: 14px 0;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #5c4400;
+}
+
+.agreeLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+#onboardSubmit {
+    width: 100%;
+    padding: 10px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#onboardSubmit:disabled {
+    background: #8ab5b1;
+    cursor: not-allowed;
+}
+
+#onboardSubmit:not(:disabled):hover {
+    background: #00695c;
+}

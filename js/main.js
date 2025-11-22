@@ -42,35 +42,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function personalizeGreeting() {
+    const modal = document.getElementById("onboardingModal");
+    const submitBtn = document.getElementById("onboardSubmit");
+    const agreeCheck = document.getElementById("agreeCheck");
+    const nameInput = document.getElementById("onboardName");
+
     let userName = localStorage.getItem("userName");
+
+    // ===============================
+    // 1️⃣ FIRST LAUNCH → SHOW MODAL
+    // ===============================
     if (!userName) {
-        userName = prompt("Please enter your name for personalization:");
-        if (userName) localStorage.setItem("userName", userName);
+        modal.style.display = "flex";
     }
 
+    // Enable Continue button only if checkbox is checked
+    agreeCheck.addEventListener("change", () => {
+        submitBtn.disabled = !agreeCheck.checked;
+    });
+
+    // Save Name + Close modal
+    submitBtn.addEventListener("click", () => {
+        const name = nameInput.value.trim();
+
+        if (name.length < 2) {
+            alert("Please enter a valid name.");
+            return;
+        }
+
+        localStorage.setItem("userName", name);
+        modal.style.display = "none";
+        location.reload();
+    });
+
+    // ===============================
+    // 2️⃣ GREETING ON HOME SCREEN
+    // ===============================
     const welcomeEl = document.getElementById("welcomeMessage");
     const introEl = document.getElementById("introText");
 
-    if (welcomeEl) {
+    if (welcomeEl && userName) {
         const hour = new Date().getHours();
         let greeting = "Welcome";
         if (hour < 12) greeting = "Good morning";
         else if (hour < 18) greeting = "Good afternoon";
         else greeting = "Good evening";
 
-        welcomeEl.innerHTML = `${greeting}, <strong>${userName || "👩‍⚕️"}</strong>`;
+        welcomeEl.innerHTML = `${greeting}, <strong>${userName}</strong>`;
 
-        const changeBtn = document.createElement("button");
-        changeBtn.textContent = "Change name";
-        changeBtn.className = "change-name-btn";
-        changeBtn.onclick = () => {
-            const newName = prompt("Enter your name:");
-            if (newName) {
-                localStorage.setItem("userName", newName);
-                location.reload();
-            }
+        // ===============================
+        // 3️⃣ ADD "Edit Name" BUTTON
+        // ===============================
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit Name";   // 🔁 You can rename this
+        editBtn.className = "change-name-btn";
+
+        // Reopen modal when clicked
+        editBtn.onclick = () => {
+            nameInput.value = userName;  // Prefill current name
+            agreeCheck.checked = false;
+            submitBtn.disabled = true;
+            modal.style.display = "flex";
         };
-        welcomeEl.insertAdjacentElement("afterend", changeBtn);
+
+        welcomeEl.insertAdjacentElement("afterend", editBtn);
     }
 
     if (introEl) {
