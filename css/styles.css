@@ -842,9 +842,10 @@ EXAMPLE GRID (IN RULES MODAL)
 /* Grid layout */
 .wordle-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
+    grid-template-columns: repeat(5, 52px);
+    gap: 4px;
     margin-top: 8px;
+    justify-content: center;
     justify-items: center;
 }
 
