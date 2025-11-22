@@ -25,11 +25,14 @@ fetch("data/protocols/chemoProtocols.json")
 /* =========================================================
    2️⃣ OPEN SPECIFIC LEUKEMIA TYPE (AML, ALL, etc.)
    ========================================================= */
-function openLeukemiaType(type) {
+function openLeukemiaType(type, options = {}) {
     navigateToSection("type");
 
     const titleEl = document.getElementById("typeTitle");
     const list = document.getElementById("protocolList");
+    const targetPhase = (options.phaseName || "").toLowerCase();
+    const targetProtocol = (options.protocolName || "").toLowerCase();
+    let highlightCard = null;
 
     if (!list) return;
     list.innerHTML = "";
@@ -105,6 +108,14 @@ function openLeukemiaType(type) {
             const name = protocol.protocolName || "Unnamed Regimen";
             card.innerHTML = `<h4>${name}</h4>`;
 
+            const isTargetProtocol =
+                targetProtocol &&
+                (name.toLowerCase() === targetProtocol || name.toLowerCase().includes(targetProtocol));
+            if (!highlightCard && isTargetProtocol) {
+                card.classList.add("protocol-highlight");
+                highlightCard = card;
+            }
+
             // Expanded details
             const details = document.createElement("div");
             details.classList.add("protocol-details", "info-panel");
@@ -149,6 +160,10 @@ function openLeukemiaType(type) {
 
         list.appendChild(phaseDiv);
 
+        const phaseHasTarget =
+            (targetPhase && phase.toLowerCase() === targetPhase) ||
+            !!phaseContent.querySelector(".protocol-highlight");
+
         const togglePhase = () => {
             const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
             if (!isExpanded) {
@@ -165,6 +180,9 @@ function openLeukemiaType(type) {
         };
 
         toggleBtn.addEventListener("click", togglePhase);
+        if (phaseHasTarget) {
+            requestAnimationFrame(() => togglePhase());
+        }
 
         phaseContent.addEventListener("transitionend", () => {
             if (phaseDiv.classList.contains("is-expanded")) {
@@ -174,6 +192,14 @@ function openLeukemiaType(type) {
             }
         });
     });
+
+    if (highlightCard) {
+        setTimeout(() => {
+            highlightCard.scrollIntoView({ behavior: "smooth", block: "center" });
+            highlightCard.classList.add("protocol-pulse");
+            setTimeout(() => highlightCard.classList.remove("protocol-pulse"), 1600);
+        }, 280);
+    }
 }
 
 window.addEventListener("resize", () => {
@@ -183,3 +209,150 @@ window.addEventListener("resize", () => {
         }
     });
 });
+
+/* =========================================================
+   4️⃣ PROTOCOL SEARCH
+   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    initProtocolSearch();
+});
+
+function initProtocolSearch() {
+    const input = document.getElementById("protocolSearchInput");
+    const searchBtn = document.getElementById("protocolSearchBtn");
+    const clearBtn = document.getElementById("protocolSearchClear");
+
+    if (!input) return;
+
+    const triggerSearch = () => performProtocolSearch(input.value);
+
+    if (searchBtn) searchBtn.addEventListener("click", triggerSearch);
+
+    input.addEventListener("keydown", ev => {
+        if (ev.key === "Enter") {
+            ev.preventDefault();
+            triggerSearch();
+        }
+    });
+
+    input.addEventListener("input", () => {
+        if (input.value.trim().length < 2) {
+            renderProtocolSearchResults([], { statusText: "Type at least 2 letters to search." });
+        }
+    });
+
+    if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+            input.value = "";
+            input.focus();
+            renderProtocolSearchResults([], { statusText: "Cleared. Type a protocol or drug name." });
+        });
+    }
+
+    renderProtocolSearchResults([], { statusText: "Type at least 2 letters to search." });
+}
+
+function performProtocolSearch(rawQuery) {
+    const query = (rawQuery || "").trim();
+
+    if (query.length < 2) {
+        return renderProtocolSearchResults([], { statusText: "Type at least 2 letters to search." });
+    }
+
+    if (!Object.keys(CHEMO_PROTOCOLS).length) {
+        return renderProtocolSearchResults([], { query, statusText: "Protocols are still loading. Try again in a moment." });
+    }
+
+    const matches = collectProtocolMatches(query);
+    const statusText = matches.length
+        ? `Found ${matches.length} match${matches.length === 1 ? "" : "es"} for "${query}".`
+        : `No protocols found for "${query}".`;
+
+    renderProtocolSearchResults(matches, { query, statusText });
+}
+
+function collectProtocolMatches(query) {
+    const normalizedQuery = query.toLowerCase();
+    const matches = [];
+
+    Object.entries(CHEMO_PROTOCOLS).forEach(([type, phases]) => {
+        if (!phases || typeof phases !== "object") return;
+
+        Object.entries(phases).forEach(([phaseName, phaseData]) => {
+            const protocols = Array.isArray(phaseData)
+                ? phaseData
+                : Array.isArray(phaseData?.protocols)
+                    ? phaseData.protocols
+                    : [];
+
+            protocols.forEach(protocol => {
+                const protocolName = (protocol.protocolName || "").toLowerCase();
+                const drugNames = (protocol.drugs || []).map(d => (d.name || "").toLowerCase());
+                const haystack = [type.toLowerCase(), phaseName.toLowerCase(), protocolName, ...drugNames].join(" ");
+
+                if (haystack.includes(normalizedQuery)) {
+                    matches.push({ type, phase: phaseName, protocol });
+                }
+            });
+        });
+    });
+
+    return matches;
+}
+
+function renderProtocolSearchResults(results, options = {}) {
+    const container = document.getElementById("protocolSearchResults");
+    const statusEl = document.getElementById("protocolSearchStatus");
+    const query = (options.query || "").trim();
+    const statusMessage = options.statusText || "";
+
+    if (statusEl) statusEl.textContent = statusMessage;
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    if (!query && !results.length) {
+        container.setAttribute("hidden", "");
+        return;
+    }
+
+    container.removeAttribute("hidden");
+
+    if (!results.length) {
+        const message = statusMessage || (query ? `No protocols found for "${query}".` : "");
+        if (message) {
+            container.innerHTML = `<p class="no-protocol search-empty">${message}</p>`;
+        }
+        return;
+    }
+
+    results.slice(0, 20).forEach(match => {
+        const card = document.createElement("div");
+        card.className = "protocol-card info-card protocol-search-result";
+
+        const drugPreview = (match.protocol.drugs || [])
+            .map(d => d.name)
+            .filter(Boolean)
+            .slice(0, 2)
+            .join(" • ");
+
+        card.innerHTML = `
+            <div class="result-top">
+                <span class="result-pill">${match.type}</span>
+                <span class="result-pill">${match.phase}</span>
+            </div>
+            <h4>${match.protocol.protocolName || "Unnamed Regimen"}</h4>
+            ${drugPreview ? `<p class="result-drugs">${drugPreview}</p>` : ""}
+            <p class="result-meta">Open full details</p>
+        `;
+
+        card.addEventListener("click", () => {
+            openLeukemiaType(match.type, {
+                phaseName: match.phase,
+                protocolName: match.protocol.protocolName
+            });
+        });
+
+        container.appendChild(card);
+    });
+}

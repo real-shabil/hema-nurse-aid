@@ -20,7 +20,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hema Nurse Aid</title>
+        <title>HEMA NURSE AID</title>
 
         <!-- ====== Styles ====== -->
         <link rel="stylesheet" href="css/styles.css">
@@ -56,9 +56,8 @@
         <!-- =========================================================
             HEADER
         ========================================================= -->
-        <header>Hema Nurse Aid</header>
-
-
+        <header>HEMA NURSE AID</header>
+        
         <!-- =========================================================
             HOME SECTION
         ========================================================= -->
@@ -85,6 +84,30 @@
         <div class="section" id="leukemia">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <h2>Hemato-Oncology Conditions</h2>
+
+            <div class="protocol-search info-card">
+                <div class="search-header">
+                    <p class="eyebrow">Protocol Search</p>
+                    <h3>Find a regimen fast</h3>
+                    <p class="search-hint">Search by protocol name, drug, or phase. Tap a match to jump straight to it.</p>
+                </div>
+
+                <div class="protocol-search-row">
+                    <input 
+                        type="search" 
+                        id="protocolSearchInput" 
+                        class="input-field" 
+                        placeholder="e.g., FLAG-IDA, Cytarabine, consolidation"
+                        aria-label="Search chemotherapy protocols"
+                    >
+                    <button type="button" id="protocolSearchBtn" class="btn-primary">Search</button>
+                    <button type="button" id="protocolSearchClear" class="btn-clear">Clear</button>
+                </div>
+                <div id="protocolSearchStatus" class="search-status">Type at least 2 letters to search.</div>
+            </div>
+
+            <div id="protocolSearchResults" class="protocols-container search-results" hidden></div>
+
             <div class="cards">
                 <div class="card" onclick="openLeukemiaType('AML')">Acute Myeloid (AML)</div>
                 <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
@@ -111,6 +134,29 @@
         <div class="section" id="medications">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <h2>Medications</h2>
+
+            <div class="protocol-search info-card">
+                <div class="search-header">
+                    <p class="eyebrow">Medication Search</p>
+                    <h3>Find a drug fast</h3>
+                    <p class="search-hint">Search by medication name, class, or keyword. Tap a match to jump to full details.</p>
+                </div>
+
+                <div class="protocol-search-row">
+                    <input 
+                        type="search" 
+                        id="medSearchInput" 
+                        class="input-field" 
+                        placeholder="e.g., Cisplatin, monoclonal, antiemetic"
+                        aria-label="Search medications"
+                    >
+                    <button type="button" id="medSearchBtn" class="btn-primary">Search</button>
+                    <button type="button" id="medSearchClear" class="btn-clear">Clear</button>
+                </div>
+                <div id="medSearchStatus" class="search-status">Type at least 2 letters to search.</div>
+            </div>
+
+            <div id="medSearchResults" class="protocols-container search-results" hidden></div>
 
             <div class="cards">
                 <div class="card" onclick="openMedicationGroup('chemotherapy')">

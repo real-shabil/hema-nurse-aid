@@ -25,7 +25,7 @@ function loadMedicationData() {
         .catch(err => console.error("Error loading medicationsData.json:", err));
 }
 
-function openMedicationGroup(groupKey) {
+function openMedicationGroup(groupKey, options = {}) {
     const dataReady = MEDICATIONS ? Promise.resolve(MEDICATIONS) : loadMedicationData();
 
     dataReady.then(data => {
@@ -59,7 +59,18 @@ function openMedicationGroup(groupKey) {
         list.innerHTML = "";
 
         // This gives you a phase-card + inner drug cards (same style as AML phases)
-        renderMedicationGroup(group, groupKey, 0, list);
+        renderMedicationGroup(group, groupKey, 0, list, options);
+
+        if (options.targetDrugName) {
+            setTimeout(() => {
+                const highlight = list.querySelector(".protocol-highlight");
+                if (highlight) {
+                    highlight.scrollIntoView({ behavior: "smooth", block: "center" });
+                    highlight.classList.add("protocol-pulse");
+                    setTimeout(() => highlight.classList.remove("protocol-pulse"), 1600);
+                }
+            }, 350);
+        }
     });
 }
 
@@ -95,7 +106,10 @@ function openMedicationsSection() {
 /* =========================================================
    RENDER GROUP CARD
    ========================================================= */
-function renderMedicationGroup(group, groupKey, index, mountPoint) {
+function renderMedicationGroup(group, groupKey, index, mountPoint, options = {}) {
+    const targetDrugName = (options.targetDrugName || "").toLowerCase();
+    let highlightedCard = null;
+
     const card = document.createElement("div");
     card.classList.add("phase-card");
 
@@ -130,8 +144,13 @@ function renderMedicationGroup(group, groupKey, index, mountPoint) {
     );
 
     group.drugs.forEach((drug, index) => {
-        renderMedicationDrug(drug, index, content);
+        const { card: drugCard, isTarget } = renderMedicationDrug(drug, index, content, { targetDrugName });
+        if (isTarget && !highlightedCard) highlightedCard = drugCard;
     });
+
+    if (highlightedCard) {
+        requestAnimationFrame(() => toggleMedicationGroup(card, content, btn));
+    }
 }
 
 /* =========================================================
@@ -184,7 +203,10 @@ function collapseMedicationGroup(card) {
 /* =========================================================
    RENDER DRUG CARD
    ========================================================= */
-function renderMedicationDrug(drug, index, mountPoint) {
+function renderMedicationDrug(drug, index, mountPoint, options = {}) {
+    const targetDrugName = (options.targetDrugName || "").toLowerCase();
+    const isTarget = targetDrugName && (drug.name || "").toLowerCase() === targetDrugName;
+
     const card = document.createElement("div");
     card.classList.add("protocol-card", "info-card");
 
@@ -201,11 +223,18 @@ function renderMedicationDrug(drug, index, mountPoint) {
     card.appendChild(details);
     mountPoint.appendChild(card);
 
+    if (isTarget) {
+        card.classList.add("protocol-highlight");
+        details.style.display = "block";
+    }
+
     card.addEventListener("click", () => {
         const open = details.style.display === "block";
         document.querySelectorAll(".protocol-details").forEach(div => (div.style.display = "none"));
         details.style.display = open ? "none" : "block";
     });
+
+    return { card, isTarget };
 }
 
 /* =========================================================
@@ -244,3 +273,160 @@ window.addEventListener("resize", () => {
         }
     });
 });
+
+/* =========================================================
+   MEDICATION SEARCH
+   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    initMedicationSearch();
+});
+
+function initMedicationSearch() {
+    const input = document.getElementById("medSearchInput");
+    const searchBtn = document.getElementById("medSearchBtn");
+    const clearBtn = document.getElementById("medSearchClear");
+
+    if (!input) return;
+
+    const triggerSearch = () => performMedicationSearch(input.value);
+
+    if (searchBtn) searchBtn.addEventListener("click", triggerSearch);
+
+    input.addEventListener("keydown", ev => {
+        if (ev.key === "Enter") {
+            ev.preventDefault();
+            triggerSearch();
+        }
+    });
+
+    input.addEventListener("input", () => {
+        if (input.value.trim().length < 2) {
+            renderMedicationSearchResults([], { statusText: "Type at least 2 letters to search." });
+        }
+    });
+
+    if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+            input.value = "";
+            input.focus();
+            renderMedicationSearchResults([], { statusText: "Cleared. Type a medication name or keyword." });
+        });
+    }
+
+    renderMedicationSearchResults([], { statusText: "Type at least 2 letters to search." });
+}
+
+function performMedicationSearch(rawQuery) {
+    const query = (rawQuery || "").trim();
+
+    if (query.length < 2) {
+        return renderMedicationSearchResults([], { statusText: "Type at least 2 letters to search." });
+    }
+
+    const dataReady = MEDICATIONS ? Promise.resolve(MEDICATIONS) : loadMedicationData();
+
+    dataReady
+        .then(data => {
+            if (!data) {
+                return renderMedicationSearchResults([], { query, statusText: "Medications are still loading. Try again in a moment." });
+            }
+
+            const matches = collectMedicationMatches(query, data);
+            const statusText = matches.length
+                ? `Found ${matches.length} match${matches.length === 1 ? "" : "es"} for "${query}".`
+                : `No medications found for "${query}".`;
+
+            renderMedicationSearchResults(matches, { query, statusText });
+        })
+        .catch(() => {
+            renderMedicationSearchResults([], { query, statusText: "Unable to search medications right now." });
+        });
+}
+
+function collectMedicationMatches(query, data) {
+    const normalizedQuery = query.toLowerCase();
+    const matches = [];
+
+    Object.entries(data).forEach(([groupKey, group]) => {
+        if (!group?.drugs?.length) return;
+
+        group.drugs.forEach(drug => {
+            const fields = [
+                group.title,
+                groupKey,
+                drug.name,
+                drug.classification,
+                drug.route,
+                ...(drug.mechanism || []),
+                ...(drug.indications || []),
+                ...(drug.sideEffects || []),
+                ...(drug.monitoring || []),
+                ...(drug.warnings || []),
+                ...(drug.nursingTips || [])
+            ]
+                .filter(Boolean)
+                .join(" ")
+                .toLowerCase();
+
+            if (fields.includes(normalizedQuery)) {
+                matches.push({
+                    groupKey,
+                    groupTitle: group.title || groupKey,
+                    drug
+                });
+            }
+        });
+    });
+
+    return matches;
+}
+
+function renderMedicationSearchResults(results, options = {}) {
+    const container = document.getElementById("medSearchResults");
+    const statusEl = document.getElementById("medSearchStatus");
+    const query = (options.query || "").trim();
+    const statusMessage = options.statusText || "";
+
+    if (statusEl) statusEl.textContent = statusMessage;
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    if (!query && !results.length) {
+        container.setAttribute("hidden", "");
+        return;
+    }
+
+    container.removeAttribute("hidden");
+
+    if (!results.length) {
+        const message = statusMessage || (query ? `No medications found for "${query}".` : "");
+        if (message) {
+            container.innerHTML = `<p class="no-protocol search-empty">${message}</p>`;
+        }
+        return;
+    }
+
+    results.slice(0, 20).forEach(match => {
+        const card = document.createElement("div");
+        card.className = "protocol-card info-card protocol-search-result";
+
+        const detailLine = [match.drug.classification, match.drug.route].filter(Boolean).join(" • ");
+
+        card.innerHTML = `
+            <div class="result-top">
+                <span class="result-pill">${match.groupTitle}</span>
+                <span class="result-pill">Drug</span>
+            </div>
+            <h4>${match.drug.name || "Unnamed Drug"}</h4>
+            ${detailLine ? `<p class="result-drugs">${detailLine}</p>` : ""}
+            <p class="result-meta">Open full details</p>
+        `;
+
+        card.addEventListener("click", () => {
+            openMedicationGroup(match.groupKey, { targetDrugName: match.drug.name });
+        });
+
+        container.appendChild(card);
+    });
+}

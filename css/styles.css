@@ -90,6 +90,76 @@ NAVIGATION & CARDS
     outline-offset: 2px;
 }
 
+.protocol-search {
+    margin: 8px 0 14px;
+    cursor: default;
+}
+
+.protocol-search h3 {
+    margin: 2px 0 6px;
+    color: #004d40;
+}
+
+.protocol-search .eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2a6db3;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.protocol-search .search-hint {
+    margin: 4px 0 0;
+    color: #4a4a4a;
+    font-size: 0.92rem;
+}
+
+.protocol-search-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: stretch;
+}
+
+.protocol-search-row input {
+    flex: 1;
+    min-width: 140px;
+}
+
+.protocol-search-row .btn-primary,
+.protocol-search-row .btn-clear {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    min-width: 110px;
+}
+
+@media (max-width: 639px) {
+    .protocol-search-row {
+        flex-wrap: wrap;
+    }
+
+    .protocol-search-row input {
+        flex: 1 0 100%;
+        min-width: 100%;
+    }
+
+    .protocol-search-row .btn-primary,
+    .protocol-search-row .btn-clear {
+        flex: 1 0 calc(50% - 4px);
+        min-width: 0;
+    }
+}
+
+.search-status {
+    margin-top: 8px;
+    font-size: 0.92rem;
+    color: #555;
+}
+
 #medType .protocols-container {
     overflow: visible;
 }
@@ -126,6 +196,10 @@ PROTOCOL & PHASE BLOCKS
     box-shadow: var(--info-card-shadow);
     transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     cursor: pointer;
+}
+
+.protocol-search.info-card {
+    cursor: default;
 }
 
 .info-card:focus-visible,
@@ -257,6 +331,74 @@ PROTOCOL & PHASE BLOCKS
 .protocol-details .drug-duration {
     font-style: italic;
     color: #d13b3b; /* red tone */
+}
+
+.search-results {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    display: grid;
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .search-results {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+.protocol-search-result {
+    cursor: pointer;
+}
+
+.protocol-search-result .result-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.protocol-search-result .result-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #e0f2f1;
+    color: #004d40;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.protocol-search-result .result-drugs {
+    margin: 4px 0 2px;
+    font-size: 0.95rem;
+    color: #004b8d;
+}
+
+.protocol-search-result .result-meta {
+    margin: 2px 0 0;
+    color: #555;
+    font-size: 0.88rem;
+}
+
+.protocol-highlight {
+    border-color: #28a745;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
+}
+
+.protocol-pulse {
+    animation: protocolPulse 1.4s ease;
+}
+
+@keyframes protocolPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.35);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
 }
 
 
