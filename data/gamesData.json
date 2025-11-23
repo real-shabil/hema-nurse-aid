@@ -1,6 +1,6 @@
 {
     "wordle": {
-        "title": "Nurse Wordle",
+        "title": "Wordle",
         "description": "Guess the hidden 5-letter English word.",
         "rules": [
             "Enter any 5-letter word in the grid.",

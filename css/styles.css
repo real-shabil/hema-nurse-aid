@@ -25,29 +25,86 @@ BASE & LAYOUT
 ========================================================= */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: #f7f8fa;
     scroll-behavior: smooth;
+
+    line-height: 1.45;
+}
+
+:root {
+    --text-xs: 0.78rem;  /* small labels */
+    --text-sm: 0.88rem;  /* hints, secondary text */
+    --text-md: 0.96rem;  /* normal body text */
+    --text-lg: 1.1rem;   /* section headings */
+    --text-xl: 1.35rem;  /* major titles */
 }
 
 header {
     position: sticky;
     top: 0;
-    background: #004d40;
+    background: #064e3b;
     color: white;
     text-align: center;
-    padding: 12px 0;
-    font-size: 1.2em;
+    padding: 14px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     z-index: 1000;
 }
 
-.container {
-    padding: 16px;
+label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
+.container,
 .section {
-    display: none;
-    padding: 16px;
+    padding: 18px;       /* Mobile-friendly */
+}
+
+@media (min-width: 768px) {
+    .container,
+    .section {
+        padding: 28px;   /* For Desktop */
+        max-width: 900px;
+        margin: 0 auto; 
+    }
+}
+
+.section:not(:first-of-type) {
+    border-top: 1px solid #eee;
+}
+
+.section > *:first-child {
+    margin-top: 0;
+}
+
+.section h2 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: #064e3b;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    letter-spacing: 0.2px;
+}
+
+.section h3,
+.protocol-search h3,
+.med-header h3 {
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: #064e3b;
+    margin-bottom: 6px;
+}
+
+.section p {
+    font-size: var(--text-md);
+    color: #444;
+    line-height: 1.55;
+    margin-bottom: 14px;
 }
 
 .cards {
@@ -66,14 +123,6 @@ header {
 /* =========================================================
 NAVIGATION & CARDS
 ========================================================= */
-.card {
-    --info-card-padding: 20px;
-    --info-card-radius: 16px;
-    --info-card-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    font-weight: bold;
-}
-
 
 .back-btn {
     background: #004d40;
@@ -101,7 +150,7 @@ NAVIGATION & CARDS
 }
 
 .protocol-search .eyebrow {
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #2a6db3;
     font-weight: 700;
@@ -172,7 +221,7 @@ PROTOCOL & PHASE BLOCKS
     border-left: 5px solid #004d40;
     margin: 10px 0;
     padding: 12px 16px;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
@@ -184,49 +233,68 @@ PROTOCOL & PHASE BLOCKS
 /* Shared white card styling for reusable content blocks */
 .info-card,
 .card {
-    --info-card-padding: 16px;
-    --info-card-radius: 12px;
+    --info-card-padding: 18px;
+    --info-card-radius: 16px;
     --info-card-border: none;
-    --info-card-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    --info-card-shadow: 0 3px 10px rgba(0,0,0,0.06);
     display: block;
     background: #fff;
     padding: var(--info-card-padding);
     border-radius: var(--info-card-radius);
     border: var(--info-card-border);
     box-shadow: var(--info-card-shadow);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     cursor: pointer;
+
+    text-align: center;
+    font-weight: 600;
+
+
+    transition: background-color 0.2s ease, 
+                box-shadow 0.2s ease, 
+                transform 0.2s ease;
+}
+
+/* HOVER (desktop only) */
+@media (hover:hover) {
+    .info-card:hover,
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        background: #fff;
+    }
+}
+
+/* Active (for mobile tap)*/
+.card:active,
+.info-card:active {
+    transform: scale(0.98);
+    background-color: #eef7f0;
+}
+
+/* Focus (for Keyboard) */
+.card:focus-visible,
+.info-card:focus-visible {
+    outline: 3px solid #80cbc4;
+    outline-offset: 2px;
+    background: #fff;
+    transform: none;
+}
+
+.home-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .protocol-search.info-card {
     cursor: default;
 }
 
-.info-card:focus-visible,
-.card:focus-visible {
-    outline: 3px solid #80cbc4;
-    outline-offset: 2px;
-    transform: scale(1.02);
-    background: #e8f5e9;
-}
-
-.info-card:active,
-.card:active {
-    background-color: #d0f0dc;
-    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
-}
-
-@media (hover:hover) {
-    .info-card:hover,
-    .card:hover {
-        background: #e8f5e9;
-        transform: scale(1.02);
-    }
-}
 
 .protocol-card {
     --info-card-padding: 12px;
-    --info-card-radius: 10px;
+    --info-card-radius: 12px;
     --info-card-border: 1px solid #ddd;
     --info-card-shadow: 0 1px 3px rgba(0,0,0,0.1);
     margin-top: 8px;
@@ -307,8 +375,11 @@ PROTOCOL & PHASE BLOCKS
     align-items: baseline;
     gap: 4px;
     margin-bottom: 6px;
-    line-height: 1.5;
+
+    font-size: var(--text-md);
+    line-height: 1.55;
 }
+
 .protocol-details .drug-day {
     display: block;
     font-weight: 600;
@@ -424,7 +495,7 @@ CALCULATIONS SECTION
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 1rem;
-    padding: 8px 10px;
+    padding: 10px 12px;
     background-color: #fff;
     color: #333;
     box-sizing: border-box;
@@ -460,14 +531,19 @@ CALCULATIONS SECTION
 }
 
 .calc-buttons button,
-.btn-row button {
+.btn-row button,
+.btn-primary,
+.btn-clear {
     flex: 1;
     border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
-    color: white;
+    transition: background-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.15s ease;
 }
 
 .calc-buttons button {
@@ -588,14 +664,39 @@ CALCULATIONS SECTION
 
 .btn-primary,
 .calc-buttons button:not(.btn-clear) {
-    background-color: #28a745;
+    background-color: #0c8f58; /* cleaner medical green */
     color: white;
+    box-shadow: 0 2px 5px rgba(12, 143, 88, 0.25);
+}
+
+.btn-primary:hover,
+.calc-buttons button:not(.btn-clear):hover {
+    background-color: #0a7a4b;
+    transform: translateY(-2px);
+}
+
+.btn-primary:active,
+.calc-buttons button:not(.btn-clear):active {
+    transform: scale(0.97);
+    background-color: #096c40;
 }
 
 .btn-clear {
-    background-color: #dc3545;
+    background-color: #d64545;
     color: white;
+    box-shadow: 0 2px 5px rgba(214, 69, 69, 0.25);
 }
+
+.btn-clear:hover {
+    background-color: #c43a3a;
+    transform: translateY(-2px);
+}
+
+.btn-clear:active {
+    transform: scale(0.97);
+    background-color: #b53030;
+}
+
 
 .nursing-tips {
     margin-top: 10px;
@@ -624,7 +725,7 @@ DRUG INTERACTIONS SUGGESTION BOX
 
     background: #f2f7fb; /* medical clean blue */
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 
     padding: 6px 0;
     margin-top: 4px;
@@ -697,7 +798,7 @@ MODAL OVERLAY & CONTAINER
     padding: 20px 30px;
     width: 320px;
     max-width: 90%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     text-align: center;
     position: relative;
     animation: fadeIn 0.3s ease;
@@ -785,7 +886,7 @@ EXAMPLE GRID (IN RULES MODAL)
     padding: 16px;
     border-radius: 12px;
     background: #ffffff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
     margin-top: 16px;
 }
 

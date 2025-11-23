@@ -49,20 +49,22 @@ function personalizeGreeting() {
 
     let userName = localStorage.getItem("userName");
 
-    // ===============================
-    // 1️⃣ FIRST LAUNCH → SHOW MODAL
-    // ===============================
+    // =========================================================
+    // 1️⃣ SHOW MODAL ONLY ON FIRST VISIT
+    // =========================================================
     if (!userName) {
         modal.style.display = "flex";
     }
 
-    // Enable Continue button only if checkbox is checked
-    agreeCheck.addEventListener("change", () => {
+    // Enable submit button only when checkbox is checked
+    agreeCheck.onchange = () => {
         submitBtn.disabled = !agreeCheck.checked;
-    });
+    };
 
-    // Save Name + Close modal
-    submitBtn.addEventListener("click", () => {
+    // =========================================================
+    // 2️⃣ SAVE NAME & CLOSE MODAL
+    // =========================================================
+    submitBtn.onclick = () => {
         const name = nameInput.value.trim();
 
         if (name.length < 2) {
@@ -72,47 +74,57 @@ function personalizeGreeting() {
 
         localStorage.setItem("userName", name);
         modal.style.display = "none";
-        location.reload();
-    });
+        updateGreeting(name);
+    };
 
-    // ===============================
-    // 2️⃣ GREETING ON HOME SCREEN
-    // ===============================
+    // If user already has a name → show greeting immediately
+    if (userName) {
+        updateGreeting(userName);
+    }
+}
+
+function updateGreeting(userName) {
     const welcomeEl = document.getElementById("welcomeMessage");
-    const introEl = document.getElementById("introText");
+    const modal = document.getElementById("onboardingModal");
+    const nameInput = document.getElementById("onboardName");
+    const agreeCheck = document.getElementById("agreeCheck");
+    const submitBtn = document.getElementById("onboardSubmit");
 
-    if (welcomeEl && userName) {
-        const hour = new Date().getHours();
-        let greeting = "Welcome";
-        if (hour < 12) greeting = "Good morning";
-        else if (hour < 18) greeting = "Good afternoon";
-        else greeting = "Good evening";
+    // If the element doesn't exist (e.g., user isn't on home section), exit
+    if (!welcomeEl) return;
 
-        welcomeEl.innerHTML = `${greeting}, <strong>${userName}</strong>`;
+    // Create dynamic greeting based on time
+    const hour = new Date().getHours();
+    let greeting = "Welcome";
 
-        // ===============================
-        // 3️⃣ ADD "Edit Name" BUTTON
-        // ===============================
-        const editBtn = document.createElement("button");
-        editBtn.textContent = "Edit Name";   // 🔁 You can rename this
+    if (hour < 12) greeting = "Good morning";
+    else if (hour < 18) greeting = "Good afternoon";
+    else greeting = "Good evening";
+
+    welcomeEl.innerHTML = `${greeting}, <strong>${userName}</strong>`;
+
+    // ===========================================
+    // Add or update the "Edit Name" button
+    // ===========================================
+    let editBtn = document.querySelector(".change-name-btn");
+
+    // If not present → create it
+    if (!editBtn) {
+        editBtn = document.createElement("button");
         editBtn.className = "change-name-btn";
-
-        // Reopen modal when clicked
-        editBtn.onclick = () => {
-            nameInput.value = userName;  // Prefill current name
-            agreeCheck.checked = false;
-            submitBtn.disabled = true;
-            modal.style.display = "flex";
-        };
-
+        editBtn.textContent = "Edit Name";
         welcomeEl.insertAdjacentElement("afterend", editBtn);
     }
 
-    if (introEl) {
-        introEl.textContent =
-            "Choose a section below to access nursing protocols, medications, or quick calculations.";
-    }
+    // Edit button: reopen modal with name prefilled
+    editBtn.onclick = () => {
+        nameInput.value = userName;      // Prefill with current name
+        agreeCheck.checked = false;      // Reset checkbox for safety
+        submitBtn.disabled = true;       // Disable until checkbox checked
+        modal.style.display = "flex";    // Open modal
+    };
 }
+
 
 
 function setupDrugInteractionControls() {
@@ -254,7 +266,7 @@ window.openGame = function openGame(gameKey) {
     panel.innerHTML = `
         <div class="game-wrapper-card">
             <h3 class="game-title">
-                ${gameKey === "wordle" ? "Nurse Wordle" : "Game"}
+                ${gameKey === "wordle" ? "Wordle" : "Game"}
             </h3>
             <div id="gameInner" class="game-inner"></div>
         </div>
@@ -267,9 +279,10 @@ window.openGame = function openGame(gameKey) {
     }
 
     if (gameKey === "wordle") {
-        if (typeof loadNurseWordle === "function") {
-            console.log("[Games] Calling loadNurseWordle...");
-            loadNurseWordle(inner);
+        if (typeof loadWordle === "function") {
+            console.log("[Games] Calling loadWordle...");
+            loadWordle(inner);
+
         } else {
             console.error("[Games] ❌ loadNurseWordle is not a function.");
             inner.innerHTML = "<p>Wordle module unavailable.</p>";
@@ -425,6 +438,3 @@ function clearCalculation(calcKey) {
     const resultDiv = document.getElementById(`result-${calcKey}`);
     if (resultDiv) resultDiv.innerHTML = "";
 }
-
-
-window.loadNurseWordle = loadNurseWordle;

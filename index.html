@@ -22,6 +22,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HEMA NURSE AID</title>
 
+        <!--INTER FONT-->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
         <!-- ====== Styles ====== -->
         <link rel="stylesheet" href="css/styles.css">
     </head>
@@ -64,16 +67,15 @@
         <div class="container" id="home">
             <h2 id="welcomeMessage">Welcome Nurse 👩‍⚕️</h2>
             <p id="introText">
-                Select a section below to access chemo protocols, medications, 
-                and common calculations.
+                Your hub for hematology-oncology protocols, medication guides, and clinical tools.
             </p>
 
             <div class="cards">
-                <div class="card" onclick="navigateToSection('leukemia')">🩸Hemato-Oncology</div>
-                <div class="card" onclick="openMedicationsSection()">💊Medications</div>
-                <div class="card" onclick="navigateToSection('calculations')">🧮Calculations</div>
-                <div class="card" onclick="navigateToSection('drugInteractions')">🧪Drug Interactions</div>
-                <div class="card" onclick="navigateToSection('games')">🎮Games</div>
+                <div class="card home-card" onclick="navigateToSection('leukemia')">🩸 Hemato-Oncology</div>
+                <div class="card home-card" onclick="openMedicationsSection()">💊 Medications</div>
+                <div class="card home-card" onclick="navigateToSection('calculations')">🧮 Calculations</div>
+                <div class="card home-card" onclick="navigateToSection('drugInteractions')">🧪 Drug Interactions</div>
+                <div class="card home-card" onclick="navigateToSection('games')">🎮 Games</div>
             </div>
         </div>
 
@@ -195,7 +197,7 @@
         <div class="section" id="drugInteractions">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <div class="section-heading">
-                <h2>💉 Drug Interactions</h2>
+                <h2>Drug Interactions</h2>
             </div>
 
             <div id="drugInteractionsContent" class="cards">

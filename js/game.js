@@ -16,11 +16,11 @@
 /* =========================================================
    1️⃣ LOAD & INITIALIZE GAME
    ========================================================= */
-async function loadNurseWordle(container) {
-    console.log("[Wordle] loadNurseWordle called with container:", container);
+async function loadWordle(container) {
+    console.log("[Wordle] loadWordle called with container:", container);
 
     if (!container) {
-        console.error("[Wordle] ❌ No container passed to loadNurseWordle.");
+        console.error("[Wordle] ❌ No container passed to loadWordle.");
         return;
     }
 
@@ -47,14 +47,14 @@ async function loadNurseWordle(container) {
         console.log("[Wordle] words list length:", words.length);
 
         if (!words.length) {
-            throw new Error("No words available for Nurse Wordle.");
+            throw new Error("No words available for Wordle.");
         }
 
         const secretWord = words[Math.floor(Math.random() * words.length)];
         console.log("[Wordle] Secret word selected (hidden):", secretWord);
 
         // Global object for tracking progress
-        window.nurseWordle = {
+        window.wordle = {
             secret: secretWord,
             attempts: 0,
             guesses: [],
@@ -71,7 +71,7 @@ async function loadNurseWordle(container) {
         container.innerHTML = `
             <div class="wordle-container">
                 <h3 class="wordle-header">
-                    🧩 ${gameData.title || "Nurse Wordle"}
+                    🧩 ${gameData.title || "Wordle"}
                     <button class="info-btn" type="button" onclick="showWordleRules()">?</button>
                 </h3>
                 <p class="wordle-hint">${gameData.description || ""}</p>
@@ -87,8 +87,8 @@ async function loadNurseWordle(container) {
                 />
                 <div id="wordleGrid" class="wordle-grid"></div>
                 <div class="calc-buttons" style="margin-top:16px;">
-                    <button type="button" class="btn-enter" onclick="submitNurseWordle()">Enter</button>
-                    <button type="button" class="btn-clear" onclick="resetNurseWordle()">Reset</button>
+                    <button type="button" class="btn-enter" id="wordleEnterBtn">Enter</button>
+                    <button type="button" class="btn-clear" id="wordleResetBtn">Reset</button>
                 </div>
                 <div id="wordleResult" class="calc-result info-panel" style="margin-top:16px;"></div>
             </div>
@@ -101,6 +101,31 @@ async function loadNurseWordle(container) {
         // ✅ Create grid and enable keyboard control
         generateWordleGrid("wordleGrid");
         setupWordleInputBridge();
+
+                // 🔘 Wire Enter + Reset buttons in a safe, mobile-friendly way
+        const enterBtn = container.querySelector("#wordleEnterBtn");
+        const resetBtn = container.querySelector("#wordleResetBtn");
+
+        if (enterBtn && !enterBtn.__bound) {
+            enterBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (typeof submitWordle === "function") {
+                    submitWordle();
+                }
+            });
+            enterBtn.__bound = true;
+        }
+
+        if (resetBtn && !resetBtn.__bound) {
+            resetBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (typeof resetWordle === "function") {
+                    resetWordle();
+                }
+            });
+            resetBtn.__bound = true;
+        }
+
 
         if (!window.wordleKeyListenerAdded) {
             document.addEventListener("keydown", handleWordleKey);
@@ -203,7 +228,7 @@ function buildWordleKeyboard() {
    🔠 WORDLE KEY HANDLER — LIVE INPUT MANAGEMENT
    ========================================================= */
 function handleWordleKey(event) {
-    const game = window.nurseWordle;
+    const game = window.wordle;
     if (!game || game.finished) return;
 
     const key = event.key.toUpperCase();
@@ -213,7 +238,7 @@ function handleWordleKey(event) {
     } else if (/^[A-Z]$/.test(key) && game.currentGuess.length < 5) {
         game.currentGuess += key;
     } else if (key === "ENTER") {
-        submitNurseWordle();
+        submitWordle();
         return;
     }
 
@@ -228,7 +253,7 @@ function updateWordleGrid() {
     const grid = document.getElementById("wordleGrid");
     if (!grid) return;
 
-    const game = window.nurseWordle;
+    const game = window.wordle;
     if (!game) return;
 
     const { currentGuess, activeRow, finished } = game;
@@ -289,11 +314,8 @@ function setupWordleInputBridge() {
     }
 
     if (container && !container.__wordleFocusBound) {
-        container.addEventListener("click", () => {
-            if (!window.nurseWordle?.finished) {
-                focusInput();
-            }
-        });
+        grid.addEventListener("click", focusInput);  // already present
+
         container.__wordleFocusBound = true;
     }
 
@@ -306,8 +328,8 @@ function setupWordleInputBridge() {
 /* =========================================================
    ✅ WORDLE SUBMIT & RESET HANDLERS
    ========================================================= */
-function submitNurseWordle() {
-    const game = window.nurseWordle;
+function submitWordle() {
+    const game = window.wordle;
     if (!game || game.finished) return;
 
     const resultDiv = document.getElementById("wordleResult");
@@ -430,8 +452,8 @@ function updateKeyboardColors(guess, statuses) {
 }
 
 
-function resetNurseWordle() {
-    const game = window.nurseWordle;
+function resetWordle() {
+    const game = window.wordle;
     if (!game) return;
 
     const newSecret = game.words[Math.floor(Math.random() * game.words.length)];
@@ -474,7 +496,7 @@ function showWordleRules() {
                 onclick="document.getElementById('wordleRulesModal').remove()">
                 ×
             </button>
-            <h3>🧩 How to Play Nurse Wordle</h3>
+            <h3>🧩 How to Play Wordle</h3>
 
             <div class="wordle-example-grid">
                 <div class="cell correct">C</div>
@@ -501,4 +523,6 @@ function showWordleRules() {
 /* =========================================================
    EXPORT LOADER GLOBALLY
    ========================================================= */
-window.loadNurseWordle = loadNurseWordle;
+window.loadWordle = loadWordle;
+window.resetWordle = resetWordle;
+window.submitWordle = submitWordle;
