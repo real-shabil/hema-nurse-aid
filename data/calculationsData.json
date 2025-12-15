@@ -4,32 +4,38 @@
         "description": "Calculate Body Mass Index (BMI) and Body Surface Area (BSA) from weight and height.",
         "inputFields": [
             {
-            "id": "weight",
-            "label": "Weight (kg)",
-            "type": "number",
-            "placeholder": "Enter weight in kg"
+                "id": "weight",
+                "label": "Weight (kg)",
+                "type": "number",
+                "placeholder": "Enter weight in kg"
             },
             {
-            "id": "height",
-            "label": "Height (cm)",
-            "type": "number",
-            "placeholder": "Enter height in cm"
+                "id": "height",
+                "label": "Height (cm)",
+                "type": "number",
+                "placeholder": "Enter height in cm"
             }
-        ]
+        ],
+        "source": "Hospital Guidelines"
     },
-
     "heparin": {
-            "title": "Therapeutic Heparin Infusion",
-            "description": "Calculate initial bolus/infusion and aPTT-based adjustments. <br> PLEASE DOUBLE CHECK WITH PHYSICIAN ORDER",
-            "note": "Defaults: bolus 80 U/kg, infusion 18 U/kg/hr, therapeutic aPTT 60–80 s. Adjustment is weight × factor rule as per hospital protocol.",
-            "inputFields": [
+        "title": "Heparin Infusion",
+        "description": "Calculate initial bolus/infusion and aPTT-based adjustments. <br> PLEASE DOUBLE CHECK WITH PHYSICIAN ORDER",
+        "note": "Defaults: bolus 80 U/kg, infusion 18 U/kg/hr, therapeutic aPTT 60–80 s. Adjustment is weight × factor rule as per hospital protocol.",
+        "inputFields": [
             {
                 "id": "syringe",
                 "label": "Syringe concentration",
                 "type": "select",
                 "options": [
-                { "label": "10,000 IU / 50 mL", "value": "10000" },
-                { "label": "25,000 IU / 50 mL", "value": "25000" }
+                    {
+                        "label": "10,000 IU / 50 mL",
+                        "value": "10000"
+                    },
+                    {
+                        "label": "25,000 IU / 50 mL",
+                        "value": "25000"
+                    }
                 ]
             },
             {
@@ -37,48 +43,95 @@
                 "label": "Risk algorithm",
                 "type": "select",
                 "options": [
-                { "label": "Low risk (default)", "value": "low" }
+                    {
+                        "label": "Low risk (default)",
+                        "value": "low"
+                    }
                 ]
             },
-            { "id": "weight", "label": "Weight (kg)", "type": "number", "placeholder": "e.g. 70" },
-            { "id": "aptt", "label": "Current aPTT (seconds)", "type": "number", "placeholder": "e.g. 65" },
-            { "id": "currentRate", "label": "Current infusion rate", "type": "number", "placeholder": "Enter rate" },
-            { "id": "useInitial", "label": "Calculate initial bolus & infusion", "type": "checkbox" },
-            { "id": "orderedRate", "label": "Initial infusion rate (IU/kg/hr)", "type": "number", "placeholder": "e.g. 18" },
+            {
+                "id": "weight",
+                "label": "Weight (kg)",
+                "type": "number",
+                "placeholder": "e.g. 70"
+            },
+            {
+                "id": "aptt",
+                "label": "Current aPTT (seconds)",
+                "type": "number",
+                "placeholder": "e.g. 65"
+            },
+            {
+                "id": "currentRate",
+                "label": "Current infusion rate",
+                "type": "number",
+                "placeholder": "Enter rate"
+            },
+            {
+                "id": "useInitial",
+                "label": "Calculate initial bolus & infusion",
+                "type": "checkbox"
+            },
+            {
+                "id": "orderedRate",
+                "label": "Initial infusion rate (IU/kg/hr)",
+                "type": "number",
+                "placeholder": "e.g. 18"
+            },
             {
                 "id": "rateUnit",
                 "label": "Select Rate Unit",
                 "type": "select",
                 "options": [
-                    { "label": "mL/hr", "value": "ml" },
-                    { "label": "Units/hr", "value": "units" }
+                    {
+                        "label": "mL/hr",
+                        "value": "ml"
+                    },
+                    {
+                        "label": "Units/hr",
+                        "value": "units"
+                    }
                 ]
             }
-            ],
-            "defaults": {
-                "bolus_units_per_kg": 80,
-                "infusion_units_per_kg_per_hour": 18,
-                "therapeutic_aptt_low": 60,
-                "therapeutic_aptt_high": 80
-            }
+        ],
+        "defaults": {
+            "bolus_units_per_kg": 80,
+            "infusion_units_per_kg_per_hour": 18,
+            "therapeutic_aptt_low": 60,
+            "therapeutic_aptt_high": 80
+        },
+        "source": "Hospital Guidelines"
     },
-
     "insulin": {
-        "title": "Insulin Sliding Scale (S/C PRN)",
+        "title": "Insulin Sliding Scale",
         "description": "Select insulin scale and enter current blood glucose to calculate Insulin dose.",
         "inputFields": [
             {
-            "id": "scale",
-            "label": "Select Sliding Scale",
-            "type": "select",
-            "options": [
-                { "label": "Low Dose", "value": "lowDose" },
-                { "label": "Moderate Dose", "value": "moderateDose" },
-                { "label": "High Dose", "value": "highDose" }
-            ]
+                "id": "scale",
+                "label": "Select Sliding Scale",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Low Dose",
+                        "value": "lowDose"
+                    },
+                    {
+                        "label": "Moderate Dose",
+                        "value": "moderateDose"
+                    },
+                    {
+                        "label": "High Dose",
+                        "value": "highDose"
+                    }
+                ]
             },
-            { "id": "glucose", "label": "Blood Glucose (mg/dL)", "type": "number", "placeholder": "e.g. 220" }
-        ]
+            {
+                "id": "glucose",
+                "label": "Blood Glucose (mg/dL)",
+                "type": "number",
+                "placeholder": "e.g. 220"
+            }
+        ],
+        "source": "Hospital Guidelines"
     }
 }
-

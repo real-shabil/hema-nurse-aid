@@ -39,9 +39,10 @@ Includes calculators, chemotherapy protocols, games for learning, drug interacti
 
 Hema_nurse_aid/
 │
+├── css/
+│   └── styles.css
+│
 ├── assets/
-│   └── css/
-│       └── styles.css
 │
 ├── data/
 │   ├── drugInteractions.json
@@ -55,6 +56,8 @@ Hema_nurse_aid/
 │       └── warfarinProtocols.json
 │
 ├── images/
+│   ├── icon-192.png
+│   └── icon-512.png
 │
 ├── js/
 │   ├── main.js
@@ -68,16 +71,26 @@ Hema_nurse_aid/
 └── README.md
 </code>
 
-🔄 How IV Compatibility Data is Updated
+🔄 How To Update Data
 
-  * Hema Nurse Aid itself does not edit data.
-  
-  * Use the external developer tools:
-  
-  * IV Web Editor (HTML UI)
-  
-  * Python Script (update_notes.py)
-  
-  * Copy the updated drugInteractions.json into /data/
-  
-  * Commit and push
+### IV Compatibility Data
+* Use the external **IV Web Editor**.
+* Generate/Download the updated `drugInteractions.json`.
+* Copy the file into `/data/`.
+
+### Chemo Protocols
+* Use the external **Chemo Protocol Manager**.
+* Load the current `data/protocols/chemoProtocols.json`.
+* Make edits via the UI.
+* Download the result (e.g., `updated_chemoProtocols.json`).
+* Rename to `chemoProtocols.json` and replace the file in `/data/protocols/`.
+
+### Medications
+* Use the external **Medication Manager**.
+* Load the current `data/medicationsData.json`.
+* Make edits via the UI.
+* Download the result (e.g., `updated_medicationsData.json`).
+* Rename to `medicationsData.json` and replace the file in `/data/`.  
+
+### Committing Changes
+* After updating JSON files, commit and push changes to version control to deploy updates.

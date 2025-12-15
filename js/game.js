@@ -1,15 +1,5 @@
 /* =========================================================
    🎮 NURSE WORDLE — JSON-DRIVEN VERSION
-   ---------------------------------------------------------
-   Version:        4.0.0
-   Author:         Shabil Mohammed Kozhippattil
-   Role:           RN, Hematology/Oncology — KAMC, Jeddah
-   Purpose:        Interactive mini-game for nurses — JSON-driven Wordle
-   ---------------------------------------------------------
-   Structure:
-       1️⃣ Load & Initialize Game
-       2️⃣ Generate Grid
-       3️⃣ Show Rules Modal
    ========================================================= */
 
 
@@ -102,7 +92,7 @@ async function loadWordle(container) {
         generateWordleGrid("wordleGrid");
         setupWordleInputBridge();
 
-                // 🔘 Wire Enter + Reset buttons in a safe, mobile-friendly way
+        // 🔘 Wire Enter + Reset buttons in a safe, mobile-friendly way
         const enterBtn = container.querySelector("#wordleEnterBtn");
         const resetBtn = container.querySelector("#wordleResetBtn");
 

@@ -1,26 +1,10 @@
 /* =========================================================
    🌿 CHEMOTHERAPY NURSE GUIDE — MAIN LOGIC
-   ---------------------------------------------------------
-   Version:        1.0.1
-   Author:         Shabil Mohammed Kozhippattil
-   Role:           RN, Hematology/Oncology — KAMC, Jeddah
-   File Purpose:   Core navigation, data loading, and UI logic.
-   ---------------------------------------------------------
-   Responsibilities:
-     • Load protocols, medication data, and calculation modules
-     • Handle navigation between sections
-     • Manage personalized greeting and nurse settings
-     • Interface with local JSON data (chemo, heparin, insulin, interactions)
-   ---------------------------------------------------------
-   Notes:
-     ⚙️ Keep fetch paths consistent with /data/ folder structure.
-     💡 All section displays are handled via navigateToSection().
-     🧩 Extend with new modules (e.g., insulin, warfarin) here.
    ========================================================= */
 
 
 /* =========================================================
-   1️⃣ GLOBAL VARIABLES
+   GLOBAL VARIABLES
    ========================================================= */
 let leukemiaProtocols = {};
 let medicationsData = {};
@@ -31,7 +15,7 @@ let currentGameKey = null;
 
 
 /* =========================================================
-   2️⃣ STARTUP HANDLERS
+   STARTUP HANDLERS
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
     personalizeGreeting();
@@ -50,7 +34,7 @@ function personalizeGreeting() {
     let userName = localStorage.getItem("userName");
 
     // =========================================================
-    // 1️⃣ SHOW MODAL ONLY ON FIRST VISIT
+    // SHOW MODAL ONLY ON FIRST VISIT
     // =========================================================
     if (!userName) {
         modal.style.display = "flex";
@@ -62,7 +46,7 @@ function personalizeGreeting() {
     };
 
     // =========================================================
-    // 2️⃣ SAVE NAME & CLOSE MODAL
+    // SAVE NAME & CLOSE MODAL
     // =========================================================
     submitBtn.onclick = () => {
         const name = nameInput.value.trim();
@@ -118,13 +102,12 @@ function updateGreeting(userName) {
 
     // Edit button: reopen modal with name prefilled
     editBtn.onclick = () => {
-        nameInput.value = userName;      // Prefill with current name
-        agreeCheck.checked = false;      // Reset checkbox for safety
-        submitBtn.disabled = true;       // Disable until checkbox checked
-        modal.style.display = "flex";    // Open modal
+        nameInput.value = userName;
+        agreeCheck.checked = false;
+        submitBtn.disabled = true;
+        modal.style.display = "flex";
     };
 }
-
 
 
 function setupDrugInteractionControls() {
@@ -205,34 +188,76 @@ fetch("data/drugInteractions.json")
             statusBadge.classList.add("badge-error");
         }
     });
-
-
 /* =========================================================
-   4️⃣ NAVIGATION FUNCTIONS
+   1. NAVIGATION
    ========================================================= */
 function navigateToSection(id) {
+    // 1. Hide all main containers
     document.querySelectorAll(".container, .section").forEach(section => {
         section.style.display = "none";
     });
 
-    const target = document.getElementById(id);
-    if (!target) {
-        alert(`Section '${id}' not found.`);
-        return goHome();
-    }
-    target.style.display = "block";
+    // 2. Determine target ID (Handle nested/dynamic sections)
+    let targetId = id;
 
+    // If 'type' is requested, it should display the 'type' section
+    // If 'drug-details' is requested, it might be inside 'medications' or its own section
+
+    const target = document.getElementById(targetId);
+
+    if (target) {
+        target.style.display = "block";
+    } else {
+        // Fallback or specific logic for dynamic sections not in initial HTML
+        if (id === 'type' || id === 'drug-details') {
+            // These are expected to exist if modules loaded correctly.
+            // If missing, log warning.
+            console.warn(`Target section '${id}' missing from DOM.`);
+        } else {
+            console.warn(`Section '${id}' not found. Going home.`);
+            goHome();
+            return;
+        }
+    }
+
+    // 3. Module specific initializations
     if (id === "calculations") loadCalculationsMenu();
+    if (id === "medications" && typeof loadMedicationsMenu === "function") loadMedicationsMenu();
+
+    // 4. Scroll to top
+    window.scrollTo(0, 0);
+
+    // 5. Update Bottom Nav State
+    // We map the requested ID to the Nav Item ID
+    const navMapping = {
+        'home': 'nav-home',
+        'leukemia': 'nav-leukemia',
+        'type': 'nav-leukemia',       // Nested under Protocols
+        'medications': 'nav-medications',
+        'medType': 'nav-medications', // Nested under Meds
+        'calculations': 'nav-calculations',
+        'drugInteractions': 'nav-home',
+        'games': 'nav-home'
+    };
+
+    const activeNavId = navMapping[id] || 'nav-home';
+    updateBottomNav(activeNavId);
 }
+
+function updateBottomNav(activeNavId) {
+    document.querySelectorAll('.nav-item').forEach(btn => {
+        if (btn.id === activeNavId) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
 
 function goHome() {
     navigateToSection("home");
 }
-
-
-/* =========================================================
-   🎮 GAMES
-   ========================================================= */
 
 /* =========================================================
    🎮 GAMES
@@ -299,7 +324,7 @@ window.openGame = function openGame(gameKey) {
 
 
 /* =========================================================
-   7️⃣ CALCULATIONS MENU
+   CALCULATIONS MENU
    ========================================================= */
 function loadCalculationsMenu() {
     const listDiv = document.getElementById("calculationsList");
@@ -330,7 +355,9 @@ function openCalculation(calcKey, event) {
     Object.keys(calculationsData).forEach(key => {
         if (key !== calcKey) {
             const form = document.querySelector(`#${key}-card form`);
+            const card = document.getElementById(`${key}-card`);
             if (form) form.style.display = "none";
+            if (card) card.classList.remove("is-expanded");
         }
     });
 
@@ -339,9 +366,17 @@ function openCalculation(calcKey, event) {
 
     let existingForm = cardDiv.querySelector("form");
     if (existingForm) {
-        existingForm.style.display = existingForm.style.display === "none" ? "flex" : "none";
+        const isHidden = existingForm.style.display === "none";
+        existingForm.style.display = isHidden ? "flex" : "none";
+
+        if (isHidden) cardDiv.classList.add("is-expanded");
+        else cardDiv.classList.remove("is-expanded");
+
         return;
     }
+
+    // First time opening
+    cardDiv.classList.add("is-expanded");
 
     const calc = calculationsData[calcKey];
     if (!calc) return;
@@ -350,36 +385,134 @@ function openCalculation(calcKey, event) {
     form.classList.add("calc-form");
     form.onsubmit = e => e.preventDefault();
 
-    const fieldsHtml = (calc.inputFields || [])
-        .map(f => {
-            const fid = `${f.id}-${calcKey}`;
-            if (f.type === "select") {
-                if (f.id === "rateUnit") return "";
-                const opts = f.options.map(o => `<option value="${o.value}">${o.label}</option>`).join("");
-                return `<label for="${fid}">${f.label}</label><select id="${fid}" class="input-field">${opts}</select>`;
-            } else if (f.type === "checkbox") {
-                return `<label><input type="checkbox" id="${fid}"> ${f.label}</label>`;
-            } else {
-                if (f.id === "currentRate") {
-                    const rateUnitField = calc.inputFields.find(x => x.id === "rateUnit");
-                    return `<label for="${fid}">${f.label}</label>
-                        <div class="calc-rate-row">
-                            <input type="number" id="${fid}" class="input-field" placeholder="${f.placeholder || ""}">
-                            <select id="${rateUnitField.id}-${calcKey}" class="input-field">
-                                ${rateUnitField.options
-                                    .map(o => `<option value="${o.value}">${o.label}</option>`)
-                                    .join("")}
-                            </select>
-                        </div>`;
-                } else {
-                    return `<label for="${fid}">${f.label}</label>
-                        <input type="number" id="${fid}" class="input-field" placeholder="${f.placeholder || ""}">`;
-                }
-            }
-        })
-        .join("");
 
-    form.innerHTML = `
+    // === SPECIAL HANDLING FOR HEPARIN LAYOUT ===
+    if (calcKey === "heparin") {
+        // 1. Common Inputs found in config (Weight, Syringe are needed for both)
+        // We will manually construct the HTML for better control
+        const fWeight = calc.inputFields.find(x => x.id === "weight");
+        const fSyringe = calc.inputFields.find(x => x.id === "syringe");
+        const fUseInitial = calc.inputFields.find(x => x.id === "useInitial");
+        const fOrderedRate = calc.inputFields.find(x => x.id === "orderedRate");
+        const fAptt = calc.inputFields.find(x => x.id === "aptt");
+        const fCurrentRate = calc.inputFields.find(x => x.id === "currentRate");
+        const fRateUnit = calc.inputFields.find(x => x.id === "rateUnit");
+
+        // Helper helper to generate simple input HTML
+        const mkInput = (field, id) => `<label for="${id}">${field.label}</label><input type="number" id="${id}" class="input-field" placeholder="${field.placeholder || ""}">`;
+        const mkSelect = (field, id) => `<label for="${id}">${field.label}</label><select id="${id}" class="input-field">${field.options.map(o => `<option value="${o.value}">${o.label}</option>`).join("")}</select>`;
+
+        const weightHtml = mkInput(fWeight, `${fWeight.id}-${calcKey}`);
+        const syringeHtml = mkSelect(fSyringe, `${fSyringe.id}-${calcKey}`);
+
+        // 2. Initial Infusion Section Card
+        const initialCardHtml = `
+            <div class="calc-section-card initial-section">
+                <p style="margin-top:0; font-size:0.9rem; color:#00695c;">
+                    <strong>Start Here:</strong> Check this box if starting a NEW infusion.
+                </p>
+                <label class="checkbox-label" style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                    <input type="checkbox" id="${fUseInitial.id}-${calcKey}" onchange="toggleHeparinInitial(this, '${calcKey}')"> 
+                    <span style="font-weight:bold;">${fUseInitial.label}</span>
+                </label>
+
+                <div id="initialFields-${calcKey}" style="display:none; margin-top:12px; padding-top:12px; border-top:1px dashed #b2dfdb;">
+                    ${mkInput(fOrderedRate, `${fOrderedRate.id}-${calcKey}`)}
+                </div>
+            </div>
+        `;
+
+        // 3. Regular (Continuous) Section Card
+        const regularCardHtml = `
+             <div class="calc-section-card continuous-section">
+                <h4 style="margin:0 0 10px; color:#555;">Continuous Monitoring & Adjustment</h4>
+                ${mkInput(fAptt, `${fAptt.id}-${calcKey}`)}
+                
+                <label for="${fCurrentRate.id}-${calcKey}">${fCurrentRate.label}</label>
+                <div class="calc-rate-row">
+                    <input type="number" id="${fCurrentRate.id}-${calcKey}" class="input-field" placeholder="${fCurrentRate.placeholder || ""}">
+                    <select id="${fRateUnit.id}-${calcKey}" class="input-field">
+                        ${fRateUnit.options.map(o => `<option value="${o.value}">${o.label}</option>`).join("")}
+                    </select>
+                </div>
+             </div>
+        `;
+
+        const sourceHtml = calc.source ? `
+            <div class="protocol-source info-panel" style="margin-top: 10px;">
+                <strong>Source:</strong> ${calc.source}
+            </div>` : "";
+
+        form.innerHTML = `
+            <p>${calc.description || ""}</p>
+            
+            <!-- Shared / Top Inputs -->
+            <!-- Shared / Top Inputs -->
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px;">
+                 <div style="display:flex; flex-direction:column; justify-content: space-between; height: 100%;">${weightHtml}</div>
+                 <div style="display:flex; flex-direction:column; justify-content: space-between; height: 100%;">${syringeHtml}</div>
+            </div>
+
+            <!-- Bolus Option (Moved Outside) -->
+            <div style="margin-bottom: 12px; background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+                <label style="display:block; margin-bottom:6px; color:#555;">Bolus Preference</label>
+                <div class="calc-bolus-option" style="margin:0;">
+                    <label><input type="radio" name="bolusOption-${calcKey}" value="with" checked> With bolus</label>
+                    <label><input type="radio" name="bolusOption-${calcKey}" value="without"> Without bolus</label>
+                </div>
+            </div>
+
+            <!-- Initial Section -->
+            ${initialCardHtml}
+
+            <!-- Continuous Section -->
+            ${regularCardHtml}
+
+            <div class="calc-buttons">
+                <button type="button" onclick="calculate('${calcKey}')">Calculate</button>
+                <button type="button" class="btn-clear" onclick="clearCalculation('${calcKey}')">Clear</button>
+            </div>
+            <div id="result-${calcKey}" class="calc-result info-panel"></div>
+            ${sourceHtml}
+        `;
+
+    } else {
+        // === GENERIC LAYOUT FOR OTHERS (BMI, Insulin, etc) ===
+        const fieldsHtml = (calc.inputFields || [])
+            .map(f => {
+                const fid = `${f.id}-${calcKey}`;
+                if (f.type === "select") {
+                    if (f.id === "rateUnit") return "";
+                    const opts = f.options.map(o => `<option value="${o.value}">${o.label}</option>`).join("");
+                    return `<label for="${fid}">${f.label}</label><select id="${fid}" class="input-field">${opts}</select>`;
+                } else if (f.type === "checkbox") {
+                    return `<label><input type="checkbox" id="${fid}"> ${f.label}</label>`;
+                } else {
+                    if (f.id === "currentRate") {
+                        const rateUnitField = calc.inputFields.find(x => x.id === "rateUnit");
+                        return `<label for="${fid}">${f.label}</label>
+                            <div class="calc-rate-row">
+                                <input type="number" id="${fid}" class="input-field" placeholder="${f.placeholder || ""}">
+                                <select id="${rateUnitField.id}-${calcKey}" class="input-field">
+                                    ${rateUnitField.options
+                                .map(o => `<option value="${o.value}">${o.label}</option>`)
+                                .join("")}
+                                </select>
+                            </div>`;
+                    } else {
+                        return `<label for="${fid}">${f.label}</label>
+                            <input type="number" id="${fid}" class="input-field" placeholder="${f.placeholder || ""}">`;
+                    }
+                }
+            })
+            .join("");
+
+        const sourceHtml = calc.source ? `
+        <div class="protocol-source info-panel" style="margin-top: 10px;">
+            <strong>Source:</strong> ${calc.source}
+        </div>` : "";
+
+        form.innerHTML = `
         <p>${calc.description || ""}</p>
         ${fieldsHtml}
         <div class="calc-buttons">
@@ -387,36 +520,26 @@ function openCalculation(calcKey, event) {
             <button type="button" class="btn-clear" onclick="clearCalculation('${calcKey}')">Clear</button>
         </div>
         <div id="result-${calcKey}" class="calc-result info-panel"></div>
+        ${sourceHtml}
     `;
-
-    if (calcKey === "heparin") {
-        const bolusOptionHtml = `
-            <div class="calc-bolus-option">
-                <label><input type="radio" name="bolusOption-${calcKey}" value="with" checked> With bolus</label>
-                <label><input type="radio" name="bolusOption-${calcKey}" value="without"> Without bolus</label>
-            </div>
-        `;
-
-        const content = `
-            <p>${calc.description || ""}</p>
-            ${fieldsHtml}
-            ${bolusOptionHtml}
-            <div class="calc-buttons">
-                <button type="button" onclick="calculate('${calcKey}')">Calculate</button>
-                <button type="button" class="btn-clear" onclick="clearCalculation('${calcKey}')">Clear</button>
-            </div>
-            <div id="result-${calcKey}" class="calc-result info-panel"></div>
-        `;
-        form.innerHTML = content;
     }
 
     cardDiv.appendChild(form);
     form.addEventListener("click", e => e.stopPropagation());
 }
 
+// Helper to toggle initial section visibility
+window.toggleHeparinInitial = function (checkbox, calcKey) {
+    const div = document.getElementById(`initialFields-${calcKey}`);
+    const regularSection = document.querySelector(`#${calcKey}-card .continuous-section`);
+    if (div) {
+        div.style.display = checkbox.checked ? "block" : "none";
+    }
+};
+
 
 /* =========================================================
-   8️⃣ CALCULATION HANDLER
+   CALCULATION HANDLER
    ========================================================= */
 function calculate(calcKey) {
     const calcFunctions = {
@@ -430,7 +553,7 @@ function calculate(calcKey) {
 
 
 /* =========================================================
-   9️⃣ CLEAR FORM FUNCTION
+   CLEAR FORM FUNCTION
    ========================================================= */
 function clearCalculation(calcKey) {
     const inputs = document.querySelectorAll(`#${calcKey}-card input, #${calcKey}-card select`);

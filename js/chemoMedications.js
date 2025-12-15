@@ -1,11 +1,5 @@
 /* =========================================================
    CHEMOTHERAPY NURSE GUIDE — MEDICATION MODULE
-   ---------------------------------------------------------
-   Author: Shabil Mohammed Kozhippattil
-   Purpose:
-     • Load medication groups (chemotherapy, targeted, supportive)
-     • Render them using collapsible UI
-     • Display structured drug information
    ========================================================= */
 
 let MEDICATIONS = null;
@@ -76,9 +70,9 @@ function openMedicationGroup(groupKey, options = {}) {
 
 
 /* =========================================================
-   OPEN MEDICATIONS SECTION
+   LOAD MEDICATIONS MENU
    ========================================================= */
-function openMedicationsSection() {
+function loadMedicationsMenu() {
 
     const dataReady = MEDICATIONS ? Promise.resolve(MEDICATIONS) : loadMedicationData();
 
@@ -100,7 +94,6 @@ function openMedicationsSection() {
             container.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     });
-    navigateToSection("medications");
 }
 
 /* =========================================================
@@ -146,6 +139,14 @@ function renderMedicationGroup(group, groupKey, index, mountPoint, options = {})
     group.drugs.forEach((drug, index) => {
         const { card: drugCard, isTarget } = renderMedicationDrug(drug, index, content, { targetDrugName });
         if (isTarget && !highlightedCard) highlightedCard = drugCard;
+    });
+
+    // Fix: Allow content to be fully visible after expansion (prevents clipping of nested details)
+    content.addEventListener("transitionend", (e) => {
+        if (e.target !== content) return;
+        if (card.classList.contains("is-expanded")) {
+            content.style.maxHeight = "none";
+        }
     });
 
     if (highlightedCard) {
@@ -259,7 +260,9 @@ function generateDrugDetailHTML(drug) {
 
         ${drug.warnings ? `<div class="med-section"><strong>Warnings:</strong>${makeList(drug.warnings)}</div>` : ""}
 
-        ${drug.nursingTips ? `<div class="med-section"><strong>Nursing Tips:</strong>${makeList(drug.nursingTips)}</div>` : ""}
+        ${drug.nursesInfo ? `<div class="med-section"><strong>Nurses Info:</strong>${makeList(drug.nursesInfo)}</div>` : ""}
+
+        ${drug.source ? `<div class="protocol-source info-panel"><strong>Source:</strong> ${drug.source}</div>` : ""}
     `;
 }
 
@@ -362,7 +365,7 @@ function collectMedicationMatches(query, data) {
                 ...(drug.sideEffects || []),
                 ...(drug.monitoring || []),
                 ...(drug.warnings || []),
-                ...(drug.nursingTips || [])
+                ...(drug.nursesInfo || [])
             ]
                 .filter(Boolean)
                 .join(" ")

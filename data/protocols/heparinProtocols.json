@@ -1,73 +1,82 @@
 {
   "heparinProtocol": {
-    "bolusAllowedBelow": 46,
-    "notifyPhysicianAbove": 120,
-    "therapeuticRange": [55, 75],
-
-    "factors": {
-      "increaseStrong": 3,
-      "increaseModerate": 2,
-      "increaseMild": 1,
-      "decreaseMild": -1,
-      "decreaseModerate": -2,
-      "decreaseStrong": -3
-    },
-
     "ranges": [
       {
-        "maxAPTT": 36,
-        "action": "Give bolus and increase infusion",
-        "factorKey": "increaseStrong",
-        "bolus": true
+        "minAPTT": 0,
+        "maxAPTT": 34,
+        "bolusUnitsPerKg": 60,
+        "bolusMaxUnits": 5000,
+        "rateChangeUnitsPerKg": 3,
+        "holdMinutes": 0,
+        "repeatPTTHours": 6,
+        "actionText": "Give bolus (max 5000 units), increase infusion rate by 3 units/kg/hr. Repeat aPTT in 6 hrs."
       },
       {
-        "maxAPTT": 46,
-        "action": "Give bolus and increase infusion",
-        "factorKey": "increaseModerate",
-        "bolus": true
+        "minAPTT": 35,
+        "maxAPTT": 50,
+        "bolusUnitsPerKg": 30,
+        "bolusMaxUnits": 2500,
+        "rateChangeUnitsPerKg": 2,
+        "holdMinutes": 0,
+        "repeatPTTHours": 6,
+        "actionText": "Give bolus (max 2500 units), increase infusion rate by 2 units/kg/hr. Repeat aPTT in 6 hrs."
       },
       {
-        "maxAPTT": 56,
-        "action": "Increase infusion",
-        "factorKey": "increaseMild",
-        "bolus": false
+        "minAPTT": 51,
+        "maxAPTT": 65,
+        "bolusUnitsPerKg": 0,
+        "bolusMaxUnits": 0,
+        "rateChangeUnitsPerKg": 0,
+        "holdMinutes": 0,
+        "repeatPTTHours": 6,
+        "actionText": "No change. Repeat aPTT in 6 hrs (if 2 consecutive values therapeutic, next aPTT in morning)."
       },
       {
-        "maxAPTT": 76,
-        "action": "Maintain current rate. Check aPTT after  6 hours",
-        "factorKey": null,
-        "bolus": false
-      },
-      {
+        "minAPTT": 66,
         "maxAPTT": 90,
-        "action": "Decrease infusion",
-        "factorKey": "decreaseMild",
-        "bolus": false
+        "bolusUnitsPerKg": 0,
+        "bolusMaxUnits": 0,
+        "rateChangeUnitsPerKg": -2,
+        "holdMinutes": 0,
+        "repeatPTTHours": 6,
+        "actionText": "Reduce infusion rate by 2 units/kg/hr. Repeat aPTT in 6 hrs."
       },
       {
-        "maxAPTT": 105,
-        "action": "Decrease infusion",
-        "factorKey": "decreaseModerate",
-        "bolus": false
+        "minAPTT": 91,
+        "maxAPTT": 110,
+        "bolusUnitsPerKg": 0,
+        "bolusMaxUnits": 0,
+        "rateChangeUnitsPerKg": -2,
+        "holdMinutes": 60,
+        "repeatPTTHours": 6,
+        "actionText": "Hold infusion for 1 hr, then reduce rate by 2 units/kg/hr. Notify physician. Repeat aPTT in 6 hrs."
       },
       {
-        "maxAPTT": 121,
-        "action": "Hold 1 hr, then decrease infusion",
-        "factorKey": "decreaseStrong",
-        "bolus": false
+        "minAPTT": 111,
+        "maxAPTT": 130,
+        "bolusUnitsPerKg": 0,
+        "bolusMaxUnits": 0,
+        "rateChangeUnitsPerKg": -4,
+        "holdMinutes": 120,
+        "repeatPTTHours": 6,
+        "actionText": "Hold infusion for 2 hrs, then reduce rate by 4 units/kg/hr. Notify physician. Repeat aPTT in 6 hrs."
+      },
+      {
+        "minAPTT": 131,
+        "maxAPTT": 9999,
+        "bolusUnitsPerKg": 0,
+        "bolusMaxUnits": 0,
+        "rateChangeUnitsPerKg": -5,
+        "holdMinutes": 120,
+        "repeatPTTHours": 6,
+        "actionText": "Hold infusion for 2 hrs, then reduce rate by 5 units/kg/hr. Notify physician. Repeat aPTT in 6 hrs."
       }
     ],
-
-    "aboveMax": {
-      "action": "Hold infusion and notify physician immediately",
-      "bolus": false
-    },
-
     "defaults": {
         "bolus_units_per_kg": 80,
         "infusion_units_per_kg_per_hour": 18,
-        "therapeutic_aptt_low": 46,
-        "therapeutic_aptt_high": 56
+        "therapeutic_aptt_low": 51,
+        "therapeutic_aptt_high": 65
     }
   }
 }

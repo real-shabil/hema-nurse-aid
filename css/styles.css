@@ -1,22 +1,5 @@
 /* =========================================================
 🌿 CHEMOTHERAPY NURSE GUIDE — STYLESHEET
----------------------------------------------------------
-Version:        1.0.1
-Author:         Shabil Mohammed Kozhippattil
-Role:           RN, Hematology/Oncology — KAMC, Jeddah
-App Purpose:    Nursing informatics tool for protocols,
-medication info, and infusion calculations.
----------------------------------------------------------
-Structure:
-Base & Layout
-Navigation & Cards
-Protocol & Phase Blocks
-Calculations Section
-a) Layout
-b) Buttons
-c) Bolus Options
-d) Result Box
-Personalization
 ========================================================= */
 
 
@@ -33,11 +16,16 @@ body {
 }
 
 :root {
-    --text-xs: 0.78rem;  /* small labels */
-    --text-sm: 0.88rem;  /* hints, secondary text */
-    --text-md: 0.96rem;  /* normal body text */
-    --text-lg: 1.1rem;   /* section headings */
-    --text-xl: 1.35rem;  /* major titles */
+    --text-xs: 0.78rem;
+    /* small labels */
+    --text-sm: 0.88rem;
+    /* hints, secondary text */
+    --text-md: 0.96rem;
+    /* normal body text */
+    --text-lg: 1.1rem;
+    /* section headings */
+    --text-xl: 1.35rem;
+    /* major titles */
 }
 
 header {
@@ -50,7 +38,7 @@ header {
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: 0.3px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
@@ -62,23 +50,90 @@ label {
 
 .container,
 .section {
-    padding: 18px;       /* Mobile-friendly */
+    padding: 18px;
+    /* Mobile-friendly */
 }
 
 @media (min-width: 768px) {
+
     .container,
     .section {
-        padding: 28px;   /* For Desktop */
+        padding: 28px;
+        padding-bottom: 100px;
+        /* Clear nav bar */
+        /* For Desktop */
         max-width: 900px;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
+}
+
+.container,
+.section {
+    padding-bottom: 100px;
+    /* Mobile bottom spacing */
+}
+
+/* =========================================================
+   BOTTOM NAVIGATION BAR
+   ========================================================= */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #e1e4e8;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    z-index: 2000;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    /* Inactive color */
+    font-size: 0.7rem;
+    font-weight: 600;
+    gap: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    flex: 1;
+}
+
+.nav-item svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-item.active {
+    color: #064e3b;
+    /* Active Theme Color */
+}
+
+.nav-item.active svg {
+    transform: translateY(-2px);
+}
+
+.nav-item:active {
+    transform: scale(0.95);
 }
 
 .section:not(:first-of-type) {
     border-top: 1px solid #eee;
 }
 
-.section > *:first-child {
+.section>*:first-child {
     margin-top: 0;
 }
 
@@ -152,7 +207,7 @@ NAVIGATION & CARDS
 .protocol-search .eyebrow {
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #2a6db3;
+    color: #d63384;
     font-weight: 700;
     font-size: 0.8rem;
     margin: 0;
@@ -230,13 +285,31 @@ PROTOCOL & PHASE BLOCKS
     font-size: 0.95em;
 }
 
+.phase-heading {
+    margin: 10px 0 5px;
+    color: #d63384;
+    font-weight: bold;
+    text-align: left;
+    font-size: var(--text-lg);
+    border-top: 1px dashed #7f9e61;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+.phase-heading:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 5px;
+}
+
+
 /* Shared white card styling for reusable content blocks */
 .info-card,
 .card {
     --info-card-padding: 18px;
     --info-card-radius: 16px;
     --info-card-border: none;
-    --info-card-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    --info-card-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
     display: block;
     background: #fff;
     padding: var(--info-card-padding);
@@ -249,17 +322,18 @@ PROTOCOL & PHASE BLOCKS
     font-weight: 600;
 
 
-    transition: background-color 0.2s ease, 
-                box-shadow 0.2s ease, 
-                transform 0.2s ease;
+    transition: background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
 /* HOVER (desktop only) */
 @media (hover:hover) {
+
     .info-card:hover,
     .card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         background: #fff;
     }
 }
@@ -296,7 +370,7 @@ PROTOCOL & PHASE BLOCKS
     --info-card-padding: 12px;
     --info-card-radius: 12px;
     --info-card-border: 1px solid #ddd;
-    --info-card-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    --info-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-top: 8px;
 }
 
@@ -358,17 +432,29 @@ PROTOCOL & PHASE BLOCKS
     background-color: #f1f9ff;
     border: 1px solid #cce5ff;
     border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* Hidden details block (expand when active) */
+.nursing-tips {
+    padding: 3px 5px;
+    text-align: left;
+}
+
+.protocol-source {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px;
+    color: #555;
+}
+
 .protocol-details {
     display: none;
     margin-top: 8px;
-    padding: 10px 12px;
+    padding: 5px 12px;
 }
 
-/* Drug text style inside expanded block */
 .protocol-details .drug-item {
     display: flex;
     flex-wrap: wrap;
@@ -387,21 +473,42 @@ PROTOCOL & PHASE BLOCKS
     margin-right: 6px;
     font-size: 0.95rem;
 }
+
 .protocol-details .drug-name {
     font-weight: 700;
     font-size: 0.95rem;
 }
+
 .protocol-details .drug-dose {
-    font-style: italic;
-    color: #333;
+    font-style: normal;
+    font-weight: 600;
+    background-color: #e0f7fa;
+    color: #00796b;
+    padding: 2px 5px;
+    border-radius: 4px;
+    line-height: 1.55;
 }
+
 .protocol-details .drug-route {
     font-weight: 700;
     font-style: italic;
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
 }
+
+.protocol-card .protocol-summary {
+    font-size: var(--text-sm);
+    color: #555;
+    margin: 0 0 4px 0;
+    font-weight: 400;
+}
+
 .protocol-details .drug-duration {
     font-style: italic;
-    color: #d13b3b; /* red tone */
+    color: #d13b3b;
+    text-align: left;
 }
 
 .search-results {
@@ -464,15 +571,41 @@ PROTOCOL & PHASE BLOCKS
     0% {
         box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.35);
     }
+
     70% {
         box-shadow: 0 0 0 12px rgba(40, 167, 69, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
     }
 }
 
 
+/* =========================================================
+   MEDICATION DETAILS STYLES
+   ========================================================= */
+.med-field,
+.med-section {
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: var(--text-md);
+    color: #333;
+}
+
+.med-field strong,
+.med-section strong {
+    color: #004b8d;
+}
+
+.med-section ul {
+    margin: 4px 0 8px 0;
+    padding-left: 24px;
+}
+
+.med-section li {
+    margin-bottom: 4px;
+}
 
 
 /* =========================================================
@@ -542,8 +675,13 @@ CALCULATIONS SECTION
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease,
-                box-shadow 0.2s ease,
-                transform 0.15s ease;
+        box-shadow 0.2s ease,
+        transform 0.15s ease;
+}
+
+.calc-buttons button:active,
+.btn-primary:active {
+    transform: scale(0.96);
 }
 
 .calc-buttons button {
@@ -664,7 +802,8 @@ CALCULATIONS SECTION
 
 .btn-primary,
 .calc-buttons button:not(.btn-clear) {
-    background-color: #0c8f58; /* cleaner medical green */
+    background-color: #0c8f58;
+    /* cleaner medical green */
     color: white;
     box-shadow: 0 2px 5px rgba(12, 143, 88, 0.25);
 }
@@ -675,431 +814,411 @@ CALCULATIONS SECTION
     transform: translateY(-2px);
 }
 
-.btn-primary:active,
-.calc-buttons button:not(.btn-clear):active {
-    transform: scale(0.97);
-    background-color: #096c40;
-}
-
 .btn-clear {
-    background-color: #d64545;
+    background-color: #dc3545;
     color: white;
-    box-shadow: 0 2px 5px rgba(214, 69, 69, 0.25);
 }
 
 .btn-clear:hover {
-    background-color: #c43a3a;
-    transform: translateY(-2px);
+    background-color: #c82333;
 }
 
 .btn-clear:active {
-    transform: scale(0.97);
-    background-color: #b53030;
-}
-
-
-.nursing-tips {
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 0.9rem;
-    color: #004b8d;
-}
-
-.nursing-tips strong {
-    color: #004b8d;
-    display: block;
-    margin-bottom: 4px;
+    transform: scale(0.95);
 }
 
 
 /* =========================================================
-DRUG INTERACTIONS SUGGESTION BOX
---------------------------------------------------------- */
-/* Suggestion box container */
-.suggestion-box {
-    position: absolute;
-    z-index: 1000;
-    width: 100%;
-    max-height: 220px;
-    overflow-y: auto;
+   PERSONALIZATION (Welcome Modal)
+   ========================================================= */
 
-    background: #f2f7fb; /* medical clean blue */
-    border-radius: 10px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-
-    padding: 6px 0;
-    margin-top: 4px;
-
-    opacity: 0;
-    transform: translateY(-5px);
-    pointer-events: none;
-    transition: opacity .18s ease, transform .18s ease;
-}
-
-/* When suggestions appear */
-.suggestion-box.show {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-/* Suggestion items */
-.suggestion-item {
-    padding: 10px 14px;
-    cursor: pointer;
-    font-size: 15px;
-    border-radius: 6px;
-    margin: 2px 6px;
-    transition: background 0.15s ease;
-}
-
-/* Hover effect */
-.suggestion-item:hover {
-    background: #e2edf7;  /* soft hover */
-}
-
-/* Scrollbar styling (optional) */
-.suggestion-box::-webkit-scrollbar {
-    width: 7px;
-}
-
-.suggestion-box::-webkit-scrollbar-thumb {
-    background: #cdd8e4;
-    border-radius: 10px;
-}
-
-
-.suggestion-item {
-    padding: 6px 10px;
-    cursor: pointer;
-    font-size: 0.95rem;
-}
-
-/* =========================================================
-🎮 NURSE WORDLE — GAME STYLES V: 1.0.1
-========================================================= */
-
-/* =========================================================
-MODAL OVERLAY & CONTAINER
-========================================================= */
-.wordle-modal {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-.wordle-modal-content {
-    background: #fff;
-    border-radius: 16px;
-    padding: 20px 30px;
-    width: 320px;
-    max-width: 90%;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    position: relative;
-    animation: fadeIn 0.3s ease;
-}
-
-.wordle-modal-content h3 {
-    margin-top: 0;
-}
-
-/* Close button (used in modal) */
-.close-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background: transparent;
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-weight: bold;
-    color: #666;
-    transition: color 0.2s ease;
-}
-
-/* =========================================================
-EXAMPLE GRID (IN RULES MODAL)
-========================================================= */
-.wordle-example-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 50px);
-    gap: 8px;
-    justify-content: center;
-    margin: 12px 0;
-}
-
-.wordle-example-grid .cell {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border: 2px solid #ddd;
-    background: #fff;
-    color: #333;
-}
-
-/* =========================================================
-✅ SHARED COLOR STATES (modal example + main grid)
-========================================================= */
-.wordle-example-grid .cell.correct,
-.wordle-cell.correct {
-    background-color: #2e7d32;
-    border-color: #2e7d32;
-    color: #fff;
-}
-
-.wordle-example-grid .cell.present,
-.wordle-cell.present {
-    background-color: #f9a825;
-    border-color: #f9a825;
-    color: #fff;
-}
-
-.wordle-example-grid .cell.absent,
-.wordle-cell.absent {
-    background-color: #9e9e9e;
-    border-color: #9e9e9e;
-    color: #fff;
-}
-
-/* Rules text in modal */
-.wordle-rules-text p {
-    text-align: left;
-    margin: 6px 0;
-    font-size: 0.9rem;
-    color: #333;
-}
-
-/* =========================================================
-🎮 GAME WRAPPER (Card around the game)
-========================================================= */
-.game-wrapper-card {
-    padding: 16px;
-    border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-    margin-top: 16px;
-}
-
-.game-title {
-    margin: 0 0 8px;
-    font-size: 1.1rem;
-}
-
-.game-inner {
-    margin-top: 8px;
-}
-
-/* Optional: if you use class="game-panel" on #gameContent */
-.game-panel {
-    margin-top: 12px;
-}
-
-.game-panel[hidden] {
-    display: none;
-}
-
-/* =========================================================
-🧩 NURSE WORDLE MAIN GRID
-========================================================= */
-.wordle-container {
-    max-width: 420px;
-    margin: 0 auto;
-    padding: 12px 0;
-}
-
-.wordle-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: space-between;
-    margin-bottom: 4px;
-}
-
-.wordle-hint {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 8px;
-}
-
-.info-btn {
-    border: none;
-    border-radius: 999px;
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    background: #eef;
-}
-
-/* Grid layout */
-.wordle-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 52px);
-    gap: 4px;
-    margin-top: 8px;
-    justify-content: center;
-    justify-items: center;
-}
-
-/* Individual cells */
-.wordle-cell {
-    width: 48px;
-    aspect-ratio: 1 / 1;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    box-sizing: border-box;
-    user-select: none;
-    transition: transform 0.1s ease, background-color 0.1s ease, border-color 0.1s ease;
-}
-
-.wordle-cell.filled {
-    border-color: #999;
-}
-
-.wordle-cell.cursor {
-    border-color: #1976d2;
-    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
-}
-
-/* Hidden input (for keyboard handling) */
-.wordle-hidden-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    width: 0;
-    height: 0;
-}
-
-/* =========================================================
-ANIMATIONS
-========================================================= */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-}
-
-@keyframes wordle-caret-blink {
-    0%, 50% {
-        opacity: 1;
-    }
-50.01%, 100% {
-    opacity: 0;
-}
-}
-
-/* =========================================================
-PERSONALIZATION
-========================================================= */
-.change-name-btn {
-    margin-top: 6px;
-    font-size: 0.8rem;
-    background: transparent;
-    color: #007bff;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
-}
-/* =========================================================
-ONBOARDING MODAL (Name + Disclaimer)
-Matches your app's card & green hospital theme
-========================================================= */
-
+/* The Modal Overlay */
 .onboard-overlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    /* Modern blur effect */
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 99999;
-    animation: fadeIn 0.25s ease;
+    justify-content: center;
+    z-index: 9999;
 }
 
+/* The Modal Box */
 .onboard-box {
     background: #ffffff;
     width: 90%;
-    max-width: 360px;
-    padding: 20px 22px;
-    border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    max-width: 380px;
+    padding: 32px 24px;
+    border-radius: 20px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     text-align: center;
-    animation: fadeIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: modalFadeIn 0.4s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.onboard-icon {
+    font-size: 3rem;
+    margin-bottom: -10px;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(14deg);
+    }
+
+    20% {
+        transform: rotate(-8deg);
+    }
+
+    30% {
+        transform: rotate(14deg);
+    }
+
+    40% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .onboard-box h2 {
-    margin-top: 0;
-    font-size: 1.3rem;
-    color: #004d40;
-    font-weight: 700;
+    margin: 0;
+    color: #064e3b;
+    /* Primary Green */
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
 }
 
-#onboardName {
+.input-group-onboard {
+    text-align: left;
+}
+
+.input-group-onboard label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #334155;
+}
+
+.onboard-box input[type="text"] {
     width: 100%;
-    padding: 10px 12px;
-    margin-top: 6px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
     font-size: 1rem;
+    margin-bottom: 4px;
     box-sizing: border-box;
+    /* Fix width overflow */
+    transition: all 0.2s;
+}
+
+.onboard-box input[type="text"]:focus {
+    border-color: #0d9488;
+    /* Teal accent */
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+    outline: none;
 }
 
 .disclaimer {
-    background: #fff3cd;
-    border: 1px solid #ffecb5;
-    padding: 10px;
-    margin: 14px 0;
-    border-radius: 10px;
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    padding: 14px;
+    border-radius: 12px;
     text-align: left;
-    font-size: 0.9rem;
-    color: #5c4400;
+    font-size: 0.85rem;
+    color: #92400e;
+    line-height: 1.5;
+}
+
+.disclaimer-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #b45309;
 }
 
 .agreeLabel {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    font-size: 0.9rem;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 0.94rem;
+    cursor: pointer;
+    color: #334155;
+    margin-top: 4px;
+    user-select: none;
+}
+
+.agreeLabel input {
+    width: 18px;
+    height: 18px;
+    accent-color: #064e3b;
+    cursor: pointer;
 }
 
 #onboardSubmit {
-    width: 100%;
-    padding: 10px;
-    background: #004d40;
+    background: #064e3b;
     color: white;
     border: none;
-    border-radius: 10px;
-    font-weight: 600;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
+    margin-top: 6px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#onboardSubmit:hover:not(:disabled) {
+    background: #044234;
+    /* slightly darker primary */
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
 }
 
 #onboardSubmit:disabled {
-    background: #8ab5b1;
+    background: #e2e8f0;
+    color: #94a3b8;
     cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
-#onboardSubmit:not(:disabled):hover {
-    background: #00695c;
+.change-name-btn {
+    background: transparent;
+    border: 1px solid #064e3b;
+    color: #064e3b;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+
+.change-name-btn:hover {
+    background: #064e3b;
+    color: #fff;
+}
+
+
+/* =========================================================
+🧩 NURSE WORDLE MAIN GRID
+========================================================= */
+.wordle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.wordle-board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 5px;
+    margin-bottom: 20px;
+}
+
+.wordle-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+
+.wordle-tile {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #d3d6da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1a1a1b;
+    /* Default text color */
+    background-color: #fff;
+}
+
+/* TILE STATES */
+.wordle-tile.correct {
+    background-color: #6aaa64;
+    border-color: #6aaa64;
+    color: white;
+}
+
+.wordle-tile.present {
+    background-color: #c9b458;
+    border-color: #c9b458;
+    color: white;
+}
+
+.wordle-tile.absent {
+    background-color: #787c7e;
+    border-color: #787c7e;
+    color: white;
+}
+
+.wordle-tile.filled {
+    border-color: #878a8c;
+    animation: pop 0.1s;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* KEYBOARD */
+.wordle-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.kb-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.kb-key {
+    font-family: inherit;
+    font-weight: 600;
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 58px;
+    border-radius: 4px;
+    background-color: #d3d6da;
+    color: #1a1a1b;
+    cursor: pointer;
+    text-transform: uppercase;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.kb-key.wide {
+    flex: 1.5;
+    font-size: 0.8rem;
+}
+
+.kb-key.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.kb-key.present {
+    background-color: #c9b458;
+    color: white;
+}
+
+
+/* =========================================================
+   HEPARIN CALCULATOR STYLES
+   ========================================================= */
+.warning-box {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.step-box {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.next-check {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #555;
+    background: #f5f5f5;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+.calc-section-card {
+    background: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.calc-section-card.initial-section {
+    border-left: 4px solid #009688;
+}
+
+.calc-section-card.continuous-section {
+    border-left: 4px solid #607d8b;
 }

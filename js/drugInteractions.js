@@ -1,16 +1,12 @@
 /* =========================================================
-   💉 DRUG COMPATIBILITY VIEWER v2
-   ---------------------------------------------------------
-   Owner:        Shabil Mohammed Kozhippattil
-   Description:  Offline viewer for IV drug–drug compatibility
-                 based on local JSON from Python manager.
+   DRUG INTERACTION MODULE
    ========================================================= */
 
 let DI_DATA = {};
 let ALL_DRUGS = [];
 
 /* =========================================================
-   1️⃣ INITIALIZATION
+   INITIALIZATION
    ========================================================= */
 function initDrugInteractions(data) {
     DI_DATA = data || {};
@@ -29,7 +25,7 @@ function initDrugInteractions(data) {
 }
 
 /* =========================================================
-   2️⃣ AUTOCOMPLETE
+   AUTOCOMPLETE
    ========================================================= */
 function setupDrugAutocomplete(inputId, suggestionId) {
     const input = document.getElementById(inputId);
@@ -52,7 +48,7 @@ function setupDrugAutocomplete(inputId, suggestionId) {
             return;
         }
 
-        
+
         box.classList.add("show");
 
         results.forEach(name => {
@@ -80,7 +76,7 @@ function setupDrugAutocomplete(inputId, suggestionId) {
 }
 
 /* =========================================================
-   3️⃣ LOOKUP & DISPLAY
+   LOOKUP & DISPLAY
    ========================================================= */
 function checkDrugInteraction() {
     const drugA = document.getElementById("drugA").value.trim();
@@ -118,7 +114,7 @@ function checkDrugInteraction() {
 
     const borderColor = colorMap[yVal] || "#6c757d";
 
-    
+
     renderInteractionResult(drugA, drugB, match);
 
     function renderInteractionResult(drugA, drugB, result) {
@@ -138,13 +134,13 @@ function checkDrugInteraction() {
                 <div class="interaction-badge">Y-Connect: ${badge}</div>
 
                 <div class="protocol-details info-panel" style="display:block;">
-                    ${makeRow("Solution",  getCompatValue(result, "solution"))}
+                    ${makeRow("Solution", getCompatValue(result, "solution"))}
                     ${makeRow("Y-Connect", ySiteValue)}
-                    ${makeRow("Syringe",   getCompatValue(result, "syringe"))}
+                    ${makeRow("Syringe", getCompatValue(result, "syringe"))}
                     ${makeRow("Admixture", getCompatValue(result, "admixture"))}
 
                     ${result.notes ? `<div class="med-section"><strong>Notes:</strong> ${result.notes}</div>` : ""}
-                    ${result.source ? `<div class="med-section"><strong>Source:</strong> ${result.source}</div>` : ""}
+                    ${result.source ? `<div class="protocol-source info-panel" style="margin-top: 8px;"><strong>Source:</strong> ${result.source}</div>` : ""}
                 </div>
             </div>
         `;
@@ -172,7 +168,7 @@ function checkDrugInteraction() {
 }
 
 /* =========================================================
-   4️⃣ CLEAR
+   CLEAR
    ========================================================= */
 function clearDrugInteraction() {
     ["drugA", "drugB"].forEach(id => {
@@ -184,7 +180,7 @@ function clearDrugInteraction() {
 }
 
 /* =========================================================
-   5️⃣ UTILITIES
+   UTILITIES
    ========================================================= */
 function getCompatValue(entry, route) {
     const compat = entry && typeof entry.compatibility === "object"
