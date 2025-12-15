@@ -34,7 +34,7 @@
                     "Avoid milk within 1–2 hours.",
                     "Monitor jaundice or abdominal pain."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Bleomycin",
@@ -65,7 +65,7 @@
                     "Premedicate if fever-prone",
                     "Report cough or dyspnea immediately"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Busulfan",
@@ -96,7 +96,7 @@
                     "Monitor lung symptoms",
                     "Ensure anticonvulsant prophylaxis when ordered"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Cisplatin",
@@ -129,7 +129,7 @@
                     "Ensure pre- and post-hydration",
                     "Monitor for tinnitus"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Cyclophosphamide",
@@ -162,7 +162,7 @@
                     "Hydrate before/after dose",
                     "Monitor for hematuria"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Cytarabine (Ara-C)",
@@ -193,7 +193,7 @@
                     "Use steroid eye drops",
                     "Perform neuro exam before each high dose"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Daunorubicin",
@@ -225,7 +225,7 @@
                     "Use central line only",
                     "Expect red urine for 24–48 hrs"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Doxorubicin",
@@ -258,7 +258,7 @@
                     "Give via dedicated central line",
                     "Observe for chest discomfort"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Etoposide",
@@ -287,7 +287,7 @@
                     "Use infusion pump",
                     "Monitor BP throughout infusion"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Ifosfamide",
@@ -318,7 +318,7 @@
                     "Ensure hydration",
                     "Observe for confusion or hallucinations"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Methotrexate",
@@ -348,7 +348,7 @@
                 "nursesInfo": [
                     "Give leucovorin rescue for high-dose MTX"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Vincristine",
@@ -378,7 +378,7 @@
                     "Check for foot drop",
                     "Avoid compressing infusion limb"
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             }
         ]
     },
@@ -418,7 +418,7 @@
                     "Monitor liver enzymes closely.",
                     "Educate patient about delayed immune side effects."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Bevacizumab",
@@ -451,7 +451,7 @@
                     "Dipstick urine for proteinuria.",
                     "Delay dose if uncontrolled hypertension."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Bortezomib",
@@ -482,7 +482,7 @@
                     "Assess for numbness or tingling.",
                     "Administer antiviral prophylaxis (shingles)."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Cetuximab",
@@ -514,7 +514,7 @@
                     "Use sunscreen; photosensitivity risk.",
                     "Monitor electrolytes weekly."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Imatinib",
@@ -546,7 +546,7 @@
                     "Take with a full glass of water and meal.",
                     "Monitor LFTs regularly."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Nivolumab",
@@ -579,7 +579,7 @@
                     "Assess bowel habit changes.",
                     "Educate about delayed immune effects."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Pembrolizumab",
@@ -612,7 +612,7 @@
                     "Report diarrhea >3 episodes/day.",
                     "Check thyroid panel every 4–6 weeks."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Rituximab",
@@ -645,7 +645,7 @@
                     "Start infusion at slowest rate.",
                     "Have emergency medications ready."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Sorafenib",
@@ -678,7 +678,7 @@
                     "Apply urea cream prophylactically.",
                     "Check BP before each cycle."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Trastuzumab",
@@ -709,7 +709,7 @@
                     "Observe closely during first infusion.",
                     "Stop infusion if chest pain or dyspnea occurs."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             }
         ]
     },
@@ -745,7 +745,7 @@
                     "Encourage adequate hydration.",
                     "Teach patient to report rash immediately."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Aprepitant / Fosaprepitant",
@@ -775,7 +775,7 @@
                     "Monitor for hiccups and fatigue.",
                     "Advise backup contraception during therapy."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Dexamethasone",
@@ -806,7 +806,7 @@
                     "Monitor blood sugars closely.",
                     "Avoid abrupt stopping after prolonged use."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Filgrastim (G-CSF)",
@@ -834,7 +834,7 @@
                     "Clarify timing based on chemo day.",
                     "Use warm compresses or loratadine for bone pain."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Furosemide",
@@ -866,7 +866,7 @@
                     "Monitor urine output closely.",
                     "Record strict input/output balance."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Leucovorin (Calcium Folinate)",
@@ -895,7 +895,7 @@
                     "Adjust rescue based on MTX levels.",
                     "Monitor urine pH during high-dose MTX."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Mesna",
@@ -926,7 +926,7 @@
                     "Encourage drinking plenty of water.",
                     "Monitor urine color each shift."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Ondansetron",
@@ -956,7 +956,7 @@
                     "Increase fluids/fiber for constipation.",
                     "Consider ECG in high-risk patients."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Palonosetron",
@@ -985,7 +985,7 @@
                     "Give before chemotherapy begins.",
                     "Increase fiber to prevent constipation."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             },
             {
                 "name": "Pegfilgrastim",
@@ -1014,7 +1014,7 @@
                     "Educate about left-upper-quadrant pain (rare splenic issue).",
                     "Use loratadine for bone pain if needed."
                 ],
-                "source": "Local Hospital Formulary"
+                "source": "Multiple sources"
             }
         ]
     }
