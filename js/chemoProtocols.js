@@ -61,13 +61,13 @@ function openLeukemiaType(type, options = {}) {
 
     // Show loading state
     list.innerHTML = `
-        <div class="phase-card" style="text-align:center; padding:20px; color:#555;">
+        <div class="phase-card loading-message">
             <p>⏳ Loading ${type} protocols...</p>
         </div>`;
 
     loadChemoProtocols().then(data => {
         if (!data) {
-            list.innerHTML = `<div class="phase-card" style="padding:20px; color:#d63384;">⚠️ Failed to load protocol data.</div>`;
+            list.innerHTML = `<div class="phase-card error-message">⚠️ Failed to load protocol data.</div>`;
             return;
         }
 
@@ -75,7 +75,7 @@ function openLeukemiaType(type, options = {}) {
             renderLeukemiaProtocols(data, type, list, options);
         } catch (error) {
             console.error("❌ Render Error:", error);
-            list.innerHTML = `<div class="phase-card" style="color:red; padding:20px;">
+            list.innerHTML = `<div class="phase-card error-details">
                 <p>Error displaying protocols: ${error.message}</p>
             </div>`;
         }
@@ -91,7 +91,7 @@ function renderLeukemiaProtocols(allData, type, list, options) {
     list.innerHTML = ""; // Clear loading message
 
     if (!selected) {
-        list.innerHTML = `<div class="phase-card"><p class="no-protocol">No protocols currently available for ${type}.</p></div>`;
+        list.innerHTML = `<div class="phase-card"><p class="no-protocol empty-message">No protocols currently available for ${type}.</p></div>`;
         return;
     }
 
@@ -138,7 +138,7 @@ function renderLeukemiaProtocols(allData, type, list, options) {
 
         // 5. Protocols
         if (protocols.length === 0) {
-            phaseContent.innerHTML += `<p style="padding:10px;">No regimens listed.</p>`;
+            phaseContent.innerHTML += `<p class="empty-message">No regimens listed.</p>`;
         } else {
             protocols.forEach(protocol => {
                 if (!protocol) return;
@@ -235,7 +235,7 @@ function buildProtocolDetailsHtml(protocol) {
                     <span class="drug-route"><strong><em>${d.route || ""}</em></strong></span>
                     ${d.duration ? `<span class="drug-duration"> (${d.duration})</span>` : ""}
                 </div>
-                ${d.note ? `<div class="drug-note" style="color: #d63384; font-size: 0.85em; margin-top: 2px; margin-left: 10px; font-style: italic;">➤ ${d.note}</div>` : ""}
+                ${d.note ? `<div class="drug-note">➤ ${d.note}</div>` : ""}
             </div>`;
 
         phasesOrder.forEach(p => {
@@ -413,7 +413,7 @@ function renderProtocolSearchResults(results, options = {}) {
     container.removeAttribute("hidden");
 
     if (!results.length) {
-        container.innerHTML = `< p class= "search-empty" style = "color:#666; font-style:italic;" > ${statusMessage}</p > `;
+        container.innerHTML = `<p class="search-empty">${statusMessage}</p>`;
         return;
     }
 
@@ -428,13 +428,13 @@ function renderProtocolSearchResults(results, options = {}) {
             .join(", ");
 
         card.innerHTML = `
-            < div class="result-top" >
+            <div class="result-top">
                 <span class="result-pill">${match.type}</span>
                 <span class="result-pill">${match.phase}</span>
-            </div >
+            </div>
             <h4>${match.protocol.protocolName || "Unnamed Regimen"}</h4>
-            ${drugPreview ? `<p class="result-drugs" style="font-size:0.9em; color:#444;">Drugs: ${drugPreview}</p>` : ""}
-        <p class="result-meta" style="color:#00796b; font-size:0.85em;">Tap to view details ›</p>
+            ${drugPreview ? `<p class="result-drugs">Drugs: ${drugPreview}</p>` : ""}
+        <p class="result-meta">Tap to view details ›</p>
         `;
 
         card.addEventListener("click", () => {

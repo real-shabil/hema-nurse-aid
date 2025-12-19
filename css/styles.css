@@ -480,9 +480,49 @@ PROTOCOL & PHASE BLOCKS
     font-size: 0.95rem;
 }
 
-.protocol-details .drug-note {
+.drug-note {
+    color: #d63384;
+    font-size: 0.85em;
+    margin-top: 2px;
+    margin-left: 10px;
+    font-style: italic;
     width: 100%;
     flex-basis: 100%;
+}
+
+.loading-message {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+}
+
+.error-message {
+    padding: 20px;
+    color: #d63384;
+}
+
+.error-details {
+    color: red;
+    padding: 20px;
+}
+
+.empty-message {
+    padding: 10px;
+}
+
+.search-empty {
+    color: #666;
+    font-style: italic;
+}
+
+.result-drugs {
+    font-size: 0.9em;
+    color: #444;
+}
+
+.result-meta {
+    color: #00796b;
+    font-size: 0.85em;
 }
 
 .protocol-details .drug-dose {
