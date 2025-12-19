@@ -480,6 +480,11 @@ PROTOCOL & PHASE BLOCKS
     font-size: 0.95rem;
 }
 
+.protocol-details .drug-note {
+    width: 100%;
+    flex-basis: 100%;
+}
+
 .protocol-details .drug-dose {
     font-style: normal;
     font-weight: 600;
