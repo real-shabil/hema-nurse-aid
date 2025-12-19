@@ -228,11 +228,14 @@ function buildProtocolDetailsHtml(protocol) {
 
         const drugRow = d => `
             <div class="drug-item">
-                <span class="drug-day">${d.day || ""}</span>
-                <span class="drug-name"><strong>${d.name || "Unknown"}</strong></span> — 
-                <span class="drug-dose"><em>${d.dose || ""}</em></span> 
-                <span class="drug-route"><strong><em>${d.route || ""}</em></strong></span>
-                ${d.duration ? `<span class="drug-duration"> (${d.duration})</span>` : ""}
+                <div>
+                    <span class="drug-day">${d.day || ""}</span>
+                    <span class="drug-name"><strong>${d.name || "Unknown"}</strong></span> —
+                    <span class="drug-dose"><em>${d.dose || ""}</em></span>
+                    <span class="drug-route"><strong><em>${d.route || ""}</em></strong></span>
+                    ${d.duration ? `<span class="drug-duration"> (${d.duration})</span>` : ""}
+                </div>
+                ${d.note ? `<div class="drug-note" style="color: #d63384; font-size: 0.85em; margin-top: 2px; margin-left: 10px; font-style: italic;">➤ ${d.note}</div>` : ""}
             </div>`;
 
         phasesOrder.forEach(p => {
@@ -410,7 +413,7 @@ function renderProtocolSearchResults(results, options = {}) {
     container.removeAttribute("hidden");
 
     if (!results.length) {
-        container.innerHTML = `<p class="search-empty" style="color:#666; font-style:italic;">${statusMessage}</p>`;
+        container.innerHTML = `< p class= "search-empty" style = "color:#666; font-style:italic;" > ${statusMessage}</p > `;
         return;
     }
 
@@ -425,13 +428,13 @@ function renderProtocolSearchResults(results, options = {}) {
             .join(", ");
 
         card.innerHTML = `
-            <div class="result-top">
+            < div class="result-top" >
                 <span class="result-pill">${match.type}</span>
                 <span class="result-pill">${match.phase}</span>
-            </div>
+            </div >
             <h4>${match.protocol.protocolName || "Unnamed Regimen"}</h4>
             ${drugPreview ? `<p class="result-drugs" style="font-size:0.9em; color:#444;">Drugs: ${drugPreview}</p>` : ""}
-            <p class="result-meta" style="color:#00796b; font-size:0.85em;">Tap to view details ›</p>
+        <p class="result-meta" style="color:#00796b; font-size:0.85em;">Tap to view details ›</p>
         `;
 
         card.addEventListener("click", () => {

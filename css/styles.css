@@ -453,6 +453,7 @@ PROTOCOL & PHASE BLOCKS
     display: none;
     margin-top: 8px;
     padding: 5px 12px;
+    text-align: left;
 }
 
 .protocol-details .drug-item {
