@@ -21,7 +21,7 @@ function initDrugInteractions(data) {
 
     setupDrugAutocomplete("drugA", "suggestionA");
     setupDrugAutocomplete("drugB", "suggestionB");
-    console.log("💊 IV Compatibility Module initialized.");
+
 }
 
 /* =========================================================

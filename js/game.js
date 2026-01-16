@@ -1,13 +1,8 @@
 /* =========================================================
-   🎮 NURSE WORDLE — JSON-DRIVEN VERSION
-   ========================================================= */
-
-
-/* =========================================================
    1️⃣ LOAD & INITIALIZE GAME
    ========================================================= */
 async function loadWordle(container) {
-    console.log("[Wordle] loadWordle called with container:", container);
+
 
     if (!container) {
         console.error("[Wordle] ❌ No container passed to loadWordle.");
@@ -15,10 +10,10 @@ async function loadWordle(container) {
     }
 
     try {
-        console.log("[Wordle] Fetching data/gamesData.json...");
+
         const res = await fetch("data/gamesData.json");
 
-        console.log("[Wordle] fetch() response:", res.status, res.statusText);
+
 
         // Optional: warn if not OK (404, 500, etc.)
         if (!res.ok) {
@@ -26,7 +21,7 @@ async function loadWordle(container) {
         }
 
         const data = await res.json();
-        console.log("[Wordle] Parsed JSON:", data);
+
 
         const gameData = data.wordle;
         if (!gameData) {
@@ -34,14 +29,14 @@ async function loadWordle(container) {
         }
 
         const words = (gameData.words || []).map(w => w.toUpperCase());
-        console.log("[Wordle] words list length:", words.length);
+
 
         if (!words.length) {
             throw new Error("No words available for Wordle.");
         }
 
         const secretWord = words[Math.floor(Math.random() * words.length)];
-        console.log("[Wordle] Secret word selected (hidden):", secretWord);
+
 
         // Global object for tracking progress
         window.wordle = {
@@ -75,7 +70,9 @@ async function loadWordle(container) {
                     autocapitalize="characters"
                     spellcheck="false"
                 />
-                <div id="wordleGrid" class="wordle-grid"></div>
+                <div id="wordleGrid" class="wordle-board"></div>
+
+
                 <div class="calc-buttons" style="margin-top:16px;">
                     <button type="button" class="btn-enter" id="wordleEnterBtn">Enter</button>
                     <button type="button" class="btn-clear" id="wordleResetBtn">Reset</button>
@@ -84,12 +81,9 @@ async function loadWordle(container) {
             </div>
         `;
 
-
-
-        console.log("[Wordle] UI rendered. Initializing grid & input bridge...");
-
-        // ✅ Create grid and enable keyboard control
+        // ✅ Create grid, keyboard, and enable keyboard control
         generateWordleGrid("wordleGrid");
+
         setupWordleInputBridge();
 
         // 🔘 Wire Enter + Reset buttons in a safe, mobile-friendly way
@@ -120,13 +114,13 @@ async function loadWordle(container) {
         if (!window.wordleKeyListenerAdded) {
             document.addEventListener("keydown", handleWordleKey);
             window.wordleKeyListenerAdded = true;
-            console.log("[Wordle] Global keydown listener attached.");
+
         }
 
         const resultDiv = document.getElementById("wordleResult");
         if (resultDiv) resultDiv.textContent = "";
 
-        console.log("[Wordle] Initialization complete.");
+
     } catch (err) {
         console.error("❌ [Wordle] Error loading gamesData.json:", err);
         container.innerHTML = `
@@ -152,66 +146,22 @@ function generateWordleGrid(targetDivId, rows = 6, cols = 5) {
     gridDiv.innerHTML = "";
 
     for (let r = 0; r < rows; r++) {
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "wordle-row";
         for (let c = 0; c < cols; c++) {
             const cell = document.createElement("div");
-            cell.className = "wordle-cell";
+            cell.className = "wordle-tile";
             cell.dataset.row = r;
             cell.dataset.col = c;
-            gridDiv.appendChild(cell);
+            rowDiv.appendChild(cell);
         }
+        gridDiv.appendChild(rowDiv);
     }
 
-    console.log("[Wordle] Grid generated:", rows, "rows ×", cols, "cols");
+
 }
 
-/* =========================================================
-   ⌨️ ON-SCREEN KEYBOARD (BUILD + HANDLER)
-   ========================================================= */
-function buildWordleKeyboard() {
-    const kb = document.getElementById("wordleKeyboard");
-    if (!kb) {
-        console.error("[Wordle] ❌ wordleKeyboard div not found.");
-        return;
-    }
 
-    kb.innerHTML = "";
-
-    const rows = [
-        ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
-        ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
-        ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "BACKSPACE"]
-    ];
-
-    rows.forEach(row => {
-        const rowDiv = document.createElement("div");
-        rowDiv.className = "wordle-key-row";
-
-        row.forEach(key => {
-            const btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "wordle-key";
-            btn.dataset.key = key;
-
-            if (key === "ENTER") {
-                btn.classList.add("wordle-key--enter");
-                btn.textContent = "Enter";
-            } else if (key === "BACKSPACE") {
-                btn.classList.add("wordle-key--backspace");
-                btn.textContent = "⌫";
-            } else {
-                btn.textContent = key;
-            }
-
-            btn.addEventListener("click", () => handleVirtualKey(key));
-            rowDiv.appendChild(btn);
-        });
-
-        kb.appendChild(rowDiv);
-    });
-
-    // Hidden by default; will be shown on first tap/click.
-    kb.classList.remove("visible");
-}
 
 
 /* =========================================================
@@ -247,10 +197,10 @@ function updateWordleGrid() {
     if (!game) return;
 
     const { currentGuess, activeRow, finished } = game;
-    const rowCells = grid.querySelectorAll(`.wordle-cell[data-row="${activeRow}"]`);
+    const rowCells = grid.querySelectorAll(`.wordle-tile[data-row="${activeRow}"]`);
 
     // Remove previous cursor
-    grid.querySelectorAll(".wordle-cell.cursor").forEach(cell =>
+    grid.querySelectorAll(".wordle-tile.cursor").forEach(cell =>
         cell.classList.remove("cursor")
     );
 
@@ -346,7 +296,7 @@ function submitWordle() {
 
     const secret = game.secret.toUpperCase();
     const grid = document.getElementById("wordleGrid");
-    const cells = grid.querySelectorAll(`.wordle-cell[data-row="${game.activeRow}"]`);
+    const cells = grid.querySelectorAll(`.wordle-tile[data-row="${game.activeRow}"]`);
 
     const letterCounts = {};
     for (const char of secret) {
@@ -414,32 +364,7 @@ function submitWordle() {
     setupWordleInputBridge();
 }
 
-function updateKeyboardColors(guess, statuses) {
-    const kb = document.getElementById("wordleKeyboard");
-    if (!kb) return;
 
-    const priority = { absent: 0, present: 1, correct: 2 };
-
-    for (let i = 0; i < guess.length; i++) {
-        const letter = guess[i];
-        const status = statuses[i];
-
-        const keyBtn = kb.querySelector(`.wordle-key[data-key="${letter}"]`);
-        if (!keyBtn) continue;
-
-        const current = keyBtn.dataset.state;
-        if (current && priority[current] >= priority[status]) {
-            // Don't downgrade a better state (e.g. correct → present)
-            continue;
-        }
-
-        keyBtn.dataset.state = status;
-        keyBtn.classList.remove("correct", "present", "absent");
-        if (status === "correct" || status === "present" || status === "absent") {
-            keyBtn.classList.add(status);
-        }
-    }
-}
 
 
 function resetWordle() {
@@ -462,11 +387,7 @@ function resetWordle() {
     updateWordleGrid();
 }
 
-function showWordleKeyboard() {
-    const kb = document.getElementById("wordleKeyboard");
-    if (!kb) return;
-    kb.classList.add("visible");
-}
+
 
 
 /* =========================================================

@@ -133,7 +133,7 @@ function calculateHeparin(calcKey) {
     }
 
     // Find matching range
-    const range = data.ranges.find(r => aptt >= r.minAPTT && aptt <= r.maxAPTT);
+    const range = data.ranges.find(pttRange => aptt >= pttRange.minAPTT && aptt <= pttRange.maxAPTT);
 
     if (!range) {
         showResult(calcKey, `No protocol range found for aPTT: ${aptt}. Please contact physician manually.`);
@@ -158,7 +158,7 @@ function calculateHeparin(calcKey) {
         const finalBolusML = finalBolus / IUperML;
         bolusDisplay = `<strong>GIVE BOLUS:</strong> ${finalBolus.toFixed(0)} units (${finalBolusML.toFixed(2)} mL)`;
     } else if (bolusUnitsPerKg > 0 && !nurseAllowsBolus) {
-        bolusDisplay = "Bolus indicated but 'Without Bolus' selected.";
+        bolusDisplay = "Bolus required but 'Without Bolus' selected as per physician order.";
     }
 
     // --- Rate Adjustment Calculation ---

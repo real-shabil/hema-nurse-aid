@@ -20,7 +20,7 @@ function loadChemoProtocols() {
         })
         .then(data => {
             CHEMO_PROTOCOLS = data;
-            console.log("✅ Chemo protocols loaded.");
+
             return data;
         })
         .catch(err => {
@@ -37,7 +37,7 @@ loadChemoProtocols();
    2️⃣ OPEN SPECIFIC LEUKEMIA TYPE
    ========================================================= */
 function openLeukemiaType(type, options = {}) {
-    console.log(`Opening protocol type: ${type}`);
+
 
     // Ensure we switch to the right section logic safely
     if (typeof navigateToSection === "function") {
@@ -160,14 +160,28 @@ function renderLeukemiaProtocols(allData, type, list, options) {
                 const detailsHtml = buildProtocolDetailsHtml(protocol);
 
                 card.innerHTML = `
-                    <h4>${name}</h4>
-                    <p class="protocol-summary">
+                    <div class="protocol-header-top" style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <h4 style="margin:0; padding-right:8px;">${name}</h4>
+                        <button class="pdf-protocol-btn" title="Download/Print PDF" style="background:none; border:none; cursor:pointer; font-size:1.2rem; padding:4px; margin-top:-4px;">
+                            🖨️
+                        </button>
+                    </div>
+                    <p class="protocol-summary" style="margin-top:4px;">
                         ${protocol.cycleDuration ? `Duration: ${protocol.cycleDuration}` : ""}
                     </p>
                     <div class="protocol-details info-panel" style="display:none; margin-top:10px;">
                         ${detailsHtml}
                     </div>
                 `;
+
+                // PDF/Print Button Listener
+                const pdfBtn = card.querySelector(".pdf-protocol-btn");
+                if (pdfBtn) {
+                    pdfBtn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        printProtocolAsPDF(protocol, type, phase);
+                    });
+                }
 
                 // Click to expand details
                 card.addEventListener("click", (e) => {
@@ -449,4 +463,124 @@ function renderProtocolSearchResults(results, options = {}) {
 
         container.appendChild(card);
     });
+}
+
+/* =========================================================
+   5️⃣ PRINT / EXPORT PDF FUNCTIONALITY
+   ========================================================= */
+function printProtocolAsPDF(protocol, type, phase) {
+    const drugs = protocol.drugs || [];
+    
+    // Sort drugs by phase if needed, though usually they come sorted or we can just list them.
+    // Let's preserve the order but maybe group visually in the table? 
+    // Actually, a flat table with a "Phase" column is very clean for CSV/PDF exports.
+
+    let rowsHtml = "";
+    if (drugs.length === 0) {
+        rowsHtml = "<tr><td colspan='6' style='text-align:center;'>No specific medications listed.</td></tr>";
+    } else {
+        rowsHtml = drugs.map(d => `
+            <tr>
+                <td><strong>${d.phase || "-"}</strong></td>
+                <td style="white-space:nowrap;">${d.day || ""}</td>
+                <td><strong>${d.name || "Unknown"}</strong></td>
+                <td>${d.dose || ""}</td>
+                <td>${d.route || ""}</td>
+                <td>${d.note || ""} ${d.duration ? `<br><em>(${d.duration})</em>` : ""}</td>
+            </tr>
+        `).join("");
+    }
+
+    const nursesInfoHtml = (protocol.NursesInfo && protocol.NursesInfo.length) 
+        ? `<div class="info-section">
+             <h3>Nursing Considerations:</h3>
+             <ul>${protocol.NursesInfo.map(info => `<li>${info}</li>`).join("")}</ul>
+           </div>`
+        : "";
+
+    const sourceHtml = protocol.source 
+        ? `<div class="meta-source"><strong>Source:</strong> ${protocol.source}</div>` 
+        : "";
+
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) {
+        alert("Please allow popups to print/download the PDF.");
+        return;
+    }
+
+    const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Protocol: ${protocol.protocolName}</title>
+            <style>
+                body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px; color: #333; line-height: 1.5; }
+                h1 { color: #004d40; border-bottom: 2px solid #004d40; padding-bottom: 10px; margin-bottom: 5px; }
+                .subtitle { color: #666; font-size: 1.1rem; margin-bottom: 30px; }
+                
+                table { width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 0.95rem; }
+                th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+                th { background-color: #f0f7f4; color: #004d40; font-weight: bold; }
+                tr:nth-child(even) { background-color: #f9f9f9; }
+                
+                .info-section { background: #f1f9ff; border: 1px solid #cce5ff; padding: 15px; border-radius: 5px; margin-bottom: 20px; page-break-inside: avoid; }
+                .info-section h3 { margin-top: 0; color: #004b8d; font-size: 1.1rem; }
+                .info-section ul { margin-bottom: 0; padding-left: 20px; }
+                .info-section li { margin-bottom: 5px; }
+
+                .meta-source { font-size: 0.85rem; color: #777; font-style: italic; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; }
+                
+                .footer { margin-top: 50px; text-align: center; font-size: 0.8rem; color: #aaa; }
+                
+                @media print {
+                    .no-print { display: none; }
+                    body { padding: 0; }
+                    .info-section { border: 1px solid #ddd; }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>${protocol.protocolName}</h1>
+            <div class="subtitle">
+                <strong>Disease:</strong> ${type} &nbsp;|&nbsp; 
+                <strong>Phase:</strong> ${phase} &nbsp;|&nbsp; 
+                ${protocol.cycleDuration ? `<strong>Duration:</strong> ${protocol.cycleDuration}` : ""}
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width="12%">Phase</th>
+                        <th width="8%">Day</th>
+                        <th width="20%">Drug</th>
+                        <th width="15%">Dose</th>
+                        <th width="10%">Route</th>
+                        <th width="35%">Instructions / Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rowsHtml}
+                </tbody>
+            </table>
+
+            ${nursesInfoHtml}
+
+            ${sourceHtml}
+
+            <div class="footer">
+                Generated by HEMA NURSE AID on ${new Date().toLocaleDateString()}
+            </div>
+            
+            <script>
+                setTimeout(() => {
+                    window.print();
+                    // Optional: window.close(); // Don't close automatically so they can check it.
+                }, 500);
+            <\/script>
+        </body>
+        </html>
+    `;
+
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
 }

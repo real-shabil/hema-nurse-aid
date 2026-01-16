@@ -1,0 +1,2236 @@
+[
+    {
+        "name": "Alemtuzumab (Campath)",
+        "class": "Molecular targeted therapy",
+        "routes": "IV or SubQ",
+        "indication": "CLL and conditioning for Bone Marrow Transplant",
+        "extravasation_risk": "Irritant",
+        "side_effects": [
+            {
+                "hematology": "Immunosuppression, Lymphopenia, Neutropenia, Thrombocytopenia, Pancytopenia",
+                "cardiac": "Hypotension",
+                "infection": "Bacterial, CMV, Fungal, Viral"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Acetaminophen",
+                "route": "PO",
+                "timing": "30 min before infusion"
+            },
+            {
+                "drug": "Diphenhydramine",
+                "route": "IV/PO",
+                "timing": "30 min before infusion"
+            },
+            {
+                "drug": "Methylprednisolone",
+                "route": "IV",
+                "timing": "30 min before infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Infection prevention (PCP/CMV/Herpes)",
+                "notes": "Mandatory Bactrim (or equivalent) and Acyclovir/Valacyclovir due to profound T-cell depletion"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Vital sign monitoring",
+                "notes": "Every 15 mins during infusion due to high cytokine release risk"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "All-Trans Retinoic Acid (ATRA / Tretinoin)",
+        "class": "Differentiation inducing agent",
+        "routes": "Oral (Capsule)",
+        "indication": "APL (Acute Promyelocytic Leukemia)",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "integumentary": "Sever dryness, itching, peeling, redness",
+                "genitourinary": "Teratogenicity, fetal malformations."
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Differentiation Syndrome prevention",
+                "notes": "Prophylactic prednisone is often ordered if WBC count is >10k"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Skin care",
+                "notes": "Aggressive use of emollients and lip balm for severe dryness"
+            },
+            {
+                "type": "Safe handling",
+                "notes": "Do not crush or open capsules"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Arsenic Trioxide (ATO / Trisenox®)",
+        "class": "Dual Differentiation and Apoptosis Inducer",
+        "routes": "IV Infusion",
+        "indication": "APL (Acute Promyelocytic Leukemia)",
+        "extravasation_risk": "Irritant",
+        "side_effects": [
+            {
+                "hematology": "Hyperleukocytosis, Thrombocytopenia",
+                "cardiac": "QTc interval prolongation, tachycardia, arrhythmias",
+                "renal": "Acute renal failure",
+                "gastrointestinal": "Nausea, vomiting, diarrhea",
+                "nervous": "Paresthesia, Headache",
+                "psychiatric": "Insomnia",
+                "respiratory": "APL differentiation syndrome, Dysponea, cough",
+                "skin": "Dermatitis"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV/PO",
+                "timing": "30 min before infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Cardiac Monitoring",
+                "notes": "Baseline and twice-weekly ECG to monitor QTc interval"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Electrolyte management",
+                "notes": "Maintain Potassium >4 and Magnesium >2 to prevent arrhythmias"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Asparaginase (Oncaspar® / Erwinaze®)",
+        "class": "Antitumor antibiotic",
+        "routes": "IM or IV",
+        "indication": "ALL (Pediatric/Young Adult)",
+        "extravasation_risk": "Irritant",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [],
+        "supportive_care": [
+            {
+                "type": "Coagulation & Neurological Safety",
+                "notes": "Monitor Fibrinogen (maintain >1 g/L); Urgent CT Brain required if severe headache occurs to differentiate Hemorrhage from Cerebral Thrombosis."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Azacitidine (Vidaza®)",
+        "class": "Hypomethylating Agent (HMA)",
+        "routes": "SubQ or IV",
+        "indication": "AML and MDS",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [
+            {
+                "hematology": "Anaemia, thrombocytopenia, neutropenia",
+                "gastrointestinal": "Nausea, vomiting, constipation",
+                "skin": "Injection site irritation, erythema",
+                "nutrition": "Anorexia",
+                "musculoskeletal": "Arthralgia, myalgia",
+                "nervous": "Dizziness, headache",
+                "respiratory": "Differentiation syndrome, dyspnea"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Ondansetron",
+                "route": "PO/IV",
+                "timing": "30 min before dose"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Constipation prevention",
+                "notes": "Stool softeners if taking routine Ondansetron"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Injection site care",
+                "notes": "Rotate SubQ sites daily; cold compress may help local irritation"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Bendamustine (Treanda®)",
+        "class": "Alkylating Agent",
+        "routes": "IV Infusion",
+        "indication": "CLL, Hodgkin's Lymphoma(HL), Non-Hodgkin's Lymphoma(NHL)",
+        "extravasation_risk": "VESICANT",
+        "side_effects": [
+            {
+                "hematology": "Anaemia, thrombocytopenia, neutropenia, febrile neutropenia",
+                "gastrointestinal": "Anorexia, constipation, diarrhoea, dyspepsia, stomatitis, vomiting",
+                "infection": "Herpes simplex, herpers zoster, pneumonia",
+                "metabolic": "hypokalemia, tumor lysis syndrome",
+                "neurological": "Headache",
+                "respiratory": "Cough",
+                "skin": "Rashes",
+                "vascular": "hypertensive crisis"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Viral prophylaxis",
+                "notes": "Acyclovir for Herpes/Shingles prevention"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Hydration",
+                "notes": "Encourage fluids to prevent renal toxicity and TLS"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Blinatumomab (Blincyto®)",
+        "class": "Molecular Targeted Therapy (BiTE (Bispecific T-cell Engager)",
+        "routes": "Continuous IV Infusion",
+        "indication": "ALL (Relapsed/Refractory)",
+        "extravasation_risk": "Irritant",
+        "side_effects": [
+            {
+                "hematology": "Anaemia, neutropenia, febrile neutropenia",
+                "gastrointestinal": "Nausea, pancreatitis",
+                "general": "Asthenia, pyrexia",
+                "immune": "Cytokine release syndrome, hypersensitivity, infusion reaction",
+                "infection": "Sepsis",
+                "hepatic": "Hepatic toxicity (elevated ALT, AST, Bilirubin)",
+                "metabolic": "TLS",
+                "musculoskeletal": "muscle weakness",
+                "nervous": "Cognitive disorder, encephalopathy, headache, tremor",
+                "psychiatric": "Confusion"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Dexamethasone",
+                "route": "IV",
+                "timing": "Mandatory before 1st dose and every dose step-up"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Seizure prophylaxis",
+                "notes": "Levetiracetam (Keppra) required during infusion due to neurotoxicity risk"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Line Care & Administration",
+                "notes": "<b>NEVER</b> flush the line (risk of toxic bolus); maintain strict continuous rate."
+            },
+            {
+                "type": "Neuro checks",
+                "notes": "ICE score/writing sample every 4-8 hours"
+            },
+            {
+                "type": ""
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Bortezomib (Velcade®)",
+        "class": "Proteasome Inhibitor",
+        "routes": "SubQ (Preferred) or IV",
+        "indication": "Multiple Myeloma, non-Hodgkin's Lymphoma(NHL), Amyloidosis",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [
+            {
+                "hematology": "Neutropenia, Thrombocytopenia, febrile neutropenia",
+                "gastrointestinal": "Diarrhea, nausea",
+                "hemorrhage": "Epistaxis",
+                "infection": "Pneumonia, sepsis",
+                "neurological": "Peripheral neuropathy",
+                "musculoskeletal": "limb pain, bone pain"
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Shingles prophylaxis",
+                "notes": "Acyclovir/Valacyclovir mandatory to prevent Herpes Zoster reactivation"
+            },
+            {
+                "type": "Hepatitis B prophylaxis",
+                "notes": "Inactivated hepatitis B vaccine mandatory to prevent hepatitis B reactivation"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Neuropathy assessment",
+                "notes": "Check for numbness/tingling before every dose"
+            },
+            {
+                "type": "Moniter RBS",
+                "notes": "Monitor for hypo or hyperglycemia"
+            },
+            {
+                "type": "Hypotension precautions",
+                "notes": "Advise patient to sit on edge of bed before standing"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Bosutinib (Bosulif®)",
+        "class": "TKI (Src/Abl Inhibitor)",
+        "routes": "Oral (Tablet)",
+        "indication": "CML (Ph+)",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "hematology": "Neutropenia, thrombocytopenia",
+                "gastrointestinal": "Abdominal pain, diarrhea, nausea,vomiting",
+                "hepatic": "Heptotoxicity (elevated ALT, AST, Lipase)",
+                "musculoskeletal": "Fractures"
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "GI Management",
+                "notes": "Diarrhea is extremely common; have anti-diarrheals (Loperamide) ready"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Administration",
+                "notes": "Take with food to reduce nausea"
+            },
+            {
+                "type": "Liver monitoring",
+                "notes": "Monitor LFTs (ALT/AST elevation is common)"
+            },
+            {
+                "type": "Monitor QT Interval prolongation",
+                "notes": "Monitor ECG for QTc before and during therapy and correct serum electrolytes."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Busulfan (Busulfex)",
+        "class": "Alkylating Agent",
+        "routes": "IV or Oral",
+        "indication": "Transplant Conditioning, CML",
+        "extravasation_risk": "Irritant",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "Aggressive schedule (High emetic risk)"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Antiemetic coverage",
+                "notes": "Nausea and vomiting affects 72% of patients; ensure adequate antiemetic premedication is given"
+            },
+            {
+                "type": "Dermatological care",
+                "notes": "Rash occurs in 67% of patients; monitor for drug eruptions or skin pigmentation changes"
+            },
+            {
+                "type": "GI management",
+                "notes": "Diarrhea observed in 58% of patients; maintain hydration and consider antidiarrheals if needed"
+            },
+            {
+                "type": "Infection prevention",
+                "notes": "Infection risk is 31%; maintain strict neutropenic precautions and monitor for septic signs"
+            },
+            {
+                "type": "Seizure prophylaxis",
+                "notes": "Phenytoin or Levetiracetam started before and during high-dose therapy"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Liver monitoring",
+                "notes": "Monitor daily weights and bilirubin for Veno-Occlusive Disease (VOD)"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Clofarabine (Clolar®/Evoltra®)",
+        "class": "Antimetabolite",
+        "routes": "IV Infusion",
+        "indication": "Relapsed ALL",
+        "extravasation_risk": "Irritant",
+        "side_effects": [
+            {
+                "gastrointestinal": "Nausea, vomiting, vomiting of blood, diarrhea (watery or bloody), black/tarry stools, clay-colored stools, severe abdominal pain/cramps, mouth sores/ulcers (stomatitis), bleeding gums, loss of appetite, unpleasant breath odor, swelling of mouth"
+            },
+            {
+                "dermatological": "Rash, itching, redness/flushing, pale skin, pinpoint red spots (petechiae), unusual bleeding or bruising, yellow skin (jaundice), scaling of skin on hands/feet, painful cold sores/blisters, sweating, warm skin"
+            },
+            {
+                "cardiovascular": "Chest pain, tightness in chest, fast/pounding/irregular heartbeat, swelling of ankles/feet/legs (edema), rapid weight gain, dilated neck veins, fainting, lightheadedness on standing (orthostatic hypotension)"
+            },
+            {
+                "respiratory": "Difficult/labored breathing, rapid shallow breathing, irregular breathing, shortness of breath with exertion, cough, hoarseness, bloody nose, sneezing, sore throat"
+            },
+            {
+                "neurological": "Headache, dizziness, confusion, blurred vision, tingling of hands and feet, nervousness, pounding in the ears"
+            },
+            {
+                "renal & urinary": "Blood in urine, dark urine, decreased urine output, painful or difficult urination"
+            },
+            {
+                "musculoskeletal": "Joint pain/stiffness/swelling, lower back or side pain"
+            },
+            {
+                "general": "Fever, chills, flu-like symptoms, unusual tiredness or weakness, swollen glands, general pain or tenderness"
+            },
+            {
+                "hepatic": "Yellow eyes or skin, clay-colored stools, dark urine"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Corticosteroids",
+                "route": "IV",
+                "timing": "Often given to prevent Capillary Leak Syndrome/SIRS"
+            }
+        ],
+        "required_prophylaxis": [],
+        "supportive_care": [
+            {
+                "type": "Fluid balance",
+                "notes": "Strict I/O monitoring; avoid fluid overload but maintain hydration"
+            },
+            {
+                "type": "Skin assessment",
+                "notes": "Monitor palms/soles for hand-foot syndrome"
+            }
+        ],
+        "source": "Mayo Clinic"
+    },
+    {
+        "name": "Cyclophosphamide (Cytoxan)",
+        "class": "Alkylating Agent",
+        "routes": "IV or Oral",
+        "indication": "Leukemias (AML, ALL, CML, CLL), Lymphomas (HL, NHL, Burkitt's), MM, Breast/Lung/Ovarian/Testicular Ca, Neuroblastoma, Sarcomas, SCT Conditioning",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [
+            {
+                "hematological": "Myelosuppression"
+            },
+            {
+                "cardiovascular": "Cardiac dysfunction in high-dose"
+            },
+            {
+                "gastrointestinal": "Nausea and vomiting are dose-related; >90% for >1.5g"
+            },
+            {
+                "renal/urinary": "Hemorrhagic cystitis (up to 40%), severe, potentially fatal"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before infusion (Moderate-High risk)"
+            },
+            {
+                "drug": "Mesna",
+                "route": "IV",
+                "timing": "With high-dose infusions (bladder protectant)"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Hemorrhagic Cystitis prevention",
+                "notes": "Aggressive hydration (3L/day) and frequent voiding required"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Fluid balance",
+                "notes": "Strict I/O monitoring; encourage voiding before bed to empty bladder"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Cytarabine (Ara-C / Cytosar®)",
+        "class": "Antimetabolite",
+        "routes": "IV, SubQ, or IT",
+        "indication": "AML, ALL, CML, NHL, HL, MDS",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [
+            {
+                "hematological": "Megaloblastic anemia, leukopenia, thrombocytopenia"
+            },
+            {
+                "skin": "Rashes"
+            },
+            {
+                "cardiovascular": "Cardiac dysfunction in high-dose"
+            },
+            {
+                "gastrointestinal": "Nausea and vomiting are dose-related; >90% for >1.5g, peritonitis"
+            },
+            {
+                "infection": "Intestinal infection (peritonitis)"
+            },
+            {
+                "renal/urinary": "Hemorrhagic cystitis (up to 40%), severe, potentially fatal"
+            },
+            {
+                "neurological": "Neurotoxicity"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Steroid Eye Drops (Dexamethasone)",
+                "route": "Ophthalmic",
+                "timing": "Begin 6-12h before High-Dose (HiDAC) and continue 24h after"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Neurotoxicity monitoring",
+                "notes": "Perform signature/writing test before every high dose"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Syndrome management",
+                "notes": "Monitor for 'Cytarabine Syndrome' (fever, rash, bone pain) 6-12h post-dose"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Dasatinib (Sprycel®)",
+        "class": "TKI - 2nd Generation",
+        "routes": "Oral (Tablet)",
+        "indication": "CML and Ph+ ALL",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "hematological": "Myelosuppression (severe); anemia; neutropenia; thrombocytopenia"
+            },
+            {
+                "cardiovascular": "CHF/cardiac dysfunction; pericardial effusion"
+            },
+            {
+                "skin": "Rashes"
+            },
+            {
+                "gastrointestinal": "Emetogenic potential: low; diarrhea"
+            },
+            {
+                "hemorrhage": "Hemorrhage; gastrointestinal hemorrhage"
+            },
+            {
+                "lymphatics/edema": "Fluid retention; generalized edema"
+            },
+            {
+                "musculoskeletal": "Musculoskeletal pain"
+            },
+            {
+                "pulmonary": "Dyspnea; pleural effusion; pulmonary infiltration"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Allopurinol",
+                "route": "Oral",
+                "timing": "Consider starting 2-3 days prior to therapy in patients with high tumor burden (to prevent TLS)"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Baseline ECHO/MUGA required due to lifetime cumulative dose toxicity"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Respiratory assessment",
+                "notes": "Monitor for pleural effusion (dry cough, shortness of breath)"
+            },
+            {
+                "type": "Drug interaction",
+                "notes": "Do NOT administer with Proton Pump Inhibitors (needs acid for absorption)"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Daunorubicin (Cerubidine®)",
+        "class": "Anthracycline topoisomerase I inhibitor",
+        "routes": "IV Only",
+        "indication": "Leukemias (AML, ALL, CML), Lymphomas (HL, NHL), Sarcomas (Ewing's, Kaposi's, Rhabdo), Wilm's Tumor",
+        "extravasation_risk": "VESICANT",
+        "side_effects": [
+            {
+                "hematological": "Myelosuppression"
+            },
+            {
+                "cardiovascular": "Congestive heart failure (rare, dose related), cardiomyopathy (rare, dose related)"
+            },
+            {
+                "skin": "Extravasation hazard: vesicant"
+            },
+            {
+                "gastrointestinal": "Emetogenic potential: moderate high, stomatitis"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Contraception",
+                "notes": "Strict contraception required; teratogenic risk (fetal abnormalities, abortion, and growth restriction observed in animal studies)"
+            },
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Baseline ECHO/MUGA required due to lifetime cumulative dose toxicity"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Extravasation Management",
+                "notes": "COLD PACKS only. Dexrazoxane if available."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Counsel on risk of gonadal suppression (amenorrhea, azoospermia, testicular atrophy)"
+            },
+            {
+                "type": "Lactation Precautions",
+                "notes": "Breastfeeding is not recommended due to potential secretion into breast milk"
+            },
+            {
+                "type": "Long-term Monitoring",
+                "notes": "Monitor for secondary malignancies (leukemias reported with topoisomerase II inhibitors)"
+            },
+            {
+                "type": "Patient education",
+                "notes": "Warn patient urine will turn red/orange for 24-48 hours"
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Decitabine (Dacogen®)",
+        "class": "Hypomethylating Agent (HMA)",
+        "routes": "IV Infusion",
+        "indication": "MDS and AML",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [
+            {
+                "hematological": "Unusual bleeding or bruising; pinpoint red spots (petechiae); pale skin (anemia)"
+            },
+            {
+                "hemorrhage": "Black, tarry stools; bleeding gums; blood in urine or stools; bleeding after defecation"
+            },
+            {
+                "cardiovascular": "Chest pain; fast or irregular heartbeat; dizziness/fainting on standing (orthostatic hypotension)"
+            },
+            {
+                "pulmonary": "Cough; difficult/fast breathing; pink frothy sputum (pulmonary edema); congestion; hoarseness"
+            },
+            {
+                "gastrointestinal": "Nausea; vomiting; stomach pain/bloating; sores/ulcers in mouth (stomatitis); loss of appetite"
+            },
+            {
+                "skin": "Hives; itching; rash; redness/pain at catheter site; yellow skin (jaundice); flushed skin"
+            },
+            {
+                "lymphatics/edema": "Swelling of the face, hands, ankles, or feet (edema); swollen lymph glands"
+            },
+            {
+                "musculoskeletal": "Body aches; muscle pain, cramps, or spasms; weakness/heaviness of legs"
+            },
+            {
+                "neurological": "Headache; seizures; drowsiness; numbness/tingling (neuropathy); mood changes; blurred vision"
+            },
+            {
+                "renal/urinary": "Difficult or painful urination; frequent or increased urination; bloody or cloudy urine"
+            },
+            {
+                "metabolic": "Increased thirst; increased hunger; fruit-like breath odor (hyperglycemia symptoms)"
+            },
+            {
+                "constitutional": "Fever; chills; unusual tiredness or weakness; unexplained weight loss"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Ondansetron",
+                "route": "PO/IV",
+                "timing": "30 min before dose"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Contraception",
+                "notes": "Strict contraception required. Females: during + 6 months after last dose. Males: during + 3 months after last dose. Risk of birth defects."
+            },
+            {
+                "type": "Hematological Monitoring",
+                "notes": "Regular blood tests required to monitor for leukopenia (infection risk) and thrombocytopenia (bleeding risk)."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Bleeding Precautions",
+                "notes": "Monitor for bruising/bleeding (melena, hematuria). Use soft toothbrush; avoid razors, contact sports, and dental work without clearance."
+            },
+            {
+                "type": "Infection Prevention",
+                "notes": "Avoid sick contacts. Report fever, chills, cough, or painful urination immediately."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Counsel patients on risk of infertility (specifically male infertility reported)."
+            },
+            {
+                "type": "Antiemetic Management",
+                "notes": "Nausea/vomiting is common; ensure adequate antiemetic coverage."
+            }
+        ],
+        "source": "Mayo Clinic"
+    },
+    {
+        "name": "Dexamethasone (Decadron®/Dexasone®)",
+        "class": "Corticosteroid / Glucocorticoid",
+        "routes": "IV or Oral (Tablet/Suspension)",
+        "indication": "Multiple Myeloma, ALL, Lymphoma, Brain Tumor, Anti-emetic prophylaxis and Hypersensitivity reactions",
+        "extravasation_risk": "None",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Gastric protection",
+                "notes": "H2 blockers (Famotidine) or PPIs (Omeprazole) often required to prevent ulcers"
+            },
+            {
+                "type": "PJP Prophylaxis",
+                "notes": "Required if on high-dose protocol for >4 weeks (e.g., Bactrim)"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Hyperglycemia management",
+                "notes": "Monitor blood glucose Q6H; insulin sliding scale may be needed even in non-diabetics"
+            },
+            {
+                "type": "Tumor Lysis Syndrome",
+                "notes": "Directly cytotoxic to lymphocytes; monitor uric acid/electrolytes upon initiation"
+            },
+            {
+                "type": "Administration timing",
+                "notes": "Administer in the morning to reduce risk of steroid-induced insomnia"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Doxorubicin (Adriamycin®)",
+        "class": "Anthracycline antineoplastic antibiotic",
+        "routes": "IV Only",
+        "indication": "Leukemias (ALL, AML), MM, Lymphomas (HL, NHL), Breast, Bladder, Lung, Gastric, Hepatic, Thyroid, H&N, Testicular, Gyn Ca, Sarcomas (Osteo, Ewing's, Soft Tissue, Kaposi's), Neuroblastoma, Wilm's Tumor",
+        "extravasation_risk": "VESICANT",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before infusion (High emetic risk)"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Track lifetime cumulative dose; Baseline ECHO required"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Oral care",
+                "notes": "High risk of severe mucositis; encourage ice chips (cryotherapy) during infusion"
+            },
+            {
+                "type": "Extravasation Management",
+                "notes": "COLD PACKS only."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Enasidenib (Idhifa®)",
+        "class": "IDH2 Inhibitor",
+        "routes": "Oral (Tablet)",
+        "indication": "IDH2-mutated AML",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Contraception",
+                "notes": "Hormonal birth control may be less effective; use backup method (e.g., condoms) during and for 2 months after last dose (men and women)."
+            },
+            {
+                "type": "TLS Prophylaxis",
+                "notes": "Prophylactic medication may be required to prevent Tumor Lysis Syndrome; monitor fluid status and uric acid."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Differentiation Syndrome",
+                "notes": "Monitor for fever/dyspnea; risk is highest in first 2-3 months"
+            },
+            {
+                "type": "Lab interference",
+                "notes": "Monitor bilirubin; drug can interfere with testing, causing false elevation"
+            },
+            {
+                "type": "Pregnancy Safety",
+                "notes": "Teratogenic risk; pregnancy test required before starting treatment."
+            },
+            {
+                "type": "Drug Interactions",
+                "notes": "Avoid OTC medicines and herbal supplements unless approved by doctor."
+            },
+            {
+                "type": "Leukocytosis",
+                "notes": "Monitor for rapidly rising WBC count"
+            }
+        ],
+        "source": "Mayo Clinic"
+    },
+    {
+        "name": "Etoposide (VP-16, Vepesid®)",
+        "class": "Topoisomerase II inhibitor",
+        "routes": "IV or Oral",
+        "indication": "Leukemias (AML, ALL), Lymphoma, MM, Lung (SCLC, NSCLC), Testicular/Germ Cell, Ovarian, Breast, Prostate, H&N, Brain/Ependymoma, Adrenocortical, Neuroendocrine, Merkel Cell, Thymoma, Sarcomas (Ewing's, Kaposi's, Rhabdo), Wilms' Tumor, Gestational Trophoblastic Tumor",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [
+            {
+                "allergy/immunology": "Type 1 hypersensitivity"
+            },
+            {
+                "hematological": "Myelosuppression"
+            },
+            {
+                "constitutional": "Fatigue"
+            },
+            {
+                "skin": "Extravasation hazard: irritant, alopecia"
+            },
+            {
+                "gastrointestinal": "Anorexia, constipation, diarrhea, mucositis, nausea and vomiting, stomatitis, taste alteration"
+            },
+            {
+                "secondary malignancy": "Acute leukemia"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Contraception",
+                "notes": "Etoposide may cause fetal harm/teratogenicity. Effective contraception is recommended during treatment and for 6 months after the last dose (for both males and females)."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Hemodynamic monitoring",
+                "notes": "Monitor BP frequently; rapid infusion causes hypotension"
+            },
+            {
+                "type": "IV line check",
+                "notes": "Check for precipitation (crystals) in tubing/bag"
+            },
+            {
+                "type": "Fertility Preservation",
+                "notes": "Risk of reduced spermatogenesis and ovarian/testicular atrophy. Consider sperm banking and genetic consultation prior to treatment."
+            },
+            {
+                "type": "Lactation Precautions",
+                "notes": "Breastfeeding is not recommended; drug is excreted in human milk."
+            },
+            {
+                "type": "Long-term Monitoring",
+                "notes": "Monitor for secondary malignancies (e.g., leukemia) and chromosomal abnormalities associated with epipodophyllotoxins."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Fludarabine (Fludara®)",
+        "class": "Antimetabolite",
+        "routes": "IV or Oral",
+        "indication": "CLL, AML, NHL, Conditioning for BMT and Waldenström Macroglobulinemia",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Infection prophylaxis",
+                "notes": "Mandatory Acyclovir (Herpes) and Bactrim (PCP) due to T-cell depletion"
+            },
+            {
+                "type": "Transfusion safety",
+                "notes": "Irradiated blood products ONLY (prevents TA-GvHD)"
+            },
+            {
+                "type": "Blood Product Support",
+                "notes": "Irradiated blood products are mandatory to prevent fatal transfusion-associated graft-versus-host disease (TA-GVHD)."
+            },
+            {
+                "type": "Infection Screening",
+                "notes": "Screen all lymphoma patients for Hepatitis B (HBV) reactivation prior to therapy."
+            },
+            {
+                "type": "Contraception",
+                "notes": "Teratogenic risk; effective contraception required during treatment and for 6 months after cessation (for both men and women)."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Neurotoxicity Monitoring",
+                "notes": "Severe CNS toxicity (blindness, coma, seizures) associated with high doses; monitor neurological status closely."
+            },
+            {
+                "type": "Renal Dose Adjustment",
+                "notes": "Monitor renal function; dose reduction required for renal impairment and geriatric patients to prevent toxicity."
+            },
+            {
+                "type": "Autoimmune Monitoring",
+                "notes": "Monitor for hemolytic anemia (contraindicated in decompensated hemolytic anemia)."
+            },
+            {
+                "type": "Secondary Malignancy",
+                "notes": "Monitor for new onset skin cancer and secondary leukemias (AML/MDS)."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Gemtuzumab Ozogamicin (Mylotarg®)",
+        "class": "CD33-directed Antibody-Drug Conjugate",
+        "routes": "IV Infusion",
+        "indication": "AML",
+        "extravasation_risk": "IRRITANT",
+        "side_effects": [],
+        "premedications": [
+            {
+                "hematological": "Anemia, febrile neutropenia, neutropenia, pancytopenia, thrombocytopenia"
+            },
+            {
+                "cardiovascular": "Hemorrhage/bleeding"
+            },
+            {
+                "gastrointestinal": "Emetogenic potential: moderate, nausea, vomiting"
+            },
+            {
+                "hepatobiliary": "Transaminases increase, veno-occlusive liver disease"
+            },
+            {
+                "infection": "Sepsis"
+            },
+            {
+                "constitutional": "Chills, fatigue, multi-organ failure, pyrexia"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Infusion Premedication",
+                "notes": "Premedicate with a corticosteroid, antihistamine, and acetaminophen prior to each dose to prevent anaphylaxis."
+            },
+            {
+                "type": "TLS Prophylaxis",
+                "notes": "Consider leukoreduction to <30,000/mm3 before treatment to prevent fatal Tumor Lysis Syndrome and renal failure."
+            },
+            {
+                "type": "Contraception",
+                "notes": "Females: Use effective contraception during and for 7 months after last dose. Males: Use for 4 months after last dose."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Drug stability",
+                "notes": "Protect IV bag from light during administration"
+            },
+            {
+                "type": "Hepatic Monitoring",
+                "notes": "Monitor for Veno-occlusive disease (VOD) or sinusoidal obstruction syndrome, which can be fatal."
+            },
+            {
+                "type": "Cardiac Monitoring",
+                "notes": "Monitor ECG and electrolytes for risk of QT prolongation, especially in patients with known risk factors."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Animal studies show reduced spermatogenesis and ovarian/uterine atrophy; counsel on reproductive risks."
+            },
+            {
+                "type": "Lactation Precautions",
+                "notes": "Breastfeeding is not recommended during treatment and for at least one month following the last dose."
+            },
+            {
+                "type": "Pregnancy Safety",
+                "notes": "Embryo-fetal toxicity and morphological abnormalities reported; inform patients of teratogenic risk."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Gilteritinib (Xospata®)",
+        "class": "FLT3 TKI targeted therapy",
+        "routes": "Oral (Tablet)",
+        "indication": "AML",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "hematological": "Febrile neutropenia, thrombocytopenia"
+            },
+            {
+                "cardiovascular": "Cardiac failure, QTc prolongation"
+            },
+            {
+                "gastrointestinal": "Large intestine perforation, pancreatitis"
+            },
+            {
+                "general/constitutional": "Fatigue/malaise"
+            },
+            {
+                "infection": "Pneumonia, septic shock"
+            },
+            {
+                "hepatic/laboratory": "ALT increase, AST increase"
+            },
+            {
+                "neurological": "Posterior reversible encephalopathy syndrome"
+            },
+            {
+                "renal/urinary": "Acute kidney injury"
+            },
+            {
+                "respiratory/syndromes": "Differentiation syndrome"
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Contraception",
+                "notes": "Females: Use effective contraception during and for 6 months after last dose. Males: Use for 4 months after last dose."
+            },
+            {
+                "type": "Electrolyte Correction",
+                "notes": "Correct hypokalemia and/or hypomagnesemia prior to treatment to minimize QT prolongation risk."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Differentiation Syndrome",
+                "notes": "Monitor for rapid weight gain, fever, dyspnea"
+            },
+            {
+                "type": "Neuro monitoring",
+                "notes": "Watch for PRES (headache, seizures, vision loss)"
+            },
+            {
+                "type": "Cardiac Monitoring",
+                "notes": "Monitor ECG and electrolytes for risk of QT prolongation, especially in patients with known risk factors."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Animal studies show testicular toxicity (degeneration/necrosis of germ cells); counsel on reproductive risks."
+            },
+            {
+                "type": "Lactation Precautions",
+                "notes": "Breastfeeding is not recommended due to potential secretion into breast milk."
+            },
+            {
+                "type": "Pregnancy Safety",
+                "notes": "Teratogenic risk; embryo-fetal death and skeletal/visceral abnormalities reported in animal studies."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Glasdegib (Daurismo)",
+        "class": "Hedgehog Pathway Inhibitor",
+        "routes": "Oral (Tablet)",
+        "indication": "AML (Elderly/Unfit)",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Monitor EKG for QTc prolongation"
+            },
+            {
+                "type": "Contraception",
+                "notes": "Strict contraception required for both men and women during treatment and for at least 30 days after the last dose due to birth defect risk."
+            },
+            {
+                "type": "Pregnancy Screening",
+                "notes": "Pregnancy test required within 7 days prior to starting treatment."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Symptom management",
+                "notes": "Monitor for muscle spasms; magnesium supplementation may be needed"
+            },
+            {
+                "type": "Nutrition",
+                "notes": "Monitor for dysgeusia (taste changes) and weight loss"
+            },
+            {
+                "type": "Cardiac Monitoring",
+                "notes": "Monitor for changes in heart rhythm (QT prolongation); report dizziness or uneven heartbeat immediately."
+            },
+            {
+                "type": "Donation Restrictions",
+                "notes": "Do not donate blood, blood products, or sperm during treatment and for 30 days after the last dose."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Counsel patients on risk of male infertility."
+            },
+            {
+                "type": "GI Management",
+                "notes": "Nausea, vomiting, and diarrhea are common; ensure adequate symptom control."
+            },
+            {
+                "type": "Drug Interactions",
+                "notes": "Do not take OTC medicines or herbal supplements without physician approval."
+            }
+        ],
+        "source": "Mayo Clinic"
+    },
+    {
+        "name": "Hydroxyurea (Hydrea®)",
+        "class": "Ribonucleotide Reductase Inhibitor Antimetabolite",
+        "routes": "Oral (Capsule)",
+        "indication": "CML, AML, Myeloproliferative disorders, Melanoma, Ovarian, Head and neck, Cervical, Uterine, NSCLC",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "hematological": "Anemia, macrocytosis, leukopenia, thrombocytopenia"
+            },
+            {
+                "gastrointestinal": "Emetogenic potential: rare"
+            },
+            {
+                "secondary malignancy": "Skin cancer"
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "TLS prevention",
+                "notes": "Allopurinol and hydration if WBC is high"
+            },
+            {
+                "type": "Contraception",
+                "notes": "FDA Pregnancy Category D: Positive evidence of human fetal risk. Strict contraception required."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Hazardous Handling",
+                "notes": "Chemo gloves required for handling capsules"
+            },
+            {
+                "type": "Skin assessment",
+                "notes": "Check ankles for painful leg ulcers"
+            },
+            {
+                "type": "Drug Interactions",
+                "notes": "Avoid combination with antiretrovirals (didanosine/stavudine) due to risk of pancreatitis, hepatotoxicity, and peripheral neuropathy."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Contraindicated in men contemplating fatherhood."
+            },
+            {
+                "type": "Lactation Precautions",
+                "notes": "Breastfeeding is not recommended due to secretion into breast milk."
+            },
+            {
+                "type": "Dose Adjustment",
+                "notes": "Monitor bone marrow function; adjustment required for patients with prior chemotherapy or marked marrow depression."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Ibrutinib (Imbruvica®)",
+        "class": "Bruton's Tyrosine Kinase (BTK) Inhibitor",
+        "routes": "Oral (Capsule)",
+        "indication": "CLL, NHL, Mantle cell lymphoma, Waldenström macroglobulinemia",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "hematological": "Anemia, febrile neutropenia, leukocytosis, lymphocytosis, neutropenia, thrombocytopenia"
+            },
+            {
+                "cardiovascular": "Atrial fibrillation/flutter, ventricular tachyarrhythmia, hemorrhage"
+            },
+            {
+                "gastrointestinal": "Emetogenic potential: low, diarrhea"
+            },
+            {
+                "infection": "Hepatitis B reactivation, infections, pneumonia, sepsis"
+            },
+            {
+                "metabolic": "Hyperuricemia"
+            },
+            {
+                "neoplasms": "Secondary malignant neoplasm, skin cancer (non-melanoma)"
+            },
+            {
+                "neurological": "Progressive multifocal leukoencephalopathy"
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "HBV Screening",
+                "notes": "Hepatitis B reactivation reported; screen all patients for HBV and consider prophylaxis per protocol."
+            },
+            {
+                "type": "Contraception",
+                "notes": "Effective contraception recommended during treatment and for 3 months after treatment (unknown if present in semen; animal teratogenicity)."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Bleeding precautions",
+                "notes": "Hold 3-7 days before any surgery/procedure"
+            },
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Monitor for new onset Atrial Fibrillation"
+            },
+            {
+                "type": "Tumor Lysis Syndrome",
+                "notes": "Hyperuricemia and TLS reported; monitor uric acid and electrolytes."
+            },
+            {
+                "type": "Secondary Malignancy",
+                "notes": "Monitor for secondary malignancies and skin cancer."
+            },
+            {
+                "type": "Lactation Precautions",
+                "notes": "Breastfeeding is not recommended due to potential secretion into breast milk."
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Idarubicin (Idamycin®)",
+        "class": "Anthracycline Topoisomerase II Inhibitor",
+        "routes": "IV Only",
+        "indication": "AML",
+        "extravasation_risk": "VESICANT",
+        "side_effects": [
+            {
+                "hematological": "Anemia, hemorrhage, leucopenia, neutropenia, thrombocytopenia"
+            },
+            {
+                "cardiovascular": "CHF, LVEF reduction"
+            },
+            {
+                "gastrointestinal": "Abdominal pain, anorexia, diarrhea, nausea, vomiting"
+            },
+            {
+                "general_disorders": "Extravasation hazard, fever, tissue necrosis after extravasation"
+            },
+            {
+                "infection": "Infection"
+            },
+            {
+                "skin": "Alopecia"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Contraindication Screening",
+                "notes": "Verify NO history of hypersensitivity to idarubicin, anthracyclines, or anthracenediones."
+            },
+            {
+                "type": "Hepatic Clearance",
+                "notes": "Verify Total Bilirubin is ≤86 micromol/L (Contraindicated if >86)."
+            },
+            {
+                "type": "Cardiac Baseline",
+                "notes": "Baseline ECG and ECHO or MUGA required. Adhere to maximum cumulative doses."
+            },
+            {
+                "type": "Contraception (Female)",
+                "notes": "Required during treatment and for at least 6.5 months after last dose (Teratogenic/Embryotoxic)."
+            },
+            {
+                "type": "Contraception (Male)",
+                "notes": "Required during treatment and for at least 3.4 months after last dose (Genotoxic/Sperm damage)."
+            },
+            {
+                "type": "Lactation Safety",
+                "notes": "Do not breastfeed during treatment and for at least 14 days after last dose."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "GI management",
+                "notes": "Monitor for severe diarrhea/mucositis"
+            },
+            {
+                "type": "Extravasation Management",
+                "notes": "<b>COLD PACKS</b> only."
+            },
+            {
+                "type": "High-Risk Cardiac Monitoring",
+                "notes": "Closer LVEF monitoring for patients >60, or with prior cardiac disease/radiation (Risk of asymptomatic decline)."
+            },
+            {
+                "type": "Myelosuppression Management",
+                "notes": "Monitor for increased suppression if radiation occurred within 2-3 weeks prior."
+            },
+            {
+                "type": "Fertility Preservation",
+                "notes": "Counsel patients (male and female) on preservation prior to treatment due to reproductive toxicity."
+            },
+            {
+                "type": "Long-term Surveillance",
+                "notes": "Monitor for secondary leukemias (1-3 year latency), especially if combined with DNA-damaging agents."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Ifosfamide (Ifex®)",
+        "class": "Oxazaphosphorine alkylating agent",
+        "routes": "IV Infusion",
+        "indication": "ALL L3 variant, Burkitt’s lymphoma, CLL, Lymphoma (HL, NHL), Bladder cancer, Brain tumours, Breast cancer, Cervical cancer, Ewing’s sarcoma, Gastric cancer, Germ cell tumours (gonadal, extra-gonadal, non-seminomous, testicular, ovarian), Pancreatic cancer, Lung cancer, Osteosarcoma, Peripheral neuroectodermal tumour, Rhabdomyosarcoma, Soft tissue sarcoma",
+        "extravasation_risk": "Irritant",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Mesna",
+                "route": "IV",
+                "timing": "Mandatory concurrent infusion (often mixed in same bag)"
+            },
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before (High emetic risk)"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Hemorrhagic Cystitis Prevention",
+                "notes": "Mesna and aggressive hydration are mandatory to prevent bladder toxicity"
+            },
+            {
+                "type": "Neurotoxicity monitoring",
+                "notes": "Monitor for confusion/hallucinations (Ifosfamide-induced encephalopathy)"
+            },
+            {
+                "type": "Hemorrhagic Cystitis Prevention",
+                "notes": "Mandatory use of a uroprotective agent such as mesna."
+            },
+            {
+                "type": "Hydration and Electrolytes",
+                "notes": "Maintain daily fluid intake of at least 2 liters; correct electrolyte imbalances and urinary obstructions prior to treatment."
+            },
+            {
+                "type": "Contraindication Screening",
+                "notes": "Verify absence of severe leukopenia, thrombocytopenia, renal/hepatic impairment, cystitis, urinary obstruction, active infection, or advanced cerebral arteriosclerosis."
+            },
+            {
+                "type": "Surgical Timing",
+                "notes": "Delay treatment for at least 10 to 14 days after surgery to avoid impaired wound healing; do not administer within three months of unilateral nephrectomy."
+            },
+            {
+                "type": "Reproductive Safety",
+                "notes": "Adequate contraception recommended for both sexes due to mutagenic potential; discontinue breastfeeding prior to therapy."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Antidote availability",
+                "notes": "Methylene Blue should be available on the ward for severe neurotoxicity"
+            },
+            {
+                "type": "Fluid balance",
+                "notes": "Strict I/O monitoring; maintain high urine output"
+            },
+            {
+                "type": "Renal Function Monitoring",
+                "notes": "Close monitoring required for patients with prior radiation, nephrotoxic drug use, or children ≤5 years (risk of Fanconi’s syndrome)."
+            },
+            {
+                "type": "Output Management",
+                "notes": "Administer fast-acting diuretics (e.g., furosemide) if urinary excretion is insufficient."
+            },
+            {
+                "type": "Clinical Vigilance",
+                "notes": "Use caution in patients with bone marrow infiltration, brain metastases, impaired hepatic function, or abnormal serum albumin."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Counsel on potential gonadal suppression, including amenorrhea or azoospermia."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Imatinib (Gleevec®)",
+        "class": "Tyrosine Kinase Inhibitor (TKI)",
+        "routes": "Oral (Tablet)",
+        "indication": "CML, Ph+ ALL, Gastrointestinal Stromal Tumors (GIST)",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "hematologic": "anemia, neutropenia, thrombocytopenia"
+            },
+            {
+                "cardiovascular": "edema"
+            },
+            {
+                "gastrointestinal": "emetogenic potential"
+            },
+            {
+                "hepatic": "elevated bilirubin, elevated ALT, AST, alkaline phosphatase"
+            },
+            {
+                "renal": "elevated creatinine"
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Contraindication and Pregnancy Screening",
+                "notes": "Verify no history of hypersensitivity to imatinib; confirm negative pregnancy status via serum or urine test prior to initiation."
+            },
+            {
+                "type": "HBV Reactivation Prophylaxis",
+                "notes": "Screen for Hepatitis B virus (HBV) in chronic carriers and implement prophylaxis per protocol to prevent reactivation."
+            },
+            {
+                "type": "Reproductive Safety and Contraception",
+                "notes": "Mandatory contraception during treatment due to risk of spontaneous abortions and congenital anomalies; breastfeeding is not recommended."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Administration",
+                "notes": "Take with a large meal and full glass of water to reduce GI upset"
+            },
+            {
+                "type": "Fluid balance",
+                "notes": "Monitor for periorbital edema and weight gain"
+            },
+            {
+                "type": "Renal Function Monitoring",
+                "notes": "Monitor renal function prior to treatment and periodically thereafter to manage potential progressive loss of function."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Counsel male patients regarding potential risks of oligospermia and impaired spermatogenesis."
+            },
+            {
+                "type": "Carcinogenicity Surveillance",
+                "notes": "Maintain awareness of clastogenic potential and animal data showing carcinoma at high doses, though clinical trials show no significant increase in secondary malignancies."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Inotuzumab Ozogamicin (Besponsa®)",
+        "class": "CD22-Targeted Antibody-Drug Conjugate",
+        "routes": "IV Infusion",
+        "indication": "Relapsed B-cell ALL",
+        "extravasation_risk": "Irritant",
+        "side_effects": [
+            {
+                "hematological": "leukocytosis"
+            },
+            {
+                "cardiac": "ventricular fibrillation, hypotension"
+            },
+            {
+                "gastrointestinal": "diarrhea"
+            },
+            {
+                "general": "edema, pyrexia"
+            },
+            {
+                "investigations": "creatinine increase, QTc prolongation"
+            },
+            {
+                "metabolism": "hypokalemia, hypomagnesemia, tumour lysis syndrome"
+            },
+            {
+                "neurological": "Guillain-Barré syndrome, neuropathy"
+            },
+            {
+                "respiratory": "cough, differentiation syndrome, dyspnea, pleural effusion"
+            },
+            {
+                "skin": "rash"
+            }
+        ],
+        "premedications": [
+            {
+                "drug": "Corticosteroid",
+                "route": "IV",
+                "timing": "30 min before"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Infusion-related reaction prevention",
+                "notes": "Mandatory premedication with a corticosteroid, antihistamine, and antipyretic prior to each dose."
+            },
+            {
+                "type": "Infection and TLS Prophylaxis",
+                "notes": "Consider prophylactic anti-infectives; perform cytoreduction prior to treatment in patients with high peripheral lymphoblast counts to prevent tumor lysis syndrome."
+            },
+            {
+                "type": "Cardiac and Electrolyte Screening",
+                "notes": "Monitor ECG and electrolytes for QT/PR interval prolongation; use caution in patients with history of rhythm disturbances or AV block."
+            },
+            {
+                "type": "Reproductive Safety",
+                "notes": "Confirm negative pregnancy status prior to treatment; avoid live vaccines within 2 weeks prior to, during, and until B-cell recovery after treatment."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "VOD/SOS Monitoring",
+                "notes": "Monitor for venoocclusive disease, especially in patients >65, those with liver disease, or those receiving HSCT conditioning with two alkylants."
+            },
+            {
+                "type": "Contraception and Lactation",
+                "notes": "Females: Use contraception during and for 8 months after last dose; wait 2 months after last dose to breastfeed. Males: Use contraception during and for 5 months after last dose."
+            },
+            {
+                "type": "Infection Surveillance",
+                "notes": "Continuous testing and surveillance for potentially fatal infections."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Counsel on risks of gonadal/testicular atrophy and hypospermia observed in animal studies."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Ivosidenib (Tibsovo®)",
+        "class": "IDH1 Inhibitor",
+        "routes": "Oral (Tablet)",
+        "indication": "IDH1-mutated AML, MDS, Biliary tract cancer",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Cardiac and Electrolyte Screening",
+                "notes": "Monitor ECG and correct electrolytes prior to treatment; contraindicated in congenital long QT syndrome."
+            },
+            {
+                "type": "Pregnancy and Contraception",
+                "notes": "Verify negative pregnancy status prior to treatment; non-hormonal contraception is mandatory due to potential drug interactions with hormonal methods."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Differentiation Syndrome",
+                "notes": "High risk (14%); monitor for respiratory distress and start steroids immediately if suspected"
+            },
+            {
+                "type": "Administration",
+                "notes": "Avoid high-fat meals (increases concentration)"
+            },
+            {
+                "type": "Dose Management",
+                "notes": "Dose reductions may be necessary for patients on concomitant medications involving the CYP 3A4 pathway."
+            },
+            {
+                "type": "Reproductive Safety",
+                "notes": "Patients of childbearing potential should use contraception during treatment and for 1 month after the last dose; women should not breastfeed for 1 month after final dose."
+            },
+            {
+                "type": "Fertility Counseling",
+                "notes": "Counsel on animal data showing reversible uterine atrophy and testicular degeneration."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Lenalidomide (Revlimid®)",
+        "class": "Immunomodulatory imide drug (IMiD)",
+        "routes": "Oral (Capsule)",
+        "indication": "Multiple Myeloma, Myelodysplastic Syndrome (MDS)",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [
+            {
+                "hematological": "anemia, neutropenia, thrombocytopenia"
+            },
+            {
+                "constitutional": "fatigue, lethargy, malaise"
+            },
+            {
+                "dermatological": "pruritis, rash"
+            },
+            {
+                "endocrine": "hypothyroidism"
+            },
+            {
+                "gastrointestinal": "constipation, dyspepsia, intestinal spasm"
+            },
+            {
+                "musculoskeletal": "arthralgia, arthritis, muscle spasm"
+            },
+            {
+                "respiratory": "pneumonia, upper respiratory tract infection"
+            },
+            {
+                "neurological": "progressive multifocal leukoencephalopathy"
+            },
+            {
+                "vascular": "deep vein thrombosis, pulmonary embolism"
+            }
+        ],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Thrombosis prevention",
+                "notes": "Aspirin or Enoxaparin/Warfarin is mandatory due to high DVT risk"
+            },
+            {
+                "type": "RMMs Program",
+                "notes": "Pregnancy testing/counseling required for dispensing"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "CBC monitoring",
+                "notes": "Weekly counts for first 8 weeks (Neutropenia risk)"
+            },
+            {
+                "type": "Donation Restrictions",
+                "notes": "Do NOT donate blood or semen during treatment and for 4 weeks after stopping."
+            },
+            {
+                "type": "Thyroid Management",
+                "notes": "Ensure optimal control and monitor for hypo- or hyperthyroidism, especially in patients with a history of thyroid disease."
+            },
+            {
+                "type": "Transplant Monitoring",
+                "notes": "Monitor for signs of acute solid organ transplant rejection."
+            },
+            {
+                "type": "Elderly Care Vigilance",
+                "notes": "Close observation for patients >65 years due to significantly higher incidence of serious side effects (60% vs 35%) and higher discontinuation rates."
+            },
+            {
+                "type": "Digoxin Monitoring",
+                "notes": "Monitor digoxin levels periodically; lenalidomide may increase maximum digoxin concentration by 14%."
+            },
+            {
+                "type": "Anticoagulant Observation",
+                "notes": "No significant effect on warfarin noted, though standard monitoring for thalidomide analogues is prudent."
+            }
+        ],
+        "source": "BC Cancer"
+    },
+    {
+        "name": "Mercaptopurine (6-MP / Purinethol®)",
+        "class": "Thiopurine antimetabolite (purine analogue)",
+        "routes": "Oral",
+        "indication": "ALL Maintenance, AML, CML, NHL",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "TPMT/NUDT15 Genetic Screening",
+                "notes": "Strongly recommended before starting therapy; homozygous deficient patients require alternative therapy or a 10-fold dose reduction."
+            },
+            {
+                "type": "Allopurinol Interaction Management",
+                "notes": "Mandatory mercaptopurine dose reduction to 25-33% of the standard dose if given concomitantly due to xanthine oxidase inhibition."
+            },
+            {
+                "type": "Pregnancy and Lactation Safety",
+                "notes": "Confirm negative pregnancy status (Category D); contraception required for both sexes during and for 6 months after treatment. Breastfeeding is contraindicated."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Administration timing",
+                "notes": "Take on empty stomach (1h before or 2h after food)"
+            },
+            {
+                "type": "Dietary restriction",
+                "notes": "Do NOT take with milk or dairy  or consider separating milk consumption by 6-8 hours to avoid drug inactivation (Xanthine oxidase interaction)"
+            },
+            {
+                "type": "Hepatotoxicity Monitoring",
+                "notes": "Monitor liver function regularly; frequency of injury increases when doses exceed 2.5 mg/kg/day."
+            },
+            {
+                "type": "Hydration Management",
+                "notes": "Maintain daily urine output of at least 2 liters (adults) or 2 L/m²/day (pediatrics) and alkaline urine to prevent xanthine calculi."
+            },
+            {
+                "type": "Dietary/Drug Separation",
+                "notes": "Avoid cow's milk at the time of administration; consider separating milk consumption by 6-8 hours to avoid drug inactivation by xanthine oxidase."
+            },
+            {
+                "type": "Interaction Surveillance",
+                "notes": "Monitor closely when using aminosalicylates (mesalamine, sulfasalazine), methotrexate, or nondepolarizing muscle relaxants."
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Methotrexate (MTX)",
+        "class": "Antimetabolite",
+        "routes": "IV, IM, PO, IT",
+        "indication": "ALL, Lymphoma",
+        "extravasation_risk": "Irritant",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Renal protection",
+                "notes": "Sodium Bicarbonate fluids to keep <b>Urine pH >8</b>"
+            },
+            {
+                "type": "Rescue Agent",
+                "notes": "Leucovorin must be started exactly on time"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Drug interaction",
+                "notes": "Avoid NSAIDs, Penicillins, and PPIs (delay clearance)"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Midostaurin (Rydapt)",
+        "class": "FLT3 TKI",
+        "routes": "Oral (Capsule)",
+        "indication": "FLT3+ AML",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "PO",
+                "timing": "Prophylactic use often needed (high nausea rate)"
+            }
+        ],
+        "required_prophylaxis": [],
+        "supportive_care": [
+            {
+                "type": "Administration",
+                "notes": "Take with food to prevent severe nausea"
+            },
+            {
+                "type": "Pulmonary monitoring",
+                "notes": "Assess for new cough/dyspnea (Interstitial Lung Disease)"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Mitoxantrone (Novantrone)",
+        "class": "Anthracenedione / Antitumor Antibiotic",
+        "routes": "IV Infusion",
+        "indication": "AML (Relapsed/Refractory), Prostate Cancer, MS",
+        "extravasation_risk": "VESICANT",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Anti-emetics",
+                "route": "IV",
+                "timing": "30 min before infusion (Moderate emetic risk)"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Baseline LVEF (ECHO/MUGA) required. Cumulative dose toxicity applies."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Discoloration warning",
+                "notes": "Urine, whites of eyes (sclera), and skin may turn BLUE-GREEN for 24–48 hours"
+            },
+            {
+                "type": "Extravasation Management",
+                "notes": "Stop immediately. Apply COLD packs. Monitor for tissue necrosis."
+            },
+            {
+                "type": "Lifetime dose tracking",
+                "notes": "Strict tracking required (Max usually 140 mg/m²); higher risk if patient previously had Doxorubicin"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Nelarabine (Arranon)",
+        "class": "Antimetabolite",
+        "routes": "IV Infusion",
+        "indication": "T-cell ALL and T-cell Lymphoma",
+        "extravasation_risk": "Irritant",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Neurotoxicity monitoring",
+                "notes": "Baseline and ongoing neurological assessment required (Somnolence/Confusion)"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Hydration",
+                "notes": "Aggressive IV fluids recommended to prevent renal failure"
+            },
+            {
+                "type": "Fall precautions",
+                "notes": "High risk of ataxia/dizziness; assistance required for ambulation"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Nilotinib (Tasigna)",
+        "class": "TKI - 2nd Generation",
+        "routes": "Oral (Capsule)",
+        "indication": "CML",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Baseline and periodic ECG due to Black Box Warning for QT prolongation"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Administration rules",
+                "notes": "Strict fasting: NO FOOD 2 hours before and 1 hour after dose"
+            },
+            {
+                "type": "Electrolyte management",
+                "notes": "Correct hypokalemia and hypomagnesemia aggressively"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Obinutuzumab (Gazyva)",
+        "class": "Monoclonal Antibody (anti-CD20)",
+        "routes": "IV Infusion",
+        "indication": "CLL and Follicular Lymphoma",
+        "extravasation_risk": "Irritant",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Acetaminophen",
+                "route": "PO",
+                "timing": "Before infusion"
+            },
+            {
+                "drug": "Diphenhydramine",
+                "route": "IV/PO",
+                "timing": "Before infusion"
+            },
+            {
+                "drug": "Glucocorticoid (Dexamethasone)",
+                "route": "IV",
+                "timing": "Mandatory before first infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "HBV reactivation prevention",
+                "notes": "Screen for Hepatitis B; initiate antivirals if surface antigen positive"
+            },
+            {
+                "type": "Tumor Lysis Syndrome",
+                "notes": "Antihyperuricemics (Allopurinol) and hydration for high tumor burden"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Infusion reaction management",
+                "notes": "First dose split over 2 days; withhold antihypertensives 12h prior"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Pomalidomide (Pomalyst)",
+        "class": "IMiD",
+        "routes": "Oral (Capsule)",
+        "indication": "Relapsed/Refractory Multiple Myeloma",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Thrombosis prevention",
+                "notes": "Aspirin or Enoxaparin/Warfarin required"
+            },
+            {
+                "type": "REMS Program",
+                "notes": "Mandatory pregnancy testing and counseling"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "CBC monitoring",
+                "notes": "Weekly counts during initial cycles due to neutropenia risk"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Ponatinib (Iclusig)",
+        "class": "TKI - 3rd Generation",
+        "routes": "Oral (Tablet)",
+        "indication": "Resistant CML or Ph+ ALL",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Vascular risk management",
+                "notes": "Monitor for arterial thrombosis (MI/Stroke/Peripheral occlusion)"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Pancreatic monitoring",
+                "notes": "Monitor lipase and amylase levels every 2 weeks"
+            },
+            {
+                "type": "Liver monitoring",
+                "notes": "Monitor hepatic function tests monthly"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Prednisolone (Orapred / Pediapred)",
+        "class": "Corticosteroid / Glucocorticoid",
+        "routes": "Oral (Tablet/Liquid)",
+        "indication": "ALL Induction, CLL, and Lymphoma",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Gastric protection",
+                "notes": "Take with food or milk to minimize GI irritation"
+            },
+            {
+                "type": "Infection prevention",
+                "notes": "Monitor for fungal infections (Thrush) during prolonged courses"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Adherence education",
+                "notes": "Taste is very bitter; mix liquid with sweet vehicle (chocolate syrup) for pediatric compliance"
+            },
+            {
+                "type": "Mood monitoring",
+                "notes": "Watch for 'Steroid Rage', anxiety, or depression"
+            },
+            {
+                "type": "Withdrawal safety",
+                "notes": "Do not stop abruptly after long courses; must follow taper schedule to prevent adrenal insufficiency"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Quizartinib (Vanflyta)",
+        "class": "FLT3 Inhibitor",
+        "routes": "Oral (Tablet)",
+        "indication": "FLT3-ITD+ AML",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "QTc Monitoring",
+                "notes": "ECG prior to initiation and weekly during induction (Black Box Warning)"
+            },
+            {
+                "type": "Electrolyte Maintenance",
+                "notes": "Maintain Potassium > 4.0 and Magnesium > 2.0"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Drug Interaction",
+                "notes": "Avoid strong CYP3A inhibitors (e.g., Azole antifungals) or reduce dose"
+            },
+            {
+                "type": "Differentiation Syndrome",
+                "notes": "Monitor for fever, dyspnea, and weight gain"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Rituximab (Rituxan)",
+        "class": "Monoclonal Antibody",
+        "routes": "IV or SubQ",
+        "indication": "CLL and B-cell Lymphomas",
+        "extravasation_risk": "Irritant",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Acetaminophen",
+                "route": "PO",
+                "timing": "30–60 min before infusion"
+            },
+            {
+                "drug": "Diphenhydramine",
+                "route": "IV/PO",
+                "timing": "30 min before infusion"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "HBV reactivation prevention",
+                "notes": "Antiviral prophylaxis if surface antigen or core antibody positive"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Infusion reaction management",
+                "notes": "Highest risk during first infusion; titrate rate slowly"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Sorafenib (Nexavar)",
+        "class": "Multikinase Inhibitor",
+        "routes": "Oral (Tablet)",
+        "indication": "FLT3+ AML",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Dermatologic toxicity prevention",
+                "notes": "Use urea-based creams to prevent Hand-Foot Skin Reaction (HFSR)"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Wound healing precautions",
+                "notes": "Hold drug prior to major surgery"
+            },
+            {
+                "type": "Cardiac monitoring",
+                "notes": "Monitor for ischemia or infarction"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Thalidomide (Thalomid)",
+        "class": "IMiD",
+        "routes": "Oral (Capsule)",
+        "indication": "Multiple Myeloma",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [],
+        "required_prophylaxis": [
+            {
+                "type": "Thrombosis prevention",
+                "notes": "Aspirin or anticoagulation required"
+            },
+            {
+                "type": "REMS Program",
+                "notes": "Strict birth defect prevention program"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Sedation management",
+                "notes": "Administer at bedtime to manage drowsiness"
+            },
+            {
+                "type": "Neuro assessment",
+                "notes": "Monitor for peripheral neuropathy (numbness/tingling)"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Venetoclax (Venclexta)",
+        "class": "BCL-2 Inhibitor",
+        "routes": "Oral (Tablet)",
+        "indication": "AML and CLL",
+        "extravasation_risk": "N/A (Oral)",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Antihyperuricemics (Allopurinol)",
+                "route": "PO",
+                "timing": "Start 2-3 days prior to first dose"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "TLS prevention",
+                "notes": "CRITICAL: Follow 5-week 'Ramp-Up' dosing strictly. Hydration >1.5L/day."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Dietary restrictions",
+                "notes": "Avoid grapefruit, Seville oranges, and starfruit (CYP3A4 inhibitors)"
+            },
+            {
+                "type": "Lab monitoring",
+                "notes": "Check chemistry 6-8h and 24h after first dose and every dose increase"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Vinblastine (Velban)",
+        "class": "Vinca Alkaloid",
+        "routes": "IV ONLY",
+        "indication": "Hodgkin Lymphoma, Histiocytosis",
+        "extravasation_risk": "VESICANT",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Laxatives",
+                "route": "PO",
+                "timing": "Prophylactic bowel regimen"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Fatal Error Prevention",
+                "notes": "NEVER administer intrathecally – Fatal if given via spinal route"
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Extravasation Management",
+                "notes": "WARM COMPRESSES ONLY. Hyaluronidase if available."
+            },
+            {
+                "type": "Neuro assessment",
+                "notes": "Monitor for constipation and peripheral neuropathy (though less neurotoxic than Vincristine)"
+            }
+        ],
+        "source": ""
+    },
+    {
+        "name": "Vincristine (Oncovin)",
+        "class": "Vinca Alkaloid",
+        "routes": "IV ONLY",
+        "indication": "ALL and Lymphomas",
+        "extravasation_risk": "VESICANT",
+        "side_effects": [],
+        "premedications": [
+            {
+                "drug": "Laxatives (Senna/PEG)",
+                "route": "PO",
+                "timing": "Prophylactic use recommended to prevent ileus"
+            }
+        ],
+        "required_prophylaxis": [
+            {
+                "type": "Fatal Error Prevention",
+                "notes": "NEVER administer intrathecally. Dispense in minibags if possible."
+            }
+        ],
+        "supportive_care": [
+            {
+                "type": "Extravasation Management",
+                "notes": "WARM COMPRESSES ONLY. Hyaluronidase if available."
+            },
+            {
+                "type": "Neuro assessment",
+                "notes": "Monitor for constipation, foot drop, and jaw pain"
+            }
+        ],
+        "source": ""
+    }
+]

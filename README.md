@@ -82,14 +82,14 @@ Hema_nurse_aid/
 * Use the external **Chemo Protocol Manager**.
 * Load the current `data/protocols/chemoProtocols.json`.
 * Make edits via the UI.
-* Download the result (e.g., `updated_chemoProtocols.json`).
+* Download the result (e.g., `chemoProtocols.json`).
 * Rename to `chemoProtocols.json` and replace the file in `/data/protocols/`.
 
 ### Medications
 * Use the external **Medication Manager**.
 * Load the current `data/medicationsData.json`.
 * Make edits via the UI.
-* Download the result (e.g., `updated_medicationsData.json`).
+* Download the result (e.g., `medicationsData.json`).
 * Rename to `medicationsData.json` and replace the file in `/data/`.  
 
 ### Committing Changes

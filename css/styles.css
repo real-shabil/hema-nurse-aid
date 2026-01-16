@@ -1,5 +1,5 @@
 /* =========================================================
-🌿 CHEMOTHERAPY NURSE GUIDE — STYLESHEET
+CHEMOTHERAPY NURSE AID — STYLESHEET
 ========================================================= */
 
 
@@ -9,7 +9,7 @@ BASE & LAYOUT
 body {
     margin: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f7f8fa;
+    background: var(--color-bg-page);
     scroll-behavior: smooth;
 
     line-height: 1.45;
@@ -26,13 +26,98 @@ body {
     /* section headings */
     --text-xl: 1.35rem;
     /* major titles */
+
+    /* CHEMO PROTOCOL COLORS */
+    --color-header-pre-chemo: #c2410c;
+    /* Burnt Orange */
+    --color-timing: #A65E00;
+    /* Spiced Bronze */
+    --color-drug: #3E2723;
+    /* Deep Espresso */
+    --color-dosage-text: #3E2723;
+    /* Deep Espresso */
+    --color-dosage-bg: #FFE082;
+    /* Soft Gold */
+    --color-route: #4E342E;
+    /* Warm Charcoal */
+    --color-duration: #FF3D00;
+    /* Vibrant Tomato */
+    --color-note: #6D4C41;
+    /* Cocoa Brown */
+
+    /* GLOBAL COLORS & THEME */
+    /* Backgrounds */
+    --color-bg-page: #f9fafb;
+    --color-bg-white: #ffffff;
+    --color-bg-card-active: #eef7f0;
+    --color-bg-pill: #e0f2f1;
+    --color-bg-warning: #ffebee;
+    --color-bg-warning-light: #fffbeb;
+    --color-bg-error-light: #ffcdd2;
+    --color-bg-success-light: #e8f5e9;
+    --color-bg-gray-light: #f5f5f5;
+    --color-bg-info-panel: #f1f9ff;
+
+    /* Text */
+    --color-text-white: #ffffff;
+    --color-text-main: #333333;
+    --color-text-body: #374151;
+    --color-text-muted: #555555;
+    --color-text-light: #666666;
+    --color-text-slate: #334155;
+    --color-text-link: #004b8d;
+    --color-text-teal: #00796b;
+    --color-text-error: #c62828;
+    --color-text-success: #059669;
+    --color-text-accent-pink: #d63384;
+    --color-text-brown: #795548;
+    --color-text-warning-dark: #92400e;
+
+    /* Brand & Actions */
+    --color-primary-dark: #064e3b;
+    --color-primary-teal: #004d40;
+    --color-primary-green: #0c8f58;
+    --color-primary-green-hover: #0a7a4b;
+    --color-danger: #be123c;
+    --color-danger-hover: #c82333;
+    --color-focus-ring: #80cbc4;
+    --color-input-focus: #0e7490;
+    --color-nav-inactive: #94a3b8;
+
+    /* Borders */
+    --color-border-light: #eeeeee;
+    --color-border-medium: #e1e4e8;
+    --color-border-input: #cccccc;
+    --color-border-card: #dddddd;
+    --color-border-warning: #fcd34d;
+    --color-border-info-panel: #cce5ff;
+
+    /* SPECIALIZED / MISC */
+    --color-text-header-card: #2a6db3;
+    --color-text-warning-header: #b45309;
+    --color-text-success-dark: #1b5e20;
+    --color-text-error-dark: #b71c1c;
+    --color-focus-accent: #0d9488;
+
+    /* Wordle Game */
+    --color-wordle-border: #d3d6da;
+    --color-wordle-text: #1a1a1b;
+    --color-wordle-correct: #6aaa64;
+    --color-wordle-present: #c9b458;
+    --color-wordle-absent: #787c7e;
+
+    /* Calc Section */
+    --color-bg-card-alt: #fdfdfd;
+    --color-border-card-alt: #e0e0e0;
+    --color-border-teal-accent: #009688;
+    --color-border-slate-accent: #607d8b;
 }
 
 header {
     position: sticky;
     top: 0;
-    background: #064e3b;
-    color: white;
+    background: var(--color-primary-dark);
+    color: var(--color-text-white);
     text-align: center;
     padding: 14px 0;
     font-size: 1.25rem;
@@ -60,7 +145,6 @@ label {
     .section {
         padding: 28px;
         padding-bottom: 100px;
-        /* Clear nav bar */
         /* For Desktop */
         max-width: 900px;
         margin: 0 auto;
@@ -81,7 +165,7 @@ label {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #ffffff;
+    background: var(--color-bg-white);
     border-top: 1px solid #e1e4e8;
     display: flex;
     justify-content: space-around;
@@ -117,7 +201,7 @@ label {
 }
 
 .nav-item.active {
-    color: #064e3b;
+    color: var(--color-primary-dark);
     /* Active Theme Color */
 }
 
@@ -140,7 +224,7 @@ label {
 .section h2 {
     font-size: var(--text-lg);
     font-weight: 700;
-    color: #064e3b;
+    color: var(--color-primary-dark);
     margin-top: 6px;
     margin-bottom: 16px;
     letter-spacing: 0.2px;
@@ -151,7 +235,7 @@ label {
 .med-header h3 {
     font-size: var(--text-md);
     font-weight: 600;
-    color: #064e3b;
+    color: var(--color-primary-dark);
     margin-bottom: 6px;
 }
 
@@ -180,7 +264,7 @@ NAVIGATION & CARDS
 ========================================================= */
 
 .back-btn {
-    background: #004d40;
+    background: var(--color-primary-teal);
     color: white;
     padding: 8px 16px;
     border: none;
@@ -201,13 +285,13 @@ NAVIGATION & CARDS
 
 .protocol-search h3 {
     margin: 2px 0 6px;
-    color: #004d40;
+    color: var(--color-primary-teal);
 }
 
 .protocol-search .eyebrow {
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #d63384;
+    color: var(--color-text-accent-pink);
     font-weight: 700;
     font-size: 0.8rem;
     margin: 0;
@@ -215,7 +299,7 @@ NAVIGATION & CARDS
 
 .protocol-search .search-hint {
     margin: 4px 0 0;
-    color: #4a4a4a;
+    color: var(--color-text-muted);
     font-size: 0.92rem;
 }
 
@@ -261,7 +345,7 @@ NAVIGATION & CARDS
 .search-status {
     margin-top: 8px;
     font-size: 0.92rem;
-    color: #555;
+    color: var(--color-text-muted);
 }
 
 #medType .protocols-container {
@@ -272,8 +356,8 @@ NAVIGATION & CARDS
 PROTOCOL & PHASE BLOCKS
 ========================================================= */
 .phase-card {
-    background: #fff;
-    border-left: 5px solid #004d40;
+    background: var(--color-bg-white);
+    border-left: 5px solid var(--color-primary-teal);
     margin: 10px 0;
     padding: 12px 16px;
     border-radius: 12px;
@@ -287,11 +371,11 @@ PROTOCOL & PHASE BLOCKS
 
 .phase-heading {
     margin: 10px 0 5px;
-    color: #d63384;
+    color: var(--color-header-pre-chemo);
     font-weight: bold;
     text-align: left;
     font-size: var(--text-lg);
-    border-top: 1px dashed #7f9e61;
+    border-top: 1px dashed var(--color-timing);
     padding-top: 10px;
     margin-top: 15px;
 }
@@ -311,7 +395,7 @@ PROTOCOL & PHASE BLOCKS
     --info-card-border: none;
     --info-card-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
     display: block;
-    background: #fff;
+    background: var(--color-bg-white);
     padding: var(--info-card-padding);
     border-radius: var(--info-card-radius);
     border: var(--info-card-border);
@@ -334,7 +418,7 @@ PROTOCOL & PHASE BLOCKS
     .card:hover {
         transform: translateY(-3px);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-        background: #fff;
+        background: var(--color-bg-white);
     }
 }
 
@@ -350,7 +434,7 @@ PROTOCOL & PHASE BLOCKS
 .info-card:focus-visible {
     outline: 3px solid #80cbc4;
     outline-offset: 2px;
-    background: #fff;
+    background: var(--color-bg-white);
     transform: none;
 }
 
@@ -388,7 +472,7 @@ PROTOCOL & PHASE BLOCKS
     border: none;
     background: transparent;
     cursor: pointer;
-    color: #004d40;
+    color: var(--color-primary-teal);
     padding: 0;
     text-align: left;
 }
@@ -446,7 +530,7 @@ PROTOCOL & PHASE BLOCKS
     font-weight: bold;
     text-align: center;
     padding: 6px;
-    color: #555;
+    color: var(--color-text-muted);
 }
 
 .protocol-details {
@@ -470,19 +554,20 @@ PROTOCOL & PHASE BLOCKS
 .protocol-details .drug-day {
     display: block;
     font-weight: 600;
-    color: #005b7f;
+    color: var(--color-timing);
     margin-right: 6px;
-    font-size: 0.95rem;
+    font-size: var(--text-md);
 }
 
 .protocol-details .drug-name {
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: var(--text-lg);
+    color: var(--color-drug);
 }
 
 .drug-note {
-    color: #d63384;
-    font-size: 0.85em;
+    color: var(--color-note);
+    font-size: var(--text-sm);
     margin-top: 2px;
     margin-left: 10px;
     font-style: italic;
@@ -493,16 +578,16 @@ PROTOCOL & PHASE BLOCKS
 .loading-message {
     text-align: center;
     padding: 20px;
-    color: #555;
+    color: var(--color-text-muted);
 }
 
 .error-message {
     padding: 20px;
-    color: #d63384;
+    color: var(--color-text-error);
 }
 
 .error-details {
-    color: red;
+    color: var(--color-text-error);
     padding: 20px;
 }
 
@@ -511,25 +596,25 @@ PROTOCOL & PHASE BLOCKS
 }
 
 .search-empty {
-    color: #666;
+    color: var(--color-text-muted);
     font-style: italic;
 }
 
 .result-drugs {
     font-size: 0.9em;
-    color: #444;
+    color: var(--color-text-muted);
 }
 
 .result-meta {
-    color: #00796b;
+    color: var(--color-text-success);
     font-size: 0.85em;
 }
 
 .protocol-details .drug-dose {
     font-style: normal;
     font-weight: 600;
-    background-color: #e0f7fa;
-    color: #00796b;
+    background-color: var(--color-dosage-bg);
+    color: var(--color-dosage-text);
     padding: 2px 5px;
     border-radius: 4px;
     line-height: 1.55;
@@ -538,7 +623,7 @@ PROTOCOL & PHASE BLOCKS
 .protocol-details .drug-route {
     font-weight: 700;
     font-style: italic;
-    color: inherit;
+    color: var(--color-route);
     background-color: transparent;
     padding: 0;
     border-radius: 0;
@@ -553,7 +638,7 @@ PROTOCOL & PHASE BLOCKS
 
 .protocol-details .drug-duration {
     font-style: italic;
-    color: #d13b3b;
+    color: var(--color-duration);
     text-align: left;
 }
 
@@ -587,7 +672,7 @@ PROTOCOL & PHASE BLOCKS
     padding: 4px 8px;
     border-radius: 999px;
     background: #e0f2f1;
-    color: #004d40;
+    color: var(--color-primary-teal);
     font-size: 0.85rem;
     font-weight: 700;
 }
@@ -631,17 +716,26 @@ PROTOCOL & PHASE BLOCKS
 /* =========================================================
    MEDICATION DETAILS STYLES
    ========================================================= */
-.med-field,
-.med-section {
+.med-head {
+    color: var(--color-header-pre-chemo);
+    font-weight: bold;
     text-align: left;
-    margin-bottom: 8px;
-    font-size: var(--text-md);
-    color: #333;
+    font-size: var(--text-lg);
+    padding-top: 10px;
 }
 
-.med-field strong,
-.med-section strong {
-    color: #004b8d;
+.med-body {
+    text-align: left;
+    margin-bottom: 16px;
+    font-size: var(--text-md);
+    color: var(--color-text-main);
+}
+
+.med-section {
+    text-align: left;
+    margin-bottom: 16px;
+    font-size: var(--text-md);
+    color: var(--color-pre-chemo);
 }
 
 .med-section ul {
@@ -653,6 +747,14 @@ PROTOCOL & PHASE BLOCKS
     margin-bottom: 4px;
 }
 
+.med-source {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px;
+    color: var(--color-text-muted);
+}
 
 /* =========================================================
 CALCULATIONS SECTION
@@ -675,16 +777,16 @@ CALCULATIONS SECTION
     border: 1px solid #ccc;
     font-size: 1rem;
     padding: 10px 12px;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--color-bg-white);
+    color: var(--color-text-dark);
     box-sizing: border-box;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input-field:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    border-color: var(--color-input-focus);
+    box-shadow: 0 0 0 2px var(--color-input-focus);
 }
 
 .calc-rate-row {
@@ -795,7 +897,7 @@ CALCULATIONS SECTION
     font-weight: 600;
     border-radius: 999px;
     padding: 4px 10px;
-    color: #004d40;
+    color: var(--color-primary-teal);
     background-color: #e0f2f1;
 }
 
@@ -896,7 +998,7 @@ CALCULATIONS SECTION
 
 /* The Modal Box */
 .onboard-box {
-    background: #ffffff;
+    background: var(--color-bg-white);
     width: 90%;
     max-width: 380px;
     padding: 32px 24px;
@@ -961,7 +1063,7 @@ CALCULATIONS SECTION
 
 .onboard-box h2 {
     margin: 0;
-    color: #064e3b;
+    color: var(--color-primary-dark);
     /* Primary Green */
     font-size: 1.75rem;
     font-weight: 800;
@@ -1000,13 +1102,13 @@ CALCULATIONS SECTION
 }
 
 .disclaimer {
-    background: #fffbeb;
-    border: 1px solid #fcd34d;
+    background: var(--color-bg-warning-light);
+    border: 1px solid var(--color-warning);
     padding: 14px;
     border-radius: 12px;
     text-align: left;
     font-size: 0.85rem;
-    color: #92400e;
+    color: var(--color-warning-dark);
     line-height: 1.5;
 }
 
@@ -1016,7 +1118,7 @@ CALCULATIONS SECTION
     gap: 6px;
     margin-bottom: 6px;
     font-weight: bold;
-    color: #b45309;
+    color: var(--color-warning-dark);
 }
 
 .agreeLabel {
@@ -1027,7 +1129,7 @@ CALCULATIONS SECTION
     font-weight: 500;
     font-size: 0.94rem;
     cursor: pointer;
-    color: #334155;
+    color: var(--color-text-dark);
     margin-top: 4px;
     user-select: none;
 }
@@ -1035,12 +1137,12 @@ CALCULATIONS SECTION
 .agreeLabel input {
     width: 18px;
     height: 18px;
-    accent-color: #064e3b;
+    accent-color: var(--color-primary-dark);
     cursor: pointer;
 }
 
 #onboardSubmit {
-    background: #064e3b;
+    background: var(--color-primary-dark);
     color: white;
     border: none;
     padding: 14px;
@@ -1054,15 +1156,15 @@ CALCULATIONS SECTION
 }
 
 #onboardSubmit:hover:not(:disabled) {
-    background: #044234;
+    background: var(--color-primary-dark);
     /* slightly darker primary */
     transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
 }
 
 #onboardSubmit:disabled {
-    background: #e2e8f0;
-    color: #94a3b8;
+    background: var(--color-primary-dark);
+    color: var(--color-bg-white);
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
@@ -1070,8 +1172,8 @@ CALCULATIONS SECTION
 
 .change-name-btn {
     background: transparent;
-    border: 1px solid #064e3b;
-    color: #064e3b;
+    border: 1px solid var(--color-primary-dark);
+    color: var(--color-primary-dark);
     padding: 4px 10px;
     border-radius: 6px;
     font-size: 0.8rem;
@@ -1081,8 +1183,8 @@ CALCULATIONS SECTION
 }
 
 .change-name-btn:hover {
-    background: #064e3b;
-    color: #fff;
+    background: var(--color-primary-dark);
+    color: var(--color-bg-white);
 }
 
 
@@ -1096,6 +1198,15 @@ CALCULATIONS SECTION
     padding: 10px;
     max-width: 500px;
     margin: 0 auto;
+}
+
+.wordle-hidden-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
 }
 
 .wordle-board {
@@ -1114,39 +1225,44 @@ CALCULATIONS SECTION
 .wordle-tile {
     width: 50px;
     height: 50px;
-    border: 2px solid #d3d6da;
+    border: 2px solid var(--color-wordle-border);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #1a1a1b;
+    color: var(--color-wordle-text);
     /* Default text color */
-    background-color: #fff;
+    background-color: var(--color-bg-white);
+}
+
+.wordle-tile.cursor {
+    border-color: var(--color-wordle-border);
+    border-bottom-width: 4px;
 }
 
 /* TILE STATES */
 .wordle-tile.correct {
-    background-color: #6aaa64;
-    border-color: #6aaa64;
+    background-color: var(--color-wordle-correct);
+    border-color: var(--color-wordle-correct);
     color: white;
 }
 
 .wordle-tile.present {
-    background-color: #c9b458;
-    border-color: #c9b458;
+    background-color: var(--color-wordle-present);
+    border-color: var(--color-wordle-present);
     color: white;
 }
 
 .wordle-tile.absent {
-    background-color: #787c7e;
-    border-color: #787c7e;
+    background-color: var(--color-wordle-absent);
+    border-color: var(--color-wordle-absent);
     color: white;
 }
 
 .wordle-tile.filled {
-    border-color: #878a8c;
+    border-color: var(--color-wordle-border);
     animation: pop 0.1s;
 }
 
@@ -1165,64 +1281,16 @@ CALCULATIONS SECTION
 }
 
 
-/* KEYBOARD */
-.wordle-keyboard {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-}
 
-.kb-row {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-}
-
-.kb-key {
-    font-family: inherit;
-    font-weight: 600;
-    border: none;
-    padding: 0;
-    margin: 0;
-    height: 58px;
-    border-radius: 4px;
-    background-color: #d3d6da;
-    color: #1a1a1b;
-    cursor: pointer;
-    text-transform: uppercase;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    user-select: none;
-    touch-action: manipulation;
-}
-
-.kb-key.wide {
-    flex: 1.5;
-    font-size: 0.8rem;
-}
-
-.kb-key.correct {
-    background-color: #6aaa64;
-    color: white;
-}
-
-.kb-key.present {
-    background-color: #c9b458;
-    color: white;
-}
 
 
 /* =========================================================
    HEPARIN CALCULATOR STYLES
    ========================================================= */
 .warning-box {
-    background-color: #ffebee;
-    color: #c62828;
-    border: 1px solid #ffcdd2;
+    background-color: var(--color-bg-warning-light);
+    color: var(--color-warning-dark);
+    border: 1px solid var(--color-warning);
     padding: 10px;
     border-radius: 8px;
     margin: 10px 0;
@@ -1233,8 +1301,8 @@ CALCULATIONS SECTION
 }
 
 .step-box {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background-color: var(--color-bg-success-light);
+    color: var(--color-text-success);
     padding: 10px;
     border-radius: 8px;
     margin: 10px 0;
@@ -1244,8 +1312,8 @@ CALCULATIONS SECTION
 .next-check {
     margin-top: 12px;
     font-size: 0.95rem;
-    color: #555;
-    background: #f5f5f5;
+    color: var(--color-text-success);
+    background: var(--color-bg-success-light);
     padding: 8px;
     border-radius: 6px;
     text-align: center;
@@ -1253,8 +1321,8 @@ CALCULATIONS SECTION
 
 
 .calc-section-card {
-    background: #fdfdfd;
-    border: 1px solid #e0e0e0;
+    background: var(--color-bg-card-alt);
+    border: 1px solid var(--color-border-card-alt);
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 12px;
@@ -1262,9 +1330,9 @@ CALCULATIONS SECTION
 }
 
 .calc-section-card.initial-section {
-    border-left: 4px solid #009688;
+    border-left: 4px solid var(--color-teal-accent);
 }
 
 .calc-section-card.continuous-section {
-    border-left: 4px solid #607d8b;
+    border-left: 4px solid var(--color-teal-accent);
 }

@@ -163,7 +163,7 @@ fetch("data/protocols/insulinProtocols.json")
         if (!clinicalGuidelines) clinicalGuidelines = {};
         clinicalGuidelines.insulinProtocol = data.insulinProtocol;
         if (typeof window !== "undefined") window.clinicalGuidelines = clinicalGuidelines;
-        console.log("✅ Insulin protocols loaded:", clinicalGuidelines.insulinProtocol);
+
     })
     .catch(err => console.error("❌ Error loading insulinProtocols.json:", err));
 
@@ -171,6 +171,8 @@ fetch("data/drugInteractions.json")
     .then(res => res.json())
     .then(data => {
         drugInteractionsData = data;
+        const checkBtn = document.getElementById("checkInteractionBtn");
+        if (checkBtn) checkBtn.disabled = false;
         if (typeof initDrugInteractions === "function") initDrugInteractions(data);
         const statusBadge = document.getElementById("interactionDataStatus");
         if (statusBadge) {
@@ -264,7 +266,7 @@ function goHome() {
    ========================================================= */
 
 window.openGame = function openGame(gameKey) {
-    console.log("[Games] openGame called with:", gameKey);
+
 
     const panel = document.getElementById("gameContent");
     if (!panel) {
@@ -277,7 +279,7 @@ window.openGame = function openGame(gameKey) {
 
     // If same game clicked again → collapse panel
     if (isSameOpen) {
-        console.log("[Games] Same game clicked, collapsing panel.");
+
         panel.setAttribute("hidden", "");
         panel.innerHTML = "";
         currentGameKey = null;
@@ -305,7 +307,7 @@ window.openGame = function openGame(gameKey) {
 
     if (gameKey === "wordle") {
         if (typeof loadWordle === "function") {
-            console.log("[Games] Calling loadWordle...");
+
             loadWordle(inner);
 
         } else {
