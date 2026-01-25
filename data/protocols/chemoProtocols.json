@@ -1533,7 +1533,7 @@
                             "dose": "0.5 mg/kg Daily",
                             "route": "PO",
                             "phase": "Pre-Chemo",
-                            "day": "Day 1 - 28",
+                            "day": "Day 1 - 35",
                             "duration": "",
                             "note": "Round to nearest 5 mg, Taper off after 28 days."
                         },
@@ -1542,7 +1542,7 @@
                             "dose": "22.5 mg/m² BID",
                             "route": "PO",
                             "phase": "Chemo",
-                            "day": "Day 1 - 60",
+                            "day": "Day 1 - 35",
                             "duration": "",
                             "note": "Round to nearest 10 mg"
                         },
@@ -1551,7 +1551,7 @@
                             "dose": "0.15 mg/kg Daily",
                             "route": "IV",
                             "phase": "Chemo",
-                            "day": "Day 1 -28",
+                            "day": "Day 1 -35",
                             "duration": "Over 2 hours",
                             "note": "Keep Mg >2 and K >4, Give premedication (Mg +/- K) IV before ATO"
                         }
@@ -1565,38 +1565,40 @@
                     "source": "https://dub.sh/ATOATRA"
                 }
             ]
-        },
-        "Consolidation": {
-            "goal": "To eliminate any <b>\"Minimal Residual Disease\" (MRD)</b> and ensure the <b>PML::RARA</b> gene is no longer detectable.",
+        }
+    },
+    "MDS": {
+        "Continous Therapy": {
+            "goal": "Manage disease to progression or bridge to ASCT for unfit/elderly patients. Salvage therapy for post-transplant AML/MDS relapse.",
             "protocols": [
                 {
-                    "protocolName": "APL Consolidation",
+                    "protocolName": "Azacitidine SC",
                     "drugs": [
                         {
-                            "name": "Tretinoin (ATRA)",
-                            "dose": "22.5 mg/m² BID",
+                            "name": "Ondansetron",
+                            "dose": "8mg Daily",
                             "route": "PO",
-                            "phase": "Chemo",
-                            "day": "Day 1 - 14",
-                            "duration": "2 weeks on",
-                            "note": "Given during the first 2 weeks of each ATO cycle"
+                            "phase": "Pre-Chemo",
+                            "day": "Day 1 - 7",
+                            "duration": "",
+                            "note": "30 minutes before chemo"
                         },
                         {
-                            "name": "Arsenic Tr Oxide (ATO)",
-                            "dose": "0.15 mg/kg Daily",
-                            "route": "IV",
+                            "name": "Azacitidine",
+                            "dose": "75mg/m² Daily",
+                            "route": "SC",
                             "phase": "Chemo",
-                            "day": "5 days/wk",
-                            "duration": "4 weeks on",
-                            "note": "cycles total (4 weeks on / 4 weeks off)"
+                            "day": "Day 1 - 7",
+                            "duration": "Cycle 1 - 6",
+                            "note": ""
                         }
                     ],
                     "NursesInfo": [
-                        "Assess for peripheral neuropathy (numbness/tingling) caused by cumulative Arsenic exposure.",
-                        "Monitor Liver Function Tests (ALT/AST) weekly; Arsenic can cause reversible hepatotoxicity.",
-                        "Verify \"Molecular Remission\" via PCR testing at the end of the final cycle."
+                        "<b>Rotate Sites:</b> Alternate the injection site for each dose between the thigh, abdomen, or upper arm.",
+                        "<b>Distance:</b> Ensure each new injection is at least 2.5 cm (1 inch) away from the previous site.",
+                        "<b>Avoid Damaged Skin:</b> Never inject into areas where the skin is tender, bruised, red, or hardened."
                     ],
-                    "source": "https://dub.sh/ATOATRA"
+                    "source": "BC Cancer"
                 }
             ]
         }
