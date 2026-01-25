@@ -55,17 +55,12 @@ Hema_nurse_aid/
 │       ├── insulinProtocols.json
 │       └── warfarinProtocols.json
 │
-├── images/
-│   ├── icon-192.png
-│   └── icon-512.png
-│
 ├── js/
 │   ├── main.js
 │   ├── calculators.js
 │   ├── chemoMedications.js
 │   ├── chemoProtocols.js
-│   ├── drugInteractions.js
-│   └── game.js
+│   └── drugInteractions.js
 │
 ├── index.html
 └── README.md

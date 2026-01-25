@@ -1,6 +1,6 @@
 [
     {
-        "name": "Alemtuzumab (Campath)",
+        "name": "Alemtuzumab (Campath®)",
         "class": "Molecular targeted therapy",
         "routes": "IV or SubQ",
         "indication": "CLL and conditioning for Bone Marrow Transplant",
@@ -41,14 +41,17 @@
                 "notes": "Every 15 mins during infusion due to high cytokine release risk"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
-        "name": "All-Trans Retinoic Acid (ATRA / Tretinoin)",
+        "name": "All-Trans Retinoic Acid (ATRA / Tretinoin®)",
         "class": "Differentiation inducing agent",
         "routes": "Oral (Capsule)",
         "indication": "APL (Acute Promyelocytic Leukemia)",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "integumentary": "Sever dryness, itching, peeling, redness",
@@ -72,7 +75,11 @@
                 "notes": "Do not crush or open capsules"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Arsenic Trioxide (ATO / Trisenox®)",
@@ -111,7 +118,11 @@
                 "notes": "Maintain Potassium >4 and Magnesium >2 to prevent arrhythmias"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Asparaginase (Oncaspar® / Erwinaze®)",
@@ -128,14 +139,18 @@
                 "notes": "Monitor Fibrinogen (maintain >1 g/L); Urgent CT Brain required if severe headache occurs to differentiate Hemorrhage from Cerebral Thrombosis."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Azacitidine (Vidaza®)",
         "class": "Hypomethylating Agent (HMA)",
         "routes": "SubQ or IV",
         "indication": "AML and MDS",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [
             {
                 "hematology": "Anaemia, thrombocytopenia, neutropenia",
@@ -166,14 +181,18 @@
                 "notes": "Rotate SubQ sites daily; cold compress may help local irritation"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Bendamustine (Treanda®)",
         "class": "Alkylating Agent",
         "routes": "IV Infusion",
         "indication": "CLL, Hodgkin's Lymphoma(HL), Non-Hodgkin's Lymphoma(NHL)",
-        "extravasation_risk": "VESICANT",
+        "extravasation_risk": "Vesicant",
         "side_effects": [
             {
                 "hematology": "Anaemia, thrombocytopenia, neutropenia, febrile neutropenia",
@@ -205,7 +224,11 @@
                 "notes": "Encourage fluids to prevent renal toxicity and TLS"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Blinatumomab (Blincyto®)",
@@ -250,17 +273,22 @@
                 "notes": "ICE score/writing sample every 4-8 hours"
             },
             {
-                "type": ""
+                "type": "",
+                "notes": ""
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Bortezomib (Velcade®)",
         "class": "Proteasome Inhibitor",
         "routes": "SubQ (Preferred) or IV",
         "indication": "Multiple Myeloma, non-Hodgkin's Lymphoma(NHL), Amyloidosis",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [
             {
                 "hematology": "Neutropenia, Thrombocytopenia, febrile neutropenia",
@@ -296,14 +324,18 @@
                 "notes": "Advise patient to sit on edge of bed before standing"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Bosutinib (Bosulif®)",
         "class": "TKI (Src/Abl Inhibitor)",
         "routes": "Oral (Tablet)",
         "indication": "CML (Ph+)",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "hematology": "Neutropenia, thrombocytopenia",
@@ -333,7 +365,11 @@
                 "notes": "Monitor ECG for QTc before and during therapy and correct serum electrolytes."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Busulfan (Busulfex)",
@@ -377,7 +413,11 @@
                 "notes": "Monitor daily weights and bilirubin for Veno-Occlusive Disease (VOD)"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Clofarabine (Clolar®/Evoltra®)",
@@ -432,14 +472,18 @@
                 "notes": "Monitor palms/soles for hand-foot syndrome"
             }
         ],
-        "source": "Mayo Clinic"
+        "source": "Mayo Clinic",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Cyclophosphamide (Cytoxan)",
         "class": "Alkylating Agent",
         "routes": "IV or Oral",
         "indication": "Leukemias (AML, ALL, CML, CLL), Lymphomas (HL, NHL, Burkitt's), MM, Breast/Lung/Ovarian/Testicular Ca, Neuroblastoma, Sarcomas, SCT Conditioning",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [
             {
                 "hematological": "Myelosuppression"
@@ -478,14 +522,18 @@
                 "notes": "Strict I/O monitoring; encourage voiding before bed to empty bladder"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Cytarabine (Ara-C / Cytosar®)",
         "class": "Antimetabolite",
         "routes": "IV, SubQ, or IT",
         "indication": "AML, ALL, CML, NHL, HL, MDS",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [
             {
                 "hematological": "Megaloblastic anemia, leukopenia, thrombocytopenia"
@@ -528,14 +576,18 @@
                 "notes": "Monitor for 'Cytarabine Syndrome' (fever, rash, bone pain) 6-12h post-dose"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Dasatinib (Sprycel®)",
         "class": "TKI - 2nd Generation",
         "routes": "Oral (Tablet)",
         "indication": "CML and Ph+ ALL",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "hematological": "Myelosuppression (severe); anemia; neutropenia; thrombocytopenia"
@@ -547,7 +599,7 @@
                 "skin": "Rashes"
             },
             {
-                "gastrointestinal": "Emetogenic potential: low; diarrhea"
+                "gastrointestinal": "Emetogenic potential"
             },
             {
                 "hemorrhage": "Hemorrhage; gastrointestinal hemorrhage"
@@ -585,14 +637,18 @@
                 "notes": "Do NOT administer with Proton Pump Inhibitors (needs acid for absorption)"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Daunorubicin (Cerubidine®)",
         "class": "Anthracycline topoisomerase I inhibitor",
         "routes": "IV Only",
         "indication": "Leukemias (AML, ALL, CML), Lymphomas (HL, NHL), Sarcomas (Ewing's, Kaposi's, Rhabdo), Wilm's Tumor",
-        "extravasation_risk": "VESICANT",
+        "extravasation_risk": "Vesicant",
         "side_effects": [
             {
                 "hematological": "Myelosuppression"
@@ -601,10 +657,7 @@
                 "cardiovascular": "Congestive heart failure (rare, dose related), cardiomyopathy (rare, dose related)"
             },
             {
-                "skin": "Extravasation hazard: vesicant"
-            },
-            {
-                "gastrointestinal": "Emetogenic potential: moderate high, stomatitis"
+                "gastrointestinal": "Emetogenic potential"
             }
         ],
         "premedications": [
@@ -646,14 +699,18 @@
                 "notes": "Warn patient urine will turn red/orange for 24-48 hours"
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Decitabine (Dacogen®)",
         "class": "Hypomethylating Agent (HMA)",
         "routes": "IV Infusion",
         "indication": "MDS and AML",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [
             {
                 "hematological": "Unusual bleeding or bruising; pinpoint red spots (petechiae); pale skin (anemia)"
@@ -727,14 +784,18 @@
                 "notes": "Nausea/vomiting is common; ensure adequate antiemetic coverage."
             }
         ],
-        "source": "Mayo Clinic"
+        "source": "Mayo Clinic",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Dexamethasone (Decadron®/Dexasone®)",
         "class": "Corticosteroid / Glucocorticoid",
         "routes": "IV or Oral (Tablet/Suspension)",
         "indication": "Multiple Myeloma, ALL, Lymphoma, Brain Tumor, Anti-emetic prophylaxis and Hypersensitivity reactions",
-        "extravasation_risk": "None",
+        "extravasation_risk": "",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -761,14 +822,18 @@
                 "notes": "Administer in the morning to reduce risk of steroid-induced insomnia"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Doxorubicin (Adriamycin®)",
         "class": "Anthracycline antineoplastic antibiotic",
         "routes": "IV Only",
         "indication": "Leukemias (ALL, AML), MM, Lymphomas (HL, NHL), Breast, Bladder, Lung, Gastric, Hepatic, Thyroid, H&N, Testicular, Gyn Ca, Sarcomas (Osteo, Ewing's, Soft Tissue, Kaposi's), Neuroblastoma, Wilm's Tumor",
-        "extravasation_risk": "VESICANT",
+        "extravasation_risk": "Vesicant",
         "side_effects": [],
         "premedications": [
             {
@@ -793,14 +858,18 @@
                 "notes": "COLD PACKS only."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Enasidenib (Idhifa®)",
         "class": "IDH2 Inhibitor",
         "routes": "Oral (Tablet)",
         "indication": "IDH2-mutated AML",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -835,14 +904,18 @@
                 "notes": "Monitor for rapidly rising WBC count"
             }
         ],
-        "source": "Mayo Clinic"
+        "source": "Mayo Clinic",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Etoposide (VP-16, Vepesid®)",
         "class": "Topoisomerase II inhibitor",
         "routes": "IV or Oral",
         "indication": "Leukemias (AML, ALL), Lymphoma, MM, Lung (SCLC, NSCLC), Testicular/Germ Cell, Ovarian, Breast, Prostate, H&N, Brain/Ependymoma, Adrenocortical, Neuroendocrine, Merkel Cell, Thymoma, Sarcomas (Ewing's, Kaposi's, Rhabdo), Wilms' Tumor, Gestational Trophoblastic Tumor",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [
             {
                 "allergy/immunology": "Type 1 hypersensitivity"
@@ -854,9 +927,6 @@
                 "constitutional": "Fatigue"
             },
             {
-                "skin": "Extravasation hazard: irritant, alopecia"
-            },
-            {
                 "gastrointestinal": "Anorexia, constipation, diarrhea, mucositis, nausea and vomiting, stomatitis, taste alteration"
             },
             {
@@ -865,7 +935,7 @@
         ],
         "premedications": [
             {
-                "drug": "Anti-emetics",
+                "drug": "Ondansetron",
                 "route": "IV",
                 "timing": "30 min before infusion"
             }
@@ -898,14 +968,18 @@
                 "notes": "Monitor for secondary malignancies (e.g., leukemia) and chromosomal abnormalities associated with epipodophyllotoxins."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Fludarabine (Fludara®)",
         "class": "Antimetabolite",
         "routes": "IV or Oral",
         "indication": "CLL, AML, NHL, Conditioning for BMT and Waldenström Macroglobulinemia",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -948,35 +1022,20 @@
                 "notes": "Monitor for new onset skin cancer and secondary leukemias (AML/MDS)."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Gemtuzumab Ozogamicin (Mylotarg®)",
         "class": "CD33-directed Antibody-Drug Conjugate",
         "routes": "IV Infusion",
         "indication": "AML",
-        "extravasation_risk": "IRRITANT",
+        "extravasation_risk": "Irritant",
         "side_effects": [],
-        "premedications": [
-            {
-                "hematological": "Anemia, febrile neutropenia, neutropenia, pancytopenia, thrombocytopenia"
-            },
-            {
-                "cardiovascular": "Hemorrhage/bleeding"
-            },
-            {
-                "gastrointestinal": "Emetogenic potential: moderate, nausea, vomiting"
-            },
-            {
-                "hepatobiliary": "Transaminases increase, veno-occlusive liver disease"
-            },
-            {
-                "infection": "Sepsis"
-            },
-            {
-                "constitutional": "Chills, fatigue, multi-organ failure, pyrexia"
-            }
-        ],
+        "premedications": [],
         "required_prophylaxis": [
             {
                 "type": "Infusion Premedication",
@@ -1017,14 +1076,18 @@
                 "notes": "Embryo-fetal toxicity and morphological abnormalities reported; inform patients of teratogenic risk."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Gilteritinib (Xospata®)",
         "class": "FLT3 TKI targeted therapy",
         "routes": "Oral (Tablet)",
         "indication": "AML",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "hematological": "Febrile neutropenia, thrombocytopenia"
@@ -1091,14 +1154,18 @@
                 "notes": "Teratogenic risk; embryo-fetal death and skeletal/visceral abnormalities reported in animal studies."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Glasdegib (Daurismo)",
         "class": "Hedgehog Pathway Inhibitor",
         "routes": "Oral (Tablet)",
         "indication": "AML (Elderly/Unfit)",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -1145,20 +1212,24 @@
                 "notes": "Do not take OTC medicines or herbal supplements without physician approval."
             }
         ],
-        "source": "Mayo Clinic"
+        "source": "Mayo Clinic",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Hydroxyurea (Hydrea®)",
         "class": "Ribonucleotide Reductase Inhibitor Antimetabolite",
         "routes": "Oral (Capsule)",
         "indication": "CML, AML, Myeloproliferative disorders, Melanoma, Ovarian, Head and neck, Cervical, Uterine, NSCLC",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "hematological": "Anemia, macrocytosis, leukopenia, thrombocytopenia"
             },
             {
-                "gastrointestinal": "Emetogenic potential: rare"
+                "gastrointestinal": "Emetogenic potential"
             },
             {
                 "secondary malignancy": "Skin cancer"
@@ -1201,14 +1272,18 @@
                 "notes": "Monitor bone marrow function; adjustment required for patients with prior chemotherapy or marked marrow depression."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Ibrutinib (Imbruvica®)",
         "class": "Bruton's Tyrosine Kinase (BTK) Inhibitor",
         "routes": "Oral (Capsule)",
         "indication": "CLL, NHL, Mantle cell lymphoma, Waldenström macroglobulinemia",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "hematological": "Anemia, febrile neutropenia, leukocytosis, lymphocytosis, neutropenia, thrombocytopenia"
@@ -1217,7 +1292,7 @@
                 "cardiovascular": "Atrial fibrillation/flutter, ventricular tachyarrhythmia, hemorrhage"
             },
             {
-                "gastrointestinal": "Emetogenic potential: low, diarrhea"
+                "gastrointestinal": "Emetogenic potential"
             },
             {
                 "infection": "Hepatitis B reactivation, infections, pneumonia, sepsis"
@@ -1265,14 +1340,18 @@
                 "notes": "Breastfeeding is not recommended due to potential secretion into breast milk."
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Idarubicin (Idamycin®)",
         "class": "Anthracycline Topoisomerase II Inhibitor",
         "routes": "IV Only",
         "indication": "AML",
-        "extravasation_risk": "VESICANT",
+        "extravasation_risk": "Vesicant",
         "side_effects": [
             {
                 "hematological": "Anemia, hemorrhage, leucopenia, neutropenia, thrombocytopenia"
@@ -1295,7 +1374,7 @@
         ],
         "premedications": [
             {
-                "drug": "Anti-emetics",
+                "drug": "Ondansetron",
                 "route": "IV",
                 "timing": "30 min before infusion"
             }
@@ -1352,7 +1431,11 @@
                 "notes": "Monitor for secondary leukemias (1-3 year latency), especially if combined with DNA-damaging agents."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Ifosfamide (Ifex®)",
@@ -1429,14 +1512,18 @@
                 "notes": "Counsel on potential gonadal suppression, including amenorrhea or azoospermia."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Imatinib (Gleevec®)",
         "class": "Tyrosine Kinase Inhibitor (TKI)",
         "routes": "Oral (Tablet)",
         "indication": "CML, Ph+ ALL, Gastrointestinal Stromal Tumors (GIST)",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "hematologic": "anemia, neutropenia, thrombocytopenia"
@@ -1491,7 +1578,11 @@
                 "notes": "Maintain awareness of clastogenic potential and animal data showing carcinoma at high doses, though clinical trials show no significant increase in secondary malignancies."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Inotuzumab Ozogamicin (Besponsa®)",
@@ -1571,7 +1662,11 @@
                 "notes": "Counsel on risks of gonadal/testicular atrophy and hypospermia observed in animal studies."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Ivosidenib (Tibsovo®)",
@@ -1613,14 +1708,17 @@
                 "notes": "Counsel on animal data showing reversible uterine atrophy and testicular degeneration."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Lenalidomide (Revlimid®)",
         "class": "Immunomodulatory imide drug (IMiD)",
         "routes": "Oral (Capsule)",
         "indication": "Multiple Myeloma, Myelodysplastic Syndrome (MDS)",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [
             {
                 "hematological": "anemia, neutropenia, thrombocytopenia"
@@ -1691,14 +1789,18 @@
                 "notes": "No significant effect on warfarin noted, though standard monitoring for thalidomide analogues is prudent."
             }
         ],
-        "source": "BC Cancer"
+        "source": "BC Cancer",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Mercaptopurine (6-MP / Purinethol®)",
         "class": "Thiopurine antimetabolite (purine analogue)",
         "routes": "Oral",
         "indication": "ALL Maintenance, AML, CML, NHL",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -1741,7 +1843,11 @@
                 "notes": "Monitor closely when using aminosalicylates (mesalamine, sulfasalazine), methotrexate, or nondepolarizing muscle relaxants."
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Methotrexate (MTX)",
@@ -1773,14 +1879,18 @@
                 "notes": "Avoid NSAIDs, Penicillins, and PPIs (delay clearance)"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Midostaurin (Rydapt)",
         "class": "FLT3 TKI",
         "routes": "Oral (Capsule)",
         "indication": "FLT3+ AML",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [
             {
@@ -1800,14 +1910,18 @@
                 "notes": "Assess for new cough/dyspnea (Interstitial Lung Disease)"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Mitoxantrone (Novantrone)",
         "class": "Anthracenedione / Antitumor Antibiotic",
         "routes": "IV Infusion",
         "indication": "AML (Relapsed/Refractory), Prostate Cancer, MS",
-        "extravasation_risk": "VESICANT",
+        "extravasation_risk": "Vesicant",
         "side_effects": [],
         "premedications": [
             {
@@ -1836,7 +1950,11 @@
                 "notes": "Strict tracking required (Max usually 140 mg/m²); higher risk if patient previously had Doxorubicin"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Nelarabine (Arranon)",
@@ -1862,7 +1980,11 @@
                 "notes": "High risk of ataxia/dizziness; assistance required for ambulation"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Nilotinib (Tasigna)",
@@ -1888,7 +2010,10 @@
                 "notes": "Correct hypokalemia and hypomagnesemia aggressively"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Obinutuzumab (Gazyva)",
@@ -1930,14 +2055,18 @@
                 "notes": "First dose split over 2 days; withhold antihypertensives 12h prior"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Pomalidomide (Pomalyst)",
         "class": "IMiD",
         "routes": "Oral (Capsule)",
         "indication": "Relapsed/Refractory Multiple Myeloma",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -1956,14 +2085,18 @@
                 "notes": "Weekly counts during initial cycles due to neutropenia risk"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Ponatinib (Iclusig)",
         "class": "TKI - 3rd Generation",
         "routes": "Oral (Tablet)",
         "indication": "Resistant CML or Ph+ ALL",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -1982,14 +2115,18 @@
                 "notes": "Monitor hepatic function tests monthly"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Prednisolone (Orapred / Pediapred)",
         "class": "Corticosteroid / Glucocorticoid",
         "routes": "Oral (Tablet/Liquid)",
         "indication": "ALL Induction, CLL, and Lymphoma",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -2016,14 +2153,18 @@
                 "notes": "Do not stop abruptly after long courses; must follow taper schedule to prevent adrenal insufficiency"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Quizartinib (Vanflyta)",
         "class": "FLT3 Inhibitor",
         "routes": "Oral (Tablet)",
         "indication": "FLT3-ITD+ AML",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -2046,7 +2187,11 @@
                 "notes": "Monitor for fever, dyspnea, and weight gain"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Rituximab (Rituxan)",
@@ -2079,14 +2224,18 @@
                 "notes": "Highest risk during first infusion; titrate rate slowly"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Sorafenib (Nexavar)",
         "class": "Multikinase Inhibitor",
         "routes": "Oral (Tablet)",
         "indication": "FLT3+ AML",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -2105,14 +2254,18 @@
                 "notes": "Monitor for ischemia or infarction"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Thalidomide (Thalomid)",
         "class": "IMiD",
         "routes": "Oral (Capsule)",
         "indication": "Multiple Myeloma",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [],
         "required_prophylaxis": [
@@ -2135,14 +2288,18 @@
                 "notes": "Monitor for peripheral neuropathy (numbness/tingling)"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Venetoclax (Venclexta)",
         "class": "BCL-2 Inhibitor",
         "routes": "Oral (Tablet)",
         "indication": "AML and CLL",
-        "extravasation_risk": "N/A (Oral)",
+        "extravasation_risk": "N/A Oral",
         "side_effects": [],
         "premedications": [
             {
@@ -2167,14 +2324,18 @@
                 "notes": "Check chemistry 6-8h and 24h after first dose and every dose increase"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Vinblastine (Velban)",
         "class": "Vinca Alkaloid",
         "routes": "IV ONLY",
         "indication": "Hodgkin Lymphoma, Histiocytosis",
-        "extravasation_risk": "VESICANT",
+        "extravasation_risk": "Vesicant",
         "side_effects": [],
         "premedications": [
             {
@@ -2199,14 +2360,18 @@
                 "notes": "Monitor for constipation and peripheral neuropathy (though less neurotoxic than Vincristine)"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     },
     {
         "name": "Vincristine (Oncovin)",
         "class": "Vinca Alkaloid",
         "routes": "IV ONLY",
         "indication": "ALL and Lymphomas",
-        "extravasation_risk": "VESICANT",
+        "extravasation_risk": "Vesicant",
         "side_effects": [],
         "premedications": [
             {
@@ -2231,6 +2396,10 @@
                 "notes": "Monitor for constipation, foot drop, and jaw pain"
             }
         ],
-        "source": ""
+        "source": "",
+        "mechanism": [],
+        "monitoring": [],
+        "warnings": [],
+        "nursingInfo": []
     }
 ]
