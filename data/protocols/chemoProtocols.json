@@ -210,7 +210,7 @@
             "goal": "The goal is to eliminate any <b>Minimal Residual Disease (MRD)</b>—undetectable leukemia cells—to prevent relapse and maintain long-term remission.",
             "protocols": [
                 {
-                    "protocolName": "Cytarabine (age under 60 years)",
+                    "protocolName": "IDAC (Intermediate Dose Ara-C)",
                     "drugs": [
                         {
                             "day": "Day 1 - 7",
@@ -237,33 +237,6 @@
                     "source": "Hospital Protocol"
                 },
                 {
-                    "protocolName": "Cytarabine (age 60 years and over)",
-                    "drugs": [
-                        {
-                            "day": "Day 1 - 7",
-                            "name": "Prednisolone 1%",
-                            "dose": "1 drop Q6H",
-                            "route": "Eye drops",
-                            "duration": "",
-                            "phase": "Pre-Chemo",
-                            "note": "Start 2 hours before the first Cytarabine"
-                        },
-                        {
-                            "name": "Cytarabine (Ara-C)",
-                            "dose": "1 g/m² Q12H",
-                            "route": "IV over 3 hrs",
-                            "phase": "Chemo",
-                            "day": "Days 1 – 3",
-                            "note": ""
-                        }
-                    ],
-                    "NursesInfo": [
-                        "Indication: AML in remission in patients who are aged 60 years aand over.",
-                        "Side effects: \"Cytarabine syndrome\", \"Tumour lysis syndrome\", Cytarabine induced neurotoxicity, Nausea and Vomiting"
-                    ],
-                    "source": "Hospital Protocol"
-                },
-                {
                     "protocolName": "HiDAC-High dose Cytarabine (Ara-c)",
                     "drugs": [
                         {
@@ -277,7 +250,7 @@
                         },
                         {
                             "name": "Cytarabine (Ara-C)",
-                            "dose": "2gm/m² Q12H",
+                            "dose": "3gm/m² Q12H",
                             "route": "IV",
                             "phase": "Chemo",
                             "day": "Days 1, 3, 5",
@@ -299,26 +272,6 @@
             "goal": "The goal is to provide <b>prolonged, low-intensity therapy</b> to suppress any remaining leukemia cells and reduce the risk of recurrence, especially in patients ineligible for stem cell transplant.",
             "protocols": [
                 {
-                    "protocolName": "Azacitidine Oral",
-                    "drugs": [
-                        {
-                            "day": "Days 1 – 14",
-                            "name": "Azacitidine ",
-                            "dose": "300 mg Daily for 14 days",
-                            "route": "Oral",
-                            "duration": "",
-                            "phase": "Chemo",
-                            "note": ""
-                        }
-                    ],
-                    "NursesInfo": [
-                        "Premediication Granisetron / Ondansetron oral",
-                        "Nausea, vomiting, and diarrhea are common.",
-                        "The oral formulation of azacitidine is not interchangeable with injectable formulation"
-                    ],
-                    "source": "https://tinyurl.com/2s8frs5x"
-                },
-                {
                     "protocolName": "Azacitidine SC",
                     "drugs": [
                         {
@@ -337,552 +290,697 @@
                         "Can also be administered as IV"
                     ],
                     "source": "Hospital Protocol"
-                },
-                {
-                    "protocolName": "Low-Dose Cytarabine (Ara-C)",
-                    "drugs": [
-                        {
-                            "day": "Day 1 - 10",
-                            "name": "Cytarabine (Ara-C)",
-                            "dose": "20 mg BID",
-                            "route": "SC",
-                            "duration": "",
-                            "note": "",
-                            "phase": "Chemo"
-                        }
-                    ],
-                    "NursesInfo": [
-                        "Indication: AML in patients deemed unfit for intensive chemotherapy",
-                        "Treatment with cytarabine may cause a \"cytarabine syndrome\" and \"Tumour lysis syndrome\"."
-                    ],
-                    "source": "eviQ"
                 }
             ]
         }
     },
     "ALL": {
-        "Induction Phase": {
-            "goal": "The goal is to quickly eradicate lymphoid blasts to reach <b>Complete Remission (CR)</b> and provide <b>CNS prophylaxis</b> to prevent leukemia from spreading to the brain or spinal cord.",
-            "protocols": [
-                {
-                    "protocolName": "HyperCVAD Cycle A (1, 3, 5)",
-                    "drugs": [
-                        {
-                            "name": "Ondansetron",
-                            "dose": "8mg",
-                            "route": "Iv over 15 mnts",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 5",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Dexamthasone",
-                            "dose": "40mg",
-                            "route": "PO Daily",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 4",
-                            "duration": "",
-                            "note": "Repeat after 1 week Day 8 - 11"
-                        },
-                        {
-                            "name": "Mesna",
-                            "dose": "600mg/m²",
-                            "route": "IV over 24 hrs",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 3",
-                            "duration": "",
-                            "note": "Start 5 minutes after finish of Ondansetron"
-                        },
-                        {
-                            "name": "Cyclophosphamide",
-                            "dose": "300mg/m² Q12H",
-                            "route": "IV over 2 hours",
-                            "phase": "Chemo",
-                            "day": "Day 1 - 3",
-                            "duration": "",
-                            "note": "Start 5 minutes after start of Mesna"
-                        },
-                        {
-                            "name": "Doxorubicin",
-                            "dose": "50mg/m²  Once",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 4",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Vincristine",
-                            "dose": "1.4mg/m² Once",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 4, Day 11",
-                            "duration": "",
-                            "note": "Make sure patient has bowel motion on the day of administration."
-                        },
-                        {
-                            "name": "Dexamethasone",
-                            "dose": "40mg Daily",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 11 - 14",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Alfacalcidol",
-                            "dose": "0.25mg Daily",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": "TLS prophylaxis"
-                        },
-                        {
-                            "name": "Acyclovir",
-                            "dose": "200mg BID",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Fluconazole",
-                            "dose": "300mg Daily",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Bactrim",
-                            "dose": "1 tab Q48H",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Filgrastim (GCSF)",
-                            "dose": "300mg Daily",
-                            "route": "SC",
-                            "phase": "Post-Chemo",
-                            "day": "Day 7 - ",
-                            "duration": "",
-                            "note": "Until ANC >1000 in two consecutive days"
-                        }
-                    ],
-                    "NursesInfo": [
-                        "<b>Verify Cardiac Baseline:</b> Confirm a documented Echo or MUGA scan within 6 months shows EF ≥ 50% prior to Cyclophosphamide administration.",
-                        "<b>Confirm Mesna Timing:</b> Ensure Mesna infusion is synchronized correctly with Cyclophosphamide to prevent hemorrhagic cystitis.",
-                        "<b>Monitor Steroid Impact:</b> Check blood glucose levels frequently due to the high-dose Dexamethasone component.",
-                        "<b>Audit CNS Prophylaxis:</b> Ensure Intrathecal (IT) chemotherapy is synchronized with the systemic window as per the roadmap.",
-                        "<b>Assess Port Patency:</b> Perform a brisk blood return check on the CVAD immediately before hanging vesicants or high-volume infusions."
-                    ],
-                    "source": "Hospital Protocol"
-                },
-                {
-                    "protocolName": "HyperCVAD Cycle B (2, 4, 6)",
-                    "drugs": [
-                        {
-                            "name": "Ondanasetron",
-                            "dose": "8mg Daily",
-                            "route": "IV over 15 mnts",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 4",
-                            "note": ""
-                        },
-                        {
-                            "name": "Dexamethasone",
-                            "dose": "12mg Daily",
-                            "route": "IV over 10 mnts",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 3",
-                            "note": ""
-                        },
-                        {
-                            "name": "Sodium Bicarbonate",
-                            "dose": "975mg TID",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - until MTX clearence",
-                            "note": "Until MTX level <0.1"
-                        },
-                        {
-                            "name": "Sodium Bicarbonate",
-                            "dose": "450mmol/L Daily",
-                            "route": "IV infusion",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - until MTX clearence",
-                            "note": "Until MTX level <0.1"
-                        },
-                        {
-                            "name": "Methotrexate",
-                            "dose": "200mg/m² Once",
-                            "route": "IV over 2 hrs",
-                            "phase": "Chemo",
-                            "day": "Day 2",
-                            "note": "After urine pH >8"
-                        },
-                        {
-                            "name": "Methotrexate",
-                            "dose": "200mg/m² Once",
-                            "route": "IV over 22 hrs",
-                            "phase": "Chemo",
-                            "day": "Day 2",
-                            "note": "After first bag of Methotrexate (MTX)"
-                        },
-                        {
-                            "name": "Methotrexate",
-                            "dose": "12mg Once",
-                            "route": "IT",
-                            "phase": "Chemo",
-                            "day": "Day 3",
-                            "note": "Intrathecal chemo, After MTX."
-                        },
-                        {
-                            "name": "Prednisolone 1%",
-                            "dose": "1 drop Q6H",
-                            "route": "Eye drops",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 4 - 10",
-                            "note": "Start 2 hours before the first dose Cytarabine. "
-                        },
-                        {
-                            "name": "Cytarabine",
-                            "dose": "300mg/m² Q12H",
-                            "route": "IV over 3 hrs",
-                            "phase": "Chemo",
-                            "day": "Day 4 - 5",
-                            "note": "2 hours after finish of MTX"
-                        },
-                        {
-                            "name": "Calcium folinate",
-                            "dose": "25mg Q6H",
-                            "route": "IV",
-                            "phase": "Post-Chemo",
-                            "day": "Day 4 - until MTX clearence",
-                            "note": "Start 36 hours AFTER the START of second MTX"
-                        },
-                        {
-                            "name": "Cytarabine",
-                            "dose": "100mg Once",
-                            "route": "IT",
-                            "phase": "Chemo",
-                            "day": "Day 8",
-                            "note": "Intrathecal chemo"
-                        },
-                        {
-                            "name": "Bactrim",
-                            "dose": "960mg Q48H",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "note": "Hold While MTX and until clearence"
-                        },
-                        {
-                            "name": "Acyclovir",
-                            "dose": "200mg BID",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "note": "Prophylactic"
-                        },
-                        {
-                            "name": "Fluconazole",
-                            "dose": "300mg Daily",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "note": "Hold if any other Antifungal active"
-                        },
-                        {
-                            "name": "Filgrastim",
-                            "dose": "300mg Daily",
-                            "route": "SC",
-                            "phase": "Chemo",
-                            "day": "Day 6 -",
-                            "note": "Continue until ANC >1000 in 2 consecutive days"
-                        }
-                    ],
-                    "NursesInfo": [
-                        "<b>Validate Urine Alkalinization:</b> Confirm urine pH is > 7.0 prior to starting High-Dose Methotrexate to prevent renal precipitation.",
-                        "<b>Monitor Neurotoxicity:</b> Perform handwriting and gait assessments to screen for Cytarabine-induced cerebellar toxicity.",
-                        "<b>Execute Leucovorin Rescue:</b> Ensure Leucovorin is administered exactly at the scheduled intervals until Methotrexate levels are safe.",
-                        "<b>Monitor Renal Clearance:</b> Track serum creatinine and maintain aggressive hydration (>100 mL/hr) during Methotrexate infusion.",
-                        "<b>Audit CNS Prophylaxis:</b> Coordinate timing for Intrathecal (IT) Methotrexate and or Cytarabine as specified for Cycle B.",
-                        "<b>Monitor MTX Clearance:</b> Check urine pH every void after Sodium Bicarbonate start and daily after MTX start until level < 0.1 μmol/L.",
-                        "<b>Audit MTX Levels:</b> Draw first MTX level 1 hour after second dose completion, then every 24 hours until level < 0.1 μmol/L."
-                    ],
-                    "source": "Hospital protocol"
-                },
-                {
-                    "protocolName": "Mini HyperCVAD Cycle A",
-                    "drugs": [
-                        {
-                            "name": "Ondansetron",
-                            "dose": "8mg Daily",
-                            "route": "IV",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 5",
-                            "duration": "Over 15 mints",
-                            "note": "15 minutes before chemo"
-                        },
-                        {
-                            "name": "Allopurinol",
-                            "dose": "300mg Daily",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 7",
-                            "duration": "",
-                            "note": "Before chemo"
-                        },
-                        {
-                            "name": "Dexamethasone",
-                            "dose": "20mg Daily",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 4",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Mesna",
-                            "dose": "300mg/m² Daily",
-                            "route": "IV",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 3",
-                            "duration": "Over 24 hours",
-                            "note": "Start 5 mints after Ondansetron "
-                        },
-                        {
-                            "name": "Cyclophosphamide",
-                            "dose": "150mg/m² Q12H",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 1 - 3",
-                            "duration": "Over 3 hours",
-                            "note": "Start 5 mints after MESNA start."
-                        },
-                        {
-                            "name": "Methotrexate + Cytarabine + Hydrocortisone",
-                            "dose": "(12mg + 50mg + 50mg) Once",
-                            "route": "IT",
-                            "phase": "Chemo",
-                            "day": "Day 2",
-                            "duration": "",
-                            "note": "Intrathecal"
-                        },
-                        {
-                            "name": "Vincristine",
-                            "dose": "2mg Q1W",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 5, Day 12",
-                            "duration": "Over 10 mints",
-                            "note": "Give only if patient has bowel motion on the day. "
-                        },
-                        {
-                            "name": "Dexamethasone",
-                            "dose": "20mg Daily",
-                            "route": "PO",
-                            "phase": "Chemo",
-                            "day": "Day 11 - 14",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Alfacalcidol",
-                            "dose": "0.25mg Daily",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Acyclovir",
-                            "dose": "200mg BID",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Fluconazole",
-                            "dose": "400mg Daily",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Bactrim",
-                            "dose": "1 tab Q48H",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Filgrastim (GCSF)",
-                            "dose": "300mg Daily",
-                            "route": "SC",
-                            "phase": "Post-Chemo",
-                            "day": "Day 6 - ",
-                            "duration": "",
-                            "note": "Continue until ANC >1000 in two consecutive days."
-                        }
-                    ],
-                    "NursesInfo": [
-                        "<b>Verify Cardiac Baseline:</b> Confirm a documented Echo or MUGA scan within 6 months shows EF ≥ 50% prior to Cyclophosphamide administration.",
-                        "<b>Validate Dose Reductions:</b> Cross-check that the \"Mini\" doses (usually 50% reduction of Cyclophosphamide and Dexamethasone, and omitting Anthracyclines) match the age-adjusted or renal-adjusted parameters in the MAR.",
-                        "<b>Confirm TLS Prophylaxis:</b> Verify that Allopurinol is started and the patient has achieved an aggressive fluid intake/output balance (typically >100 mL/hr to prevent Tumor Lysis Syndrome.",
-                        "<b>Audit CNS Prophylaxis Timing:</b> Ensure the scheduled Intrathecal (IT) chemotherapy (Methotrexate and/or Cytarabine) is synchronized with the systemic Cycle A window as per the protocol roadmap.",
-                        "<b>Assess Port/Line Patency:</b> Perform a brisk blood return check on the Central Venous Access Device (PICC) immediately before hanging vesicants or high-volume infusions to mitigate extravasation risk."
-                    ],
-                    "source": "Hospital Protocols"
-                },
-                {
-                    "protocolName": "Mini HyperCVAD Cycle B",
-                    "drugs": [
-                        {
-                            "name": "Ondansetron",
-                            "dose": "8mg Daily",
-                            "route": "IV",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 3",
-                            "duration": "Over 15 mints",
-                            "note": ""
-                        },
-                        {
-                            "name": "Dexamethasone",
-                            "dose": "12mg Daily",
-                            "route": "IV",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 3",
-                            "duration": "Over 10 mints",
-                            "note": ""
-                        },
-                        {
-                            "name": "Sodium Bicarbonate",
-                            "dose": "975mg TID",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 -",
-                            "duration": "",
-                            "note": "Continue until ANC <0.1"
-                        },
-                        {
-                            "name": "Sodium Bicarbonate",
-                            "dose": "45mmol Daily",
-                            "route": "IV",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 -",
-                            "duration": "Over 24 hours",
-                            "note": "Continue until ANC <0.1"
-                        },
-                        {
-                            "name": "Methotrexate (MTX)",
-                            "dose": "250mg/m² Once",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 2",
-                            "duration": "Over 2 hours",
-                            "note": "Start only if urine pH >8"
-                        },
-                        {
-                            "name": "Methotrexate",
-                            "dose": "12mg",
-                            "route": "IT",
-                            "phase": "Chemo",
-                            "day": "Day 2",
-                            "duration": "",
-                            "note": "Intrathecal, may combine with Cytarabine and Hydrocortisone"
-                        },
-                        {
-                            "name": "Calcium Folinate",
-                            "dose": "25mg Q6H",
-                            "route": "IV push",
-                            "phase": "Chemo",
-                            "day": "Day 3",
-                            "duration": "",
-                            "note": "Start 12 hours AFTER finish of MTX, then Q6H. Continue until MTX level <0.1"
-                        },
-                        {
-                            "name": "Cytarabine",
-                            "dose": "500mg/m² Q12H",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 3 - 4",
-                            "duration": "Over 2 hours",
-                            "note": "Start 24 hours AFTER finish of MTX, then Q12H (4 doses)"
-                        },
-                        {
-                            "name": "Methotrexate",
-                            "dose": "12mg",
-                            "route": "IT",
-                            "phase": "Chemo",
-                            "day": "Day 7",
-                            "duration": "",
-                            "note": "Intrathecal, may combine with Cytarabine and Hydrocortisone"
-                        },
-                        {
-                            "name": "Bactrim",
-                            "dose": "1 tab Q48H",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Acyclovir",
-                            "dose": "200mg BID",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Fluconazole",
-                            "dose": "300mg Daily",
-                            "route": "PO",
-                            "phase": "Post-Chemo",
-                            "day": "Day 1 - 21",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Filgrastim (GCSF)",
-                            "dose": "300mg Daily",
-                            "route": "SC",
-                            "phase": "Post-Chemo",
-                            "day": "Day 6 -",
-                            "duration": "",
-                            "note": "Continue until ANC >1000 two consecutive days"
-                        }
-                    ],
-                    "NursesInfo": [
-                        "<b>Validate Dose Reductions:</b> Cross-check that doses match the age-adjusted or renal-adjusted parameters (typically 50% reduction).",
-                        "<b>Verify Anthracycline Omission:</b> Confirm that anthracyclines are omitted as per the \"mini\" protocol variation.",
-                        "<b>Monitor Urine pH:</b> Ensure urine pH remains > 7.0 for Methotrexate clearance despite the reduced dosage.",
-                        "<b>Assess Myelosuppression:</b> Monitor for prolonged cytopenias which may occur even with dose-reduced chemotherapy.",
-                        "<b>Confirm Eye Care:</b> Administer steroid eye drops as ordered to mitigate Cytarabine-related chemical conjunctivitis.",
-                        "<b>Monitor MTX Clearance:</b> Check urine pH every void after Sodium Bicarbonate start and daily after MTX start until level < 0.1 μmol/L.",
-                        "<b>Audit MTX Levels:</b> Draw first MTX level 1 hour after second dose completion, then every 24 hours until level < 0.1 μmol/L."
-                    ],
-                    "source": "Hospital Protocol"
-                }
-            ]
+        "ALL": {
+            "Induction Phase": {
+                "goal": "The goal is to quickly eradicate lymphoid blasts to reach <b>Complete Remission (CR)</b> and provide <b>CNS prophylaxis</b> to prevent leukemia from spreading to the brain or spinal cord.",
+                "protocols": [
+                    {
+                        "protocolName": "HyperCVAD Cycle A (1, 3, 5)",
+                        "drugs": [
+                            {
+                                "name": "Ondansetron",
+                                "dose": "8mg",
+                                "route": "Iv over 15 mnts",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 5",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Dexamthasone",
+                                "dose": "40mg",
+                                "route": "PO Daily",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 4",
+                                "duration": "",
+                                "note": "Repeat after 1 week Day 8 - 11"
+                            },
+                            {
+                                "name": "Mesna",
+                                "dose": "600mg/m²",
+                                "route": "IV over 24 hrs",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 3",
+                                "duration": "",
+                                "note": "Start 5 minutes after finish of Ondansetron"
+                            },
+                            {
+                                "name": "Cyclophosphamide",
+                                "dose": "300mg/m² Q12H",
+                                "route": "IV over 2 hours",
+                                "phase": "Chemo",
+                                "day": "Day 1 - 3",
+                                "duration": "",
+                                "note": "Start 5 minutes after start of Mesna"
+                            },
+                            {
+                                "name": "Doxorubicin",
+                                "dose": "50mg/m²  Once",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 4",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Vincristine",
+                                "dose": "1.4mg/m² Once",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 4, Day 11",
+                                "duration": "",
+                                "note": "Make sure patient has bowel motion on the day of administration."
+                            },
+                            {
+                                "name": "Dexamethasone",
+                                "dose": "40mg Daily",
+                                "route": "PO",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 11 - 14",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Alfacalcidol",
+                                "dose": "0.25mg Daily",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": "TLS prophylaxis"
+                            },
+                            {
+                                "name": "Acyclovir",
+                                "dose": "200mg BID",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Fluconazole",
+                                "dose": "300mg Daily",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Bactrim",
+                                "dose": "1 tab Q48H",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Filgrastim (GCSF)",
+                                "dose": "300mg Daily",
+                                "route": "SC",
+                                "phase": "Post-Chemo",
+                                "day": "Day 7 - ",
+                                "duration": "",
+                                "note": "Until ANC >1000 in two consecutive days"
+                            }
+                        ],
+                        "NursesInfo": [
+                            "<b>Verify Cardiac Baseline:</b> Confirm a documented Echo or MUGA scan within 6 months shows EF ≥ 50% prior to Cyclophosphamide administration.",
+                            "<b>Confirm Mesna Timing:</b> Ensure Mesna infusion is synchronized correctly with Cyclophosphamide to prevent hemorrhagic cystitis.",
+                            "<b>Monitor Steroid Impact:</b> Check blood glucose levels frequently due to the high-dose Dexamethasone component.",
+                            "<b>Audit CNS Prophylaxis:</b> Ensure Intrathecal (IT) chemotherapy is synchronized with the systemic window as per the roadmap.",
+                            "<b>Assess Port Patency:</b> Perform a brisk blood return check on the CVAD immediately before hanging vesicants or high-volume infusions."
+                        ],
+                        "source": "Hospital Protocol"
+                    },
+                    {
+                        "protocolName": "HyperCVAD Cycle B (2, 4, 6)",
+                        "drugs": [
+                            {
+                                "name": "Ondanasetron",
+                                "dose": "8mg Daily",
+                                "route": "IV over 15 mnts",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 4",
+                                "note": ""
+                            },
+                            {
+                                "name": "Dexamethasone",
+                                "dose": "12mg Daily",
+                                "route": "IV over 10 mnts",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 3",
+                                "note": ""
+                            },
+                            {
+                                "name": "Sodium Bicarbonate",
+                                "dose": "975mg TID",
+                                "route": "PO",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - until MTX clearence",
+                                "note": "Until MTX level <0.1"
+                            },
+                            {
+                                "name": "Sodium Bicarbonate",
+                                "dose": "450mmol/L Daily",
+                                "route": "IV infusion",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - until MTX clearence",
+                                "note": "Until MTX level <0.1"
+                            },
+                            {
+                                "name": "Methotrexate",
+                                "dose": "200mg/m² Once",
+                                "route": "IV over 2 hrs",
+                                "phase": "Chemo",
+                                "day": "Day 2",
+                                "note": "After urine pH >8"
+                            },
+                            {
+                                "name": "Methotrexate",
+                                "dose": "200mg/m² Once",
+                                "route": "IV over 22 hrs",
+                                "phase": "Chemo",
+                                "day": "Day 2",
+                                "note": "After first bag of Methotrexate (MTX)"
+                            },
+                            {
+                                "name": "Methotrexate",
+                                "dose": "12mg Once",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 3",
+                                "note": "Intrathecal chemo, After MTX."
+                            },
+                            {
+                                "name": "Prednisolone 1%",
+                                "dose": "1 drop Q6H",
+                                "route": "Eye drops",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 4 - 10",
+                                "note": "Start 2 hours before the first dose Cytarabine. "
+                            },
+                            {
+                                "name": "Cytarabine",
+                                "dose": "300mg/m² Q12H",
+                                "route": "IV over 3 hrs",
+                                "phase": "Chemo",
+                                "day": "Day 4 - 5",
+                                "note": "2 hours after finish of MTX"
+                            },
+                            {
+                                "name": "Calcium folinate",
+                                "dose": "25mg Q6H",
+                                "route": "IV",
+                                "phase": "Post-Chemo",
+                                "day": "Day 4 - until MTX clearence",
+                                "note": "Start 36 hours AFTER the START of second MTX"
+                            },
+                            {
+                                "name": "Cytarabine",
+                                "dose": "100mg Once",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 8",
+                                "note": "Intrathecal chemo"
+                            },
+                            {
+                                "name": "Bactrim",
+                                "dose": "960mg Q48H",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "note": "Hold While MTX and until clearence"
+                            },
+                            {
+                                "name": "Acyclovir",
+                                "dose": "200mg BID",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "note": "Prophylactic"
+                            },
+                            {
+                                "name": "Fluconazole",
+                                "dose": "300mg Daily",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "note": "Hold if any other Antifungal active"
+                            },
+                            {
+                                "name": "Filgrastim",
+                                "dose": "300mg Daily",
+                                "route": "SC",
+                                "phase": "Chemo",
+                                "day": "Day 6 -",
+                                "note": "Continue until ANC >1000 in 2 consecutive days"
+                            }
+                        ],
+                        "NursesInfo": [
+                            "<b>Validate Urine Alkalinization:</b> Confirm urine pH is > 7.0 prior to starting High-Dose Methotrexate to prevent renal precipitation.",
+                            "<b>Monitor Neurotoxicity:</b> Perform handwriting and gait assessments to screen for Cytarabine-induced cerebellar toxicity.",
+                            "<b>Execute Leucovorin Rescue:</b> Ensure Leucovorin is administered exactly at the scheduled intervals until Methotrexate levels are safe.",
+                            "<b>Monitor Renal Clearance:</b> Track serum creatinine and maintain aggressive hydration (>100 mL/hr) during Methotrexate infusion.",
+                            "<b>Audit CNS Prophylaxis:</b> Coordinate timing for Intrathecal (IT) Methotrexate and or Cytarabine as specified for Cycle B.",
+                            "<b>Monitor MTX Clearance:</b> Check urine pH every void after Sodium Bicarbonate start and daily after MTX start until level < 0.1 μmol/L.",
+                            "<b>Audit MTX Levels:</b> Draw first MTX level 1 hour after second dose completion, then every 24 hours until level < 0.1 μmol/L."
+                        ],
+                        "source": "Hospital protocol"
+                    },
+                    {
+                        "protocolName": "Mini HyperCVAD Cycle A",
+                        "drugs": [
+                            {
+                                "name": "Ondansetron",
+                                "dose": "8mg Daily",
+                                "route": "IV",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 5",
+                                "duration": "Over 15 mints",
+                                "note": "15 minutes before chemo"
+                            },
+                            {
+                                "name": "Allopurinol",
+                                "dose": "300mg Daily",
+                                "route": "PO",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 7",
+                                "duration": "",
+                                "note": "Before chemo"
+                            },
+                            {
+                                "name": "Dexamethasone",
+                                "dose": "20mg Daily",
+                                "route": "PO",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 4",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Mesna",
+                                "dose": "300mg/m² Daily",
+                                "route": "IV",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 3",
+                                "duration": "Over 24 hours",
+                                "note": "Start 5 mints after Ondansetron "
+                            },
+                            {
+                                "name": "Cyclophosphamide",
+                                "dose": "150mg/m² Q12H",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 1 - 3",
+                                "duration": "Over 3 hours",
+                                "note": "Start 5 mints after MESNA start."
+                            },
+                            {
+                                "name": "Methotrexate + Cytarabine + Hydrocortisone",
+                                "dose": "(12mg + 50mg + 50mg) Once",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 2",
+                                "duration": "",
+                                "note": "Intrathecal"
+                            },
+                            {
+                                "name": "Vincristine",
+                                "dose": "2mg Q1W",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 5, Day 12",
+                                "duration": "Over 10 mints",
+                                "note": "Give only if patient has bowel motion on the day. "
+                            },
+                            {
+                                "name": "Dexamethasone",
+                                "dose": "20mg Daily",
+                                "route": "PO",
+                                "phase": "Chemo",
+                                "day": "Day 11 - 14",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Alfacalcidol",
+                                "dose": "0.25mg Daily",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Acyclovir",
+                                "dose": "200mg BID",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Fluconazole",
+                                "dose": "400mg Daily",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Bactrim",
+                                "dose": "1 tab Q48H",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Filgrastim (GCSF)",
+                                "dose": "300mg Daily",
+                                "route": "SC",
+                                "phase": "Post-Chemo",
+                                "day": "Day 6 - ",
+                                "duration": "",
+                                "note": "Continue until ANC >1000 in two consecutive days."
+                            }
+                        ],
+                        "NursesInfo": [
+                            "<b>Verify Cardiac Baseline:</b> Confirm a documented Echo or MUGA scan within 6 months shows EF ≥ 50% prior to Cyclophosphamide administration.",
+                            "<b>Validate Dose Reductions:</b> Cross-check that the \"Mini\" doses (usually 50% reduction of Cyclophosphamide and Dexamethasone, and omitting Anthracyclines) match the age-adjusted or renal-adjusted parameters in the MAR.",
+                            "<b>Confirm TLS Prophylaxis:</b> Verify that Allopurinol is started and the patient has achieved an aggressive fluid intake/output balance (typically >100 mL/hr to prevent Tumor Lysis Syndrome.",
+                            "<b>Audit CNS Prophylaxis Timing:</b> Ensure the scheduled Intrathecal (IT) chemotherapy (Methotrexate and/or Cytarabine) is synchronized with the systemic Cycle A window as per the protocol roadmap.",
+                            "<b>Assess Port/Line Patency:</b> Perform a brisk blood return check on the Central Venous Access Device (PICC) immediately before hanging vesicants or high-volume infusions to mitigate extravasation risk."
+                        ],
+                        "source": "Hospital Protocols"
+                    },
+                    {
+                        "protocolName": "Mini HyperCVAD Cycle B",
+                        "drugs": [
+                            {
+                                "name": "Ondansetron",
+                                "dose": "8mg Daily",
+                                "route": "IV",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 3",
+                                "duration": "Over 15 mints",
+                                "note": ""
+                            },
+                            {
+                                "name": "Dexamethasone",
+                                "dose": "12mg Daily",
+                                "route": "IV",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 3",
+                                "duration": "Over 10 mints",
+                                "note": ""
+                            },
+                            {
+                                "name": "Sodium Bicarbonate",
+                                "dose": "975mg TID",
+                                "route": "PO",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 -",
+                                "duration": "",
+                                "note": "Continue until ANC <0.1"
+                            },
+                            {
+                                "name": "Sodium Bicarbonate",
+                                "dose": "45mmol Daily",
+                                "route": "IV",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 -",
+                                "duration": "Over 24 hours",
+                                "note": "Continue until ANC <0.1"
+                            },
+                            {
+                                "name": "Methotrexate (MTX)",
+                                "dose": "250mg/m² Once",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 2",
+                                "duration": "Over 2 hours",
+                                "note": "Start only if urine pH >8"
+                            },
+                            {
+                                "name": "Methotrexate",
+                                "dose": "12mg",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 2",
+                                "duration": "",
+                                "note": "Intrathecal, may combine with Cytarabine and Hydrocortisone"
+                            },
+                            {
+                                "name": "Calcium Folinate",
+                                "dose": "25mg Q6H",
+                                "route": "IV push",
+                                "phase": "Chemo",
+                                "day": "Day 3",
+                                "duration": "",
+                                "note": "Start 12 hours AFTER finish of MTX, then Q6H. Continue until MTX level <0.1"
+                            },
+                            {
+                                "name": "Cytarabine",
+                                "dose": "500mg/m² Q12H",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 3 - 4",
+                                "duration": "Over 2 hours",
+                                "note": "Start 24 hours AFTER finish of MTX, then Q12H (4 doses)"
+                            },
+                            {
+                                "name": "Methotrexate",
+                                "dose": "12mg",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 7",
+                                "duration": "",
+                                "note": "Intrathecal, may combine with Cytarabine and Hydrocortisone"
+                            },
+                            {
+                                "name": "Bactrim",
+                                "dose": "1 tab Q48H",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Acyclovir",
+                                "dose": "200mg BID",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Fluconazole",
+                                "dose": "300mg Daily",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 21",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Filgrastim (GCSF)",
+                                "dose": "300mg Daily",
+                                "route": "SC",
+                                "phase": "Post-Chemo",
+                                "day": "Day 6 -",
+                                "duration": "",
+                                "note": "Continue until ANC >1000 two consecutive days"
+                            }
+                        ],
+                        "NursesInfo": [
+                            "<b>Validate Dose Reductions:</b> Cross-check that doses match the age-adjusted or renal-adjusted parameters (typically 50% reduction).",
+                            "<b>Verify Anthracycline Omission:</b> Confirm that anthracyclines are omitted as per the \"mini\" protocol variation.",
+                            "<b>Monitor Urine pH:</b> Ensure urine pH remains > 7.0 for Methotrexate clearance despite the reduced dosage.",
+                            "<b>Assess Myelosuppression:</b> Monitor for prolonged cytopenias which may occur even with dose-reduced chemotherapy.",
+                            "<b>Confirm Eye Care:</b> Administer steroid eye drops as ordered to mitigate Cytarabine-related chemical conjunctivitis.",
+                            "<b>Monitor MTX Clearance:</b> Check urine pH every void after Sodium Bicarbonate start and daily after MTX start until level < 0.1 μmol/L.",
+                            "<b>Audit MTX Levels:</b> Draw first MTX level 1 hour after second dose completion, then every 24 hours until level < 0.1 μmol/L."
+                        ],
+                        "source": "Hospital Protocol"
+                    }
+                ]
+            }
+        },
+        "T-ALL": {
+            "Induction / Post remission Phase": {
+                "goal": "",
+                "protocols": [
+                    {
+                        "protocolName": "DFCP (Dana-Farber Consortium Protocol)",
+                        "drugs": [
+                            {
+                                "name": "Allopurinol",
+                                "dose": "300mg",
+                                "route": "PO",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 7",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Sodium Bicarbonate",
+                                "dose": "975mg TID",
+                                "route": "PO",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - ",
+                                "duration": "",
+                                "note": "Until Methotrexate (MTX) clearance (<0.1)"
+                            },
+                            {
+                                "name": "Ondansetron",
+                                "dose": "8mg Daily",
+                                "route": "IV ",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - 5",
+                                "duration": "over 15 minutes",
+                                "note": ""
+                            },
+                            {
+                                "name": "S.Lipase, S. Amylase, S. Fibrinogen",
+                                "dose": "Daily",
+                                "route": "",
+                                "phase": "Other",
+                                "day": "Day 1 - ",
+                                "duration": "",
+                                "note": "With routine labs, until MTX clearance"
+                            },
+                            {
+                                "name": "Sodium Bicarbonate",
+                                "dose": "450 mmol Daily",
+                                "route": "IV",
+                                "phase": "Pre-Chemo",
+                                "day": "Day 1 - ",
+                                "duration": "over 24 hours",
+                                "note": "Until Methotrexate (MTX) clearance (<0.1)"
+                            },
+                            {
+                                "name": "Vincristine",
+                                "dose": "1.2mg/m² Once",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 1 , 8, 15, 22",
+                                "duration": "over 15 minutes",
+                                "note": "Maximum dose 2mg. Check bowel motion before giving dose"
+                            },
+                            {
+                                "name": "Prednisolone",
+                                "dose": "10mg/m² QID",
+                                "route": "PO",
+                                "phase": "Chemo",
+                                "day": "Day 1 - 28",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Cytarabine ",
+                                "dose": "40mg",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 1",
+                                "duration": "",
+                                "note": "Intrathecal"
+                            },
+                            {
+                                "name": "Doxorubicin",
+                                "dose": "30mg/m² Once",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 2 - 3",
+                                "duration": "over 10 minutes",
+                                "note": ""
+                            },
+                            {
+                                "name": "Methotrexate",
+                                "dose": "4000mg/m²",
+                                "route": "IV",
+                                "phase": "Chemo",
+                                "day": "Day 2",
+                                "duration": "over 4 hours",
+                                "note": "Start after urine pH >8, Check urine pH daily"
+                            },
+                            {
+                                "name": "Calcium folinate",
+                                "dose": "25mg Q6H",
+                                "route": "IV push",
+                                "phase": "Post-Chemo",
+                                "day": "Day 3 - ",
+                                "duration": "",
+                                "note": "36 hours <b>AFTER START</b> of MTX. Continue until MTX clearance."
+                            },
+                            {
+                                "name": "MTX",
+                                "dose": "12mg",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 4",
+                                "duration": "",
+                                "note": "Usually combine with Cytarabine IT"
+                            },
+                            {
+                                "name": "L-Asparaginase",
+                                "dose": "25,000 IU/m² Once",
+                                "route": "IM",
+                                "phase": "Chemo",
+                                "day": "Day 8",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Methotrexate",
+                                "dose": "12mg",
+                                "route": "IT",
+                                "phase": "Chemo",
+                                "day": "Day 11",
+                                "duration": "",
+                                "note": "Intrathecal"
+                            },
+                            {
+                                "name": "Bactrim ",
+                                "dose": "960mg Q48H",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 28",
+                                "duration": "",
+                                "note": ""
+                            },
+                            {
+                                "name": "Alfacalcidol",
+                                "dose": "0.25mg Daily",
+                                "route": "PO",
+                                "phase": "Post-Chemo",
+                                "day": "Day 1 - 30",
+                                "duration": "",
+                                "note": ""
+                            }
+                        ],
+                        "NursesInfo": [
+                            "<b>Asparaginase Monitoring:</b> Monitor fibrinogen and amylase/lipase levels. Inspect for DVT (swelling/redness) as Asparaginase significantly increases clot risk.",
+                            "<b>Vincristine Safety:</b> Confirm bowel movements daily to assess for ileus",
+                            "<b>Intrathecal Care:</b> Post-lumbar puncture, ensure the patient remains flat for 30–60 minutes to prevent spinal headache"
+                        ],
+                        "source": "Hospital Protocol"
+                    }
+                ]
+            }
         }
     },
     "CML": {
@@ -1198,33 +1296,115 @@
                     "source": "NCCN 2026 / ALPINE Study"
                 },
                 {
-                    "protocolName": "Fixed-Duration Targeted Therapy (BCL-2 + CD20)",
+                    "protocolName": "IVO Induction (Sequential Start)",
                     "drugs": [
                         {
                             "name": "Obinutuzumab",
-                            "dose": "1000 mg",
+                            "dose": "100mg",
                             "route": "IV",
                             "phase": "Chemo",
-                            "day": "Day 1, 8, 15",
-                            "duration": "Only 1 cycle",
-                            "note": "Pre-medicate for infusion reactions"
+                            "day": "Day 1",
+                            "duration": "",
+                            "note": "Split dose, Pre-medication for infusion reactions"
+                        },
+                        {
+                            "name": "Ibrutinib",
+                            "dose": "420mg Daily",
+                            "route": "PO",
+                            "phase": "Chemo",
+                            "day": "Day 1 - 28",
+                            "duration": "Cycle 1 - 6",
+                            "note": ""
+                        },
+                        {
+                            "name": "Obinutuzumab",
+                            "dose": "900mg",
+                            "route": "IV",
+                            "phase": "Chemo",
+                            "day": "Day 2",
+                            "duration": "",
+                            "note": "Pre-medication for infusion reactions"
+                        },
+                        {
+                            "name": "Obinutuzumab",
+                            "dose": "1000mg",
+                            "route": "IV",
+                            "phase": "Chemo",
+                            "day": "Day 8, 15",
+                            "duration": "",
+                            "note": "Pre-medication for infusion reactions"
                         },
                         {
                             "name": "Venetoclax",
-                            "dose": "20mg-400mg",
+                            "dose": "20mg ",
                             "route": "PO",
                             "phase": "Chemo",
-                            "day": "Day 1 – 28",
-                            "duration": "12 Cycles",
-                            "note": "Requires 5-week dose ramp-up"
+                            "day": "Day 22 - 28",
+                            "duration": "",
+                            "note": "5-week Ramp-Up: 20 mg x 7 days, then 50 mg, 100 mg, 200 mg, to 400 mg"
+                        },
+                        {
+                            "name": "Ibrutinib",
+                            "dose": "420mg Daily",
+                            "route": "PO",
+                            "phase": "Chemo",
+                            "day": "Day 29 - ",
+                            "duration": "Cycle 2 - 6",
+                            "note": ""
+                        },
+                        {
+                            "name": "Obinutuzumab",
+                            "dose": "1000mg Once",
+                            "route": "IV",
+                            "phase": "Chemo",
+                            "day": "Day 29",
+                            "duration": "Cycle 2 - 6",
+                            "note": "Day 1 of remaining cycle"
+                        },
+                        {
+                            "name": "Venetoclax",
+                            "dose": "50mg Daily",
+                            "route": "PO",
+                            "phase": "Chemo",
+                            "day": "Day 29 - 35",
+                            "duration": "",
+                            "note": "5-week Ramp-Up: 20 mg x 7 days, then 50 mg, 100 mg, 200 mg, to 400 mg"
+                        },
+                        {
+                            "name": "Venetoclax",
+                            "dose": "100mg Daily",
+                            "route": "PO",
+                            "phase": "Chemo",
+                            "day": "Day 36 - 42",
+                            "duration": "",
+                            "note": "5-week Ramp-Up: 20 mg x 7 days, then 50 mg, 100 mg, 200 mg, to 400 mg"
+                        },
+                        {
+                            "name": "Venetoclax",
+                            "dose": "200mg Daily",
+                            "route": "PO",
+                            "phase": "Chemo",
+                            "day": "Day 43 - 49",
+                            "duration": "",
+                            "note": "5-week Ramp-Up: 20 mg x 7 days, then 50 mg, 100 mg, 200 mg, to 400 mg"
+                        },
+                        {
+                            "name": "Venetoclax",
+                            "dose": "400mg Daily",
+                            "route": "PO",
+                            "phase": "Chemo",
+                            "day": "Day 50 - ",
+                            "duration": "Cycle 2 - 6",
+                            "note": "Continue dose until Cycle 6"
                         }
                     ],
                     "NursesInfo": [
+                        "Each cycle is 28 days",
                         "Monitor for Tumor Lysis Syndrome (TLS) during the 5-week ramp-up",
                         "Ensure the patient is aggressively hydrated (2L/day) during ramp-up",
                         "Administer allopurinol as prescribed for uric acid management"
                     ],
-                    "source": "CLL14 Protocol / NCCN 2026"
+                    "source": "Hospital protocol"
                 }
             ]
         },

@@ -95,13 +95,65 @@ function renderLeukemiaProtocols(allData, type, list, options) {
         return;
     }
 
+    // Detection Strategy:
+    // If the object has keys like "Induction Therapy", "Consolidation", etc., it's a FLAT structure.
+    // However, since those keys are dynamic, we check if the VALUES are phase objects (have 'protocols' or 'goal').
+    // If the values are themselves containers of phases, it's a NESTED structure.
+
+    const keys = Object.keys(selected);
+    if (keys.length === 0) return;
+
+    // Check depth of first key to guess structure
+    const firstVal = selected[keys[0]];
+    const isFlat = (firstVal && (Array.isArray(firstVal.protocols) || firstVal.goal));
+
+    if (isFlat) {
+        // --- EXISTING FLAT RENDER ---
+        renderProtocolPhaseGroup(selected, list, type, options);
+    } else {
+        // --- NEW NESTED SUBTYPE RENDER ---
+        keys.forEach(subtypeName => {
+            const subtypeData = selected[subtypeName];
+            if (!subtypeData) return;
+
+            // Header for Subtype
+            const subtypeHeader = document.createElement("h3");
+            subtypeHeader.className = "subtype-heading";
+            subtypeHeader.style.cssText = "color: var(--color-text-main); margin: 20px 0 10px; padding-left: 4px; border-left: 4px solid var(--color-accent);";
+            subtypeHeader.textContent = subtypeName;
+            list.appendChild(subtypeHeader);
+
+            // Wrapper for this subtype's phases
+            const subtypeContainer = document.createElement("div");
+            subtypeContainer.className = "subtype-container";
+            list.appendChild(subtypeContainer);
+
+            // Render phases for this subtype
+            // We pass a composite type ID for uniqueness in DOM IDs if needed, though mostly visual
+            renderProtocolPhaseGroup(subtypeData, subtypeContainer, type, options, subtypeName);
+        });
+    }
+
+    // Auto-scroll to highlight
+    const highlightCard = list.querySelector(".protocol-highlight");
+    if (highlightCard) {
+        setTimeout(() => {
+            highlightCard.scrollIntoView({ behavior: "smooth", block: "center" });
+            highlightCard.classList.add("protocol-pulse");
+            setTimeout(() => highlightCard.classList.remove("protocol-pulse"), 1600);
+        }, 400);
+    }
+}
+
+// Helper: Render a group of phases (used by both flat and nested views)
+function renderProtocolPhaseGroup(phasesData, container, type, options, subtypeName = "") {
     const targetPhase = (options.phaseName || "").toLowerCase();
     const targetProtocol = (options.protocolName || "").toLowerCase();
-    let highlightCard = null;
 
-    // Iterate phases
-    Object.keys(selected).forEach((phase, phaseIndex) => {
-        const safePhaseId = `phase-${type}-${phaseIndex}`.replace(/[^a-zA-Z0-9-_]/g, "").toLowerCase();
+    Object.keys(phasesData).forEach((phase, phaseIndex) => {
+        // Create unique ID mixed with subtype if present
+        const rawId = subtypeName ? `${type}-${subtypeName}-${phase}-${phaseIndex}` : `${type}-${phase}-${phaseIndex}`;
+        const safePhaseId = `phase-${rawId}`.replace(/[^a-zA-Z0-9-_]/g, "").toLowerCase();
 
         // 1. Wrapper
         const phaseDiv = document.createElement("div");
@@ -124,7 +176,7 @@ function renderLeukemiaProtocols(allData, type, list, options) {
         phaseDiv.appendChild(phaseContent);
 
         // 4. Data
-        const phaseData = selected[phase];
+        const phaseData = phasesData[phase];
         let protocols = [];
 
         // Robust extraction
@@ -152,9 +204,8 @@ function renderLeukemiaProtocols(allData, type, list, options) {
                 const isTarget = targetProtocol &&
                     (name.toLowerCase() === targetProtocol || name.toLowerCase().includes(targetProtocol));
 
-                if (!highlightCard && isTarget) {
+                if (isTarget) {
                     card.classList.add("protocol-highlight");
-                    highlightCard = card;
                 }
 
                 const detailsHtml = buildProtocolDetailsHtml(protocol);
@@ -179,7 +230,9 @@ function renderLeukemiaProtocols(allData, type, list, options) {
                 if (pdfBtn) {
                     pdfBtn.addEventListener("click", (e) => {
                         e.stopPropagation();
-                        printProtocolAsPDF(protocol, type, phase);
+                        // Pass subtype into print if needed, or just combine
+                        const headerSubtitle = subtypeName ? `${type} (${subtypeName})` : type;
+                        printProtocolAsPDF(protocol, headerSubtitle, phase);
                     });
                 }
 
@@ -193,9 +246,9 @@ function renderLeukemiaProtocols(allData, type, list, options) {
                     details.style.display = isVisible ? "none" : "block";
 
                     // Recalculate parent height to prevent clipping
-                    const phaseContent = card.closest(".phase-content");
-                    if (phaseContent && phaseContent.style.maxHeight !== "0px") {
-                        phaseContent.style.maxHeight = "none";
+                    const pContent = card.closest(".phase-content");
+                    if (pContent && pContent.style.maxHeight !== "0px") {
+                        pContent.style.maxHeight = "none";
                     }
                 });
 
@@ -203,7 +256,7 @@ function renderLeukemiaProtocols(allData, type, list, options) {
             });
         }
 
-        list.appendChild(phaseDiv);
+        container.appendChild(phaseDiv);
 
         // Check if we should auto-expand this phase
         const phaseHasTarget = (targetPhase && phase.toLowerCase() === targetPhase) ||
@@ -214,15 +267,6 @@ function renderLeukemiaProtocols(allData, type, list, options) {
             setTimeout(() => togglePhaseVisibility(phaseDiv, toggleBtn, true), 100);
         }
     });
-
-    // Auto-scroll to highlight
-    if (highlightCard) {
-        setTimeout(() => {
-            highlightCard.scrollIntoView({ behavior: "smooth", block: "center" });
-            highlightCard.classList.add("protocol-pulse");
-            setTimeout(() => highlightCard.classList.remove("protocol-pulse"), 1600);
-        }, 400);
-    }
 }
 
 // Helper: Build HTML string for details
@@ -380,8 +424,8 @@ function collectProtocolMatches(query, data) {
     const normalizedQuery = query.toLowerCase();
     const matches = [];
 
-    // Search Logic
-    Object.entries(data).forEach(([type, phases]) => {
+    // Helper to search within a set of phases
+    const searchPhases = (type, phases, subtypeName = "") => {
         if (!phases || typeof phases !== "object") return;
 
         Object.entries(phases).forEach(([phaseName, phaseData]) => {
@@ -395,13 +439,40 @@ function collectProtocolMatches(query, data) {
                 const drugNames = (protocol.drugs || []).map(d => (d.name || "").toLowerCase());
                 const sources = (protocol.source || "").toLowerCase();
 
-                const haystack = [type.toLowerCase(), phaseName.toLowerCase(), protocolName, ...drugNames, sources].join(" ");
+                const haystack = [
+                    type.toLowerCase(),
+                    subtypeName.toLowerCase(),
+                    phaseName.toLowerCase(),
+                    protocolName,
+                    ...drugNames,
+                    sources
+                ].join(" ");
 
                 if (haystack.includes(normalizedQuery)) {
                     matches.push({ type, phase: phaseName, protocol });
                 }
             });
         });
+    };
+
+    // Search Logic
+    Object.entries(data).forEach(([type, content]) => {
+        if (!content) return;
+
+        // Detect Flat vs Nested
+        const keys = Object.keys(content);
+        if (keys.length === 0) return;
+        const firstVal = content[keys[0]];
+        const isFlat = (firstVal && (Array.isArray(firstVal.protocols) || firstVal.goal));
+
+        if (isFlat) {
+            searchPhases(type, content);
+        } else {
+            // It's nested by subtype
+            Object.entries(content).forEach(([subtypeName, phases]) => {
+                searchPhases(type, phases, subtypeName);
+            });
+        }
     });
 
     return matches;
@@ -470,7 +541,7 @@ function renderProtocolSearchResults(results, options = {}) {
    ========================================================= */
 function printProtocolAsPDF(protocol, type, phase) {
     const drugs = protocol.drugs || [];
-    
+
     // Sort drugs by phase if needed, though usually they come sorted or we can just list them.
     // Let's preserve the order but maybe group visually in the table? 
     // Actually, a flat table with a "Phase" column is very clean for CSV/PDF exports.
@@ -491,15 +562,15 @@ function printProtocolAsPDF(protocol, type, phase) {
         `).join("");
     }
 
-    const nursesInfoHtml = (protocol.NursesInfo && protocol.NursesInfo.length) 
+    const nursesInfoHtml = (protocol.NursesInfo && protocol.NursesInfo.length)
         ? `<div class="info-section">
              <h3>Nursing Considerations:</h3>
              <ul>${protocol.NursesInfo.map(info => `<li>${info}</li>`).join("")}</ul>
            </div>`
         : "";
 
-    const sourceHtml = protocol.source 
-        ? `<div class="meta-source"><strong>Source:</strong> ${protocol.source}</div>` 
+    const sourceHtml = protocol.source
+        ? `<div class="meta-source"><strong>Source:</strong> ${protocol.source}</div>`
         : "";
 
     const printWindow = window.open('', '_blank');
