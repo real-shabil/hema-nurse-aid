@@ -1037,59 +1037,6 @@
                         "Instruct patient to report any unusual bruising or bleeding immediately"
                     ],
                     "source": "NCCN Guidelines / ELN 2026"
-                },
-                {
-                    "protocolName": "Maintenance & Deep Molecular Response (DMR)",
-                    "drugs": [
-                        {
-                            "name": "Nilotinib",
-                            "dose": "300mg BID",
-                            "route": "PO",
-                            "phase": "Chemo",
-                            "day": "Day 1–28",
-                            "duration": "",
-                            "note": "Twice daily; 12 hours apart"
-                        }
-                    ],
-                    "NursesInfo": [
-                        "Strict \"Fast State\": No food 2 hours before and 1 hour after dose",
-                        "Monitor Lipase and Amylase levels every 3 months",
-                        "Assess for peripheral arterial occlusive disease (leg pain when walking)",
-                        "Schedule qPCR testing exactly every 3 months to track MMR/DMR status"
-                    ],
-                    "source": "ELN 2026"
-                },
-                {
-                    "protocolName": "Refractory Induction (Omacetaxine)",
-                    "drugs": [
-                        {
-                            "name": "Omacetaxine",
-                            "dose": "1.25 mg/m²",
-                            "route": "SC",
-                            "phase": "Chemo",
-                            "day": "Day 1 – 14",
-                            "duration": "",
-                            "note": ""
-                        }
-                    ],
-                    "NursesInfo": [
-                        "Rotate injection sites (thigh, abdomen, or upper arm)",
-                        "Monitor for severe hyperglycemia (check blood glucose regularly)",
-                        "Monitor for sever thrombocytopenia",
-                        "Transition to 7-day maintenance once Hematologic Response is achieved"
-                    ],
-                    "source": "FDA/EMA Approved Label"
-                },
-                {
-                    "protocolName": "TFR Stopping Protocol",
-                    "drugs": [],
-                    "NursesInfo": [
-                        "Mandatory qPCR testing every 4 weeks for the first 6 months",
-                        "Flag \"Loss of MMR\" if  BCR::ABL1 rises >0.1%",
-                        "Educate patient on TKI Withdrawal Syndrome (acute joint/muscle pain)",
-                        "Counsel patient that restarting TKI within 4 weeks of MMR loss is 95% successful"
-                    ],
-                    "source": "NCCN / ELN TFR Guidelines"
                 }
             ]
         },
@@ -1119,7 +1066,7 @@
                         },
                         {
                             "name": "Dasatinib",
-                            "dose": "140 mg",
+                            "dose": "140 mg Daily",
                             "route": "PO",
                             "phase": "Chemo",
                             "day": "Day 1 – 28",
@@ -1138,6 +1085,15 @@
                 {
                     "protocolName": "Myeloid Salvage (FLAG-Ida + TKI)",
                     "drugs": [
+                        {
+                            "name": "Dasatinib",
+                            "dose": "140mg Daily",
+                            "route": "PO",
+                            "phase": "Chemo",
+                            "day": "Day 1 - 28",
+                            "duration": "",
+                            "note": ""
+                        },
                         {
                             "name": "Fludarabine",
                             "dose": "30 mg/m²",
@@ -1239,25 +1195,6 @@
                         "Assess for Mesna compliance; encourage fluid intake to prevent hemorrhagic cystitis"
                     ],
                     "source": "NCCN 2026 / Ph+ ALL Standard"
-                },
-                {
-                    "protocolName": "Intrathecal Prophylaxis",
-                    "drugs": [
-                        {
-                            "name": "Methotrexate + Cytarabine",
-                            "dose": "12 mg + 50 mg",
-                            "route": "IT",
-                            "phase": "Chemo",
-                            "day": "Day 2",
-                            "duration": "",
-                            "note": "Administered via Lumbar Puncture"
-                        }
-                    ],
-                    "NursesInfo": [
-                        "Patient must remain flat (supine) for at least 1–2 hours post-procedure to prevent spinal headache.",
-                        "Monitor for signs of increased intracranial pressure (severe headache, vomiting)."
-                    ],
-                    "source": "Standard Oncology Practice 2026"
                 }
             ]
         }
@@ -1439,84 +1376,6 @@
                         "Verify that the patient is not on strong CYP3A4 inhibitors (e.g., Grapefruit juice)"
                     ],
                     "source": "MURANO Study"
-                }
-            ]
-        },
-        "Salvage / Richter’s Transformation": {
-            "goal": "",
-            "protocols": [
-                {
-                    "protocolName": "R-CHOP",
-                    "drugs": [
-                        {
-                            "name": "Rituximab",
-                            "dose": "375 mg/m²",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day",
-                            "duration": "",
-                            "note": ""
-                        },
-                        {
-                            "name": "Cyclophosphamide",
-                            "dose": "750 mg/m²",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 1",
-                            "duration": "",
-                            "note": "After Rituximab"
-                        },
-                        {
-                            "name": "Doxorubicin",
-                            "dose": "50 mg/m²",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 1",
-                            "duration": "",
-                            "note": "After Cyclophosphamide"
-                        },
-                        {
-                            "name": "Vincristine",
-                            "dose": "1.4 mg/m² or max 2 mg",
-                            "route": "IV",
-                            "phase": "Chemo",
-                            "day": "Day 1",
-                            "duration": "",
-                            "note": "After Doxorubicin; Make sure bowel movement today before administer."
-                        },
-                        {
-                            "name": "Prednisolone",
-                            "dose": "100mg Daily",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1 - 5",
-                            "duration": "",
-                            "note": "ONCE a day on days 1 to 5. Take in the morning with food. Dose for day 1 should be taken 60 minutes before Rituximab infusion."
-                        },
-                        {
-                            "name": "Paracetamol",
-                            "dose": "1000 mg",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1",
-                            "duration": "",
-                            "note": "60 mints before chemo"
-                        },
-                        {
-                            "name": "Loratidine",
-                            "dose": "10 mg",
-                            "route": "PO",
-                            "phase": "Pre-Chemo",
-                            "day": "Day 1",
-                            "duration": "",
-                            "note": "60 mints before chemo"
-                        }
-                    ],
-                    "NursesInfo": [
-                        "Monitor for \"Red Devil\" (Doxorubicin) cardiac toxicity",
-                        "Assess for Vincristine-induced neuropathy (numbness in fingers/toes)"
-                    ],
-                    "source": "<link>https://dub.sh/RCHOP</link>"
                 }
             ]
         }
