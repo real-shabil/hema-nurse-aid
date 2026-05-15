@@ -1,0 +1,60 @@
+{
+  "protocolName": "7+3 (Cytarabine + Anthracycline)",
+  "phase": "Induction",
+  "disease": "AML",
+
+  "cycleLength": "28 days",
+  "cycles": "1",
+
+  "chemo": [
+    {
+      "name": "Daunorubicin or Idarubicin",
+      "dose": "Daunorubicin 60 mg/m²/day OR Idarubicin 12 mg/m²/day",
+      "route": "IV",
+      "days": "Days 1–3",
+      "frequency": "Once daily",
+      "notes": [
+        "Give anthracycline AFTER the daily Cytarabine infusion completes",
+        "Monitor cardiac function; check baseline LVEF",
+        "Use central line (PICC/CVC) — avoid peripheral administration"
+      ]
+    },
+    {
+      "name": "Cytarabine (Ara-C)",
+      "dose": "100 mg/m²/day",
+      "route": "IV continuous infusion",
+      "days": "Days 1–7",
+      "frequency": "24-hour continuous infusion",
+      "notes": [
+        "Strict continuous infusion monitoring",
+        "High risk of mucositis",
+        "Monitor cerebellar signs",
+        "Start Prednisolone eye drops 2 hours before first dose"
+      ]
+    },
+    {
+      "name": "Filgrastim (G-CSF)",
+      "dose": "480 mcg daily",
+      "route": "SC",
+      "days": "Start Day 8",
+      "frequency": "Daily",
+      "notes": [
+        "Continue until ANC ≥ 1000 for two consecutive days"
+      ]
+    }
+  ],
+
+  "nursingNotes": [
+    "Indication: AML induction",
+    "Strict continuous infusion monitoring during Cytarabine",
+    "Monitor CBC daily during nadir",
+    "High risk of TLS — ensure hydration and allopurinol if needed",
+    "Monitor for cytarabine syndrome: fever, chest pain, rash"
+  ],
+
+  "references": [
+    "NCCN AML v3.2024",
+    "ELN 2024",
+    "KFSH&RC AML Protocol 2023"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+   "protocolName": "Azacitidine (Oral) Maintenance",
+   "phase": "Maintenance",
+   "disease": "AML",
+
+   "cycleLength": "28 days",
+   "cycles": "1",
+
+   "chemo": [
+      {
+         "name": "Azacitidine (Oral)",
+         "dose": "300 mg once daily",
+         "route": "PO",
+         "days": "Days 1–14",
+         "frequency": "Once daily",
+         "notes": [
+            "Must be taken on an empty stomach",
+            "Swallow tablet whole — do not crush or split",
+            "Observe for cytopenias; may require dose modification",
+            "Use caution in renal/hepatic impairment",
+            "Continue until disease progression or unacceptable toxicity"
+         ]
+      }
+   ],
+
+   "nursingNotes": [
+      "Indication: AML maintenance post-remission (post-induction or post-transplant in some centers)",
+      "Monitor CBC every cycle to assess for cytopenias",
+      "Assess patient adherence — oral regimen requires good compliance",
+      "Manage nausea proactively (oral antiemetics as needed)",
+      "Educate patient to report bleeding, bruising, or fatigue"
+   ],
+
+   "references": [
+      "NCCN AML v3.2024",
+      "ELN 2024",
+      "KFSH&RC AML Protocol 2023"
+   ]
+}

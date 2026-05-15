@@ -1,0 +1,67 @@
+{
+   "protocolName": "MEC (Mitoxantrone + Etoposide + Cytarabine)",
+   "phase": "Salvage",
+   "disease": "AML",
+
+   "cycleLength": "28 days",
+   "cycles": "1",
+
+   "chemo": [
+      {
+         "name": "Mitoxantrone",
+         "dose": "8 mg/m²/day",
+         "route": "IV",
+         "days": "Days 1–5",
+         "frequency": "Once daily",
+         "notes": [
+            "Anthracycline-analog — monitor cardiac function",
+            "Use central venous line only",
+            "Blue/green urine discoloration may occur",
+            "Monitor for severe myelosuppression"
+         ]
+      },
+      {
+         "name": "Etoposide",
+         "dose": "100 mg/m²/day over 1 hour",
+         "route": "IV infusion",
+         "days": "Days 1–5",
+         "frequency": "Once daily",
+         "notes": [
+            "Monitor BP during infusion",
+            "Risk of mucositis and alopecia",
+            "Use non-PVC tubing if per hospital policy",
+            "Adjust for renal impairment"
+         ]
+      },
+      {
+         "name": "Cytarabine (Ara-C)",
+         "dose": "1 g/m²/day over 2–3 hours",
+         "route": "IV infusion",
+         "days": "Days 1–5",
+         "frequency": "Once daily",
+         "notes": [
+            "Check neurological exam daily",
+            "Steroid eye drops may be considered",
+            "Monitor for fever, rash, chest pain (cytarabine syndrome)",
+            "Use central line for infusion"
+         ]
+      }
+   ],
+
+   "nursingNotes": [
+      "Indication: Relapsed/refractory AML requiring salvage therapy",
+      "Expect profound pancytopenia — daily CBC monitoring needed",
+      "High infection risk — monitor temperature and start broad antibiotics early",
+      "Assess for TLS (tumor lysis syndrome) and maintain hydration",
+      "Monitor cardiac function with Mitoxantrone (baseline + symptoms)",
+      "Watch for mucositis and manage early",
+      "Etoposide may cause hypotension — monitor during infusion"
+   ],
+
+   "references": [
+      "NCCN AML v3.2024",
+      "ELN 2024",
+      "KFSH&RC AML Protocol 2023",
+      "Zhong et al., MEC salvage therapy review, 2024"
+   ]
+}

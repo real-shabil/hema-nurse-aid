@@ -1,0 +1,39 @@
+{
+   "protocolName": "HiDAC (High-Dose Cytarabine)",
+   "phase": "Consolidation",
+   "disease": "AML",
+
+   "cycleLength": "28 days",
+   "cycles": "1",
+
+   "chemo": [
+      {
+         "name": "Cytarabine (Ara-C)",
+         "dose": "3 g/m² over 3 hours every 12 hours",
+         "route": "IV infusion",
+         "days": "Days 1, 3, 5",
+         "frequency": "Twice daily (q12h)",
+         "notes": [
+            "Use central venous access only — avoid peripheral line",
+            "Mandatory steroid eye drops to prevent conjunctivitis",
+            "Check neurological status before each dose (finger-to-nose test)",
+            "Avoid in severe renal dysfunction without dose reduction",
+            "Hold dose if cerebellar toxicity (nystagmus, ataxia) develops"
+         ]
+      }
+   ],
+
+   "nursingNotes": [
+      "Indication: AML consolidation in eligible young/fit patients",
+      "Monitor cerebellar signs twice daily due to high neurotoxicity risk",
+      "Ensure patient hydration and manage nausea aggressively",
+      "Educate patient to report visual changes or unsteady gait",
+      "Cytopenias expected — transfusion support may be required"
+   ],
+
+   "references": [
+      "NCCN AML v3.2024",
+      "ELN 2024",
+      "KFSH&RC AML Protocol 2023"
+   ]
+}

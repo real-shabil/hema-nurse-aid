@@ -1,0 +1,7 @@
+{
+    "calculators": [
+        { "key": "bodySize", "title": "BMI & BSA Calculator", "file": "bodySize.json" },
+        { "key": "heparin", "title": "Heparin Infusion Calculator", "file": "heparin.json" },
+        { "key": "insulin", "title": "Insulin Infusion Calculator", "file": "insulin.json" }
+    ]
+}

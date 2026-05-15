@@ -1,0 +1,36 @@
+{
+   "protocolName": "Cytarabine Consolidation (Age ≥ 60 years)",
+   "phase": "Consolidation",
+   "disease": "AML",
+
+   "cycleLength": "28 days",
+   "cycles": "1",
+
+   "chemo": [
+      {
+         "name": "Cytarabine (Ara-C)",
+         "dose": "1 g/m² over 3 hours every 12 hours",
+         "route": "IV infusion",
+         "days": "Days 1–3",
+         "frequency": "Twice daily (q12h)",
+         "notes": [
+            "Reduced dose for age ≥ 60 to lower neurotoxicity risk",
+            "Monitor cerebellar signs before each dose",
+            "Steroid eye drops required (Prednisolone or equivalent)"
+         ]
+      }
+   ],
+
+   "nursingNotes": [
+      "Indication: AML consolidation in patients ≥ 60 years",
+      "Higher risk for neurotoxicity — monitor gait, speech, coordination",
+      "Check renal function prior to dosing — impacts toxicity",
+      "Expect cytopenias; transfusion support may be required"
+   ],
+
+   "references": [
+      "NCCN AML v3.2024",
+      "ELN 2024",
+      "KFSH&RC AML Protocol 2023"
+   ]
+}

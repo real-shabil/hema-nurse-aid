@@ -1,0 +1,72 @@
+{
+  "protocolName": "FLAG-IDA (Fludarabine + Cytarabine + G-CSF + Idarubicin)",
+  "phase": "Induction",
+  "disease": "AML",
+
+  "cycleLength": "28 days",
+  "cycles": "1",
+
+  "chemo": [
+    {
+      "name": "Filgrastim (G-CSF)",
+      "dose": "5 mcg/kg or 480 mcg/day",
+      "route": "SC",
+      "days": "Day 1 until ANC recovery",
+      "frequency": "Daily",
+      "notes": [
+        "Start on Day 1",
+        "Continue until ANC ≥ 1000 for two consecutive days",
+        "Helps prime marrow for Fludarabine + Cytarabine"
+      ]
+    },
+    {
+      "name": "Idarubicin",
+      "dose": "10 mg/m²/day",
+      "route": "IV",
+      "days": "Days 2–4",
+      "frequency": "Once daily",
+      "notes": [
+        "Anthracycline — monitor cardiac function",
+        "Use central line; avoid peripheral line",
+        "Give after Fludarabine and Cytarabine if ordered sequentially"
+      ]
+    },
+    {
+      "name": "Fludarabine",
+      "dose": "30 mg/m²/day over 30 minutes",
+      "route": "IV infusion",
+      "days": "Days 2–6",
+      "frequency": "Once daily",
+      "notes": [
+        "Immunosuppressive — monitor for infections",
+        "Administer before Cytarabine to enhance Ara-C uptake"
+      ]
+    },
+    {
+      "name": "Cytarabine (Ara-C)",
+      "dose": "2 g/m²/day over 4 hours",
+      "route": "IV infusion",
+      "days": "Days 2–6",
+      "frequency": "Once daily",
+      "notes": [
+        "Start 4 hours AFTER Fludarabine finishes",
+        "Monitor cerebellar and neurotoxicity",
+        "Requires steroid eye drops for neuroprotection"
+      ]
+    }
+  ],
+
+  "nursingNotes": [
+    "Indication: High-risk AML (adverse cytogenetics, secondary AML, TP53 mutation, high FLT3-ITD ratio, hyperleukocytosis)",
+    "High risk of myelosuppression — monitor CBC daily",
+    "Monitor for Cytarabine syndrome: fever, myalgia, rash",
+    "TLS risk: ensure hydration and uric acid control",
+    "Check for neurotoxicity daily during high-dose Ara-C"
+  ],
+
+  "references": [
+    "NCCN AML v3.2024",
+    "ELN 2024",
+    "KFSH&RC AML Protocol 2023"
+  ]
+}

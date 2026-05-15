@@ -1,0 +1,68 @@
+{
+    "name": "CLAG-M (Cladribine + Cytarabine + G-CSF + Mitoxantrone)",
+    "cycles": "1–2",
+    "goal": "To achieve remission in relapsed/refractory AML or high-risk AML and bridge eligible patients to transplant.",
+    "chemo": [
+        {
+            "name": "Filgrastim (G-CSF)",
+            "dose": "5 µg/kg/day",
+            "route": "SC",
+            "days": "Day 1 until ANC recovery",
+            "frequency": "Daily",
+            "notes": [
+                "Start 24 hours before starting chemotherapy",
+                "Continue until ANC ≥ 1000 for 2 consecutive days"
+            ]
+        },
+        {
+            "name": "Mitoxantrone",
+            "dose": "10 mg/m²/day",
+            "route": "IV",
+            "days": "Days 2–4",
+            "frequency": "Daily",
+            "notes": [
+                "Infuse over 15–30 minutes",
+                "Monitor cardiac function before starting therapy",
+                "Avoid extravasation (vesicant)"
+            ]
+        },
+        {
+            "name": "Cladribine",
+            "dose": "5 mg/m²/day",
+            "route": "IV",
+            "days": "Days 2–6",
+            "frequency": "Daily",
+            "notes": [
+                "Infuse over 2 hours",
+                "Ensure adequate hydration",
+                "Immunosuppressive — monitor for infections"
+            ]
+        },
+        {
+            "name": "Cytarabine (Ara-C)",
+            "dose": "2 g/m²/day",
+            "route": "IV infusion",
+            "days": "Days 2–6",
+            "frequency": "Daily",
+            "notes": [
+                "Start 2 hours after cladribine infusion finishes",
+                "Infuse over 4 hours",
+                "High-dose cytarabine: monitor cerebellar signs before every dose",
+                "Eye prophylaxis required (Prednisolone eye drops)"
+            ]
+        }
+    ],
+    "nursingTips": [
+        "Highly myelosuppressive — expect prolonged neutropenia.",
+        "Monitor neurological status due to high-dose cytarabine.",
+        "TLS prophylaxis required: hydration + allopurinol ± rasburicase.",
+        "Strict infection monitoring; consider antimicrobial prophylaxis.",
+        "Central line recommended for all infusions."
+    ],
+    "references": [
+        "NCCN AML Guidelines v.2024–2025 — 'Other Recommended Regimens' includes CLAG-M",
+        "MD Anderson Cancer Center CLAG-M protocol",
+        "Kadia TM et al., Salvage regimens in relapsed/refractory AML",
+        "KFSH&RC Hematology AML treatment pathways (internal clinical practice)"
+    ]
+}

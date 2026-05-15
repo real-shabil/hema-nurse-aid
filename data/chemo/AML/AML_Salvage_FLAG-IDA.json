@@ -1,0 +1,76 @@
+{
+   "protocolName": "FLAG-IDA (Salvage)",
+   "phase": "Salvage",
+   "disease": "AML",
+
+   "cycleLength": "28 days",
+   "cycles": "1",
+
+   "chemo": [
+      {
+         "name": "Filgrastim (G-CSF)",
+         "dose": "5 mcg/kg/day or 480 mcg fixed dose",
+         "route": "SC",
+         "days": "Day 1 until ANC recovery",
+         "frequency": "Daily",
+         "notes": [
+            "Start G-CSF on Day 1",
+            "Continue through chemotherapy to enhance cytarabine uptake",
+            "Stop once ANC > 1000 for 2 days"
+         ]
+      },
+      {
+         "name": "Fludarabine",
+         "dose": "30 mg/m²",
+         "route": "IV infusion (30 minutes)",
+         "days": "Days 2–6",
+         "frequency": "Once daily",
+         "notes": [
+            "Administer BEFORE cytarabine to improve Ara-C phosphorylation",
+            "Immunosuppressive — monitor for infections",
+            "Dose-adjust in renal impairment"
+         ]
+      },
+      {
+         "name": "Cytarabine (Ara-C)",
+         "dose": "2 g/m²/day over 4 hours",
+         "route": "IV infusion",
+         "days": "Days 2–6",
+         "frequency": "Once daily",
+         "notes": [
+            "Start 4 hours AFTER fludarabine infusion",
+            "High neurotoxicity risk — check cerebellar exam daily",
+            "Steroid eye drops required",
+            "Use central line only — avoid peripheral administration"
+         ]
+      },
+      {
+         "name": "Idarubicin",
+         "dose": "10 mg/m²/day",
+         "route": "IV push",
+         "days": "Days 2–4",
+         "frequency": "Once daily",
+         "notes": [
+            "Monitor cardiac function (anthracycline)",
+            "Use central venous catheter",
+            "Give AFTER Ara-C unless protocol specifies otherwise"
+         ]
+      }
+   ],
+
+   "nursingNotes": [
+      "Indication: AML relapse or refractory disease",
+      "High-intensity regimen — expect prolonged myelosuppression",
+      "Daily CBC and infection monitoring are essential",
+      "Monitor for cerebellar toxicity: gait, speech, coordination",
+      "TLS risk — ensure hydration and uric acid control",
+      "Eye prophylaxis mandatory for cytarabine-containing days",
+      "High risk for febrile neutropenia — start empiric antibiotics quickly"
+   ],
+
+   "references": [
+      "NCCN AML v3.2024",
+      "ELN 2024",
+      "KFSH&RC AML Protocol 2023"
+   ]
+}

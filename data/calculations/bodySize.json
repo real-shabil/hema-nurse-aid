@@ -1,0 +1,22 @@
+{
+  "title": "BMI & BSA",
+  "description": "Calculate Body Mass Index (BMI) and Body Surface Area (BSA) from weight and height.",
+  "inputFields": [
+    { 
+        "id": "weight", 
+        "label": "Weight (kg)", 
+        "type": "number", 
+        "placeholder": "Enter weight in kg" 
+    },
+    { 
+        "id": "height", 
+        "label": "Height (cm)", 
+        "type": "number", 
+        "placeholder": "Enter height in cm" 
+    }
+  ],
+  "source": {
+    "name": "StatPearls: Body Surface Area – NCBI Bookshelf",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK559005/"
+  }
+}

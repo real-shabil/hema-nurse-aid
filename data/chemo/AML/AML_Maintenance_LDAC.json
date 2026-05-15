@@ -1,0 +1,38 @@
+{
+   "protocolName": "LDAC (Low-Dose Cytarabine) Maintenance",
+   "phase": "Maintenance",
+   "disease": "AML",
+
+   "cycleLength": "28 days",
+   "cycles": "1",
+
+   "chemo": [
+      {
+         "name": "Cytarabine (Ara-C)",
+         "dose": "20 mg subcutaneously",
+         "route": "SC",
+         "days": "Days 1–10",
+         "frequency": "Once daily",
+         "notes": [
+            "Inject SC in abdomen or thigh; rotate sites",
+            "Monitor CBC for cytopenias — dose delay may be required",
+            "Observe for local skin reactions or irritation",
+            "Useful for elderly or unfit patients unable to tolerate high-dose chemotherapy"
+         ]
+      }
+   ],
+
+   "nursingNotes": [
+      "Indication: AML maintenance in older or unfit patients",
+      "Monitor CBC every 1–2 weeks during early cycles",
+      "Educate patient/caregiver on proper SC injection technique if home administration is used",
+      "Low emetogenic risk — antiemetics usually not needed",
+      "Assess for neurotoxicity even at low doses (rare but possible)"
+   ],
+
+   "references": [
+      "NCCN AML v3.2024",
+      "ELN 2024",
+      "KFSH&RC AML Protocol 2023"
+   ]
+}

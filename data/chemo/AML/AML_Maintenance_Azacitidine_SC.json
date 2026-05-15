@@ -1,0 +1,39 @@
+{
+   "protocolName": "Azacitidine (Subcutaneous) Maintenance",
+   "phase": "Maintenance",
+   "disease": "AML",
+
+   "cycleLength": "28 days",
+   "cycles": "1",
+
+   "chemo": [
+      {
+         "name": "Azacitidine",
+         "dose": "75 mg/m²/day",
+         "route": "SC",
+         "days": "Days 1–7",
+         "frequency": "Once daily",
+         "notes": [
+            "Rotate injection sites: abdomen, thigh, upper arm",
+            "Do not inject into bruised or inflamed areas",
+            "Monitor for injection-site reactions",
+            "Consider antiemetics before administration",
+            "Continue until progression or unacceptable toxicity"
+         ]
+      }
+   ],
+
+   "nursingNotes": [
+      "Indication: AML maintenance post-remission, especially unfit for intensive consolidation",
+      "Monitor CBC before each cycle",
+      "Expect cytopenias — may require dose delay/reduction",
+      "Common toxicities: fatigue, nausea, local injection pain",
+      "Educate patient regarding self-care for injection-site reactions"
+   ],
+
+   "references": [
+      "NCCN AML v3.2024",
+      "ELN 2024",
+      "KFSH&RC AML Protocol 2023"
+   ]
+}

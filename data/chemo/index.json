@@ -1,0 +1,75 @@
+{
+    "AML": {
+        "folder": "AML",
+        "phases": [
+            {
+                "name": "Induction Therapy",
+                "goal": "To achieve complete remission by eradicating visible leukemic blasts and restoring normal hematopoiesis.",
+                "protocols": [
+                    {
+                        "name": "7+3",
+                        "file": "AML_Induction_7+3.json"
+                    },
+                    {
+                        "name": "FLAG-IDA",
+                        "file": "AML_Induction_FLAG-IDA.json"
+                    }
+                ]
+            },
+            {
+                "name": "Consolidation Therapy",
+                "goal": "To eliminate residual leukemic cells and consolidate remission achieved during induction.",
+                "protocols": [
+                    {
+                        "name": "Cytarabine (Age < 60)",
+                        "file": "AML_Consolidation_Cytarabine_1.json"
+                    },
+                    {
+                        "name": "Cytarabine (Age ≥ 60)",
+                        "file": "AML_Consolidation_Cytarabine_2.json"
+                    },
+                    {
+                        "name": "HiDAC (High-Dose Cytarabine)",
+                        "file": "AML_Consolidation_HiDAC.json"
+                    }
+                ]
+            },
+            {
+                "name": "Maintenance Therapy",
+                "goal": "To maintain remission, prolong survival, and delay relapse.",
+                "protocols": [
+                    {
+                        "name": "Azacitidine Oral",
+                        "file": "AML_Maintenance_Azacitidine_Oral.json"
+                    },
+                    {
+                        "name": "Azacitidine SC",
+                        "file": "AML_Maintenance_Azacitidine_SC.json"
+                    },
+                    {
+                        "name": "Low-Dose Cytarabine (LDAC)",
+                        "file": "AML_Maintenance_LDAC.json"
+                    }
+                ]
+            },
+            {
+                "name": "Salvage Therapy",
+                "goal": "To reinduce remission in refractory or relapsed AML and provide a bridge to transplant.",
+                "protocols": [
+                    {
+                        "name": "FLAG-IDA",
+                        "file": "AML_Salvage_FLAG-IDA.json"
+                    },
+                    {
+                        "name": "MEC",
+                        "file": "AML_Salvage_MEC.json"
+                    },
+                    {
+                        "name": "CLAG-M",
+                        "file": "AML_CLAG-M.json"
+                    }
+                ]
+            }
+        ]
+    }
+}
