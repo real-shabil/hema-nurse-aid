@@ -1,7 +1,7 @@
 {
     "title": "Therapeutic Heparin Infusion",
     "description": "Calculate initial bolus/infusion and aPTT-based adjustments. PLEASE DOUBLE CHECK WITH PHYSICIAN ORDER.",
-    "note": "Defaults: bolus 80 U/kg, infusion 18 U/kg/hr, therapeutic aPTT 60–80 s. Adjustment is weight × factor rule as per hospital protocol.",
+    "note": "Defaults: bolus 80 U/kg, infusion 18 U/kg/hr, therapeutic aPTT 60–80s. Adjustment is weight × factor rule as per hospital protocol.",
     "inputFields": [
         {
             "id": "syringe",
@@ -42,7 +42,6 @@
         "therapeutic_aptt_high": 80
     },
     "source": {
-        "name": "StatPearls: Heparin – NCBI Bookshelf",
-        "url": "https://www.ncbi.nlm.nih.gov/books/NBK538247/"
+        "name": "Heparin Dosing Protocols"
     }
 }

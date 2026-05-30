@@ -20,7 +20,7 @@
 
 
 /* =========================================================
-   1️⃣ GLOBAL VARIABLES
+   GLOBAL VARIABLES
    ========================================================= */
 let leukemiaProtocols = {};
 let medicationsData = {};
@@ -31,7 +31,7 @@ let currentGameKey = null;
 
 
 /* =========================================================
-   2️⃣ STARTUP HANDLERS
+   STARTUP HANDLERS
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
     personalizeGreeting();
@@ -50,7 +50,7 @@ function personalizeGreeting() {
     let userName = localStorage.getItem("userName");
 
     // =========================================================
-    // 1️⃣ SHOW MODAL ONLY ON FIRST VISIT
+    // SHOW MODAL ONLY ON FIRST VISIT
     // =========================================================
     if (!userName) {
         modal.style.display = "flex";
@@ -62,7 +62,7 @@ function personalizeGreeting() {
     };
 
     // =========================================================
-    // 2️⃣ SAVE NAME & CLOSE MODAL
+    // SAVE NAME & CLOSE MODAL
     // =========================================================
     submitBtn.onclick = () => {
         const name = nameInput.value.trim();
@@ -156,7 +156,7 @@ function setupDrugInteractionControls() {
 
 
 /* =========================================================
-   3️⃣ INITIAL DATA LOAD
+   INITIAL DATA LOAD
    ========================================================= */
 fetch("data/calculationsData.json")
     .then(res => res.json())

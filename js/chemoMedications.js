@@ -113,7 +113,7 @@ function openMedicationGroup(groupKey, options = {}) {
 function renderMedicationGroup(groupObj, groupKey, index, mountPoint, options = {}) {
     // Create one big Card that is already open or contains the list
     // In the original UI, "Groups" were collapsible. Here we are INSIDE a group view ("medType" section).
-    // So we just render the list of cards directly, OR we wrap them in a description block.
+    // So just render the list of cards directly, OR wrap them in a description block.
 
     // Let's render the description
     const descBox = document.createElement("div");
