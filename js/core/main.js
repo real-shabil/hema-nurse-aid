@@ -101,7 +101,12 @@ function updateGreeting(userName) {
     else if (hour < 18) greeting = "Good afternoon";
     else greeting = "Good evening";
 
-    welcomeEl.innerHTML = `${greeting}, <strong>${userName}</strong>`;
+    // Clear and safely build welcome message
+    welcomeEl.textContent = "";
+    welcomeEl.appendChild(document.createTextNode(`${greeting}, `));
+    const strong = document.createElement("strong");
+    strong.textContent = userName;
+    welcomeEl.appendChild(strong);
 
     // ===========================================
     // Add or update the "Edit Name" button

@@ -2,13 +2,58 @@
    💊 CHEMOTHERAPY PROTOCOLS MODULE
    ========================================================= */
 
-// Ensure global scope availability for onclick events
 window.openLeukemiaType = openLeukemiaType;
 
 let CHEMO_PROTOCOLS = null;
 
 /* =========================================================
-   1️⃣ DATA LOADING
+   SAFE MESSAGE
+   ========================================================= */
+function createMessageElement(className, message) {
+    const wrapper = document.createElement("div");
+    wrapper.className = `phase-card ${className}`;
+    const p = document.createElement("p");
+    p.textContent = message;
+    wrapper.appendChild(p);
+    return wrapper;
+}
+
+/* =========================================================
+   SECURITY UTILITIES
+   ========================================================= */
+function safeHtmlStr(str) {
+    if (str === null || str === undefined) return "";
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+// UPGRADED: Safely restores specific presentational formatting from JSON
+function safeHtmlTextWithBreaks(str) {
+    if (str === null || str === undefined) return '';
+    
+    // 1. First escape everything to neutralize any XSS script elements completely
+    let escaped = safeHtmlStr(str);
+    
+    // 2. Selectively turn ONLY harmless presentation tags back into real HTML
+    return escaped
+        .replace(/&lt;br\s*\/?&gt;/gi, '<br>')   // Restores <br> or <br/>
+        .replace(/&lt;b&gt;/gi, '<b>')           // Restores <b>
+        .replace(/&lt;\/b&gt;/gi, '</b>')         // Restores </b>
+        .replace(/&lt;strong&gt;/gi, '<strong>') // Restores <strong>
+        .replace(/&lt;\/strong&gt;/gi, '</strong>') 
+        .replace(/&lt;i&gt;/gi, '<i>')           // Restores <i>
+        .replace(/&lt;\/i&gt;/gi, '</i>')         // Restores </i>
+        .replace(/&lt;em&gt;/gi, '<em>')         // Restores <em>
+        .replace(/&lt;\/em&gt;/gi, '</em>')
+        .replace(/\n/g, '<br>');                 // Converts raw JSON newlines to breaks too
+}
+
+/* =========================================================
+   LOAD DATA
    ========================================================= */
 function loadChemoProtocols() {
     if (CHEMO_PROTOCOLS) return Promise.resolve(CHEMO_PROTOCOLS);
@@ -20,7 +65,6 @@ function loadChemoProtocols() {
         })
         .then(data => {
             CHEMO_PROTOCOLS = data;
-
             return data;
         })
         .catch(err => {
@@ -29,22 +73,19 @@ function loadChemoProtocols() {
         });
 }
 
-// Start loading immediately
 loadChemoProtocols();
 
-
 /* =========================================================
-   2️⃣ OPEN SPECIFIC LEUKEMIA TYPE
+   OPEN LEUKEMIA TYPE
    ========================================================= */
 function openLeukemiaType(type, options = {}) {
-
-
-    // Ensure we switch to the right section logic safely
     if (typeof navigateToSection === "function") {
         navigateToSection("type");
     } else {
-        // Fallback if main.js isn't ready
-        document.querySelectorAll(".container, .section").forEach(s => s.style.display = "none");
+        document.querySelectorAll(".container, .section").forEach(s => {
+            s.style.display = "none";
+        });
+
         const typeSec = document.getElementById("type");
         if (typeSec) typeSec.style.display = "block";
     }
@@ -59,15 +100,13 @@ function openLeukemiaType(type, options = {}) {
         return;
     }
 
-    // Show loading state
-    list.innerHTML = `
-        <div class="phase-card loading-message">
-            <p>⏳ Loading ${type} protocols...</p>
-        </div>`;
+    list.textContent = "";
+    list.appendChild(createMessageElement("loading-message", `⏳ Loading ${type} protocols...`));
 
     loadChemoProtocols().then(data => {
         if (!data) {
-            list.innerHTML = `<div class="phase-card error-message">⚠️ Failed to load protocol data.</div>`;
+            list.textContent = "";
+            list.appendChild(createMessageElement("error-message", "⚠️ Failed to load protocol data."));
             return;
         }
 
@@ -75,99 +114,96 @@ function openLeukemiaType(type, options = {}) {
             renderLeukemiaProtocols(data, type, list, options);
         } catch (error) {
             console.error("❌ Render Error:", error);
-            list.innerHTML = `<div class="phase-card error-details">
-                <p>Error displaying protocols: ${error.message}</p>
-            </div>`;
+            list.textContent = "";
+            list.appendChild(
+                createMessageElement("error-details", `Error displaying protocols: ${error.message}`)
+            );
         }
     });
 }
 
-
 /* =========================================================
-   3️⃣ RENDER LOGIC
+   RENDER LOGIC
    ========================================================= */
 function renderLeukemiaProtocols(allData, type, list, options) {
     const selected = allData[type];
-    list.innerHTML = ""; // Clear loading message
+    list.textContent = "";
 
     if (!selected) {
-        list.innerHTML = `<div class="phase-card"><p class="no-protocol empty-message">No protocols currently available for ${type}.</p></div>`;
+        list.appendChild(createMessageElement("", `No protocols currently available for ${type}.`));
         return;
     }
-
-    // Detection Strategy:
-    // If the object has keys like "Induction Therapy", "Consolidation", etc., it's a FLAT structure.
-    // However, since those keys are dynamic, we check if the VALUES are phase objects (have 'protocols' or 'goal').
-    // If the values are themselves containers of phases, it's a NESTED structure.
 
     const keys = Object.keys(selected);
     if (keys.length === 0) return;
 
-    // Check depth of first key to guess structure
     const firstVal = selected[keys[0]];
-    const isFlat = (firstVal && (Array.isArray(firstVal.protocols) || firstVal.goal));
+    const isFlat = firstVal && (Array.isArray(firstVal.protocols) || firstVal.goal);
 
     if (isFlat) {
-        // --- EXISTING FLAT RENDER ---
         renderProtocolPhaseGroup(selected, list, type, options);
     } else {
-        // --- NEW NESTED SUBTYPE RENDER ---
         keys.forEach(subtypeName => {
             const subtypeData = selected[subtypeName];
             if (!subtypeData) return;
 
-            // Header for Subtype
             const subtypeHeader = document.createElement("h3");
             subtypeHeader.className = "subtype-heading";
-            subtypeHeader.style.cssText = "color: var(--color-text-main); margin: 20px 0 10px; padding-left: 4px; border-left: 4px solid var(--color-accent);";
+            subtypeHeader.style.cssText =
+                "color: var(--color-text-main); margin: 20px 0 10px; padding-left: 4px; border-left: 4px solid var(--color-accent);";
             subtypeHeader.textContent = subtypeName;
             list.appendChild(subtypeHeader);
 
-            // Wrapper for this subtype's phases
             const subtypeContainer = document.createElement("div");
             subtypeContainer.className = "subtype-container";
             list.appendChild(subtypeContainer);
 
-            // Render phases for this subtype
-            // We pass a composite type ID for uniqueness in DOM IDs if needed, though mostly visual
             renderProtocolPhaseGroup(subtypeData, subtypeContainer, type, options, subtypeName);
         });
     }
 
-    // Auto-scroll to highlight
     const highlightCard = list.querySelector(".protocol-highlight");
     if (highlightCard) {
         setTimeout(() => {
             highlightCard.scrollIntoView({ behavior: "smooth", block: "center" });
             highlightCard.classList.add("protocol-pulse");
-            setTimeout(() => highlightCard.classList.remove("protocol-pulse"), 1600);
+
+            setTimeout(() => {
+                highlightCard.classList.remove("protocol-pulse");
+            }, 1600);
         }, 400);
     }
 }
 
-// Helper: Render a group of phases (used by both flat and nested views)
+/* =========================================================
+   RENDER PHASE GROUP
+   ========================================================= */
 function renderProtocolPhaseGroup(phasesData, container, type, options, subtypeName = "") {
     const targetPhase = (options.phaseName || "").toLowerCase();
     const targetProtocol = (options.protocolName || "").toLowerCase();
 
     Object.keys(phasesData).forEach((phase, phaseIndex) => {
-        // Create unique ID mixed with subtype if present
-        const rawId = subtypeName ? `${type}-${subtypeName}-${phase}-${phaseIndex}` : `${type}-${phase}-${phaseIndex}`;
-        const safePhaseId = `phase-${rawId}`.replace(/[^a-zA-Z0-9-_]/g, "").toLowerCase();
+        const rawId = subtypeName
+            ? `${type}-${subtypeName}-${phase}-${phaseIndex}`
+            : `${type}-${phase}-${phaseIndex}`;
 
-        // 1. Wrapper
+        const safePhaseId = `phase-${rawId}`
+            .replace(/[^a-zA-Z0-9-_]/g, "")
+            .toLowerCase();
+
         const phaseDiv = document.createElement("div");
         phaseDiv.className = "phase-card";
 
-        // 2. Button
         const toggleBtn = document.createElement("button");
         toggleBtn.className = "phase-toggle";
-        toggleBtn.innerHTML = `<h3>${phase}</h3><span class="collapsible-icon">+</span>`;
+        toggleBtn.innerHTML = `
+            <h3>${safeHtmlStr(phase)}</h3>
+            <span class="collapsible-icon">+</span>
+        `;
         toggleBtn.setAttribute("aria-expanded", "false");
         toggleBtn.onclick = () => togglePhaseVisibility(phaseDiv, toggleBtn);
         phaseDiv.appendChild(toggleBtn);
 
-        // 3. Content
         const phaseContent = document.createElement("div");
         phaseContent.className = "phase-content";
         phaseContent.id = safePhaseId;
@@ -175,22 +211,32 @@ function renderProtocolPhaseGroup(phasesData, container, type, options, subtypeN
         phaseContent.style.maxHeight = "0px";
         phaseDiv.appendChild(phaseContent);
 
-        // 4. Data
         const phaseData = phasesData[phase];
         let protocols = [];
 
-        // Robust extraction
-        if (Array.isArray(phaseData)) protocols = phaseData;
-        else if (phaseData && Array.isArray(phaseData.protocols)) protocols = phaseData.protocols;
-
-        // Goal
-        if (phaseData.goal) {
-            phaseContent.innerHTML += `<p class="phase-description"><strong>Goal:</strong> ${phaseData.goal}</p>`;
+        if (Array.isArray(phaseData)) {
+            protocols = phaseData;
+        } else if (phaseData && Array.isArray(phaseData.protocols)) {
+            protocols = phaseData.protocols;
         }
 
-        // 5. Protocols
+        if (phaseData && phaseData.goal) {
+            const goalP = document.createElement("p");
+            goalP.className = "phase-description";
+
+            const strong = document.createElement("strong");
+            strong.textContent = "Goal: ";
+
+            goalP.appendChild(strong);
+            goalP.appendChild(document.createTextNode(phaseData.goal));
+            phaseContent.appendChild(goalP);
+        }
+
         if (protocols.length === 0) {
-            phaseContent.innerHTML += `<p class="empty-message">No regimens listed.</p>`;
+            const emptyP = document.createElement("p");
+            emptyP.className = "empty-message";
+            emptyP.textContent = "No regimens listed.";
+            phaseContent.appendChild(emptyP);
         } else {
             protocols.forEach(protocol => {
                 if (!protocol) return;
@@ -200,52 +246,65 @@ function renderProtocolPhaseGroup(phasesData, container, type, options, subtypeN
 
                 const name = protocol.protocolName || "Unnamed Regimen";
 
-                // Highlight Logic
-                const isTarget = targetProtocol &&
-                    (name.toLowerCase() === targetProtocol || name.toLowerCase().includes(targetProtocol));
+                const isTarget =
+                    targetProtocol &&
+                    (name.toLowerCase() === targetProtocol ||
+                        name.toLowerCase().includes(targetProtocol));
 
                 if (isTarget) {
                     card.classList.add("protocol-highlight");
                 }
 
+                const safeName = safeHtmlStr(name);
+                const safeDuration = protocol.cycleDuration
+                    ? safeHtmlStr(protocol.cycleDuration)
+                    : "";
+
                 const detailsHtml = buildProtocolDetailsHtml(protocol);
 
                 card.innerHTML = `
                     <div class="protocol-header-top" style="display:flex; justify-content:space-between; align-items:flex-start;">
-                        <h4 style="margin:0; padding-right:8px;">${name}</h4>
-                        <button class="pdf-protocol-btn" title="Download/Print PDF" style="background:none; border:none; cursor:pointer; font-size:1.2rem; padding:4px; margin-top:-4px;">
-                            🖨️
-                        </button>
+                        <h4 style="margin:0; padding-right:8px;">${safeName}</h4>
+                        <button class="pdf-protocol-btn" title="Download PDF" style="background:none; border:none; cursor:pointer; font-size:1.2rem; padding:4px; margin-top:-4px;">💾</button>
                     </div>
+
                     <p class="protocol-summary" style="margin-top:4px;">
-                        ${protocol.cycleDuration ? `Duration: ${protocol.cycleDuration}` : ""}
+                        ${safeDuration ? `Duration: ${safeDuration}` : ""}
                     </p>
+
                     <div class="protocol-details info-panel" style="display:none; margin-top:10px;">
                         ${detailsHtml}
                     </div>
                 `;
 
-                // PDF/Print Button Listener
                 const pdfBtn = card.querySelector(".pdf-protocol-btn");
+
                 if (pdfBtn) {
-                    pdfBtn.addEventListener("click", (e) => {
+                    pdfBtn.addEventListener("click", e => {
                         e.stopPropagation();
-                        // Pass subtype into print if needed, or just combine
-                        const headerSubtitle = subtypeName ? `${type} (${subtypeName})` : type;
-                        printProtocolAsPDF(protocol, headerSubtitle, phase);
+
+                        const headerSubtitle = subtypeName
+                            ? `${type} (${subtypeName})`
+                            : type;
+
+                        exportProtocolAsPDF(protocol, headerSubtitle, phase, e.currentTarget);
                     });
                 }
 
-                // Click to expand details
-                card.addEventListener("click", (e) => {
+                card.addEventListener("click", e => {
                     e.stopPropagation();
+
                     const details = card.querySelector(".protocol-details");
                     const isVisible = details.style.display === "block";
-                    // Close others in this phase
-                    card.parentElement.querySelectorAll(".protocol-details").forEach(d => d.style.display = "none");
+
+                    card.parentElement
+                        .querySelectorAll(".protocol-details")
+                        .forEach(d => {
+                            d.style.display = "none";
+                        });
+
                     details.style.display = isVisible ? "none" : "block";
 
-                    // Recalculate parent height to prevent clipping
                     const pContent = card.closest(".phase-content");
                     if (pContent && pContent.style.maxHeight !== "0px") {
                         pContent.style.maxHeight = "none";
@@ -258,90 +317,115 @@ function renderProtocolPhaseGroup(phasesData, container, type, options, subtypeN
 
         container.appendChild(phaseDiv);
 
-        // Check if we should auto-expand this phase
-        const phaseHasTarget = (targetPhase && phase.toLowerCase() === targetPhase) ||
+        const phaseHasTarget =
+            (targetPhase && phase.toLowerCase() === targetPhase) ||
             !!phaseContent.querySelector(".protocol-highlight");
 
         if (phaseHasTarget) {
-            // Expand immediately
-            setTimeout(() => togglePhaseVisibility(phaseDiv, toggleBtn, true), 100);
+            setTimeout(() => {
+                togglePhaseVisibility(phaseDiv, toggleBtn, true);
+            }, 100);
         }
     });
 }
 
-// Helper: Build HTML string for details
+/* =========================================================
+   DETAILS HTML
+   ========================================================= */
 function buildProtocolDetailsHtml(protocol) {
     let html = "";
 
-    // Drugs
     if (protocol.drugs && protocol.drugs.length) {
         const phasesOrder = ["Pre-Chemo", "Chemo", "Post-Chemo"];
-        const grouped = { "Pre-Chemo": [], "Chemo": [], "Post-Chemo": [], "Other": [] };
+        const grouped = {
+            "Pre-Chemo": [],
+            Chemo: [],
+            "Post-Chemo": [],
+            Other: []
+        };
 
         protocol.drugs.forEach(d => {
             const p = (d.phase || "Other").trim();
             if (grouped[p]) grouped[p].push(d);
-            else grouped["Other"].push(d);
+            else grouped.Other.push(d);
         });
 
         const drugRow = d => `
             <div class="drug-item">
                 <div>
-                    <span class="drug-day">${d.day || ""}</span>
-                    <span class="drug-name"><strong>${d.name || "Unknown"}</strong></span> —
-                    <span class="drug-dose"><em>${d.dose || ""}</em></span>
-                    <span class="drug-route"><strong><em>${d.route || ""}</em></strong></span>
-                    ${d.duration ? `<span class="drug-duration"> (${d.duration})</span>` : ""}
+                    <span class="drug-day">${safeHtmlStr(d.day || "")}</span>
+                    <span class="drug-name"><strong>${safeHtmlStr(d.name || "Unknown")}</strong></span> —
+                    <span class="drug-dose"><em>${safeHtmlStr(d.dose || "")}</em></span>
+                    <span class="drug-route"><strong><em>${safeHtmlStr(d.route || "")}</em></strong></span>
+                    ${d.duration ? `<span class="drug-duration"> (${safeHtmlStr(d.duration)})</span>` : ""}
                 </div>
-                ${d.note ? `<div class="drug-note">➤ ${d.note}</div>` : ""}
-            </div>`;
+
+                ${d.note ? `<div class="drug-note">➤ ${safeHtmlTextWithBreaks(d.note)}</div>` : ""}
+            </div>
+        `;
 
         phasesOrder.forEach(p => {
             if (grouped[p].length) {
-                html += `<h5 class="phase-heading">${p}</h5>` + grouped[p].map(drugRow).join("");
+                html += `
+                    <h5 class="phase-heading">${safeHtmlStr(p)}</h5>
+                    ${grouped[p].map(drugRow).join("")}
+                `;
             }
         });
-        if (grouped["Other"].length) {
+
+        if (grouped.Other.length) {
             if (html) html += `<h5 class="phase-heading">Other / Unspecified</h5>`;
-            html += grouped["Other"].map(drugRow).join("");
+            html += grouped.Other.map(drugRow).join("");
         }
     }
 
-    // Nurses Info
     if (protocol.NursesInfo && protocol.NursesInfo.length) {
-        html += `<div class="nursing-tips info-panel">
-            <strong>Nurse's Info:</strong>
-            <ul>${protocol.NursesInfo.map(t => `<li>${t}</li>`).join("")}</ul>
-        </div>`;
+        html += `
+            <div class="nursing-tips info-panel">
+                <strong>Nurse's Info:</strong>
+                <ul>
+                    ${protocol.NursesInfo.map(t => `<li>${safeHtmlTextWithBreaks(t)}</li>`).join("")}
+                </ul>
+            </div>
+        `;
     }
 
     if (protocol.source) {
-        html += `<div class="protocol-source info-panel"><strong>Source:</strong> ${protocol.source}</div>`;
+        html += `
+            <div class="protocol-source info-panel">
+                <strong>Source:</strong> ${safeHtmlStr(protocol.source)}
+            </div>
+        `;
     }
 
     return html;
 }
 
-// Logic to toggle Phase Card
+/* =========================================================
+   TOGGLE PHASE
+   ========================================================= */
 function togglePhaseVisibility(card, btn, forceOpen = false) {
     const content = card.querySelector(".phase-content");
     const isExpanded = btn.getAttribute("aria-expanded") === "true";
 
     if (isExpanded && !forceOpen) {
-        // Collapse
         btn.setAttribute("aria-expanded", "false");
         card.classList.remove("is-expanded");
         content.style.maxHeight = "0px";
         content.setAttribute("hidden", "");
     } else {
-        // Expand
         document.querySelectorAll(".phase-card.is-expanded").forEach(other => {
             if (other !== card) {
                 const otherBtn = other.querySelector(".phase-toggle");
-                otherBtn.setAttribute("aria-expanded", "false");
+                const otherContent = other.querySelector(".phase-content");
+
+                if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
                 other.classList.remove("is-expanded");
-                other.querySelector(".phase-content").style.maxHeight = "0px";
-                other.querySelector(".phase-content").setAttribute("hidden", "");
+
+                if (otherContent) {
+                    otherContent.style.maxHeight = "0px";
+                    otherContent.setAttribute("hidden", "");
+                }
             }
         });
 
@@ -352,9 +436,8 @@ function togglePhaseVisibility(card, btn, forceOpen = false) {
     }
 }
 
-
 /* =========================================================
-   4️⃣ SEARCH FUNCTIONALITY
+   SEARCH
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
     initProtocolSearch();
@@ -369,8 +452,9 @@ function initProtocolSearch() {
 
     const triggerSearch = () => performProtocolSearch(input.value);
 
-    // Bind Events
-    if (searchBtn) searchBtn.addEventListener("click", triggerSearch);
+    if (searchBtn) {
+        searchBtn.addEventListener("click", triggerSearch);
+    }
 
     input.addEventListener("keydown", ev => {
         if (ev.key === "Enter") {
@@ -381,7 +465,9 @@ function initProtocolSearch() {
 
     input.addEventListener("input", () => {
         if (input.value.trim().length === 0) {
-            renderProtocolSearchResults([], { statusText: "Type at least 2 letters to search." });
+            renderProtocolSearchResults([], {
+                statusText: "Type at least 2 letters to search."
+            });
         }
     });
 
@@ -389,34 +475,47 @@ function initProtocolSearch() {
         clearBtn.addEventListener("click", () => {
             input.value = "";
             input.focus();
-            renderProtocolSearchResults([], { statusText: "Cleared." });
+
+            renderProtocolSearchResults([], {
+                statusText: "Cleared."
+            });
         });
     }
 
-    // Initial state
-    renderProtocolSearchResults([], { statusText: "Type to search protocols..." });
+    renderProtocolSearchResults([], {
+        statusText: "Type to search protocols..."
+    });
 }
 
 function performProtocolSearch(rawQuery) {
     const query = (rawQuery || "").trim();
 
     if (query.length < 2) {
-        renderProtocolSearchResults([], { statusText: "Type at least 2 letters to search." });
+        renderProtocolSearchResults([], {
+            statusText: "Type at least 2 letters to search."
+        });
         return;
     }
 
     loadChemoProtocols().then(data => {
         if (!data) {
-            renderProtocolSearchResults([], { query, statusText: "Data unavailable." });
+            renderProtocolSearchResults([], {
+                query,
+                statusText: "Data unavailable."
+            });
             return;
         }
 
         const matches = collectProtocolMatches(query, data);
+
         const statusText = matches.length
             ? `Found ${matches.length} match${matches.length === 1 ? "" : "es"} for "${query}".`
             : `No protocols found for "${query}".`;
 
-        renderProtocolSearchResults(matches, { query, statusText });
+        renderProtocolSearchResults(matches, {
+            query,
+            statusText
+        });
     });
 }
 
@@ -424,19 +523,25 @@ function collectProtocolMatches(query, data) {
     const normalizedQuery = query.toLowerCase();
     const matches = [];
 
-    // Helper to search within a set of phases
     const searchPhases = (type, phases, subtypeName = "") => {
         if (!phases || typeof phases !== "object") return;
 
         Object.entries(phases).forEach(([phaseName, phaseData]) => {
             let protocols = [];
-            if (Array.isArray(phaseData)) protocols = phaseData;
-            else if (phaseData && Array.isArray(phaseData.protocols)) protocols = phaseData.protocols;
+
+            if (Array.isArray(phaseData)) {
+                protocols = phaseData;
+            } else if (phaseData && Array.isArray(phaseData.protocols)) {
+                protocols = phaseData.protocols;
+            }
 
             protocols.forEach(protocol => {
                 if (!protocol) return;
+
                 const protocolName = (protocol.protocolName || "").toLowerCase();
-                const drugNames = (protocol.drugs || []).map(d => (d.name || "").toLowerCase());
+                const drugNames = (protocol.drugs || []).map(d =>
+                    (d.name || "").toLowerCase()
+                );
                 const sources = (protocol.source || "").toLowerCase();
 
                 const haystack = [
@@ -449,26 +554,29 @@ function collectProtocolMatches(query, data) {
                 ].join(" ");
 
                 if (haystack.includes(normalizedQuery)) {
-                    matches.push({ type, phase: phaseName, protocol });
+                    matches.push({
+                        type,
+                        subtype: subtypeName,
+                        phase: phaseName,
+                        protocol
+                    });
                 }
             });
         });
     };
 
-    // Search Logic
     Object.entries(data).forEach(([type, content]) => {
         if (!content) return;
 
-        // Detect Flat vs Nested
         const keys = Object.keys(content);
         if (keys.length === 0) return;
+
         const firstVal = content[keys[0]];
-        const isFlat = (firstVal && (Array.isArray(firstVal.protocols) || firstVal.goal));
+        const isFlat = firstVal && (Array.isArray(firstVal.protocols) || firstVal.goal);
 
         if (isFlat) {
             searchPhases(type, content);
         } else {
-            // It's nested by subtype
             Object.entries(content).forEach(([subtypeName, phases]) => {
                 searchPhases(type, phases, subtypeName);
             });
@@ -481,15 +589,15 @@ function collectProtocolMatches(query, data) {
 function renderProtocolSearchResults(results, options = {}) {
     const container = document.getElementById("protocolSearchResults");
     const statusEl = document.getElementById("protocolSearchStatus");
+
     const query = (options.query || "").trim();
     const statusMessage = options.statusText || "";
 
     if (statusEl) statusEl.textContent = statusMessage;
-    if (!container) return; // Should not happen
+    if (!container) return;
 
-    container.innerHTML = "";
+    container.textContent = "";
 
-    // If query is empty -> hide container
     if (!query && !results.length) {
         container.setAttribute("hidden", "");
         return;
@@ -498,28 +606,35 @@ function renderProtocolSearchResults(results, options = {}) {
     container.removeAttribute("hidden");
 
     if (!results.length) {
-        container.innerHTML = `<p class="search-empty">${statusMessage}</p>`;
+        const emptyP = document.createElement("p");
+        emptyP.className = "search-empty";
+        emptyP.textContent = statusMessage;
+        container.appendChild(emptyP);
         return;
     }
 
-    // Render cards
     results.slice(0, 20).forEach(match => {
         const card = document.createElement("div");
         card.className = "protocol-card info-card protocol-search-result";
 
         const drugPreview = (match.protocol.drugs || [])
             .map(d => d.name)
+            .filter(Boolean)
             .slice(0, 3)
             .join(", ");
 
         card.innerHTML = `
             <div class="result-top">
-                <span class="result-pill">${match.type}</span>
-                <span class="result-pill">${match.phase}</span>
+                <span class="result-pill">${safeHtmlStr(match.type)}</span>
+                ${match.subtype ? `<span class="result-pill">${safeHtmlStr(match.subtype)}</span>` : ""}
+                <span class="result-pill">${safeHtmlStr(match.phase)}</span>
             </div>
-            <h4>${match.protocol.protocolName || "Unnamed Regimen"}</h4>
-            ${drugPreview ? `<p class="result-drugs">Drugs: ${drugPreview}</p>` : ""}
-        <p class="result-meta">Tap to view details ›</p>
+
+            <h4>${safeHtmlStr(match.protocol.protocolName || "Unnamed Regimen")}</h4>
+
+            ${drugPreview ? `<p class="result-drugs">Drugs: ${safeHtmlStr(drugPreview)}</p>` : ""}
+
+            <p class="result-meta">Tap to view details ›</p>
         `;
 
         card.addEventListener("click", () => {
@@ -527,9 +642,6 @@ function renderProtocolSearchResults(results, options = {}) {
                 phaseName: match.phase,
                 protocolName: match.protocol.protocolName
             });
-
-            // Clear search after selection for cleaner UX
-            // container.setAttribute("hidden", "");
         });
 
         container.appendChild(card);
@@ -537,121 +649,199 @@ function renderProtocolSearchResults(results, options = {}) {
 }
 
 /* =========================================================
-   5️⃣ PRINT / EXPORT PDF FUNCTIONALITY
+   PDF EXPORT - FIXED BLANK PDF ISSUE
    ========================================================= */
-function printProtocolAsPDF(protocol, type, phase) {
-    const drugs = protocol.drugs || [];
-
-    // Sort drugs by phase if needed, though usually they come sorted or we can just list them.
-    // Let's preserve the order but maybe group visually in the table? 
-    // Actually, a flat table with a "Phase" column is very clean for CSV/PDF exports.
-
-    let rowsHtml = "";
-    if (drugs.length === 0) {
-        rowsHtml = "<tr><td colspan='6' style='text-align:center;'>No specific medications listed.</td></tr>";
-    } else {
-        rowsHtml = drugs.map(d => `
-            <tr>
-                <td><strong>${d.phase || "-"}</strong></td>
-                <td style="white-space:nowrap;">${d.day || ""}</td>
-                <td><strong>${d.name || "Unknown"}</strong></td>
-                <td>${d.dose || ""}</td>
-                <td>${d.route || ""}</td>
-                <td>${d.note || ""} ${d.duration ? `<br><em>(${d.duration})</em>` : ""}</td>
-            </tr>
-        `).join("");
-    }
-
-    const nursesInfoHtml = (protocol.NursesInfo && protocol.NursesInfo.length)
-        ? `<div class="info-section">
-             <h3>Nursing Considerations:</h3>
-             <ul>${protocol.NursesInfo.map(info => `<li>${info}</li>`).join("")}</ul>
-           </div>`
-        : "";
-
-    const sourceHtml = protocol.source
-        ? `<div class="meta-source"><strong>Source:</strong> ${protocol.source}</div>`
-        : "";
-
-    const printWindow = window.open('', '_blank');
-    if (!printWindow) {
-        alert("Please allow popups to print/download the PDF.");
+function exportProtocolAsPDF(protocol, type, phase, triggeringButton) {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+        alert("jsPDF library not loaded.");
         return;
     }
 
-    const htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Protocol: ${protocol.protocolName}</title>
-            <style>
-                body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px; color: #333; line-height: 1.5; }
-                h1 { color: #004d40; border-bottom: 2px solid #004d40; padding-bottom: 10px; margin-bottom: 5px; }
-                .subtitle { color: #666; font-size: 1.1rem; margin-bottom: 30px; }
-                
-                table { width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 0.95rem; }
-                th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
-                th { background-color: #f0f7f4; color: #004d40; font-weight: bold; }
-                tr:nth-child(even) { background-color: #f9f9f9; }
-                
-                .info-section { background: #f1f9ff; border: 1px solid #cce5ff; padding: 15px; border-radius: 5px; margin-bottom: 20px; page-break-inside: avoid; }
-                .info-section h3 { margin-top: 0; color: #004b8d; font-size: 1.1rem; }
-                .info-section ul { margin-bottom: 0; padding-left: 20px; }
-                .info-section li { margin-bottom: 5px; }
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF("l", "mm", "a4"); // Landscape configuration
 
-                .meta-source { font-size: 0.85rem; color: #777; font-style: italic; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; }
-                
-                .footer { margin-top: 50px; text-align: center; font-size: 0.8rem; color: #aaa; }
-                
-                @media print {
-                    .no-print { display: none; }
-                    body { padding: 0; }
-                    .info-section { border: 1px solid #ddd; }
-                }
-            </style>
-        </head>
-        <body>
-            <h1>${protocol.protocolName}</h1>
-            <div class="subtitle">
-                <strong>Disease:</strong> ${type} &nbsp;|&nbsp; 
-                <strong>Phase:</strong> ${phase} &nbsp;|&nbsp; 
-                ${protocol.cycleDuration ? `<strong>Duration:</strong> ${protocol.cycleDuration}` : ""}
-            </div>
+    let originalHtml = "💾";
 
-            <table>
-                <thead>
-                    <tr>
-                        <th width="12%">Phase</th>
-                        <th width="8%">Day</th>
-                        <th width="20%">Drug</th>
-                        <th width="15%">Dose</th>
-                        <th width="10%">Route</th>
-                        <th width="35%">Instructions / Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${rowsHtml}
-                </tbody>
-            </table>
+    if (triggeringButton) {
+        originalHtml = triggeringButton.innerHTML;
+        triggeringButton.textContent = "⏳ Rendering...";
+        triggeringButton.disabled = true;
+    }
 
-            ${nursesInfoHtml}
+    const protocolName = protocol.protocolName || "Unnamed Protocol";
+    const drugs = Array.isArray(protocol.drugs) ? protocol.drugs : [];
 
-            ${sourceHtml}
+    /* =========================================================
+       INTERNAL CLEANING PARSER
+       Converts HTML line elements into native vector format directives
+       ========================================================= */
+    function cleanTextForPDF(str) {
+        if (str === null || str === undefined) return "";
+        return String(str)
+            .replace(/<br\s*\/?>/gi, "\n")   // Map HTML breaks to native canvas newlines
+            .replace(/<\/?b>/gi, "")         // Strip bold styling anchors
+            .replace(/<\/?strong>/gi, "")    // Strip strong styling anchors
+            .replace(/&amp;/g, "&")          // Decode standard escaped entities
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'");
+    }
 
-            <div class="footer">
-                Generated by HEMA NURSE AID on ${new Date().toLocaleDateString()}
-            </div>
-            
-            <script>
-                setTimeout(() => {
-                    window.print();
-                    // Optional: window.close(); // Don't close automatically so they can check it.
-                }, 500);
-            <\/script>
-        </body>
-        </html>
-    `;
+    // --- HEADER SECTION ---
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(0, 77, 64); // Clinical Dark Teal
+    doc.text(cleanTextForPDF(protocolName), 14, 18);
 
-    printWindow.document.write(htmlContent);
-    printWindow.document.close();
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(100, 100, 100);
+
+    let meta = `Disease: ${type || "-"}  |  Phase: ${phase || "-"}`;
+    if (protocol.cycleDuration) {
+        meta += `  |  Duration: ${protocol.cycleDuration}`;
+    }
+    doc.text(cleanTextForPDF(meta), 14, 25);
+
+    // Subtle Brand Divider Line
+    doc.setDrawColor(0, 77, 64);
+    doc.setLineWidth(0.5);
+    doc.line(14, 28, 283, 28); 
+
+    // --- TABLE DATA PREPARATION ---
+    // Loop through row data points and sanitize string fragments to avoid tag leakages
+    const tableRows = drugs.length
+        ? drugs.map(d => [
+            cleanTextForPDF(d.phase || "-"),
+            cleanTextForPDF(d.day || "-"),
+            cleanTextForPDF(d.name || "Unknown"),
+            cleanTextForPDF(d.dose || "-"),
+            cleanTextForPDF(d.route || "-"),
+            cleanTextForPDF(`${d.note || ""}${d.duration ? `\n(${d.duration})` : ""}`)
+        ])
+        : [["-", "-", "No specific medications listed", "-", "-", "-"]];
+
+    // --- AUTOTABLE GENERATION ---
+    doc.autoTable({
+        startY: 34,
+        head: [["Phase", "Day", "Drug", "Dose", "Route", "Instructions"]],
+        body: tableRows,
+        styles: {
+            fontSize: 9,
+            cellPadding: 3.5,
+            valign: "middle",
+            overflow: "linebreak" // Gracefully wraps translated \n configurations
+        },
+        headStyles: {
+            fillColor: [240, 247, 244],
+            textColor: [0, 77, 64],
+            fontStyle: "bold"
+        },
+        columnStyles: {
+            0: { cellWidth: 28 },  // Phase
+            1: { cellWidth: 25 },  // Day
+            2: { cellWidth: 45 },  // Drug Name
+            3: { cellWidth: 35 },  // Dose
+            4: { cellWidth: 24 },  // Route
+            5: { cellWidth: 112 }  // Instructions / Duration Info
+        },
+        margin: { left: 14, right: 14 },
+        theme: "striped"
+    });
+
+    let y = doc.lastAutoTable.finalY + 12;
+
+    // --- NURSING CONSIDERATIONS ---
+    if (protocol.NursesInfo && protocol.NursesInfo.length) {
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(12);
+        doc.setTextColor(0, 77, 64);
+        doc.text("Nursing Considerations", 14, y);
+        y += 6;
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(9.5);
+        doc.setTextColor(50, 50, 50);
+
+        protocol.NursesInfo.forEach(info => {
+            // Clean text arrays natively before tracking element text dimensions
+            const cleanInfo = cleanTextForPDF(info);
+            const lines = doc.splitTextToSize(`• ${cleanInfo}`, 269); 
+            const blockHeight = lines.length * 5 + 2;
+
+            // Defensive Height Wrap Check (Landscape Height Limit is 210mm)
+            if (y + blockHeight > 185) {
+                doc.addPage();
+                y = 20; 
+            }
+
+            doc.text(lines, 14, y);
+            y += blockHeight;
+        });
+    }
+
+    // --- SOURCE DOCUMENTATION ---
+    if (protocol.source) {
+        doc.setFont("helvetica", "italic");
+        doc.setFontSize(8.5);
+        doc.setTextColor(120, 120, 120);
+
+        const cleanSource = cleanTextForPDF(protocol.source);
+        const sourceLines = doc.splitTextToSize(`Source: ${cleanSource}`, 269);
+        const sourceHeight = sourceLines.length * 4;
+
+        if (y + sourceHeight > 185) {
+            doc.addPage();
+            y = 20;
+        } else {
+            y += 4;
+        }
+
+        doc.text(sourceLines, 14, y);
+    }
+
+    // --- TWO-PASS DYNAMIC PAGE NUMBER FOOTERS ---
+    const pageCount = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+        doc.setPage(i);
+        
+        doc.setDrawColor(230, 230, 230);
+        doc.setLineWidth(0.2);
+        doc.line(14, 196, 283, 196);
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(8);
+        doc.setTextColor(150, 150, 150);
+        
+        doc.text(
+            `Generated by HEMA NURSE AID  |  Page ${i} of ${pageCount}`,
+            148.5,
+            202,
+            { align: "center" }
+        );
+    }
+
+    // --- FILE DOWNLOAD ASSIGNMENT ---
+    const cleanFilename = `${protocolName
+        .replace(/[^a-zA-Z0-9]/g, "_")
+        .replace(/_+/g, "_")}.pdf`;
+
+    doc.save(cleanFilename);
+
+    if (triggeringButton) {
+        triggeringButton.innerHTML = originalHtml;
+        triggeringButton.disabled = false;
+    }
+}
+
+function cleanupPdfExportElement(element, triggeringButton, originalHtml) {
+    if (element && element.parentNode) {
+        element.parentNode.removeChild(element);
+    }
+
+    if (triggeringButton) {
+        triggeringButton.innerHTML = originalHtml;
+        triggeringButton.disabled = false;
+    }
 }

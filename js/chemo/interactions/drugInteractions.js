@@ -38,7 +38,7 @@ function setupDrugAutocomplete(inputId, suggestionId) {
 
     input.addEventListener("input", () => {
         const q = input.value.trim().toLowerCase();
-        box.innerHTML = "";
+        box.textContent = "";
 
         if (q.length < 1) {
             box.classList.remove("show");   // only hide when input empty
@@ -62,7 +62,7 @@ function setupDrugAutocomplete(inputId, suggestionId) {
 
             item.onclick = () => {
                 input.value = name;
-                box.innerHTML = "";
+                box.textContent = "";
                 box.classList.remove("show");
             };
 
@@ -73,7 +73,7 @@ function setupDrugAutocomplete(inputId, suggestionId) {
 
     document.addEventListener("click", e => {
         if (!box.contains(e.target) && e.target !== input) {
-            box.innerHTML = "";
+            box.textContent = "";
             box.classList.remove("show");
         }
     });
@@ -86,10 +86,13 @@ function checkDrugInteraction() {
     const drugA = document.getElementById("drugA").value.trim();
     const drugB = document.getElementById("drugB").value.trim();
     const container = document.getElementById("interactionResult");
-    container.innerHTML = "";
+    container.textContent = "";
 
     if (!drugA || !drugB) {
-        container.innerHTML = `<div class="result-box">Enter both drug names.</div>`;
+        const div = document.createElement("div");
+        div.className = "result-box";
+        div.textContent = "Enter both drug names.";
+        container.appendChild(div);
         return;
     }
 
@@ -180,7 +183,7 @@ function clearDrugInteraction() {
         if (el) el.value = "";
     });
     const container = document.getElementById("interactionResult");
-    if (container) container.innerHTML = "";
+    if (container) container.textContent = "";
 }
 
 /* =========================================================

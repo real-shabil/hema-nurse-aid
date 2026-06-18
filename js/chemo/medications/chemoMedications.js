@@ -56,7 +56,7 @@ function openMedicationGroup(groupKey, options = {}) {
         // Render this ONE group into the list
         const list = document.getElementById("medicationsList");
         if (!list) return;
-        list.innerHTML = "";
+        list.textContent = "";
 
         // This gives you a phase-card + inner drug cards (same style as AML phases)
         renderMedicationGroup(group, groupKey, 0, list, options);
@@ -88,7 +88,7 @@ function openMedicationsSection() {
         const list = document.getElementById("medicationsList");
         if (!list) return;
 
-        list.innerHTML = "";
+        list.textContent = "";
 
         Object.keys(data).forEach((groupKey, index) => {
             const group = data[groupKey];
@@ -128,7 +128,10 @@ function renderMedicationGroup(group, groupKey, index, mountPoint, options = {})
     content.className = "phase-content";
     const desc = document.createElement("p");
     desc.classList.add("phase-description");
-    desc.innerHTML = `<strong>Description:</strong> ${group.description}`;
+    const strong = document.createElement("strong");
+    strong.textContent = "Description: ";
+    desc.appendChild(strong);
+    desc.appendChild(document.createTextNode(group.description));
     content.appendChild(desc);
 
     content.id = id;
@@ -390,7 +393,7 @@ function renderMedicationSearchResults(results, options = {}) {
     if (statusEl) statusEl.textContent = statusMessage;
     if (!container) return;
 
-    container.innerHTML = "";
+    container.textContent = "";
 
     if (!query && !results.length) {
         container.setAttribute("hidden", "");
@@ -402,7 +405,10 @@ function renderMedicationSearchResults(results, options = {}) {
     if (!results.length) {
         const message = statusMessage || (query ? `No medications found for "${query}".` : "");
         if (message) {
-            container.innerHTML = `<p class="no-protocol search-empty">${message}</p>`;
+            const p = document.createElement("p");
+            p.className = "no-protocol search-empty";
+            p.textContent = message;
+            container.appendChild(p);
         }
         return;
     }

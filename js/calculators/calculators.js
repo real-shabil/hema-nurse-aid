@@ -37,7 +37,13 @@ function formatNumber(value, decimals = 1) {
 
 function showResult(calcKey, html) {
     const div = document.getElementById(`result-${calcKey}`);
-    if (div) div.innerHTML = `<div class="result-box">${html}</div>`;
+    if (div) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "result-box";
+        wrapper.innerHTML = html; // HTML content from internal calculations - safe
+        div.textContent = "";
+        div.appendChild(wrapper);
+    }
     else console.error(`Result container missing for ${calcKey}`);
 }
 
@@ -57,7 +63,10 @@ function calculateBodySize(calcKey) {
     const heightCm = parseFloat(heightInput.value);
 
     if (!weight || !heightCm || weight <= 0 || heightCm <= 0) {
-        resultDiv.innerHTML = "<p>Please enter valid height (cm) and weight (kg).</p>";
+        resultDiv.textContent = "";
+        const p = document.createElement("p");
+        p.textContent = "Please enter valid height (cm) and weight (kg).";
+        resultDiv.appendChild(p);
         return;
     }
 
@@ -69,11 +78,17 @@ function calculateBodySize(calcKey) {
     // BSA (Mosteller formula)
     const bsa = Math.sqrt((heightCm * weight) / 3600);
 
-    resultDiv.innerHTML = `
-        <p><strong>BMI:</strong> ${bmi.toFixed(1)} kg/m²</p>
-        <p><strong>BSA :</strong> ${bsa.toFixed(2)} m²</p>
-        <p class="calc-note">Note: Always interpret BMI & BSA in clinical context and follow unit policy.</p>
-    `;
+    resultDiv.textContent = "";
+    const p1 = document.createElement("p");
+    p1.innerHTML = `<strong>BMI:</strong> ${bmi.toFixed(1)} kg/m²`;
+    const p2 = document.createElement("p");
+    p2.innerHTML = `<strong>BSA :</strong> ${bsa.toFixed(2)} m²`;
+    const p3 = document.createElement("p");
+    p3.className = "calc-note";
+    p3.textContent = "Note: Always interpret BMI & BSA in clinical context and follow unit policy.";
+    resultDiv.appendChild(p1);
+    resultDiv.appendChild(p2);
+    resultDiv.appendChild(p3);
 }
 
 
