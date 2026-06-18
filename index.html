@@ -5,278 +5,276 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEMA NURSE AID</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HEMA NURSE AID</title>
 
-    <!--INTER FONT-->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!--INTER FONT-->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- ====== Styles ====== -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+        <!-- ====== Styles ====== -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
 
-<body>
-    <!-- Onboarding Modal -->
-    <div id="onboardingModal" class="onboard-overlay" style="display:none;">
-        <div class="onboard-box fade-in">
-            <div class="onboard-icon">👋</div>
-            <h2>Welcome, Nurse!</h2>
+    <body>
+        <!-- Onboarding Modal -->
+        <div id="onboardingModal" class="onboard-overlay" style="display:none;">
+            <div class="onboard-box fade-in">
+                <div class="onboard-icon">👋</div>
+                <h2>Welcome, Nurse!</h2>
 
-            <div class="input-group-onboard">
-                <label for="onboardName">What should we call you?</label>
-                <input type="text" id="onboardName" placeholder="e.g. Shabil" autocomplete="off">
-            </div>
-
-            <div class="disclaimer">
-                <div class="disclaimer-header">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-                    </svg>
-                    <strong>Clinical Disclaimer</strong>
-                </div>
-                <p>
-                    This app is a <b>supportive tool only</b>. It does not replace physician orders,
-                    hospital policies, or clinical judgment. Always verify values independently.
-                </p>
-            </div>
-
-            <label class="agreeLabel">
-                <input type="checkbox" id="agreeCheck">
-                <span>I understand and accept the disclaimer</span>
-            </label>
-
-            <button id="onboardSubmit" disabled>Get Started &rarr;</button>
-        </div>
-    </div>
-
-    <header>HEMA NURSE AID</header>
-
-    <!-- =========================================================
-                HOME SECTION
-            ========================================================= -->
-    <div class="container" id="home">
-        <h2 id="welcomeMessage">Welcome Nurse 👩‍⚕️</h2>
-        <p id="introText">
-            Your hub for hematology-oncology protocols, medication guides, and clinical tools.
-        </p>
-
-        <div class="cards">
-            <div class="card home-card" onclick="navigateToSection('leukemia')">🩸 Hemato-Oncology</div>
-            <div class="card home-card" onclick="navigateToSection('medications')">💊 Medications</div>
-            <div class="card home-card" onclick="navigateToSection('calculations')">🧮 Calculations</div>
-            <div class="card home-card" onclick="navigateToSection('drugInteractions')">🧪 Drug Interactions</div>
-            <!-- <div class="card home-card" onclick="navigateToSection('games')">🎮 Games</div> -->
-        </div>
-    </div>
-
-    <!-- =========================================================
-                CHEMOTHERAPY PROTOCOLS SECTION
-            ========================================================= -->
-    <div class="section" id="leukemia">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <h2>Hemato-Oncology Conditions</h2>
-
-        <div class="protocol-search info-card">
-            <div class="search-header">
-                <p class="eyebrow">Protocol Search</p>
-                <h3>Find a regimen fast</h3>
-                <p class="search-hint">Search by protocol name, drug, or phase. Tap a match to jump straight to it.</p>
-            </div>
-
-            <div class="protocol-search-row">
-                <input type="search" id="protocolSearchInput" class="input-field"
-                    placeholder="e.g., FLAG-IDA, Cytarabine, consolidation" aria-label="Search chemotherapy protocols">
-                <button type="button" id="protocolSearchBtn" class="btn-primary">Search</button>
-                <button type="button" id="protocolSearchClear" class="btn-clear">Clear</button>
-            </div>
-            <div id="protocolSearchStatus" class="search-status">Type at least 2 letters to search.</div>
-        </div>
-
-        <div id="protocolSearchResults" class="protocols-container search-results" hidden></div>
-
-        <div class="cards">
-            <div class="card" onclick="openLeukemiaType('AML')">Acute Myeloid (AML)</div>
-            <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
-            <div class="card" onclick="openLeukemiaType('CML')">Chronic Myeloid (CML)</div>
-            <div class="card" onclick="openLeukemiaType('CLL')">Chronic Lymphocytic (CLL)</div>
-            <div class="card" onclick="openLeukemiaType('APL')">Acute Promyelocytic Leukemia (APL)</div>
-            <div class="card" onclick="openLeukemiaType('MM')">Multiple Myeloma (MM)</div>
-            <div class="card" onclick="openLeukemiaType('HL')">Hodgkin Lymphoma (HL)</div>
-            <div class="card" onclick="openLeukemiaType('NHL')">Non-Hodgkin Lymphoma (NHL)</div>
-            <div class="card" onclick="openLeukemiaType('MDS')">Myelodysplastic Syndromes (MDS)</div>
-        </div>
-
-    </div>
-
-    <div class="section" id="type">
-        <button class="back-btn" onclick="navigateToSection('leukemia')">← Back</button>
-        <h2 id="typeTitle"></h2>
-        <div id="protocolList" class="protocols-container"></div>
-    </div>
-
-
-    <!-- =========================================================
-                MEDICATIONS SECTION
-            ========================================================= -->
-    <div class="section" id="medications">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <h2>Medications</h2>
-
-        <div class="protocol-search info-card">
-            <div class="search-header">
-                <p class="eyebrow">Medication Search</p>
-                <h3>Find a drug fast</h3>
-                <p class="search-hint">Search by medication name, class, or keyword. Tap a match to jump to full
-                    details.</p>
-            </div>
-
-            <div class="protocol-search-row">
-                <input type="search" id="medSearchInput" class="input-field"
-                    placeholder="e.g., Cytarabine, monoclonal, antimetobolite" aria-label="Search medications">
-                <button type="button" id="medSearchBtn" class="btn-primary">Search</button>
-                <button type="button" id="medSearchClear" class="btn-clear">Clear</button>
-            </div>
-            <div id="medSearchStatus" class="search-status">Type at least 2 letters to search.</div>
-        </div>
-
-        <div id="medSearchResults" class="protocols-container search-results" hidden></div>
-
-        <div class="cards">
-            <div class="card" onclick="openMedicationGroup('allMedications')">
-                All Medications
-            </div>
-        </div>
-    </div>
-
-    <div class="section" id="medType">
-        <button class="back-btn" onclick="navigateToSection('medications')">← Back</button>
-        <h2 id="medTypeTitle"></h2>
-        <div id="medicationsList" class="protocols-container"></div>
-    </div>
-
-
-    <!-- =========================================================
-                CALCULATIONS SECTION
-            ========================================================= -->
-    <div class="section" id="calculations">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <h2>Calculations</h2>
-        <div id="calculationsList" class="cards"></div>
-        <div id="calculationsContent"></div>
-    </div>
-
-
-    <!-- ============================================================
-                DRUG INTERACTIONS SECTION
-            ============================================================= -->
-    <div class="section" id="drugInteractions">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <div class="section-heading">
-            <h2>Drug Interactions</h2>
-        </div>
-
-        <div id="drugInteractionsContent" class="cards">
-            <div class="card card-full">
-                <div class="interaction-inputs">
-                    <div class="input-group">
-                        <label for="drugA">First Medication</label>
-                        <input type="text" id="drugA" class="input-drug input-field"
-                            placeholder="Search First Medications">
-                        <div id="suggestionA" class="suggestion-box"></div>
-                    </div>
-
-                    <div class="vs-divider">V/S</div>
-
-                    <div class="input-group">
-                        <label for="drugB">Second Medication</label>
-                        <input type="text" id="drugB" class="input-drug input-field"
-                            placeholder="Search Second Medications">
-                        <div id="suggestionB" class="suggestion-box"></div>
-                    </div>
-
-                    <div class="btn-row">
-                        <button id="checkInteractionBtn" class="btn-primary">Check Interaction</button>
-                        <button id="clearInteractionBtn" class="btn-clear">Clear</button>
-                    </div>
+                <div class="input-group-onboard">
+                    <label for="onboardName">What should we call you?</label>
+                    <input type="text" id="onboardName" placeholder="e.g. Shabil" autocomplete="off">
                 </div>
 
-                <div id="interactionResult" class="result-box"></div>
-                <div id="interactionHistory" class="result-box" hidden></div>
+                <div class="disclaimer">
+                    <div class="disclaimer-header">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M6 3h12c1.66 0 3 1.34 3 3v12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3V6c0-1.66 1.34-3 3-3z" opacity="0" />                        </svg>
+                        <strong>Clinical Disclaimer</strong>
+                    </div>
+                    <p>
+                        This app is a <b>supportive tool only</b>. It does not replace physician orders,
+                        hospital policies, or clinical judgment. Always verify values independently.
+                    </p>
+                </div>
+
+                <label class="agreeLabel">
+                    <input type="checkbox" id="agreeCheck">
+                    <span>I understand and accept the disclaimer</span>
+                </label>
+
+                <button id="onboardSubmit" disabled>Get Started &rarr;</button>
             </div>
         </div>
-    </div>
 
+        <header>HEMA NURSE AID</header>
 
-    <!-- =========================================================
-                GAMES SECTION (Temporarily Disabled)
-            ========================================================= -->
-    <!--
-    <div class="section" id="games">
-        <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-        <h2>Games</h2>
+        <!-- =========================================================
+                    HOME SECTION
+                ========================================================= -->
+        <div class="container" id="home">
+            <h2 id="welcomeMessage">Welcome Nurse 👩‍⚕️</h2>
+            <p id="introText">
+                Your hub for hematology-oncology protocols, medication guides, and clinical tools.
+            </p>
 
-        <div class="cards">
-            <div class="card" onclick="openGame('wordle')">
-                Wordle!
+            <div class="cards">
+                <div class="card home-card" onclick="navigateToSection('leukemia')">🩸 Hemato-Oncology</div>
+                <div class="card home-card" onclick="navigateToSection('medications')">💊 Medications</div>
+                <div class="card home-card" onclick="navigateToSection('calculations')">🧮 Calculations</div>
+                <div class="card home-card" onclick="navigateToSection('drugInteractions')">🧪 Drug Interactions</div>
+                <!-- <div class="card home-card" onclick="navigateToSection('games')">🎮 Games</div> -->
             </div>
         </div>
 
-        <div id="gameContent" class="game-panel" hidden></div>
-    </div>
-    -->
+        <!-- =========================================================
+                    CHEMOTHERAPY PROTOCOLS SECTION
+                ========================================================= -->
+        <div class="section" id="leukemia">
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Hemato-Oncology Conditions</h2>
 
-    <!-- =========================================================
-                JAVASCRIPT SECTION
-            ========================================================= -->
-    <!-- ====== Bottom Navigation ====== -->
-    <nav class="bottom-nav">
-        <button class="nav-item active" onclick="navigateToSection('home')" id="nav-home">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-            </svg>
-            <span>Home</span>
-        </button>
+            <div class="protocol-search info-card">
+                <div class="search-header">
+                    <p class="eyebrow">Protocol Search</p>
+                    <h3>Find a regimen fast</h3>
+                    <p class="search-hint">Search by protocol name, drug, or phase. Tap a match to jump straight to it.</p>
+                </div>
 
-        <button class="nav-item" onclick="navigateToSection('leukemia')" id="nav-leukemia">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-            </svg>
-            <span>Protocols</span>
-        </button>
+                <div class="protocol-search-row">
+                    <input type="search" id="protocolSearchInput" class="input-field"
+                        placeholder="e.g., FLAG-IDA, Cytarabine, consolidation" aria-label="Search chemotherapy protocols">
+                    <button type="button" id="protocolSearchBtn" class="btn-primary">Search</button>
+                    <button type="button" id="protocolSearchClear" class="btn-clear">Clear</button>
+                </div>
+                <div id="protocolSearchStatus" class="search-status">Type at least 2 letters to search.</div>
+            </div>
 
-        <button class="nav-item" onclick="navigateToSection('medications')" id="nav-medications">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                <path d="M6 3h12c1.66 0 3 1.34 3 3v12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3V6c0-1.66 1.34-3 3-3zm0 2c-.55 0-1 .45-1 1v5h14V6c0-.55-.45-1-1-1H6zm14 8H4v5c0 .55xl.45 1 1 1h12c.55 0 1-.45 1-1v-5z" opacity="0" />
-                <path d="M4.22 19.78c-1.64-1.64-1.64-4.29 0-5.93l9.64-9.64c1.64-1.64 4.29-1.64 5.93 0 1.64 1.64 1.64 4.29 0 5.93l-9.64 9.64c-1.64 1.64-4.29 1.64-5.93 0zm11.76-11.76L11 13l2 2 5-5-2.02-2.02z" />
-            </svg>
-            <span>Meds</span>
-        </button>
+            <div id="protocolSearchResults" class="protocols-container search-results" hidden></div>
 
-        <button class="nav-item" onclick="navigateToSection('calculations')" id="nav-calculations">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
-                <path d="M7 7h10v2H7z"/>
-                <path d="M7 11h2v2H7zm4 0h2v2h-2zm4 0h2v6h-2zm-8 4h2v2H7zm4 0h2v2h-2z"/>
-            </svg>
-            <span>Calc</span>
-        </button>
-    </nav>
+            <div class="cards">
+                <div class="card" onclick="openLeukemiaType('AML')">Acute Myeloid (AML)</div>
+                <div class="card" onclick="openLeukemiaType('ALL')">Acute Lymphoblastic (ALL)</div>
+                <div class="card" onclick="openLeukemiaType('CML')">Chronic Myeloid (CML)</div>
+                <div class="card" onclick="openLeukemiaType('CLL')">Chronic Lymphocytic (CLL)</div>
+                <div class="card" onclick="openLeukemiaType('APL')">Acute Promyelocytic Leukemia (APL)</div>
+                <div class="card" onclick="openLeukemiaType('MM')">Multiple Myeloma (MM)</div>
+                <div class="card" onclick="openLeukemiaType('HL')">Hodgkin Lymphoma (HL)</div>
+                <div class="card" onclick="openLeukemiaType('NHL')">Non-Hodgkin Lymphoma (NHL)</div>
+                <div class="card" onclick="openLeukemiaType('MDS')">Myelodysplastic Syndromes (MDS)</div>
+            </div>
 
-    <script src="js/main.js" defer></script>
+        </div>
 
-    <script src="js/calculators.js" defer></script>
+        <div class="section" id="type">
+            <button class="back-btn" onclick="navigateToSection('leukemia')">← Back</button>
+            <h2 id="typeTitle"></h2>
+            <div id="protocolList" class="protocols-container"></div>
+        </div>
 
-    <script src="js/drugInteractions.js" defer></script>
 
-    <!-- <script src="js/game.js" defer></script> -->
+        <!-- =========================================================
+                    MEDICATIONS SECTION
+                ========================================================= -->
+        <div class="section" id="medications">
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Medications</h2>
 
-    <script src="js/chemoMedications.js" defer></script>
+            <div class="protocol-search info-card">
+                <div class="search-header">
+                    <p class="eyebrow">Medication Search</p>
+                    <h3>Find a drug fast</h3>
+                    <p class="search-hint">Search by medication name, class, or keyword. Tap a match to jump to full
+                        details.</p>
+                </div>
 
-    <script src="js/chemoProtocols.js" defer></script>
+                <div class="protocol-search-row">
+                    <input type="search" id="medSearchInput" class="input-field"
+                        placeholder="e.g., Cytarabine, monoclonal, antimetobolite" aria-label="Search medications">
+                    <button type="button" id="medSearchBtn" class="btn-primary">Search</button>
+                    <button type="button" id="medSearchClear" class="btn-clear">Clear</button>
+                </div>
+                <div id="medSearchStatus" class="search-status">Type at least 2 letters to search.</div>
+            </div>
 
-</body>
+            <div id="medSearchResults" class="protocols-container search-results" hidden></div>
+
+            <div class="cards">
+                <div class="card" onclick="openMedicationGroup('allMedications')">
+                    All Medications
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="medType">
+            <button class="back-btn" onclick="navigateToSection('medications')">← Back</button>
+            <h2 id="medTypeTitle"></h2>
+            <div id="medicationsList" class="protocols-container"></div>
+        </div>
+
+
+        <!-- =========================================================
+                    CALCULATIONS SECTION
+                ========================================================= -->
+        <div class="section" id="calculations">
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Calculations</h2>
+            <div id="calculationsList" class="cards"></div>
+            <div id="calculationsContent"></div>
+        </div>
+
+
+        <!-- ============================================================
+                    DRUG INTERACTIONS SECTION
+                ============================================================= -->
+        <div class="section" id="drugInteractions">
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <div class="section-heading">
+                <h2>Drug Interactions</h2>
+            </div>
+
+            <div id="drugInteractionsContent" class="cards">
+                <div class="card card-full">
+                    <div class="interaction-inputs">
+                        <div class="input-group">
+                            <label for="drugA">First Medication</label>
+                            <input type="text" id="drugA" class="input-drug input-field"
+                                placeholder="Search First Medications">
+                            <div id="suggestionA" class="suggestion-box"></div>
+                        </div>
+
+                        <div class="vs-divider">V/S</div>
+
+                        <div class="input-group">
+                            <label for="drugB">Second Medication</label>
+                            <input type="text" id="drugB" class="input-drug input-field"
+                                placeholder="Search Second Medications">
+                            <div id="suggestionB" class="suggestion-box"></div>
+                        </div>
+
+                        <div class="btn-row">
+                            <button id="checkInteractionBtn" class="btn-primary">Check Interaction</button>
+                            <button id="clearInteractionBtn" class="btn-clear">Clear</button>
+                        </div>
+                    </div>
+
+                    <div id="interactionResult" class="result-box"></div>
+                    <div id="interactionHistory" class="result-box" hidden></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- =========================================================
+                    GAMES SECTION (Temporarily Disabled)
+                ========================================================= -->
+        <!--
+        <div class="section" id="games">
+            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
+            <h2>Games</h2>
+
+            <div class="cards">
+                <div class="card" onclick="openGame('wordle')">
+                    Wordle!
+                </div>
+            </div>
+
+            <div id="gameContent" class="game-panel" hidden></div>
+        </div>
+        -->
+
+        <!-- =========================================================
+                    JAVASCRIPT SECTION
+                ========================================================= -->
+        <!-- ====== Bottom Navigation ====== -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="navigateToSection('home')" id="nav-home">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                <span>Home</span>
+            </button>
+
+            <button class="nav-item" onclick="navigateToSection('leukemia')" id="nav-leukemia">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
+                <span>Protocols</span>
+            </button>
+
+            <button class="nav-item" onclick="navigateToSection('medications')" id="nav-medications">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M6 3h12c1.66 0 3 1.34 3 3v12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3V6c0-1.66 1.34-3 3-3zm0 2c-.55 0-1 .45-1 1v5h14V6c0-.55-.45-1-1-1H6zm14 8H4v5c0 .55xl.45 1 1 1h12c.55 0 1-.45 1-1v-5z" opacity="0" />
+                    <path d="M4.22 19.78c-1.64-1.64-1.64-4.29 0-5.93l9.64-9.64c1.64-1.64 4.29-1.64 5.93 0 1.64 1.64 1.64 4.29 0 5.93l-9.64 9.64c-1.64 1.64-4.29 1.64-5.93 0zm11.76-11.76L11 13l2 2 5-5-2.02-2.02z" />
+                </svg>
+                <span>Meds</span>
+            </button>
+
+            <button class="nav-item" onclick="navigateToSection('calculations')" id="nav-calculations">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                    <path d="M7 7h10v2H7z"/>
+                    <path d="M7 11h2v2H7zm4 0h2v2h-2zm4 0h2v6h-2zm-8 4h2v2H7zm4 0h2v2h-2z"/>
+                </svg>
+                <span>Calc</span>
+            </button>
+        </nav>
+
+        <script src="js/main.js" defer></script>
+
+        <script src="js/calculators.js" defer></script>
+
+        <script src="js/drugInteractions.js" defer></script>
+
+        <!-- <script src="js/game.js" defer></script> -->
+
+        <script src="js/chemoMedications.js" defer></script>
+
+        <script src="js/chemoProtocols.js" defer></script>
+
+    </body>
 
 </html>

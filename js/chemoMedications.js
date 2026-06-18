@@ -1,373 +1,232 @@
 /* =========================================================
-   CHEMOTHERAPY NURSE GUIDE — MEDICATION MODULE
+   CHEMOTHERAPY NURSE GUIDE — MEDICATION MODULE (SECURE)
    ========================================================= */
 
 let MEDICATIONS_DATA = null;
 const MED_DATA = "data/chemoMedications.json";
 
-// CATEGORY MAPPING
 const DRUG_CATEGORIES = {
     allMedications: {
         title: "All Medications",
-        description: "Comprehensive list of chemotherapy, targeted therapy, and supportive care medications.",
-        keywords: [] // Matches everything
+        description: "Comprehensive list of chemotherapy, targeted therapy, and supportive care medications."
     }
 };
 
+// HELPER: Securely create elements (Prevents XSS)
+const createEl = (tag, className, text) => {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined && text !== null) el.textContent = text;
+    return el;
+};
+
+const normalizeMedicationPayload = payload => {
+    if (Array.isArray(payload)) return payload;
+    if (Array.isArray(payload?.medications)) return payload.medications;
+    throw new Error("Unsupported medication data schema.");
+};
+
+const addDetailField = (container, label, value) => {
+    if (value === undefined || value === null || value === "") return;
+    container.appendChild(createEl("div", "med-head", `${label}:`));
+    container.appendChild(createEl("div", "med-body", value));
+};
+
+const addDetailList = (container, label, items) => {
+    if (!Array.isArray(items) || !items.length) return;
+
+    container.appendChild(createEl("div", "med-head", `${label}:`));
+    const ul = document.createElement("ul");
+    items.forEach(item => ul.appendChild(createEl("li", "med-list", item)));
+    container.appendChild(ul);
+};
+
+const getMedicationSummary = drug => {
+    const risk = drug.nursing_workflow?.during_infusion?.extravasation_management?.risk;
+    const source = drug.metadata?.evidence_source;
+    return [risk, source].filter(Boolean).join(" | ");
+};
+
 /* =========================================================
-   LOAD MEDICATION DATA
+   LOAD & NAVIGATE
    ========================================================= */
 async function loadMedicationData() {
     try {
         const res = await fetch(MED_DATA);
-        const data = await res.json();
-
-        // Sort data alphabetically by name
+        const payload = await res.json();
+        const data = normalizeMedicationPayload(payload);
         data.sort((a, b) => a.name.localeCompare(b.name));
         MEDICATIONS_DATA = data;
         return data;
     } catch (err) {
-        console.error("Error loading chemoMedications.json:", err);
-        const container = document.getElementById("medicationsList");
-        if (container) container.innerHTML = `<p class="error-message">Failed to load medications. Please try again.</p>`;
+        console.error("Error loading medications:", err);
     }
 }
 
-function getCategoryForDrug(drug) {
-    // Simple pass-through: all drugs belong to the single category
-    return "allMedications";
-}
+function getCategoryForDrug(drug) { return "allMedications"; }
 
-/* =========================================================
-   OPEN GROUP (Called from HTML Buttons)
-   ========================================================= */
 function openMedicationGroup(groupKey, options = {}) {
     const dataReady = MEDICATIONS_DATA ? Promise.resolve(MEDICATIONS_DATA) : loadMedicationData();
-
     dataReady.then(allDrugs => {
         if (!allDrugs) return;
 
-        // Filter drugs for this group
-        const groupConfig = DRUG_CATEGORIES[groupKey] || DRUG_CATEGORIES.supportiveTherapy;
-        const filteredDrugs = allDrugs.filter(drug => {
-            const cat = getCategoryForDrug(drug);
-            return cat === groupKey;
-        });
-
-        // Use the title/desc from config
-        const displayGroup = {
-            title: groupConfig.title,
-            description: groupConfig.description,
-            drugs: filteredDrugs
-        };
-
-        // UI Navigation
         if (typeof navigateToSection === "function") {
             navigateToSection("medType");
         }
 
         const titleEl = document.getElementById("medTypeTitle");
         if (titleEl) {
-            titleEl.textContent = displayGroup.title;
+            titleEl.textContent = DRUG_CATEGORIES[groupKey]?.title || "Medications";
         }
-
+        
         const list = document.getElementById("medicationsList");
         if (!list) return;
-        list.innerHTML = "";
+        list.replaceChildren();
 
-        if (filteredDrugs.length === 0) {
-            list.innerHTML = `<p class="empty-message">No medications found in this category.</p>`;
-            return;
-        }
+        allDrugs.forEach((drug, i) => renderMedicationDrug(drug, i, list, options));
 
-        renderMedicationGroup(displayGroup, groupKey, 0, list, options);
-
-        // Scroll to specific drug if requested (from search)
         if (options.targetDrugName) {
-            setTimeout(() => {
-                const normalizedTarget = options.targetDrugName.toLowerCase();
-                // Find element by data-name attribute or similar
-                const cards = list.querySelectorAll(".protocol-card h4");
-                for (let h4 of cards) {
-                    if (h4.textContent.toLowerCase() === normalizedTarget) {
-                        const targetCard = h4.closest(".protocol-card");
-                        if (targetCard) {
-                            targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
-                            targetCard.classList.add("protocol-pulse");
-                            targetCard.click(); // Expand it
-                            setTimeout(() => targetCard.classList.remove("protocol-pulse"), 1600);
-                        }
-                        break;
-                    }
-                }
-            }, 350);
+            const targetCard = list.querySelector(".protocol-highlight");
+            if (targetCard) targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
         }
     });
 }
 
-
 /* =========================================================
-   RENDER GROUP CARD container
-   Using existing CSS classes (.phase-card) for consistency
+   SECURE RENDERING (Bedside Pro Schema)
    ========================================================= */
-function renderMedicationGroup(groupObj, groupKey, index, mountPoint, options = {}) {
-    // Create one big Card that is already open or contains the list
-    // In the original UI, "Groups" were collapsible. Here we are INSIDE a group view ("medType" section).
-    // So just render the list of cards directly, OR wrap them in a description block.
+function renderMedicationDrug(drug, index, mountPoint, options = {}) {
+    const targetDrugName = (options.targetDrugName || "").toLowerCase();
+    const isTarget = targetDrugName && (drug.name || "").toLowerCase() === targetDrugName;
+    const card = createEl("div", "protocol-card info-card");
+    card.appendChild(createEl("h4", "", drug.name));
+    card.appendChild(createEl("div", "protocol-summary", getMedicationSummary(drug)));
 
-    // Let's render the description
-    const descBox = document.createElement("div");
-    descBox.className = "phase-card";
-    // Force it expanded and without toggle button since we are already inside the category view
-    descBox.innerHTML = `
-        <div class="phase-content" style="max-height: none; opacity: 1; padding-top: 5px; display: block;">
-            <p class="phase-description"><strong>Description:</strong> ${groupObj.description}</p>
-        </div>
-    `;
-    mountPoint.appendChild(descBox);
-
-    // Now render list of drugs below description
-    groupObj.drugs.forEach((drug, i) => {
-        renderMedicationDrug(drug, i, mountPoint);
-    });
-}
-
-/* =========================================================
-   RENDER INDIVIDUAL DRUG CARD
-   ========================================================= */
-function renderMedicationDrug(drug, index, mountPoint) {
-    const card = document.createElement("div");
-    card.classList.add("protocol-card", "info-card");
-
-    // Header
-    const header = document.createElement("h4");
-    header.textContent = drug.name;
-    card.appendChild(header);
-
-    // Subtitle (Class)
-    const sub = document.createElement("div");
-    sub.className = "protocol-summary";
-    sub.textContent = drug.class;
-    card.appendChild(sub);
-
-    // Hidden Details
-    const details = document.createElement("div");
-    details.classList.add("protocol-details", "info-panel");
-    details.style.display = "none";
-    details.innerHTML = generateDrugDetailHTML(drug);
-
+    const details = createEl("div", "protocol-details info-panel");
+    details.style.display = isTarget ? "block" : "none";
     card.appendChild(details);
-    mountPoint.appendChild(card);
 
-    // Click to toggle
+    if (isTarget) {
+        details.appendChild(generateDrugDetailHTML(drug));
+        card.classList.add("is-active", "protocol-highlight");
+    }
+
     card.addEventListener("click", () => {
-        const isOpen = details.style.display === "block";
-
-        // Close all others first
-        document.querySelectorAll(".protocol-details").forEach(d => {
-            d.style.display = "none";
-            // Also remove active class from parent card if needed
-            if (d.parentElement) {
-                d.parentElement.classList.remove("is-active");
-            }
-        });
-
-        // Toggle current
-        details.style.display = isOpen ? "none" : "block";
-        card.classList.toggle("is-active", !isOpen);
+        const isClosed = details.style.display === "none";
+        document.querySelectorAll(".protocol-details").forEach(d => { d.style.display = "none"; d.parentElement.classList.remove("is-active"); });
+        
+        if (isClosed) {
+            details.replaceChildren();
+            details.appendChild(generateDrugDetailHTML(drug));
+            details.style.display = "block";
+            card.classList.add("is-active");
+        }
     });
+    mountPoint.appendChild(card);
 }
 
-/* =========================================================
-   GENERATE DETAIL HTML
-   ========================================================= */
 function generateDrugDetailHTML(drug) {
-    // Helper for arrays of objects
-    const renderList = (items, renderer) => {
-        if (!items || items.length === 0) return "";
-        return `<ul class="med-list">${items.map(renderer).join("")}</ul>`;
-    };
+    const container = document.createElement("div");
+    const wf = drug.nursing_workflow;
+    if (!wf) return createEl("div", "", "Workflow data not available.");
 
-    let html = "";
+    addDetailField(container, "Critical Safety Alerts", wf.pre_infusion_safety?.fatal_alerts);
+    addDetailList(container, "Mandatory Checks", wf.pre_infusion_safety?.mandatory_checks);
+    addDetailList(container, "Premeds", wf.pre_infusion_safety?.premeds);
 
-    // Basic Info
-    html += `<div class="med-head">Route:</div>`;
-    html += `<div class="med-body">${drug.routes || "—"}</div>`;
-
-    html += `<div class="med-head">Indication:</div>`;
-    html += `<div class="med-body">${drug.indication || "—"}</div>`;
-
-    if (drug.extravasation_risk) {
-        let riskClass = "";
-        const risk = drug.extravasation_risk.toLowerCase();
-        if (risk.includes("vesicant")) riskClass = "color: var(--color-danger); font-weight:bold;";
-        else if (risk.includes("irritant")) riskClass = "color: var(--color-text-warning-dark);";
-
-        html += `<div class="med-head">Extravasation Risk:</div>`;
-        html += `<div class="med-body" style="${riskClass}">${drug.extravasation_risk}</div>`;
+    const em = wf.during_infusion?.extravasation_management;
+    if (em) {
+        addDetailField(container, `Extravasation (${em.risk || "Not specified"})`, `${em.action || "Not specified"} | Antidote: ${em.antidote || "Not specified"}`);
     }
 
-    // Side Effects
-    if (drug.side_effects && drug.side_effects.length > 0) {
-        html += `<div class="med-head">Common Side Effects:</div>`;
-        html += `<div class="med-body">`;
+    addDetailField(container, "Monitoring Frequency", wf.during_infusion?.monitoring_frequency);
+    addDetailList(container, "Stop Criteria", wf.during_infusion?.stop_criteria);
+    addDetailList(container, "Post-Infusion Nursing Assessment", wf.post_infusion_care?.nursing_assessment);
+    addDetailField(container, "Patient Education", wf.post_infusion_care?.patient_education);
+    addDetailList(container, "Report to Physician", drug.side_effect_triage?.report_to_physician);
+    addDetailList(container, "Manage at Bedside", drug.side_effect_triage?.manage_at_bedside);
+    addDetailField(container, "Evidence Source", drug.metadata?.evidence_source);
+    addDetailField(container, "Last Updated", drug.metadata?.last_updated);
 
-        // Check if side_effects is a list of objects or strings.
-        if (typeof drug.side_effects[0] === 'string') {
-            html += `<ul class="med-list">${drug.side_effects.map(s => `<li>${s}</li>`).join("")}</ul>`;
-        } else {
-            let effectsHtml = "";
-            drug.side_effects.forEach(obj => {
-                if (obj.type && (obj.notes || obj.description)) {
-                    effectsHtml += `<li><b>${obj.type}:</b> ${obj.notes || obj.description}</li>`;
-                } else {
-                    Object.entries(obj).forEach(([key, value]) => {
-                        const label = key.charAt(0).toUpperCase() + key.slice(1);
-                        effectsHtml += `<li><b>${label}:</b> ${value}</li>`;
-                    });
-                }
-            });
-            html += `<ul class="med-list">${effectsHtml}</ul>`;
-        }
-        html += `</div>`;
-    }
-
-    // Premedications
-    if (drug.premedications && drug.premedications.length > 0) {
-        html += `<div class="med-head">Premedications:</div>`;
-        html += `<div class="med-body">`;
-        html += renderList(drug.premedications, (p) =>
-            `<li><b>${p.drug}</b> (${p.route}): ${p.timing}</li>`
-        );
-        html += `</div>`;
-    }
-
-    // Prophylaxis
-    if (drug.required_prophylaxis && drug.required_prophylaxis.length > 0) {
-        html += `<div class="med-head">Required Prophylaxis:</div>`;
-        html += `<div class="med-body">`;
-        html += renderList(drug.required_prophylaxis, (p) =>
-            `<li><b>${p.type}:</b> ${p.notes}</li>`
-        );
-        html += `</div>`;
-    }
-
-    // Supportive Care
-    if (drug.supportive_care && drug.supportive_care.length > 0) {
-        html += `<div class="med-head">Supportive Care & Monitoring:</div>`;
-        html += `<div class="med-body">`;
-        html += renderList(drug.supportive_care, (s) =>
-            `<li><b>${s.type}:</b> ${s.notes}</li>`
-        );
-        html += `</div>`;
-    }
-
-    // Source
-    if (drug.source) {
-        html += `<div class="med-source"><strong>Source:</strong> <em>${drug.source}</em></div>`;
-    }
-
-    return html;
+    return container;
 }
 
 /* =========================================================
-   SEARCH FUNCTIONALITY
+   SEARCH (Secure)
    ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    initMedicationSearch();
-});
-
-function initMedicationSearch() {
-    const input = document.getElementById("medSearchInput");
-    const searchBtn = document.getElementById("medSearchBtn");
-    const clearBtn = document.getElementById("medSearchClear");
-
-    if (!input) return;
-
-    const runSearch = () => performMedicationSearch(input.value);
-
-    if (searchBtn) searchBtn.addEventListener("click", runSearch);
-    input.addEventListener("keydown", (e) => { if (e.key === "Enter") runSearch(); });
-    input.addEventListener("input", () => {
-        if (input.value.trim().length < 2) {
-            renderMedicationSearchResults([], { statusText: "Type at least 2 letters to search." });
-        }
-    });
-
-    if (clearBtn) {
-        clearBtn.addEventListener("click", () => {
-            input.value = "";
-            renderMedicationSearchResults([], { statusText: "Cleared." });
-        });
-    }
-}
-
 function performMedicationSearch(rawQuery) {
     const query = (rawQuery || "").trim().toLowerCase();
-    if (query.length < 2) {
-        renderMedicationSearchResults([], { statusText: "Type at least 2 letters." });
-        return;
-    }
-
-    const dataReady = MEDICATIONS_DATA ? Promise.resolve(MEDICATIONS_DATA) : loadMedicationData();
-
-    dataReady.then(allDrugs => {
-        if (!allDrugs) return;
-
-        const matches = allDrugs.filter(drug => {
-            // Search in Name, Class, Indication, Route
-            const text = [
-                drug.name,
-                drug.class,
-                drug.routes,
-                drug.indication
-            ].join(" ").toLowerCase();
-            return text.includes(query);
-        });
-
-        const statusText = matches.length
-            ? `Found ${matches.length} match${matches.length === 1 ? "" : "es"}.`
-            : `No matches found for "${rawQuery}".`;
-
-        renderMedicationSearchResults(matches, { query, statusText });
-    });
-}
-
-function renderMedicationSearchResults(results, options = {}) {
     const container = document.getElementById("medSearchResults");
-    const statusEl = document.getElementById("medSearchStatus");
-
-    if (statusEl && options.statusText) statusEl.textContent = options.statusText;
+    const status = document.getElementById("medSearchStatus");
     if (!container) return;
+    container.replaceChildren();
 
-    container.innerHTML = "";
-
-    if (!results || results.length === 0) {
-        container.setAttribute("hidden", "");
+    if (query.length < 2) {
+        container.hidden = true;
+        if (status) status.textContent = "Type at least 2 letters to search.";
         return;
     }
 
-    container.removeAttribute("hidden");
+    if (!MEDICATIONS_DATA) {
+        if (status) status.textContent = "Medications are still loading. Try again in a moment.";
+        return;
+    }
 
-    // Limit to 20 results
-    results.slice(0, 20).forEach(drug => {
-        const card = document.createElement("div");
-        card.className = "protocol-card info-card protocol-search-result";
-        card.innerHTML = `
-            <div class="result-top">
-                <span class="result-pill">${drug.class || "Drug"}</span>
-            </div>
-            <h4>${drug.name}</h4>
-            <p class="result-drugs">${drug.route || drug.routes || ""}</p>
-        `;
+    const matches = MEDICATIONS_DATA.filter(drug => {
+        const searchableText = [
+            drug.name,
+            drug.metadata?.evidence_source,
+            drug.nursing_workflow?.pre_infusion_safety?.fatal_alerts,
+            drug.nursing_workflow?.during_infusion?.extravasation_management?.risk,
+            drug.nursing_workflow?.during_infusion?.monitoring_frequency,
+            ...(drug.nursing_workflow?.pre_infusion_safety?.mandatory_checks || []),
+            ...(drug.nursing_workflow?.pre_infusion_safety?.premeds || []),
+            ...(drug.nursing_workflow?.during_infusion?.stop_criteria || []),
+            ...(drug.side_effect_triage?.report_to_physician || []),
+            ...(drug.side_effect_triage?.manage_at_bedside || [])
+        ].filter(Boolean).join(" ").toLowerCase();
 
-        card.addEventListener("click", () => {
-            // Determine category to open correct view
-            const cat = getCategoryForDrug(drug);
-            // Open that group and highlight drug
-            openMedicationGroup(cat, { targetDrugName: drug.name });
-        });
+        return searchableText.includes(query);
+    });
 
+    container.hidden = false;
+    if (status) status.textContent = matches.length
+        ? `Found ${matches.length} match${matches.length === 1 ? "" : "es"}.`
+        : `No medications found for "${rawQuery}".`;
+
+    matches.forEach(drug => {
+        const card = createEl("div", "protocol-card info-card protocol-search-result");
+        card.appendChild(createEl("h4", "", drug.name));
+        card.addEventListener("click", () => openMedicationGroup("allMedications", { targetDrugName: drug.name }));
         container.appendChild(card);
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadMedicationData();
+    const searchInput = document.getElementById("medSearchInput");
+    const searchBtn = document.getElementById("medSearchBtn");
+    const clearBtn = document.getElementById("medSearchClear");
+
+    if(searchInput) {
+        searchInput.addEventListener("input", (e) => performMedicationSearch(e.target.value));
+        searchInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                performMedicationSearch(searchInput.value);
+            }
+        });
+    }
+
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener("click", () => performMedicationSearch(searchInput.value));
+    }
+
+    if (clearBtn && searchInput) {
+        clearBtn.addEventListener("click", () => {
+            searchInput.value = "";
+            performMedicationSearch("");
+            searchInput.focus();
+        });
+    }
+});
