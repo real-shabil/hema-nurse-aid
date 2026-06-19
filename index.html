@@ -1,7 +1,3 @@
-<!-- =========================================================
-     🌿 CHEMOTHERAPY NURSE GUIDE — MAIN INTERFACE
-   ========================================================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HEMA NURSE AID</title>
 
-        <!--INTER FONT-->
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- ====== Styles ====== -->
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
     <body>
-        <!-- Onboarding Modal -->
         <div id="onboardingModal" class="onboard-overlay" style="display:none;">
             <div class="onboard-box fade-in">
                 <div class="onboard-icon">👋</div>
@@ -52,9 +45,6 @@
 
         <header>HEMA NURSE AID</header>
 
-        <!-- =========================================================
-                    HOME SECTION
-                ========================================================= -->
         <div class="container" id="home">
             <h2 id="welcomeMessage">Welcome Nurse 👩‍⚕️</h2>
             <p id="introText">
@@ -66,13 +56,9 @@
                 <div class="card home-card" onclick="navigateToSection('medications')">💊 Medications</div>
                 <div class="card home-card" onclick="navigateToSection('calculations')">🧮 Calculations</div>
                 <div class="card home-card" onclick="navigateToSection('drugInteractions')">🧪 Drug Interactions</div>
-                <!-- <div class="card home-card" onclick="navigateToSection('games')">🎮 Games</div> -->
-            </div>
+                </div>
         </div>
 
-        <!-- =========================================================
-                    CHEMOTHERAPY PROTOCOLS SECTION
-                ========================================================= -->
         <div class="section" id="leukemia">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <h2>Hemato-Oncology Conditions</h2>
@@ -116,9 +102,6 @@
         </div>
 
 
-        <!-- =========================================================
-                    MEDICATIONS SECTION
-                ========================================================= -->
         <div class="section" id="medications">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <h2>Medications</h2>
@@ -156,9 +139,6 @@
         </div>
 
 
-        <!-- =========================================================
-                    CALCULATIONS SECTION
-                ========================================================= -->
         <div class="section" id="calculations">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <h2>Calculations</h2>
@@ -167,9 +147,6 @@
         </div>
 
 
-        <!-- ============================================================
-                    DRUG INTERACTIONS SECTION
-                ============================================================= -->
         <div class="section" id="drugInteractions">
             <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
             <div class="section-heading">
@@ -208,28 +185,6 @@
         </div>
 
 
-        <!-- =========================================================
-                    GAMES SECTION (Temporarily Disabled)
-                ========================================================= -->
-        <!--
-        <div class="section" id="games">
-            <button class="back-btn" onclick="navigateToSection('home')">← Back</button>
-            <h2>Games</h2>
-
-            <div class="cards">
-                <div class="card" onclick="openGame('wordle')">
-                    Wordle!
-                </div>
-            </div>
-
-            <div id="gameContent" class="game-panel" hidden></div>
-        </div>
-        -->
-
-        <!-- =========================================================
-                    JAVASCRIPT SECTION
-                ========================================================= -->
-        <!-- ====== Bottom Navigation ====== -->
         <nav class="bottom-nav">
             <button class="nav-item active" onclick="navigateToSection('home')" id="nav-home">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -247,7 +202,7 @@
 
             <button class="nav-item" onclick="navigateToSection('medications')" id="nav-medications">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                    <path d="M6 3h12c1.66 0 3 1.34 3 3v12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3V6c0-1.66 1.34-3 3-3zm0 2c-.55 0-1 .45-1 1v5h14V6c0-.55-.45-1-1-1H6zm14 8H4v5c0 .55xl.45 1 1 1h12c.55 0 1-.45 1-1v-5z" opacity="0" />
+                    <path d="M6 3h12c1.66 0 3 1.34 3 3v12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3V6c0-1.66 1.34-3 3-3zm0 2c-.55 0-1 .45-1 1v5h14V6c0-.55-.45-1-1-1H6zm14 8H4v5c0 .55 .45 1 1 1h12c.55 0 1-.45 1-1v-5z" opacity="0" />
                     <path d="M4.22 19.78c-1.64-1.64-1.64-4.29 0-5.93l9.64-9.64c1.64-1.64 4.29-1.64 5.93 0 1.64 1.64 1.64 4.29 0 5.93l-9.64 9.64c-1.64 1.64-4.29 1.64-5.93 0zm11.76-11.76L11 13l2 2 5-5-2.02-2.02z" />
                 </svg>
                 <span>Meds</span>
@@ -263,7 +218,6 @@
             </button>
         </nav>
 
-        <!-- PDF Generation Libraries -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
@@ -272,8 +226,6 @@
         <script src="js/calculators.js" defer></script>
 
         <script src="js/drugInteractions.js" defer></script>
-
-        <!-- <script src="js/game.js" defer></script> -->
 
         <script src="js/chemoMedications.js" defer></script>
 
