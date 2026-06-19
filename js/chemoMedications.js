@@ -133,11 +133,11 @@ function generateDrugDetailHTML(drug) {
     // --- NEW: Add PDF Action Trigger Button Panel (Styled to match Protocols) ---
     const actionBtnRow = createEl("div", "protocol-actions"); 
     actionBtnRow.style.display = "flex";
-    actionBtnRow.style.justifyContent = "flex-end"; // Pushes the button to the far right
-    actionBtnRow.style.margin = "-5px 0 10px 0";    // Tucks it nicely at the top of the panel
+    actionBtnRow.style.justifyContent = "flex-end"; 
+    actionBtnRow.style.margin = "-5px 0 10px 0";    
     
     const pdfBtn = document.createElement("button");
-    pdfBtn.className = "pdf-protocol-btn"; // Reusing the protocol class for consistency
+    pdfBtn.className = "pdf-protocol-btn"; 
     pdfBtn.textContent = "💾";
     pdfBtn.title = "Download PDF";
     
@@ -178,11 +178,10 @@ function generateDrugDetailHTML(drug) {
     return container;
 }
 
-
 /* =========================================================
    PDF GENERATION ENGINE — MEDICATION MODULE
    ========================================================= */
-function exportMedicationsAsPDF(protocol, type, phase, triggeringButton) {
+function exportMedicationAsPDF(drug, triggeringButton) {
     if (!window.jspdf || !window.jspdf.jsPDF) {
         alert("jsPDF library not loaded.");
         return;
@@ -197,12 +196,12 @@ function exportMedicationsAsPDF(protocol, type, phase, triggeringButton) {
 
         if (triggeringButton) {
             originalHtml = triggeringButton.innerHTML;
-            triggeringButton.textContent = "⏳ Rendering...";
+            triggeringButton.textContent = "⏳";
             triggeringButton.disabled = true;
         }
 
-        const protocolName = protocol?.protocolName || "Unnamed Protocol";
-        const drugs = Array.isArray(protocol?.drugs) ? protocol.drugs : [];
+        const drugName = drug?.name || "Unnamed Medication";
+        const wf = drug?.nursing_workflow || {};
 
         /* =========================================================
            INTERNAL CLEANING PARSER
@@ -210,7 +209,7 @@ function exportMedicationsAsPDF(protocol, type, phase, triggeringButton) {
         function cleanTextForPDF(str) {
             if (str === null || str === undefined) return "";
             return String(str)
-                .replace(/[\u00A0\u200B]/g, " ") // Clear out invisible web spaces
+                .replace(/[\u00A0\u200B]/g, " ") 
                 .replace(/<br\s*\/?>/gi, "\n")   
                 .replace(/<\/?b>/gi, "")         
                 .replace(/<\/?strong>/gi, "")    
@@ -221,122 +220,108 @@ function exportMedicationsAsPDF(protocol, type, phase, triggeringButton) {
                 .replace(/&#39;/g, "'");
         }
 
+        function formatValueForTable(val) {
+            if (!val || (Array.isArray(val) && val.length === 0)) return "-";
+            if (Array.isArray(val)) {
+                return val.map(item => `• ${cleanTextForPDF(item)}`).join("\n");
+            }
+            return cleanTextForPDF(val);
+        }
+
         // --- HEADER SECTION ---
         doc.setFont("helvetica", "bold");
-        doc.setFontSize(16); 
+        doc.setFontSize(18);
         doc.setTextColor(0, 77, 64); 
-        doc.text(cleanTextForPDF(protocolName), 14, 18);
+        doc.text(cleanTextForPDF(drugName), 14, 18);
 
         doc.setFont("helvetica", "normal");
         doc.setFontSize(9.5);
         doc.setTextColor(100, 100, 100);
 
-        let meta = `Disease: ${type || "-"}  |  Phase: ${phase || "-"}`;
-        if (protocol?.cycleDuration) {
-            meta += `  |  Duration: ${protocol.cycleDuration}`;
-        }
-        doc.text(cleanTextForPDF(meta), 14, 25);
+        const risk = wf.during_infusion?.extravasation_management?.risk || "Not specified";
+        const drugClass = drug?.class || "Not specified";
+        doc.text(`Drug Classification: ${cleanTextForPDF(drugClass)}  |  Extravasation Risk: ${cleanTextForPDF(risk)}`, 14, 25);
 
         // Brand Divider Line (Ends at 196mm for Portrait)
         doc.setDrawColor(0, 77, 64);
         doc.setLineWidth(0.5);
         doc.line(14, 28, 196, 28); 
 
-        // --- TABLE DATA PREPARATION ---
-        const tableRows = drugs.length
-            ? drugs.map(d => [
-                cleanTextForPDF(d.phase || "-"),
-                cleanTextForPDF(d.day || "-"),
-                cleanTextForPDF(d.name || "Unknown"),
-                cleanTextForPDF(d.dose || "-"),
-                cleanTextForPDF(d.route || "-"),
-                cleanTextForPDF(`${d.note || ""}${d.duration ? `\n(${d.duration})` : ""}`)
-            ])
-            : [["-", "-", "No specific medications listed", "-", "-", "-"]];
+        // --- GRID MATRIX DATA ASSEMBLY ---
+        const matrixRows = [];
 
-        // --- AUTOTABLE GENERATION ---
+        if (wf.pre_infusion_safety?.fatal_alerts) {
+            matrixRows.push(["CRITICAL SAFETY ALERTS", formatValueForTable(wf.pre_infusion_safety.fatal_alerts)]);
+        }
+        matrixRows.push(["Mandatory Pre-Infusion Checks", formatValueForTable(wf.pre_infusion_safety?.mandatory_checks)]);
+        matrixRows.push(["Premedications & Timings", formatValueForTable(wf.pre_infusion_safety?.premeds)]);
+
+        const em = wf.during_infusion?.extravasation_management;
+        const emText = em ? `Risk Profile: ${em.risk || "Not specified"}\nImmediate Action: ${em.action || "Not specified"}\nAntidote Protocol: ${em.antidote || "Not specified"}` : "-";
+        matrixRows.push(["Extravasation Management", cleanTextForPDF(emText)]);
+        matrixRows.push(["Monitoring Frequency", formatValueForTable(wf.during_infusion?.monitoring_frequency)]);
+        matrixRows.push(["Infusion Stop Criteria", formatValueForTable(wf.during_infusion?.stop_criteria)]);
+
+        matrixRows.push(["Post-Infusion Assessment", formatValueForTable(wf.post_infusion_care?.nursing_assessment)]);
+        matrixRows.push(["Patient & Family Education", formatValueForTable(wf.post_infusion_care?.patient_education)]);
+        matrixRows.push(["Triage: Report to Physician", formatValueForTable(drug?.side_effect_triage?.report_to_physician)]);
+        matrixRows.push(["Triage: Bedside Interventions", formatValueForTable(drug?.side_effect_triage?.manage_at_bedside)]);
+
+        // --- AUTOTABLE ENGINE INITIALIZATION ---
         doc.autoTable({
             startY: 34,
-            head: [["Phase", "Day", "Drug", "Dose", "Route", "Instructions"]],
-            body: tableRows,
+            head: [["Clinical Parameter", "Bedside Guidelines & Nursing Interventions"]],
+            body: matrixRows,
             styles: {
                 fontSize: 8.5,
-                cellPadding: { top: 1.5, bottom: 1.5, left: 2.5, right: 2.5 },
-                valign: "middle",
+                cellPadding: { top: 1.5, bottom: 1.5, left: 3, right: 3 },
+                valign: "top",
                 overflow: "linebreak"
             },
             headStyles: {
-                fillColor: [240, 247, 244],
-                textColor: [0, 77, 64],
+                fillColor: [0, 77, 64], 
+                textColor: [255, 255, 255],
                 fontStyle: "bold"
             },
-            // Portrait Budget: Sums up to exactly 182mm total printable width
+            // Portrait Matrix Budget: Sums up to exactly 182mm total printable width
             columnStyles: {
-                0: { cellWidth: 22 },  
-                1: { cellWidth: 15 },  
-                2: { cellWidth: 35 },  
-                3: { cellWidth: 25 },  
-                4: { cellWidth: 18 },  
-                5: { cellWidth: 67 }   
+                0: { cellWidth: 42, fontStyle: "bold", textColor: [0, 77, 64], fillColor: [245, 247, 246] }, 
+                1: { cellWidth: 140 } 
             },
             margin: { left: 14, right: 14 },
-            theme: "striped"
+            theme: "grid",
+            gridLineColor: [220, 230, 225],
+            didParseCell: function(data) {
+                if (data.row.cells[0].text[0] === "CRITICAL SAFETY ALERTS") {
+                    if (data.column.index === 1) {
+                        data.cell.styles.fillColor = [255, 240, 240];
+                        data.cell.styles.textColor = [180, 0, 0];
+                        data.cell.styles.fontStyle = "bold";
+                    }
+                }
+            }
         });
 
         let y = doc.lastAutoTable.finalY + 12;
 
-        // --- NURSING CONSIDERATIONS (FIXED & IMMUNE TO TEXT CRASHES) ---
-        if (protocol?.NursesInfo) {
-            // Safely convert plain text strings to an array format instantly
-            const notesArray = Array.isArray(protocol.NursesInfo) 
-                ? protocol.NursesInfo 
-                : [protocol.NursesInfo];
-
-            // Only run rendering architecture if the array is populated with valid content
-            if (notesArray.length > 0 && String(notesArray[0]).trim() !== "") {
-                doc.setFont("helvetica", "bold");
-                doc.setFontSize(11);
-                doc.setTextColor(0, 77, 64);
-                doc.text("Nursing Considerations", 14, y);
-                y += 6;
-
-                doc.setFont("helvetica", "normal");
-                doc.setFontSize(9);
-                doc.setTextColor(50, 50, 50);
-
-                notesArray.forEach(info => {
-                    if (!info) return;
-                    const cleanInfo = cleanTextForPDF(info);
-                    const lines = doc.splitTextToSize(`• ${cleanInfo}`, 182); 
-                    const blockHeight = (lines.length * 4.5) + 2;
-
-                    // Portrait Height Safety Check (Page limit is 297mm)
-                    if (y + blockHeight > 265) {
-                        doc.addPage();
-                        y = 20; 
-                    }
-
-                    doc.text(lines, 14, y);
-                    y += blockHeight;
-                });
-            }
-        }
-
-        // --- SOURCE DOCUMENTATION ---
-        if (protocol?.source) {
+        // --- EVIDENCE SUMMARY FOOTNOTE ---
+        const evidence = drug?.metadata?.evidence_source || "";
+        const updated = drug?.metadata?.last_updated || "";
+        if (evidence || updated) {
             doc.setFont("helvetica", "italic");
             doc.setFontSize(8);
             doc.setTextColor(120, 120, 120);
 
-            const cleanSource = cleanTextForPDF(protocol.source);
-            const sourceLines = doc.splitTextToSize(`Source: ${cleanSource}`, 182);
-            const sourceHeight = sourceLines.length * 4;
+            let footerMeta = "";
+            if (evidence) footerMeta += `Source Reference: ${evidence}`;
+            if (updated) footerMeta += `${evidence ? "  |  " : ""}System Sync Date: ${updated}`;
 
-            if (y + sourceHeight > 265) {
+            const sourceLines = doc.splitTextToSize(cleanTextForPDF(footerMeta), 182);
+            const blockHeight = sourceLines.length * 4;
+
+            if (y + blockHeight > 265) {
                 doc.addPage();
                 y = 20;
-            } else {
-                y += 4;
             }
 
             doc.text(sourceLines, 14, y);
@@ -347,7 +332,6 @@ function exportMedicationsAsPDF(protocol, type, phase, triggeringButton) {
         for (let i = 1; i <= pageCount; i++) {
             doc.setPage(i);
             
-            // Footer rule at 282mm depth line
             doc.setDrawColor(230, 230, 230);
             doc.setLineWidth(0.2);
             doc.line(14, 282, 196, 282);
@@ -356,16 +340,15 @@ function exportMedicationsAsPDF(protocol, type, phase, triggeringButton) {
             doc.setFontSize(8);
             doc.setTextColor(150, 150, 150);
             
-            // Center text on the midpoint of the Portrait width (210 / 2 = 105mm)
             doc.text(
-                `Generated by HEMA NURSE AID  |  Page ${i} of ${pageCount}`,
+                `HEMA NURSE AID — Clinical Drug Reference Card  |  Page ${i} of ${pageCount}`,
                 105,
                 287,
                 { align: "center" }
             );
         }
 
-        const cleanFilename = `${protocolName
+        const cleanFilename = `Ref_${drugName
             .replace(/[^a-zA-Z0-9]/g, "_")
             .replace(/_+/g, "_")}.pdf`;
 
@@ -376,13 +359,12 @@ function exportMedicationsAsPDF(protocol, type, phase, triggeringButton) {
             triggeringButton.disabled = false;
         }
 
-    } catch (pdfError) {
-        console.error("PDF engine halted:", pdfError);
-        alert("Failed to build PDF. Technical Details: " + pdfError.message);
+    } catch (error) {
+        console.error("Medication PDF Compilation Failed:", error);
+        alert(`Failed to generate PDF.\nError Context: ${error.message}`);
         
-        // Reset button so UI doesn't freeze up
         if (triggeringButton) {
-            triggeringButton.innerHTML = "💾 Generation Error";
+            triggeringButton.textContent = "💾";
             triggeringButton.disabled = false;
         }
     }
