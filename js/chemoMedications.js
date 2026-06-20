@@ -43,8 +43,8 @@ const addDetailList = (container, label, items) => {
 
 const getMedicationSummary = drug => {
     const risk = drug.nursing_workflow?.during_infusion?.extravasation_management?.risk;
-    const source = drug.metadata?.evidence_source;
-    return [risk, source].filter(Boolean).join(" | ");
+    const drug_class = drug.drug_class;
+    return [risk, drug_class].filter(Boolean).join(" | ");
 };
 
 /* =========================================================
@@ -92,9 +92,6 @@ function openMedicationGroup(groupKey, options = {}) {
     });
 }
 
-/* =========================================================
-   SECURE RENDERING (Bedside Pro Schema)
-   ========================================================= */
 function renderMedicationDrug(drug, index, mountPoint, options = {}) {
     const targetDrugName = (options.targetDrugName || "").toLowerCase();
     const isTarget = targetDrugName && (drug.name || "").toLowerCase() === targetDrugName;
@@ -239,12 +236,12 @@ function exportMedicationAsPDF(drug, triggeringButton) {
         doc.setTextColor(100, 100, 100);
 
         const risk = wf.during_infusion?.extravasation_management?.risk || "Not specified";
-        const drugClass = drug?.class || "Not specified";
-        doc.text(`Drug Classification: ${cleanTextForPDF(drugClass)}  |  Extravasation Risk: ${cleanTextForPDF(risk)}`, 14, 25);
+        const drugClass = drug?.drug_class || "Not specified";
+        doc.text(`Class: ${cleanTextForPDF(drugClass)}  |  Extravasation Risk: ${cleanTextForPDF(risk)}`, 14, 25);
 
         // Brand Divider Line (Ends at 196mm for Portrait)
         doc.setDrawColor(0, 77, 64);
-        doc.setLineWidth(0.5);
+        doc.setLineWidth(0.7);
         doc.line(14, 28, 196, 28); 
 
         // --- GRID MATRIX DATA ASSEMBLY ---
@@ -313,8 +310,8 @@ function exportMedicationAsPDF(drug, triggeringButton) {
             doc.setTextColor(120, 120, 120);
 
             let footerMeta = "";
-            if (evidence) footerMeta += `Source Reference: ${evidence}`;
-            if (updated) footerMeta += `${evidence ? "  |  " : ""}System Sync Date: ${updated}`;
+            if (evidence) footerMeta += `Source: ${evidence}`;
+            if (updated) footerMeta += `${evidence ? "  |  " : ""}Last Updated: ${updated}`;
 
             const sourceLines = doc.splitTextToSize(cleanTextForPDF(footerMeta), 182);
             const blockHeight = sourceLines.length * 4;

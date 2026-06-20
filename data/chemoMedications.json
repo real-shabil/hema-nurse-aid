@@ -1,696 +1,1458 @@
 {
-    "medications": [
-        {
-            "name": "Alemtuzumab (Campath®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "BC Cancer & Lexicomp"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "High Cytokine Release Syndrome (CRS) risk. Profound prolonged T-cell depletion.",
-                    "mandatory_checks": [
-                        "Verify active infection prophylaxis (Bactrim/Acyclovir)",
-                        "Confirm premedications are administered 30 mins prior"
-                    ],
-                    "premeds": [
-                        "Acetaminophen (PO)",
-                        "Diphenhydramine (IV/PO)",
-                        "Methylprednisolone (IV)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "Monitor IV patency. Manage per standard irritant protocol.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Vitals every 15-30 minutes during infusion (high CRS risk).",
-                    "stop_criteria": [
-                        "Severe hypotension or cardiac instability",
-                        "Anaphylaxis, severe hypersensitivity, or uncontrolled rigors"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Assess for delayed CRS symptoms",
-                        "Monitor for opportunistic infections (CMV, PCP)"
-                    ],
-                    "patient_education": "Report fever, severe chills, or difficulty breathing immediately."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Fever > 38.0°C (100.4°F)",
-                    "Hypotension/Tachycardia",
-                    "Signs of active infection"
-                ],
-                "manage_at_bedside": [
-                    "Mild rigors (if protocol permits meperidine)",
-                    "Mild fatigue"
-                ]
-            }
-        },
-        {
-            "name": "All-Trans Retinoic Acid (ATRA / Tretinoin®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "BC Cancer"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "High risk of Differentiation Syndrome (DS). Severe teratogenicity.",
-                    "mandatory_checks": [
-                        "Check current WBC count (prophylactic steroids often ordered if >10k)",
-                        "Verify negative pregnancy status"
-                    ],
-                    "premeds": [
-                        "Prophylactic corticosteroids (if high WBC)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "N/A (Oral)",
-                        "action": "Ensure capsules are swallowed whole; do not crush.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Daily assessment for fluid status and respiratory changes.",
-                    "stop_criteria": [
-                        "Acute respiratory distress (suspected DS)",
-                        "Unexplained sudden weight gain or edema"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Assess lung sounds and daily weights strictly",
-                        "Monitor for severe headache (pseudotumor cerebri)"
-                    ],
-                    "patient_education": "Take with food. Do not take vitamin A supplements."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Shortness of breath or unexplained fever (DS alert)",
-                    "Severe, unremitting headache",
-                    "Rapid weight gain > 1-2 kg/day"
-                ],
-                "manage_at_bedside": [
-                    "Dry skin and lips (apply emollients heavily)",
-                    "Mild bone pain (give ordered analgesics)"
-                ]
-            }
-        },
-        {
-            "name": "Arsenic Trioxide (ATO / Trisenox®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "BC Cancer & Lexicomp"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "High risk of fatal QTc interval prolongation and Differentiation Syndrome.",
-                    "mandatory_checks": [
-                        "Verify baseline/recent ECG (QTc < 460 ms)",
-                        "Ensure Potassium > 4.0 mEq/L and Magnesium > 2.0 mg/dL"
-                    ],
-                    "premeds": [
-                        "Anti-emetics (moderate emetic risk)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "Ensure free-flowing IV. Monitor for local inflammation.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Continuous tele/ECG monitoring if high risk; frequent vitals.",
-                    "stop_criteria": [
-                        "QTc prolongation > 500 ms",
-                        "Onset of arrhythmias or syncope"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Monitor continuous cardiac rhythm and strict I/O",
-                        "Assess for signs of Differentiation Syndrome (dyspnea, weight gain)"
-                    ],
-                    "patient_education": "Report palpitations, dizziness, or shortness of breath instantly."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Syncope or irregular heartbeat",
-                    "Shortness of breath with fever",
-                    "Electrolytes dropping below target parameters"
-                ],
-                "manage_at_bedside": [
-                    "Mild nausea",
-                    "Fatigue"
-                ]
-            }
-        },
-        {
-            "name": "Asparaginase (Oncaspar® / Erwinaze®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Institutional Nursing Protocol & BC Cancer"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "High risk of severe coagulopathy (hemorrhage/thrombosis), pancreatitis, and anaphylaxis.",
-                    "mandatory_checks": [
-                        "Verify Fibrinogen level is > 1.0 g/L (or > 100 mg/dL)",
-                        "Ensure emergency anaphylaxis kit is at bedside"
-                    ],
-                    "premeds": [
-                        "Anti-emetics",
-                        "Antihistamines (per protocol)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "Stop infusion. Do not flush violently if extravasation is suspected.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Vitals q15 mins for first hour. Direct observation for hypersensitivity.",
-                    "stop_criteria": [
-                        "Signs of anaphylaxis (urticaria, wheezing, hypotension)",
-                        "Sudden severe abdominal pain (pancreatitis alert)"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Monitor amylase/lipase and blood glucose",
-                        "Perform strict neuro checks (risk of cerebral sinus thrombosis)"
-                    ],
-                    "patient_education": "Report severe stomach pain, sudden headaches, or unusual bleeding."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Severe abdominal pain radiating to back",
-                    "Sudden neurological deficits or severe headache",
-                    "Hypersensitivity reactions"
-                ],
-                "manage_at_bedside": [
-                    "Mild transient nausea",
-                    "Monitor hyperglycemia (administer insulin sliding scale as ordered)"
-                ]
-            }
-        },
-        {
-            "name": "Azacitidine (Vidaza®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Lexicomp"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "Drug is highly unstable once reconstituted (administer within 1-4 hours based on temperature).",
-                    "mandatory_checks": [
-                        "Verify administration timing limits with pharmacy",
-                        "Check current CBC for severe neutropenia/thrombocytopenia"
-                    ],
-                    "premeds": [
-                        "Ondansetron (PO/IV) 30 mins prior"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "If SubQ, rotate sites. If IV, verify brisk blood return.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Standard vitals pre and post administration.",
-                    "stop_criteria": [
-                        "Acute hypersensitivity (rare but possible)",
-                        "Severe pain at IV insertion site"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Assess injection sites for severe erythema or necrosis",
-                        "Monitor bowel habits (high risk of constipation with prophylactic anti-emetics)"
-                    ],
-                    "patient_education": "Expect local redness at injection sites; apply cold compresses for comfort."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Fever > 38.0°C (neutropenic sepsis risk)",
-                    "Bleeding or severe petechiae",
-                    "Injection site showing signs of active infection/necrosis"
-                ],
-                "manage_at_bedside": [
-                    "Mild constipation (offer bowel regimen)",
-                    "Local injection site erythema (cold compress)"
-                ]
-            }
-        },
-        {
-            "name": "Bendamustine (Treanda®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "BC Cancer"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "Risk of severe Tumor Lysis Syndrome (TLS) and secondary viral infections (opportunistic).",
-                    "mandatory_checks": [
-                        "Confirm active viral prophylaxis (Acyclovir/Valacyclovir)",
-                        "Ensure aggressive hydration orders are active"
-                    ],
-                    "premeds": [
-                        "5-HT3 Antagonist (Ondansetron/Granisetron)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Vesicant / Severe Irritant",
-                        "action": "Stop immediately. Aspirate residual. Apply COLD compresses.",
-                        "antidote": "Sodium Thiosulfate (if protocol specifies for severe cases)"
-                    },
-                    "monitoring_frequency": "Observe closely for skin reactions/anaphylaxis during infusion.",
-                    "stop_criteria": [
-                        "Loss of blood return or pain at IV site",
-                        "Development of acute rash or respiratory distress"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Monitor renal function, uric acid, and potassium (TLS watch)",
-                        "Assess for progressive skin rashes (Stevens-Johnson risk)"
-                    ],
-                    "patient_education": "Maintain high oral fluid intake for 48 hours post-infusion."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "New onset peeling skin rash or mucosal lesions",
-                    "Decreased urine output or flank pain",
-                    "Signs of extravasation"
-                ],
-                "manage_at_bedside": [
-                    "Mild nausea (administer prn anti-emetics)",
-                    "Fatigue"
-                ]
-            }
-        },
-        {
-            "name": "Blinatumomab (Blincyto®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Institutional Nursing Protocol"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "NEVER FLUSH THE IV LINE (fatal bolus risk). High risk of Cytokine Release Syndrome (CRS) and Neurotoxicity (ICANS).",
-                    "mandatory_checks": [
-                        "Confirm Dexamethasone given strictly prior to first dose/step-ups",
-                        "Verify dedicated continuous IV line without any other concurrent meds"
-                    ],
-                    "premeds": [
-                        "Dexamethasone (IV)",
-                        "Acetaminophen (PO)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "Ensure line is secure. Do not manipulate the pump aggressively.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Vitals q4h. ICE (neuro) score q4-8h minimum.",
-                    "stop_criteria": [
-                        "Any change in baseline neuro status (tremors, confusion, aphasia)",
-                        "Fever > 38.5°C accompanied by hypotension (CRS)"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Maintain strict continuous neurologic evaluations",
-                        "Monitor liver enzymes daily"
-                    ],
-                    "patient_education": "Do not manipulate the IV pump. Request help for any bathroom trips."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Deterioration in handwriting or ICE score (ICANS)",
-                    "New onset tremors, seizures, or aphasia",
-                    "Signs of severe CRS (Hypoxia, high fever, hypotension)"
-                ],
-                "manage_at_bedside": [
-                    "Low-grade fever (administer scheduled antipyretics and monitor)",
-                    "Mild headache (if neuro assessment is otherwise stable)"
-                ]
-            }
-        },
-        {
-            "name": "Bortezomib (Velcade®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Lexicomp & BC Cancer"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "High risk of Herpes Zoster (Shingles) reactivation and severe peripheral neuropathy.",
-                    "mandatory_checks": [
-                        "Confirm active antiviral prophylaxis is prescribed and taken",
-                        "Perform baseline neuropathy assessment prior to every dose"
-                    ],
-                    "premeds": [
-                        "Antivirals (Acyclovir/Valacyclovir continuous daily)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "SubQ route preferred to minimize vascular risk. If IV, ensure free flow.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Check vitals pre and post dose for orthostatic changes.",
-                    "stop_criteria": [
-                        "Acute severe orthostatic hypotension drops",
-                        "Severe acute worsening of neuropathic pain"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Assess for autonomic neuropathy (bowel motility, orthostasis)",
-                        "Monitor site for local reaction (SubQ common)"
-                    ],
-                    "patient_education": "Sit on edge of bed before standing. Report new numbness or tingling."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "New or worsening burning, numbness, or pain in hands/feet",
-                    "Severe dizziness upon standing (syncope risk)",
-                    "Signs of shingles rash"
-                ],
-                "manage_at_bedside": [
-                    "SubQ site erythema (rotate sites)",
-                    "Mild orthostasis (encourage slow position changes and hydration)"
-                ]
-            }
-        },
-        {
-            "name": "Cyclophosphamide (Cytoxan)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Institutional Nursing Protocol"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "Severe hemorrhagic cystitis risk. Dose-dependent fatal cardiotoxicity (necrosis/CHF).",
-                    "mandatory_checks": [
-                        "Verify robust hydration orders (Target 3L/day total fluid)",
-                        "Confirm Mesna availability and dosing times (if high-dose protocol)"
-                    ],
-                    "premeds": [
-                        "5-HT3 Antagonists + Dexamethasone (Moderate-High emetic risk)",
-                        "Mesna (Bladder protectant, IV)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "Stop infusion if pain occurs. Monitor for local phlebitis.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Vitals q1h during high-dose infusions. Strict I/O monitoring.",
-                    "stop_criteria": [
-                        "Gross visible hematuria in Foley or urinal",
-                        "Signs of acute heart failure (rapid weight gain, crackles, shortness of breath)"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Mandatory strict I/O. Maintain high urine output.",
-                        "Assess urine for blood (dipstick if suspected)"
-                    ],
-                    "patient_education": "Drink lots of fluids. You MUST wake up in the night to empty your bladder."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Pink, red, or bloody urine",
-                    "Dysuria (burning during urination)",
-                    "Chest pain, rapid heartbeat, or sudden shortness of breath"
-                ],
-                "manage_at_bedside": [
-                    "Nausea (administer PRN anti-emetics)",
-                    "Encourage frequent voiding (q2-3 hours minimum)"
-                ]
-            }
-        },
-        {
-            "name": "Cytarabine (Ara-C / Cytosar®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "BC Cancer"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "High-dose (HiDAC) causes severe irreversible cerebellar toxicity and chemical conjunctivitis.",
-                    "mandatory_checks": [
-                        "Perform baseline cerebellar neuro check (signature/writing test) prior to every dose",
-                        "Verify Dexamethasone eye drops are actively administered"
-                    ],
-                    "premeds": [
-                        "Steroid Eye Drops (start 6-12h before HiDAC)",
-                        "Anti-emetics"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "Verify IV patency continuously.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Continuous neuro checks per protocol. Check eyes for redness.",
-                    "stop_criteria": [
-                        "Any change in cerebellar function (nystagmus, dysmetria, ataxia, slurred speech)",
-                        "Acute severe eye pain"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Monitor for 'Cytarabine Syndrome' (fever, maculopapular rash, bone pain) 6-12h post-dose",
-                        "Administer scheduled eye drops faithfully (continue 24-48h post final dose)"
-                    ],
-                    "patient_education": "Report any blurriness of vision, feeling off-balance, or gritty feeling in eyes."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Worsening handwriting or inability to walk straight (Ataxia)",
-                    "Severe eye burning or tearing despite drops",
-                    "Fever with severe bone pain"
-                ],
-                "manage_at_bedside": [
-                    "Mild nausea",
-                    "Administer eye drops precisely on schedule"
-                ]
-            }
-        },
-        {
-            "name": "Daunorubicin (Cerubidine®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Lexicomp & BC Cancer"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "CRITICAL VESICANT. Deep tissue necrosis on extravasation. Lifetime cumulative cardiotoxicity.",
-                    "mandatory_checks": [
-                        "Verify baseline ECHO/MUGA LVEF is acceptable",
-                        "Verify central line patency with brisk, flawless blood return"
-                    ],
-                    "premeds": [
-                        "Aggressive Anti-emetics (High risk)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Vesicant",
-                        "action": "STOP IMMEDIATELY. Do not flush. Aspirate residual. Apply COLD PACKS.",
-                        "antidote": "Dexrazoxane (IV) or Topical DMSO (per protocol)"
-                    },
-                    "monitoring_frequency": "Direct nurse presence required during entire push/infusion.",
-                    "stop_criteria": [
-                        "ANY loss of blood return, resistance to push, or patient report of pain/burning",
-                        "Sudden cardiac arrhythmias"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Assess oral mucosa closely for severe mucositis",
-                        "Monitor cardiac rhythm post-infusion"
-                    ],
-                    "patient_education": "Your urine will turn red/orange for 1-2 days. Use soft toothbrush."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Signs of extravasation (swelling, redness, pain at site)",
-                    "Palpitations, sudden edema, or shortness of breath (Cardiotoxicity)",
-                    "Fever in presence of severe mucositis"
-                ],
-                "manage_at_bedside": [
-                    "Provide aggressive ice chips (cryotherapy) during infusion to prevent mucositis",
-                    "Reassure regarding red urine"
-                ]
-            }
-        },
-        {
-            "name": "Fludarabine (Fludara®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "BC Cancer"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "Severe T-cell depletion. Fatal Transfusion-Associated Graft-Versus-Host Disease (TA-GVHD) risk.",
-                    "mandatory_checks": [
-                        "CRITICAL: All transfused blood products MUST be irradiated",
-                        "Verify PJP (Bactrim) and Antiviral (Acyclovir) prophylaxis are active"
-                    ],
-                    "premeds": [
-                        "Standard anti-emetics (Low-moderate risk)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Irritant",
-                        "action": "Standard irritant care. Ensure patent line.",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Routine vitals. Observe for acute neuro changes.",
-                    "stop_criteria": [
-                        "Sudden acute altered mental status, visual changes, or seizures",
-                        "Severe hypersensitivity"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Monitor for profound delayed myelosuppression and opportunistic infections",
-                        "Assess for autoimmune hemolytic anemia (jaundice, sudden hemoglobin drop)"
-                    ],
-                    "patient_education": "You are at high risk for infection for months after this drug. Avoid sick contacts."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Visual disturbances, severe confusion, or coma (Neurotoxicity)",
-                    "Signs of anemia (extreme fatigue, pale skin, jaundice)",
-                    "Any signs of infection or fever"
-                ],
-                "manage_at_bedside": [
-                    "Ensure blood bank is alerted to \"Irradiated Only\" status",
-                    "Mild fatigue"
-                ]
-            }
-        },
-        {
-            "name": "Hydroxyurea (Hydrea®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Lexicomp"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "Severe bone marrow suppression. Extreme TLS risk upon rapid debulking of WBC.",
-                    "mandatory_checks": [
-                        "Confirm hazardous drug handling precautions (wear chemo gloves for oral prep)",
-                        "Verify Allopurinol/Hydration ordered if starting for massive leukocytosis"
-                    ],
-                    "premeds": [
-                        "Allopurinol (TLS prophylaxis)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "N/A (Oral)",
-                        "action": "N/A",
-                        "antidote": "None"
-                    },
-                    "monitoring_frequency": "Daily CBC monitoring during initial debulking phase.",
-                    "stop_criteria": [
-                        "WBC drops below designated safety parameters rapidly",
-                        "Severe TLS lab derangements"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Assess lower extremities for painful, non-healing leg ulcers",
-                        "Monitor renal function and uric acid"
-                    ],
-                    "patient_education": "Wash hands after handling. Do not open capsules. Use sun protection."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Development of painful skin ulcers on legs/ankles",
-                    "Rapid decrease in urine output",
-                    "Signs of severe anemia or infection"
-                ],
-                "manage_at_bedside": [
-                    "Mild nausea (take with food if acceptable)",
-                    "Encourage high oral fluid intake"
-                ]
-            }
-        },
-        {
-            "name": "Vincristine (Oncovin®)",
-            "metadata": {
-                "last_updated": "2026-06-18",
-                "evidence_source": "Institutional Nursing Protocol"
-            },
-            "nursing_workflow": {
-                "pre_infusion_safety": {
-                    "fatal_alerts": "NEVER INTRATHECAL. Fatal if given spinally. Must be dispensed in a minibag to prevent accidental IV push errors.",
-                    "mandatory_checks": [
-                        "Verify patient ID strictly",
-                        "Confirm IV patency with brisk blood return (Potent Vesicant)"
-                    ],
-                    "premeds": [
-                        "Laxatives (prophylactic bowel regimen to prevent fatal paralytic ileus)"
-                    ]
-                },
-                "during_infusion": {
-                    "extravasation_management": {
-                        "risk": "Vesicant",
-                        "action": "Stop infusion immediately. Aspirate. Apply WARM COMPRESSES ONLY.",
-                        "antidote": "Hyaluronidase"
-                    },
-                    "monitoring_frequency": "Continuous direct observation and line assessment during administration.",
-                    "stop_criteria": [
-                        "Patient complains of burning/pain at IV site",
-                        "Any signs of redness, swelling, or loss of blood return"
-                    ]
-                },
-                "post_infusion_care": {
-                    "nursing_assessment": [
-                        "Assess for constipation and strict bowel sounds (paralytic ileus risk)",
-                        "Check for severe neurotoxicity (foot drop, severe jaw pain, loss of deep tendon reflexes)"
-                    ],
-                    "patient_education": "Report numbness in fingers/toes, jaw pain, or lack of bowel movements immediately."
-                }
-            },
-            "side_effect_triage": {
-                "report_to_physician": [
-                    "Signs of paralytic ileus (no bowel movement, severe bloating)",
-                    "New onset foot drop or loss of motor function",
-                    "Severe jaw pain"
-                ],
-                "manage_at_bedside": [
-                    "Mild constipation (optimize prophylactic bowel regimen)",
-                    "Mild sensory tingling (document and monitor)"
-                ]
-            }
-        }
-    ]
+	"medications": [
+		{
+			"drug_class": "Monoclonal Antibody",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Alemtuzumab (Campath®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Monitor IV patency. Manage per standard irritant protocol.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Vitals every 15-30 minutes during infusion (high CRS risk).",
+					"stop_criteria": [
+						"Severe hypotension or cardiac instability",
+						"Anaphylaxis, severe hypersensitivity, or uncontrolled rigors"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess for delayed CRS symptoms",
+						"Monitor for opportunistic infections (CMV, PCP)"
+					],
+					"patient_education": "Report fever, severe chills, or difficulty breathing immediately."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High Cytokine Release Syndrome (CRS) risk. Profound prolonged T-cell depletion.",
+					"mandatory_checks": [
+						"Verify active infection prophylaxis (Bactrim/Acyclovir)",
+						"Confirm premedications are administered 30 mins prior"
+					],
+					"premeds": [
+						"Acetaminophen (PO)",
+						"Diphenhydramine (IV/PO)",
+						"Methylprednisolone (IV)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild rigors (if protocol permits meperidine)",
+					"Mild fatigue"
+				],
+				"report_to_physician": [
+					"Fever > 38.0°C (100.4°F)",
+					"Hypotension/Tachycardia",
+					"Signs of active infection"
+				]
+			}
+		},
+		{
+			"drug_class": "Differentiating Agent",
+			"metadata": {
+				"evidence_source": "BC Cancer",
+				"last_updated": "18-06-2026"
+			},
+			"name": "All-Trans Retinoic Acid (ATRA / Tretinoin®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Ensure capsules are swallowed whole; do not crush.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Daily assessment for fluid status and respiratory changes.",
+					"stop_criteria": [
+						"Acute respiratory distress (suspected DS)",
+						"Unexplained sudden weight gain or edema"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess lung sounds and daily weights strictly",
+						"Monitor for severe headache (pseudotumor cerebri)"
+					],
+					"patient_education": "Take with food. Do not take vitamin A supplements."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk of Differentiation Syndrome (DS). Severe teratogenicity.",
+					"mandatory_checks": [
+						"Check current WBC count (prophylactic steroids often ordered if >10k)",
+						"Verify negative pregnancy status"
+					],
+					"premeds": [
+						"Prophylactic corticosteroids (if high WBC)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Dry skin and lips (apply emollients heavily)",
+					"Mild bone pain (give ordered analgesics)"
+				],
+				"report_to_physician": [
+					"Shortness of breath or unexplained fever (DS alert)",
+					"Severe, unremitting headache",
+					"Rapid weight gain > 1-2 kg/day"
+				]
+			}
+		},
+		{
+			"drug_class": "Apoptosis Inducer",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Arsenic Trioxide (ATO / Trisenox®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Ensure free-flowing IV. Monitor for local inflammation.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Continuous tele/ECG monitoring if high risk; frequent vitals.",
+					"stop_criteria": [
+						"QTc prolongation > 500 ms",
+						"Onset of arrhythmias or syncope"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor continuous cardiac rhythm and strict I/O",
+						"Assess for signs of Differentiation Syndrome (dyspnea, weight gain)"
+					],
+					"patient_education": "Report palpitations, dizziness, or shortness of breath instantly."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk of fatal QTc interval prolongation and Differentiation Syndrome.",
+					"mandatory_checks": [
+						"Verify baseline/recent ECG (QTc < 460 ms)",
+						"Ensure Potassium > 4.0 mEq/L and Magnesium > 2.0 mg/dL"
+					],
+					"premeds": [
+						"Anti-emetics (moderate emetic risk)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild nausea",
+					"Fatigue"
+				],
+				"report_to_physician": [
+					"Syncope or irregular heartbeat",
+					"Shortness of breath with fever",
+					"Electrolytes dropping below target parameters"
+				]
+			}
+		},
+		{
+			"drug_class": "Enzyme",
+			"metadata": {
+				"evidence_source": "Institutional Nursing Protocol & BC Cancer",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Asparaginase (Oncaspar® / Erwinaze®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Stop infusion. Do not flush violently if extravasation is suspected.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Vitals q15 mins for first hour. Direct observation for hypersensitivity.",
+					"stop_criteria": [
+						"Signs of anaphylaxis (urticaria, wheezing, hypotension)",
+						"Sudden severe abdominal pain (pancreatitis alert)"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor amylase/lipase and blood glucose",
+						"Perform strict neuro checks (risk of cerebral sinus thrombosis)"
+					],
+					"patient_education": "Report severe stomach pain, sudden headaches, or unusual bleeding."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk of severe coagulopathy (hemorrhage/thrombosis), pancreatitis, and anaphylaxis.",
+					"mandatory_checks": [
+						"Verify Fibrinogen level is > 1.0 g/L (or > 100 mg/dL)",
+						"Ensure emergency anaphylaxis kit is at bedside"
+					],
+					"premeds": [
+						"Anti-emetics",
+						"Antihistamines (per protocol)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild transient nausea",
+					"Monitor hyperglycemia (administer insulin sliding scale as ordered)"
+				],
+				"report_to_physician": [
+					"Severe abdominal pain radiating to back",
+					"Sudden neurological deficits or severe headache",
+					"Hypersensitivity reactions"
+				]
+			}
+		},
+		{
+			"drug_class": "Antimetabolite (Hypomethylating Agent)",
+			"metadata": {
+				"evidence_source": "Lexicomp",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Azacitidine (Vidaza®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "If SubQ, rotate sites. If IV, verify brisk blood return.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Standard vitals pre and post administration.",
+					"stop_criteria": [
+						"Acute hypersensitivity (rare but possible)",
+						"Severe pain at IV insertion site"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess injection sites for severe erythema or necrosis",
+						"Monitor bowel habits (high risk of constipation with prophylactic anti-emetics)"
+					],
+					"patient_education": "Expect local redness at injection sites; apply cold compresses for comfort."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Drug is highly unstable once reconstituted (administer within 1-4 hours based on temperature).",
+					"mandatory_checks": [
+						"Verify administration timing limits with pharmacy",
+						"Check current CBC for severe neutropenia/thrombocytopenia"
+					],
+					"premeds": [
+						"Ondansetron (PO/IV) 30 mins prior"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild constipation (offer bowel regimen)",
+					"Local injection site erythema (cold compress)"
+				],
+				"report_to_physician": [
+					"Fever > 38.0°C (neutropenic sepsis risk)",
+					"Bleeding or severe petechiae",
+					"Injection site showing signs of active infection/necrosis"
+				]
+			}
+		},
+		{
+			"drug_class": "Alkylating Agent",
+			"metadata": {
+				"evidence_source": "BC Cancer",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Bendamustine (Treanda®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Stop immediately. Aspirate residual. Apply COLD compresses.",
+						"antidote": "Sodium Thiosulfate (if protocol specifies for severe cases)",
+						"risk": "Vesicant / Severe Irritant"
+					},
+					"monitoring_frequency": "Observe closely for skin reactions/anaphylaxis during infusion.",
+					"stop_criteria": [
+						"Loss of blood return or pain at IV site",
+						"Development of acute rash or respiratory distress"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor renal function, uric acid, and potassium (TLS watch)",
+						"Assess for progressive skin rashes (Stevens-Johnson risk)"
+					],
+					"patient_education": "Maintain high oral fluid intake for 48 hours post-infusion."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Risk of severe Tumor Lysis Syndrome (TLS) and secondary viral infections (opportunistic).",
+					"mandatory_checks": [
+						"Confirm active viral prophylaxis (Acyclovir/Valacyclovir)",
+						"Ensure aggressive hydration orders are active"
+					],
+					"premeds": [
+						"5-HT3 Antagonist (Ondansetron/Granisetron)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild nausea (administer prn anti-emetics)",
+					"Fatigue"
+				],
+				"report_to_physician": [
+					"New onset peeling skin rash or mucosal lesions",
+					"Decreased urine output or flank pain",
+					"Signs of extravasation"
+				]
+			}
+		},
+		{
+			"drug_class": "Bispecific T-cell Engager (BiTE)",
+			"metadata": {
+				"evidence_source": "Institutional Nursing Protocol",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Blinatumomab (Blincyto®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Ensure line is secure. Do not manipulate the pump aggressively.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Vitals q4h. ICE (neuro) score q4-8h minimum.",
+					"stop_criteria": [
+						"Any change in baseline neuro status (tremors, confusion, aphasia)",
+						"Fever > 38.5°C accompanied by hypotension (CRS)"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Maintain strict continuous neurologic evaluations",
+						"Monitor liver enzymes daily"
+					],
+					"patient_education": "Do not manipulate the IV pump. Request help for any bathroom trips."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "NEVER FLUSH THE IV LINE (fatal bolus risk). High risk of Cytokine Release Syndrome (CRS) and Neurotoxicity (ICANS).",
+					"mandatory_checks": [
+						"Confirm Dexamethasone given strictly prior to first dose/step-ups",
+						"Verify dedicated continuous IV line without any other concurrent meds"
+					],
+					"premeds": [
+						"Dexamethasone (IV)",
+						"Acetaminophen (PO)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Low-grade fever (administer scheduled antipyretics and monitor)",
+					"Mild headache (if neuro assessment is otherwise stable)"
+				],
+				"report_to_physician": [
+					"Deterioration in handwriting or ICE score (ICANS)",
+					"New onset tremors, seizures, or aphasia",
+					"Signs of severe CRS (Hypoxia, high fever, hypotension)"
+				]
+			}
+		},
+		{
+			"drug_class": "Proteasome Inhibitor",
+			"metadata": {
+				"evidence_source": "Lexicomp & BC Cancer",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Bortezomib (Velcade®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "SubQ route preferred to minimize vascular risk. If IV, ensure free flow.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Check vitals pre and post dose for orthostatic changes.",
+					"stop_criteria": [
+						"Acute severe orthostatic hypotension drops",
+						"Severe acute worsening of neuropathic pain"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess for autonomic neuropathy (bowel motility, orthostasis)",
+						"Monitor site for local reaction (SubQ common)"
+					],
+					"patient_education": "Sit on edge of bed before standing. Report new numbness or tingling."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk of Herpes Zoster (Shingles) reactivation and severe peripheral neuropathy.",
+					"mandatory_checks": [
+						"Confirm active antiviral prophylaxis is prescribed and taken",
+						"Perform baseline neuropathy assessment prior to every dose"
+					],
+					"premeds": [
+						"Antivirals (Acyclovir/Valacyclovir continuous daily)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"SubQ site erythema (rotate sites)",
+					"Mild orthostasis (encourage slow position changes and hydration)"
+				],
+				"report_to_physician": [
+					"New or worsening burning, numbness, or pain in hands/feet",
+					"Severe dizziness upon standing (syncope risk)",
+					"Signs of shingles rash"
+				]
+			}
+		},
+		{
+			"drug_class": "Alkylating Agent",
+			"metadata": {
+				"evidence_source": "Institutional Nursing Protocol",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Cyclophosphamide (Cytoxan)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Stop infusion if pain occurs. Monitor for local phlebitis.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Vitals q1h during high-dose infusions. Strict I/O monitoring.",
+					"stop_criteria": [
+						"Gross visible hematuria in Foley or urinal",
+						"Signs of acute heart failure (rapid weight gain, crackles, shortness of breath)"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Mandatory strict I/O. Maintain high urine output.",
+						"Assess urine for blood (dipstick if suspected)"
+					],
+					"patient_education": "Drink lots of fluids. You MUST wake up in the night to empty your bladder."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe hemorrhagic cystitis risk. Dose-dependent fatal cardiotoxicity (necrosis/CHF).",
+					"mandatory_checks": [
+						"Verify robust hydration orders (Target 3L/day total fluid)",
+						"Confirm Mesna availability and dosing times (if high-dose protocol)"
+					],
+					"premeds": [
+						"5-HT3 Antagonists + Dexamethasone (Moderate-High emetic risk)",
+						"Mesna (Bladder protectant, IV)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Nausea (administer PRN anti-emetics)",
+					"Encourage frequent voiding (q2-3 hours minimum)"
+				],
+				"report_to_physician": [
+					"Pink, red, or bloody urine",
+					"Dysuria (burning during urination)",
+					"Chest pain, rapid heartbeat, or sudden shortness of breath"
+				]
+			}
+		},
+		{
+			"drug_class": "Antimetabolite",
+			"metadata": {
+				"evidence_source": "BC Cancer",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Cytarabine (Ara-C / Cytosar®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Verify IV patency continuously.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Continuous neuro checks per protocol. Check eyes for redness.",
+					"stop_criteria": [
+						"Any change in cerebellar function (nystagmus, dysmetria, ataxia, slurred speech)",
+						"Acute severe eye pain"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor for 'Cytarabine Syndrome' (fever, maculopapular rash, bone pain) 6-12h post-dose",
+						"Administer scheduled eye drops faithfully (continue 24-48h post final dose)"
+					],
+					"patient_education": "Report any blurriness of vision, feeling off-balance, or gritty feeling in eyes."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High-dose (HiDAC) causes severe irreversible cerebellar toxicity and chemical conjunctivitis.",
+					"mandatory_checks": [
+						"Perform baseline cerebellar neuro check (signature/writing test) prior to every dose",
+						"Verify Dexamethasone eye drops are actively administered"
+					],
+					"premeds": [
+						"Steroid Eye Drops (start 6-12h before HiDAC)",
+						"Anti-emetics"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild nausea",
+					"Administer eye drops precisely on schedule"
+				],
+				"report_to_physician": [
+					"Worsening handwriting or inability to walk straight (Ataxia)",
+					"Severe eye burning or tearing despite drops",
+					"Fever with severe bone pain"
+				]
+			}
+		},
+		{
+			"drug_class": "Antitumor Antibiotic",
+			"metadata": {
+				"evidence_source": "Lexicomp & BC Cancer",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Daunorubicin (Cerubidine®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "STOP IMMEDIATELY. Do not flush. Aspirate residual. Apply COLD PACKS.",
+						"antidote": "Dexrazoxane (IV) or Topical DMSO (per protocol)",
+						"risk": "Vesicant"
+					},
+					"monitoring_frequency": "Direct nurse presence required during entire push/infusion.",
+					"stop_criteria": [
+						"ANY loss of blood return, resistance to push, or patient report of pain/burning",
+						"Sudden cardiac arrhythmias"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess oral mucosa closely for severe mucositis",
+						"Monitor cardiac rhythm post-infusion"
+					],
+					"patient_education": "Your urine will turn red/orange for 1-2 days. Use soft toothbrush."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "CRITICAL VESICANT. Deep tissue necrosis on extravasation. Lifetime cumulative cardiotoxicity.",
+					"mandatory_checks": [
+						"Verify baseline ECHO/MUGA LVEF is acceptable",
+						"Verify central line patency with brisk, flawless blood return"
+					],
+					"premeds": [
+						"Aggressive Anti-emetics (High risk)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Provide aggressive ice chips (cryotherapy) during infusion to prevent mucositis",
+					"Reassure regarding red urine"
+				],
+				"report_to_physician": [
+					"Signs of extravasation (swelling, redness, pain at site)",
+					"Palpitations, sudden edema, or shortness of breath (Cardiotoxicity)",
+					"Fever in presence of severe mucositis"
+				]
+			}
+		},
+		{
+			"drug_class": "Antimetabolite",
+			"metadata": {
+				"evidence_source": "BC Cancer",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Fludarabine (Fludara®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Standard irritant care. Ensure patent line.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Routine vitals. Observe for acute neuro changes.",
+					"stop_criteria": [
+						"Sudden acute altered mental status, visual changes, or seizures",
+						"Severe hypersensitivity"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor for profound delayed myelosuppression and opportunistic infections",
+						"Assess for autoimmune hemolytic anemia (jaundice, sudden hemoglobin drop)"
+					],
+					"patient_education": "You are at high risk for infection for months after this drug. Avoid sick contacts."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe T-cell depletion. Fatal Transfusion-Associated Graft-Versus-Host Disease (TA-GVHD) risk.",
+					"mandatory_checks": [
+						"CRITICAL: All transfused blood products MUST be irradiated",
+						"Verify PJP (Bactrim) and Antiviral (Acyclovir) prophylaxis are active"
+					],
+					"premeds": [
+						"Standard anti-emetics (Low-moderate risk)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Ensure blood bank is alerted to \"Irradiated Only\" status",
+					"Mild fatigue"
+				],
+				"report_to_physician": [
+					"Visual disturbances, severe confusion, or coma (Neurotoxicity)",
+					"Signs of anemia (extreme fatigue, pale skin, jaundice)",
+					"Any signs of infection or fever"
+				]
+			}
+		},
+		{
+			"drug_class": "Antimetabolite",
+			"metadata": {
+				"evidence_source": "Lexicomp",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Hydroxyurea (Hydrea®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "N/A",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Daily CBC monitoring during initial debulking phase.",
+					"stop_criteria": [
+						"WBC drops below designated safety parameters rapidly",
+						"Severe TLS lab derangements"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess lower extremities for painful, non-healing leg ulcers",
+						"Monitor renal function and uric acid"
+					],
+					"patient_education": "Wash hands after handling. Do not open capsules. Use sun protection."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe bone marrow suppression. Extreme TLS risk upon rapid debulking of WBC.",
+					"mandatory_checks": [
+						"Confirm hazardous drug handling precautions (wear chemo gloves for oral prep)",
+						"Verify Allopurinol/Hydration ordered if starting for massive leukocytosis"
+					],
+					"premeds": [
+						"Allopurinol (TLS prophylaxis)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild nausea (take with food if acceptable)",
+					"Encourage high oral fluid intake"
+				],
+				"report_to_physician": [
+					"Development of painful skin ulcers on legs/ankles",
+					"Rapid decrease in urine output",
+					"Signs of severe anemia or infection"
+				]
+			}
+		},
+		{
+			"drug_class": "Plant Alkaloid",
+			"metadata": {
+				"evidence_source": "Institutional Nursing Protocol",
+				"last_updated": "18-06-2026"
+			},
+			"name": "Vincristine (Oncovin®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Stop infusion immediately. Aspirate. Apply WARM COMPRESSES ONLY.",
+						"antidote": "Hyaluronidase",
+						"risk": "Vesicant"
+					},
+					"monitoring_frequency": "Continuous direct observation and line assessment during administration.",
+					"stop_criteria": [
+						"Patient complains of burning/pain at IV site",
+						"Any signs of redness, swelling, or loss of blood return"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess for constipation and strict bowel sounds (paralytic ileus risk)",
+						"Check for severe neurotoxicity (foot drop, severe jaw pain, loss of deep tendon reflexes)"
+					],
+					"patient_education": "Report numbness in fingers/toes, jaw pain, or lack of bowel movements immediately."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "NEVER INTRATHECAL. Fatal if given spinally. Must be dispensed in a minibag to prevent accidental IV push errors.",
+					"mandatory_checks": [
+						"Verify patient ID strictly",
+						"Confirm IV patency with brisk blood return (Potent Vesicant)"
+					],
+					"premeds": [
+						"Laxatives (prophylactic bowel regimen to prevent fatal paralytic ileus)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild constipation (optimize prophylactic bowel regimen)",
+					"Mild sensory tingling (document and monitor)"
+				],
+				"report_to_physician": [
+					"Signs of paralytic ileus (no bowel movement, severe bloating)",
+					"New onset foot drop or loss of motor function",
+					"Severe jaw pain"
+				]
+			}
+		},
+		{
+			"drug_class": "Tyrosine Kinase Inhibitor (TKI)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Dasatinib (Sprycel®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Ensure tablets are swallowed whole; do not crush, cut, or chew.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Routine inpatient/outpatient assessment. Close monitoring of respiratory status and vital signs.",
+					"stop_criteria": [
+						"Severe respiratory distress (suspected pleural effusion or PAH)",
+						"Grade 3 or 4 hemorrhage (GI, CNS, or other)",
+						"QTc prolongation > 500 msec"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess respiratory status strictly for dyspnea, dry cough, or hypoxia",
+						"Monitor fluid balance and daily weights for signs of severe fluid retention",
+						"Assess for signs of gastrointestinal, CNS, or mucosal bleeding"
+					],
+					"patient_education": "Swallow tablets whole. Do not take with grapefruit juice. Immediately report shortness of breath or sudden weight gain."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk for severe fluid retention (especially pleural/pericardial effusion), Pulmonary Arterial Hypertension (PAH), and severe myelosuppression.",
+					"mandatory_checks": [
+						"Confirm hazardous drug handling precautions (wear chemo gloves for oral prep)",
+						"Verify baseline ECG (QTc must be within normal limits)",
+						"Check for drug interactions: Avoid PPIs and H2 antagonists (they severely decrease absorption). Stagger antacids by 2 hours.",
+						"Verify baseline CBC, LFTs, and electrolytes"
+					],
+					"premeds": [
+						"None routinely required."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild fatigue",
+					"Mild nausea or diarrhea (manage with PRN meds per protocol)",
+					"Mild, non-debilitating muscle or joint aches"
+				],
+				"report_to_physician": [
+					"Shortness of breath, dry cough, or chest pain",
+					"Rapid weight gain > 1-2 kg/day or severe peripheral edema",
+					"Unusual bleeding or bruising (e.g., melena, hematuria)",
+					"Fever > 38.0°C (100.4°F)"
+				]
+			}
+		},
+		{
+			"drug_class": "BCL-2 Inhibitor",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Venetoclax (Venclexta®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Ensure tablets are swallowed whole with a meal and water. Do not crush, chew, or break.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Strict lab monitoring at 6-8 hours and 24 hours post-dose during the ramp-up phase.",
+					"stop_criteria": [
+						"Any lab evidence of Tumor Lysis Syndrome (e.g., hyperkalemia, hyperuricemia)",
+						"Severe neutropenic fever"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor strict intake and output (I/O) to ensure adequate flushing of kidneys.",
+						"Assess for signs of TLS (lethargy, muscle cramps, decreased urine output)."
+					],
+					"patient_education": "Take exactly at the same time every day with a meal. Drink at least 6-8 glasses of water daily. Avoid grapefruit, starfruit, and Seville oranges entirely."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Extreme risk of fatal Tumor Lysis Syndrome (TLS), especially during the 5-week dose ramp-up phase.",
+					"mandatory_checks": [
+						"Verify baseline chemistry (K+, Uric Acid, Phosphorus, Calcium) prior to first dose and every dose escalation.",
+						"Confirm aggressive hydration (IV or PO target >1.5-2L/day) is active.",
+						"Verify prophylactic Allopurinol or Rasburicase is administered.",
+						"Confirm hazardous drug handling precautions (wear chemo gloves)."
+					],
+					"premeds": [
+						"Allopurinol (PO)",
+						"Anti-emetics (PRN)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild nausea (administer PRN anti-emetics)",
+					"Mild fatigue",
+					"Encourage continuous oral hydration"
+				],
+				"report_to_physician": [
+					"Decreased urine output or dark urine",
+					"Muscle cramps, twitching, or irregular heartbeat (TLS alert)",
+					"Fever > 38.0°C (100.4°F)"
+				]
+			}
+		},
+		{
+			"drug_class": "Immunomodulatory Drug (IMiD)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Lenalidomide (Revlimid®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Swallow capsules whole with water. Do not open or crush under any circumstances.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Routine outpatient/inpatient monitoring. Regular CBC checks for myelosuppression.",
+					"stop_criteria": [
+						"Clinical signs of DVT/PE (sudden shortness of breath, unilateral calf swelling/pain)",
+						"Development of blistering skin rash (Stevens-Johnson Syndrome risk)"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess calves for tenderness, swelling, or erythema (DVT watch).",
+						"Monitor respiratory status for sudden dyspnea or hypoxia (PE watch).",
+						"Assess skin daily for new or worsening rashes."
+					],
+					"patient_education": "Strict adherence to birth control is mandatory. Do not donate blood or sperm. Immediately report any sudden leg swelling or chest pain."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe teratogen (fetal anomalies/death). High risk of Deep Vein Thrombosis (DVT) and Pulmonary Embolism (PE).",
+					"mandatory_checks": [
+						"Verify active REMS (RevAssist/Revlimid REMS) authorization and negative pregnancy test for females of childbearing potential.",
+						"Confirm active VTE prophylaxis is prescribed (e.g., Aspirin, Enoxaparin, or DOAC).",
+						"Confirm hazardous drug handling precautions (wear chemo gloves, especially if female nurse of childbearing age)."
+					],
+					"premeds": [
+						"VTE prophylaxis (Aspirin/Anticoagulant) as ordered."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild diarrhea or constipation (manage per bowel protocol)",
+					"Mild fatigue or muscle cramps",
+					"Dry skin (provide emollients)"
+				],
+				"report_to_physician": [
+					"Unilateral leg swelling, warmth, or pain",
+					"Sudden chest pain or shortness of breath",
+					"New or spreading skin rash or mucosal lesions",
+					"Fever > 38.0°C (100.4°F)"
+				]
+			}
+		},
+		{
+			"drug_class": "Tyrosine Kinase Inhibitor (TKI)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Imatinib (Gleevec®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Administer with a meal and a large glass of water to minimize severe GI irritation.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Routine monitoring of daily weights, fluid status, and LFTs.",
+					"stop_criteria": [
+						"Rapid, unexplained weight gain or severe respiratory distress",
+						"Severe elevation in liver transaminases or bilirubin",
+						"Severe, uncontrolled gastrointestinal hemorrhage"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor daily weights strictly (watch for >2 kg gain in a week).",
+						"Assess for periorbital edema, lower extremity edema, and auscultate lung bases.",
+						"Assess for signs of GI bleeding or severe nausea."
+					],
+					"patient_education": "Always take with food and a large glass of water. Report sudden weight gain, puffy eyes, or shortness of breath immediately. Avoid grapefruit juice."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Risk of severe fluid retention (pleural effusion, ascites, pulmonary edema) and hepatotoxicity.",
+					"mandatory_checks": [
+						"Verify baseline Liver Function Tests (LFTs) and CBC.",
+						"Assess baseline weight and presence of peripheral edema.",
+						"Confirm hazardous drug handling precautions."
+					],
+					"premeds": [
+						"None routinely required, but anti-emetics may be needed if history of severe GI upset."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild to moderate nausea (encourage taking with largest meal of the day)",
+					"Mild muscle cramps (manage with PRN analgesics/electrolytes if ordered)",
+					"Mild, superficial rash"
+				],
+				"report_to_physician": [
+					"Rapid weight gain or sudden swelling around the eyes/legs",
+					"Shortness of breath or dyspnea on exertion",
+					"Jaundice (yellowing of eyes/skin) or dark urine",
+					"Black, tarry stools or vomiting blood"
+				]
+			}
+		},
+		{
+			"drug_class": "Tyrosine Kinase Inhibitor (TKI)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Bosutinib (Bosulif®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Ensure tablets are swallowed whole with food to minimize GI irritation. Do not crush, cut, or chew.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Routine outpatient/inpatient lab monitoring (CBC, LFTs, electrolytes) heavily focused on hydration status.",
+					"stop_criteria": [
+						"Grade 3 or 4 diarrhea (more than 7 stools per day over baseline) unresponsive to antidiarrheals",
+						"Severe elevation in liver transaminases"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Strictly monitor bowel movement frequency and consistency.",
+						"Assess hydration status and electrolytes, especially if diarrhea is present.",
+						"Monitor daily weights for fluid retention (less common than with Dasatinib/Imatinib, but possible)."
+					],
+					"patient_education": "Take with a meal. Do not eat grapefruit. Report severe diarrhea, yellowing of eyes/skin, or sudden weight gain immediately."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk of severe gastrointestinal toxicity (profuse diarrhea), hepatotoxicity, and myelosuppression.",
+					"mandatory_checks": [
+						"Verify baseline Liver Function Tests (LFTs) and CBC.",
+						"Confirm hazardous drug handling precautions.",
+						"Check for drug interactions: Avoid PPIs (decreases absorption). If antacids or H2 blockers are needed, stagger by at least 2 hours."
+					],
+					"premeds": [
+						"Anti-diarrheals (e.g., Loperamide) should be readily available or ordered PRN."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild to moderate diarrhea (initiate ordered PRN antidiarrheal protocol)",
+					"Mild nausea or abdominal pain",
+					"Fatigue"
+				],
+				"report_to_physician": [
+					"Uncontrolled diarrhea despite Loperamide",
+					"Jaundice or dark-colored urine",
+					"Fever > 38.0°C (100.4°F)"
+				]
+			}
+		},
+		{
+			"drug_class": "Immunomodulatory Drug (IMiD)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Pomalidomide (Pomalyst®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Swallow capsules whole with water. Do not break, chew, or open capsules.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Routine monitoring for VTE symptoms and myelosuppression (especially neutropenia).",
+					"stop_criteria": [
+						"Clinical signs of DVT or PE",
+						"Development of blistering skin rash or angioedema"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess calves for redness, swelling, and pain (DVT).",
+						"Monitor respiratory rate and oxygen saturation (PE).",
+						"Monitor CBC for profound neutropenia."
+					],
+					"patient_education": "Strict adherence to dual birth control methods. Do not donate blood or sperm. Report any leg pain, swelling, or sudden chest pain immediately."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe teratogen (fetal death/malformation). Extreme risk for Venous Thromboembolism (DVT/PE).",
+					"mandatory_checks": [
+						"Verify active REMS (Pomalyst REMS) authorization and confirmed negative pregnancy tests.",
+						"Confirm concurrent VTE prophylaxis is prescribed (Aspirin, LMWH, or Warfarin) based on patient risk.",
+						"Confirm hazardous drug handling precautions (females of childbearing age should avoid handling if possible, or use strict PPE)."
+					],
+					"premeds": [
+						"VTE prophylaxis (Anticoagulant/Antiplatelet) must be given as scheduled."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild fatigue or weakness",
+					"Mild constipation (encourage fluids/fiber or PRN laxative)"
+				],
+				"report_to_physician": [
+					"Unilateral leg swelling, calf pain, or warmth",
+					"Sudden shortness of breath or chest pain",
+					"Severe dizziness or confusion",
+					"Fever > 38.0°C (100.4°F)"
+				]
+			}
+		},
+		{
+			"drug_class": "Immunomodulatory Drug (IMiD)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Thalidomide (Thalomid®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Administer at bedtime to minimize impact of severe somnolence/sedation. Swallow whole.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Continuous assessment of neurological baseline (sedation level and neuropathy).",
+					"stop_criteria": [
+						"Grade 2 or higher peripheral neuropathy (painful tingling/loss of sensation)",
+						"Clinical signs of DVT/PE",
+						"Severe bradycardia or syncope"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess daily for new numbness, tingling, or burning in hands/feet.",
+						"Monitor fall risk due to extreme sedation/somnolence and orthostatic hypotension.",
+						"Assess for signs of venous thromboembolism."
+					],
+					"patient_education": "Take at bedtime. Do not drive or operate machinery until you know how this affects you. Report numbness in fingers/toes immediately."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe teratogen (Phocomelia). High risk for severe, irreversible peripheral neuropathy, severe sedation, and DVT/PE.",
+					"mandatory_checks": [
+						"Verify active REMS (Thalomid REMS) authorization and negative pregnancy tests.",
+						"Perform thorough baseline peripheral neuropathy assessment.",
+						"Confirm active VTE prophylaxis is prescribed."
+					],
+					"premeds": [
+						"VTE prophylaxis as ordered."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Somnolence (institute fall precautions, assist with ambulation)",
+					"Constipation (highly common; initiate aggressive bowel regimen)"
+				],
+				"report_to_physician": [
+					"New or worsening numbness, burning, or tingling in extremities",
+					"Leg swelling or chest pain (VTE)",
+					"Severe blistering skin rash",
+					"Syncope or severe dizziness"
+				]
+			}
+		},
+		{
+			"drug_class": "BTK Inhibitor",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Ibrutinib (Imbruvica®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Administer with a glass of water at the same time each day. Do not open, break, or chew capsules/tablets.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Routine BP checks and cardiac rhythm monitoring if hospitalized.",
+					"stop_criteria": [
+						"Major hemorrhage (GI bleed, intracranial hemorrhage)",
+						"New onset irregular pulse or palpitations (suspected Atrial Fibrillation)",
+						"Uncontrolled hypertension"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess strictly for signs of bleeding (petechiae, melena, hematuria, excessive bruising).",
+						"Monitor apical pulse for irregularity.",
+						"Monitor blood pressure for new or worsening hypertension."
+					],
+					"patient_education": "Avoid grapefruit and Seville oranges. Stop taking and notify doctor before any surgery or dental work. Report heart racing, dizziness, or any unusual bleeding."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk of severe/fatal hemorrhage (especially if on concurrent blood thinners) and sudden cardiac arrhythmias (Atrial Fibrillation).",
+					"mandatory_checks": [
+						"Verify baseline ECG and recent blood pressure trends.",
+						"Check current medication list for concurrent anticoagulants or antiplatelets (major bleeding risk).",
+						"Confirm drug is held 3-7 days prior to any planned surgical procedures."
+					],
+					"premeds": [
+						"None routinely required."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild diarrhea or nausea",
+					"Mild muscle/joint pain",
+					"Transient increase in ALC (lymphocytosis is an expected pharmacodynamic effect, not necessarily progression)"
+				],
+				"report_to_physician": [
+					"Palpitations, racing heart, or feeling of 'fluttering' in chest",
+					"Any signs of bleeding (blood in stool/urine, severe nosebleeds)",
+					"Severe headache or sudden neurological changes (intracranial bleed risk)"
+				]
+			}
+		},
+		{
+			"drug_class": "Antimetabolite",
+			"metadata": {
+				"evidence_source": "BC Cancer",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Mercaptopurine (6-MP / Purinethol®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Administer consistently with or without food. AVOID taking with milk or dairy products (contains xanthine oxidase, which degrades the drug).",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Routine CBC and liver enzyme checks.",
+					"stop_criteria": [
+						"Severe myelosuppression (ANC < 500 or Platelets < 50k)",
+						"Severe hepatotoxicity (jaundice, significantly elevated AST/ALT)"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor strictly for signs of infection or bleeding.",
+						"Assess for jaundice or right upper quadrant pain."
+					],
+					"patient_education": "Take exactly as prescribed. Do not take with milk. Wash hands after handling. Report fever or easy bruising."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe, potentially fatal myelosuppression. Lethal drug interaction with Allopurinol or Febuxostat.",
+					"mandatory_checks": [
+						"CRITICAL: Check MAR for Allopurinol. If concurrent, the 6-MP dose MUST be drastically reduced (typically by 75%) to avoid fatal toxicity.",
+						"Verify pharmacogenomic testing results if available (TPMT or NUDT15 deficiency requires massive dose reduction).",
+						"Verify baseline CBC and LFTs."
+					],
+					"premeds": [
+						"Anti-emetics (PRN)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild nausea or loss of appetite",
+					"Mild fatigue"
+				],
+				"report_to_physician": [
+					"Fever > 38.0°C (100.4°F) or chills",
+					"Yellowing of skin or eyes",
+					"Unusual bleeding or pinpoint red spots on skin (petechiae)"
+				]
+			}
+		},
+		{
+			"drug_class": "Tyrosine Kinase Inhibitor (TKI)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Midostaurin (Rydapt®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Administer WITH FOOD to enhance absorption and mitigate severe nausea. Swallow whole.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Continuous ECG monitoring if inpatient or frequent outpatient checks. Respiratory assessments.",
+					"stop_criteria": [
+						"Acute onset of unexplained dyspnea, hypoxia, or infiltrates on CXR (suspect ILD)",
+						"QTc prolongation > 500 msec"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Auscultate lungs regularly and monitor oxygen saturation.",
+						"Assess efficacy of anti-emetic regimen.",
+						"Monitor daily ECGs if concurrently given with other QTc prolonging drugs (e.g., Ondansetron, Fluconazole)."
+					],
+					"patient_education": "Always take with food to prevent severe nausea. Do not crush. Report any sudden breathing difficulty or feeling of a racing heartbeat."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Risk of severe pulmonary toxicity (Interstitial Lung Disease/Pneumonitis) and prolonged QTc interval.",
+					"mandatory_checks": [
+						"Verify baseline ECG (ensure QTc < 450-470 msec depending on protocol).",
+						"Check baseline chest x-ray and respiratory status.",
+						"Confirm aggressive prophylactic anti-emetics are ordered (highly emetogenic for an oral drug)."
+					],
+					"premeds": [
+						"5-HT3 Antagonist (e.g., Ondansetron) 30-60 mins prior to administration."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Nausea and vomiting (manage aggressively with ordered anti-emetics)",
+					"Mild headache"
+				],
+				"report_to_physician": [
+					"New or worsening shortness of breath or persistent dry cough",
+					"Palpitations, irregular heartbeat, or dizziness",
+					"Fever > 38.0°C (100.4°F)"
+				]
+			}
+		},
+		{
+			"drug_class": "Tyrosine Kinase Inhibitor (TKI)",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Gilteritinib (Xospata®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Administer with or without food. Swallow whole with a cup of water.",
+						"antidote": "None",
+						"risk": "N/A (Oral)"
+					},
+					"monitoring_frequency": "Strict daily monitoring of weight, respiratory status, and neuro status (for PRES) in the first month.",
+					"stop_criteria": [
+						"Unexplained respiratory distress, hypoxia, or pleural effusions (Differentiation Syndrome)",
+						"Seizures, altered mental status, or sudden severe headache (PRES)",
+						"QTc prolongation > 500 msec"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor strictly for signs of Differentiation Syndrome (fever, dyspnea, rapid weight gain, edema).",
+						"Perform routine neuro-checks for signs of PRES.",
+						"Monitor serial ECGs per protocol."
+					],
+					"patient_education": "Report sudden weight gain, trouble breathing, or severe headache immediately. Avoid grapefruit juice."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "High risk of Differentiation Syndrome (can be fatal), QTc prolongation, and Posterior Reversible Encephalopathy Syndrome (PRES).",
+					"mandatory_checks": [
+						"Verify baseline ECG and electrolytes (correct Potassium and Magnesium before dosing).",
+						"Assess baseline respiratory and neurological status.",
+						"Confirm hazardous drug handling precautions."
+					],
+					"premeds": [
+						"Prophylactic corticosteroids may be ordered if WBC is rapidly rising (Differentiation Syndrome prophylaxis)."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild fatigue",
+					"Mild alterations in taste",
+					"Mild muscle or joint pain"
+				],
+				"report_to_physician": [
+					"Shortness of breath, unexplained fever, or rapid weight gain (Differentiation alert)",
+					"Sudden severe headache, vision changes, or confusion (PRES alert)",
+					"Palpitations or fainting"
+				]
+			}
+		},
+		{
+			"drug_class": "Antitumor Antibiotic",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Doxorubicin (Adriamycin®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "STOP IMMEDIATELY. Do not flush or irrigate. Aspirate residual drug. Apply COLD PACKS.",
+						"antidote": "Dexrazoxane (Totect®) IV infusion or topical DMSO per protocol.",
+						"risk": "Vesicant"
+					},
+					"monitoring_frequency": "Continuous direct nurse observation during IV push. Check line patency and blood return every 2-5 mL.",
+					"stop_criteria": [
+						"ANY loss of blood return, resistance, or patient report of burning/stinging",
+						"Acute cardiac arrhythmias on telemetry"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess oral cavity daily for severe mucositis and ulcerations.",
+						"Monitor total cumulative lifetime dose tracking closely to avoid cardiotoxicity thresholds.",
+						"Monitor CBC for severe nadir (typically days 10-14)."
+					],
+					"patient_education": "Urine will turn a red-orange color for 24-48 hours; this is harmless. Report any pain or redness at the injection site immediately."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "CRITICAL VESICANT. Can cause severe tissue necrosis, sloughing, and functional loss. Dose-dependent lifetime cumulative cardiotoxicity leading to irreversible CHF.",
+					"mandatory_checks": [
+						"Verify central line patency with brisk, flawless blood return prior to starting.",
+						"Confirm baseline ECHO or MUGA scan shows acceptable Left Ventricular Ejection Fraction (LVEF).",
+						"Double-check lifetime cumulative dose limits before administration."
+					],
+					"premeds": [
+						"Aggressive anti-emetics (High emetic risk: 5-HT3 antagonist + Dexamethasone + NK1 antagonist)."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Reassure patient regarding red/orange urine discoloration.",
+					"Provide ice chips (cryotherapy) during infusion to reduce mucositis severity.",
+					"Mild nausea."
+				],
+				"report_to_physician": [
+					"Signs of extravasation (pain, swelling, or redness at the site).",
+					"Signs of acute congestive heart failure (sudden dyspnea, peripheral edema, rapid weight gain).",
+					"Fever > 38.0°C (100.4°F)."
+				]
+			}
+		},
+		{
+			"drug_class": "Monoclonal Antibody",
+			"metadata": {
+				"evidence_source": "BC Cancer & Lexicomp",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Rituximab (Rituxan®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Monitor IV site for local patency. Manage per standard non-vesicant protocol.",
+						"antidote": "None",
+						"risk": "Irritant"
+					},
+					"monitoring_frequency": "Vitals every 15 minutes during titration for the first hour, then every 30-60 minutes.",
+					"stop_criteria": [
+						"Severe infusion-related reaction (bronchospasm, angioedema, hypotension, or throat tightness)",
+						"Rigors or shaking chills uncontrolled by bedside interventions"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Monitor for delayed hypersensitivity reactions up to 24 hours post-infusion.",
+						"Assess for signs of Tumor Lysis Syndrome (TLS) in patients with high tumor burdens.",
+						"Monitor blood pressure trends post-infusion."
+					],
+					"patient_education": "Report any sudden shortness of breath, rash, hives, or swelling of the lips/throat that occurs after leaving the unit."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Severe, potentially fatal Infusion-Related Reactions (IRR), typically occurring within 30-120 minutes of the first dose. High risk of Hepatitis B reactivation.",
+					"mandatory_checks": [
+						"Verify negative Hepatitis B core antibody and surface antigen screens before the first cycle.",
+						"Ensure emergency anaphylaxis kit and oxygen setup are at the bedside.",
+						"Confirm all ordered premedications were completed exactly 30-60 minutes prior to spiking the bag."
+					],
+					"premeds": [
+						"Acetaminophen (PO)",
+						"Diphenhydramine (IV/PO)",
+						"Methylprednisolone or Dexamethasone (IV)"
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild rigors (administer ordered PRN IV meperidine strictly per protocol).",
+					"Mild flushing or pruritus (slow infusion rate and monitor closely)."
+				],
+				"report_to_physician": [
+					"Hypotension, wheezing, or stridor (signs of anaphylaxis/severe IRR).",
+					"Chest pain or palpitations.",
+					"Fever > 38.0°C (100.4°F)."
+				]
+			}
+		},
+		{
+			"drug_class": "Topoisomerase II Inhibitor",
+			"metadata": {
+				"evidence_source": "BC Cancer",
+				"last_updated": "19-06-2026"
+			},
+			"name": "Etoposide (VP-16 / Toposar®)",
+			"nursing_workflow": {
+				"during_infusion": {
+					"extravasation_management": {
+						"action": "Stop infusion immediately. Aspirate. Apply WARM compresses to aid dissipation.",
+						"antidote": "Hyaluronidase (if institutional protocol permits for large volume irritant/vesicant crossovers).",
+						"risk": "Irritant / Potential Vesicant"
+					},
+					"monitoring_frequency": "Check blood pressure every 15 minutes for the first hour of infusion.",
+					"stop_criteria": [
+						"Sudden precipitate drop in systolic blood pressure",
+						"Anaphylaxis, wheezing, or profound facial flushing"
+					]
+				},
+				"post_infusion_care": {
+					"nursing_assessment": [
+						"Assess for orthostatic changes before ambulating the patient post-infusion.",
+						"Monitor CBC strictly (severe bone marrow suppression risk, especially leukopenia)."
+					],
+					"patient_education": "Rise slowly from a sitting or lying position. Report any fevers, chills, or unusual bruising immediately."
+				},
+				"pre_infusion_safety": {
+					"fatal_alerts": "Can cause fatal, acute hypotension if infused too rapidly (must be administered over at least 30-60 minutes). Severe anaphylactic-like reactions risk.",
+					"mandatory_checks": [
+						"Verify that the infusion duration is set for at least 60 minutes minimum on the pump.",
+						"Inspect the bag closely for precipitation (Etoposide is highly concentration-dependent and unstable if mixed incorrectly).",
+						"Check baseline blood pressure prior to spiking the line."
+					],
+					"premeds": [
+						"Corticosteroids and 5-HT3 antagonists (Moderate emetic risk)."
+					]
+				}
+			},
+			"side_effect_triage": {
+				"manage_at_bedside": [
+					"Mild transient hypotension (slow the pump down further if ordered parameter allows).",
+					"Mild nausea."
+				],
+				"report_to_physician": [
+					"Severe, symptomatic hypotension or syncope.",
+					"Signs of bronchospasm or respiratory distress.",
+					"Fever > 38.0°C (100.4°F)."
+				]
+			}
+		}
+	]
 }
