@@ -11,8 +11,8 @@
                             "day": "Day 1 - 7",
                             "name": "Ondansetron",
                             "dose": "8 mg Daily",
-                            "route": "IV over 15 mnts",
-                            "duration": "15 min",
+                            "route": "IV over 15 minutes",
+                            "duration": "15 minutes",
                             "note": "15 minutes before chemo"
                         },
                         {
@@ -76,7 +76,7 @@
                         {
                             "day": "Day 1 - until ANC recovery",
                             "name": "Filgrastim (G-CSF)",
-                            "dose": "300 mcg Daily",
+                            "dose": "300mcg Daily",
                             "route": "SC",
                             "duration": "",
                             "phase": "Pre-Chemo",
@@ -86,7 +86,7 @@
                             "day": "Days 2 – 4",
                             "name": "Idarubicin",
                             "dose": "10 mg/m² Daily",
-                            "route": "IV over 15 mnts",
+                            "route": "IV over 15 minutes",
                             "duration": "",
                             "phase": "Chemo",
                             "note": "Check cardiac function before starting"
@@ -95,7 +95,7 @@
                             "day": "Days 2 – 6",
                             "name": "Fludarabine",
                             "dose": "30 mg/m² Daily",
-                            "route": "IV over 30 min",
+                            "route": "IV over 30 minutes",
                             "duration": "",
                             "phase": "Chemo",
                             "note": ""
@@ -103,8 +103,8 @@
                         {
                             "day": "Days 2 – 6",
                             "name": "Cytarabine",
-                            "dose": "2 g/m² Daily",
-                            "route": "IV over 4 hrs",
+                            "dose": "2000 mg/m² Daily",
+                            "route": "IV over 4 hours",
                             "duration": "",
                             "phase": "Chemo",
                             "note": "4 hours after Fludarabine"
@@ -115,21 +115,22 @@
                         "<b>Monitor Fludarabine Neurotoxicity:</b> Assess for changes in mental status or peripheral neuropathy related to Fludarabine.",
                         "<b>Track Prolonged Neutropenia:</b> Prepare for extended myelosuppression; implement strict infection control and growth factor support.",
                         "<b>Confirm TLS Prophylaxis:</b> Monitor for Tumor Lysis Syndrome; ensure adequate hydration and Allopurinol/Rasburicase are active.",
-                        "<b>Assess Line Integrity:</b> Verify brisk blood return prior to Idarubicin infusion to mitigate high extravasation risk."
+                        "<b>Assess Line Integrity:</b> Verify brisk blood return prior to Idarubicin infusion to mitigate high extravasation risk.",
+                        "<b>Monitor Cytarabine Toxicity:</b> Assess for Cytarabine-induced skin rash and provide prophylactic steroid eye drops for conjunctivitis."
                     ],
                     "source": "Hospital Protocol"
                 },
                 {
-                    "protocolName": "FA (Fluderabine + Cytarabine)",
+                    "protocolName": "FA (Fludarabine + Cytarabine)",
                     "drugs": [
                         {
                             "name": "Ondansetron",
                             "dose": "8mg Q24H",
-                            "route": "IV over 15 mints",
+                            "route": "IV over 15 minutes",
                             "phase": "Pre-Chemo",
                             "day": "Day 1 - 5",
                             "duration": "",
-                            "note": "15 minutes before Fluderabine"
+                            "note": "15 minutes before Fludarabine"
                         },
                         {
                             "name": "Allopurinol",
@@ -150,22 +151,22 @@
                             "note": "Start 2 hours before Cytarabine"
                         },
                         {
-                            "name": "Fluderabine",
+                            "name": "Fludarabine",
                             "dose": "30mg/m² Q24H",
-                            "route": "IV over 30 mints",
+                            "route": "IV over 30 minutes",
                             "phase": "Chemo",
                             "day": "Day 1 - 5",
                             "duration": "",
                             "note": ""
                         },
                         {
-                            "name": "Cytarabine ",
+                            "name": "Cytarabine (Ara-C)",
                             "dose": "2000mg Q24H",
                             "route": "IV over 4 hours",
                             "phase": "Chemo",
                             "day": "Day 1 - 5",
                             "duration": "",
-                            "note": "4 hours after start of Fluderabine"
+                            "note": "4 hours after start of Fludarabine"
                         },
                         {
                             "name": "Bactrim",
@@ -199,7 +200,7 @@
                         "<b>Monitor Cerebellar Function:</b> Perform regular neuro checks to identify Cytarabine-induced ataxia or nystagmus.",
                         "<b>Assess Pulmonary Status:</b> Monitor for dyspnea or cough as Fludarabine and Ara-C can rarely cause pulmonary toxicity.",
                         "<b>Track Neutropenic Nadir:</b> Monitor for severe infection risk due to high-dose synergistic myelosuppression.",
-                        "<b>Manage Ocular Care:</b> Ensure the patient uses prophylactic saline or steroid eye drops throughout the Ara-C infusion.",
+                        "<b>Manage Ocular Care:</b> Ensure the patient uses prophylactic steroid eye drops throughout the Ara-C infusion.",
                         "<b>Monitor Renal Function:</b> Track creatinine levels to ensure appropriate clearance of Fludarabine metabolites."
                     ],
                     "source": "Hospital Protocols"
@@ -305,14 +306,14 @@
                             {
                                 "name": "Ondansetron",
                                 "dose": "8mg",
-                                "route": "Iv over 15 mnts",
+                                "route": "IV over 15 minutes",
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 5",
                                 "duration": "",
                                 "note": ""
                             },
                             {
-                                "name": "Dexamthasone",
+                                "name": "Dexamethasone",
                                 "dose": "40mg",
                                 "route": "PO Daily",
                                 "phase": "Pre-Chemo",
@@ -323,7 +324,7 @@
                             {
                                 "name": "Mesna",
                                 "dose": "600mg/m²",
-                                "route": "IV over 24 hrs",
+                                "route": "IV over 24 hours",
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 3",
                                 "duration": "",
@@ -354,7 +355,7 @@
                                 "phase": "Chemo",
                                 "day": "Day 4, Day 11",
                                 "duration": "",
-                                "note": "Make sure patient has bowel motion on the day of administration."
+                                "note": "Maximum dose 2mg. Check bowel motion before giving dose"
                             },
                             {
                                 "name": "Dexamethasone",
@@ -402,8 +403,8 @@
                                 "note": ""
                             },
                             {
-                                "name": "Filgrastim (GCSF)",
-                                "dose": "300mg Daily",
+                                "name": "Filgrastim (G-CSF)",
+                                "dose": "300mcg Daily",
                                 "route": "SC",
                                 "phase": "Post-Chemo",
                                 "day": "Day 7 - ",
@@ -424,9 +425,9 @@
                         "protocolName": "HyperCVAD Cycle B (2, 4, 6)",
                         "drugs": [
                             {
-                                "name": "Ondanasetron",
+                                "name": "Ondansetron",
                                 "dose": "8mg Daily",
-                                "route": "IV over 15 mnts",
+                                "route": "IV over 15 minutes",
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 4",
                                 "note": ""
@@ -434,7 +435,7 @@
                             {
                                 "name": "Dexamethasone",
                                 "dose": "12mg Daily",
-                                "route": "IV over 10 mnts",
+                                "route": "IV over 10 minutes",
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 3",
                                 "note": ""
@@ -458,7 +459,7 @@
                             {
                                 "name": "Methotrexate",
                                 "dose": "200mg/m² Once",
-                                "route": "IV over 2 hrs",
+                                "route": "IV over 2 hours",
                                 "phase": "Chemo",
                                 "day": "Day 2",
                                 "note": "After urine pH >8"
@@ -466,7 +467,7 @@
                             {
                                 "name": "Methotrexate",
                                 "dose": "200mg/m² Once",
-                                "route": "IV over 22 hrs",
+                                "route": "IV over 22 hours",
                                 "phase": "Chemo",
                                 "day": "Day 2",
                                 "note": "After first bag of Methotrexate (MTX)"
@@ -536,8 +537,8 @@
                                 "note": "Hold if any other Antifungal active"
                             },
                             {
-                                "name": "Filgrastim",
-                                "dose": "300mg Daily",
+                                "name": "Filgrastim (G-CSF)",
+                                "dose": "300mcg Daily",
                                 "route": "SC",
                                 "phase": "Chemo",
                                 "day": "Day 6 -",
@@ -564,7 +565,7 @@
                                 "route": "IV",
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 5",
-                                "duration": "Over 15 mints",
+                                "duration": "over 15 minutes",
                                 "note": "15 minutes before chemo"
                             },
                             {
@@ -592,7 +593,7 @@
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 3",
                                 "duration": "Over 24 hours",
-                                "note": "Start 5 mints after Ondansetron "
+                                "note": "Start 5 minutes after Ondansetron "
                             },
                             {
                                 "name": "Cyclophosphamide",
@@ -601,7 +602,7 @@
                                 "phase": "Chemo",
                                 "day": "Day 1 - 3",
                                 "duration": "Over 3 hours",
-                                "note": "Start 5 mints after MESNA start."
+                                "note": "Start 5 minutes after start of Mesna"
                             },
                             {
                                 "name": "Methotrexate + Cytarabine + Hydrocortisone",
@@ -618,8 +619,8 @@
                                 "route": "IV",
                                 "phase": "Chemo",
                                 "day": "Day 5, Day 12",
-                                "duration": "Over 10 mints",
-                                "note": "Give only if patient has bowel motion on the day. "
+                                "duration": "Over 10 minutes",
+                                "note": "Maximum dose 2mg. Check bowel motion before giving dose"
                             },
                             {
                                 "name": "Dexamethasone",
@@ -667,8 +668,8 @@
                                 "note": ""
                             },
                             {
-                                "name": "Filgrastim (GCSF)",
-                                "dose": "300mg Daily",
+                                "name": "Filgrastim (G-CSF)",
+                                "dose": "300mcg Daily",
                                 "route": "SC",
                                 "phase": "Post-Chemo",
                                 "day": "Day 6 - ",
@@ -694,7 +695,7 @@
                                 "route": "IV",
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 3",
-                                "duration": "Over 15 mints",
+                                "duration": "Over 15 minutes",
                                 "note": ""
                             },
                             {
@@ -703,7 +704,7 @@
                                 "route": "IV",
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 - 3",
-                                "duration": "Over 10 mints",
+                                "duration": "Over 10 minutes",
                                 "note": ""
                             },
                             {
@@ -713,7 +714,7 @@
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 -",
                                 "duration": "",
-                                "note": "Continue until ANC <0.1"
+                                "note": "Continue until MTX level < 0.1 μmol/L"
                             },
                             {
                                 "name": "Sodium Bicarbonate",
@@ -722,7 +723,7 @@
                                 "phase": "Pre-Chemo",
                                 "day": "Day 1 -",
                                 "duration": "Over 24 hours",
-                                "note": "Continue until ANC <0.1"
+                                "note": "Continue until MTX level < 0.1 μmol/L"
                             },
                             {
                                 "name": "Methotrexate (MTX)",
@@ -749,7 +750,7 @@
                                 "phase": "Chemo",
                                 "day": "Day 3",
                                 "duration": "",
-                                "note": "Start 12 hours AFTER finish of MTX, then Q6H. Continue until MTX level <0.1"
+                                "note": "Start 12 hours AFTER finish of MTX, then Q6H. Continue until MTX level < 0.1 μmol/L"
                             },
                             {
                                 "name": "Cytarabine",
@@ -797,8 +798,8 @@
                                 "note": ""
                             },
                             {
-                                "name": "Filgrastim (GCSF)",
-                                "dose": "300mg Daily",
+                                "name": "Filgrastim (G-CSF)",
+                                "dose": "300mcg Daily",
                                 "route": "SC",
                                 "phase": "Post-Chemo",
                                 "day": "Day 6 -",
@@ -974,7 +975,7 @@
                         ],
                         "NursesInfo": [
                             "<b>Asparaginase Monitoring:</b> Monitor fibrinogen and amylase/lipase levels. Inspect for DVT (swelling/redness) as Asparaginase significantly increases clot risk.",
-                            "<b>Vincristine Safety:</b> Confirm bowel movements daily to assess for ileus",
+                            "<b>Vincristine Safety:</b> Confirm bowel movements daily to assess for paralytic ileus",
                             "<b>Intrathecal Care:</b> Post-lumbar puncture, ensure the patient remains flat for 30–60 minutes to prevent spinal headache"
                         ],
                         "source": "Hospital Protocol"
@@ -1101,16 +1102,16 @@
                             "phase": "Chemo",
                             "day": "Day 2 – 6",
                             "duration": "5 Days",
-                            "note": "Over 30 mins; 4 hrs BEFORE Cytarabine"
+                            "note": "Over 30 minutes; 4 hrs BEFORE Cytarabine"
                         },
                         {
-                            "name": "Cytarabine",
+                            "name": "Cytarabine (Ara-C)",
                             "dose": "2000 mg/m²",
                             "route": "IV",
                             "phase": "Chemo",
                             "day": "Day 2 – 6",
                             "duration": "5 Days",
-                            "note": "Over 4 hrs; 4 hrs AFTER Fluderabine"
+                            "note": "Over 4 hrs; 4 hrs AFTER Fludarabine"
                         },
                         {
                             "name": "Idarubicin",
@@ -1122,8 +1123,8 @@
                             "note": ""
                         },
                         {
-                            "name": "Filgrastim (GCSF)",
-                            "dose": "300 mg Daily",
+                            "name": "Filgrastim (G-CSF)",
+                            "dose": "300mcg Daily",
                             "route": "SC",
                             "phase": "Post-Chemo",
                             "day": "Day 6 -",
@@ -1167,7 +1168,7 @@
                             "phase": "Chemo",
                             "day": "Day 4, 11",
                             "duration": "2 Doses",
-                            "note": "Check for bowel movement before administration"
+                            "note": "Maximum dose 2mg. Check bowel motion before giving dose"
                         },
                         {
                             "name": "Doxorubicin",
@@ -1406,7 +1407,7 @@
                             "note": "Round to nearest 10 mg"
                         },
                         {
-                            "name": "Arsenic Tri Oxide (ATO)",
+                            "name": "Arsenic Trioxide (ATO)",
                             "dose": "0.15 mg/kg Daily",
                             "route": "IV",
                             "phase": "Chemo",
