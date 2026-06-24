@@ -1487,6 +1487,35 @@
           ],
           "protocolName": "ABVD (Doxorubicin + Bleomycin + Vinblastine + Dacarbazine)",
           "source": "eviQ / NHS ABVD Protocol"
+        },
+        {
+          "NursesInfo": [
+            "<b>Monitor for neuropathy:</b> Brentuximab vedotin carries a risk of peripheral neuropathy.",
+            "<b>Infusion Reaction:</b> Monitor closely during Brentuximab infusion.",
+            "<b>Liver Function:</b> Assess LFTs as hepatotoxicity can occur."
+          ],
+          "drugs": [
+            {
+              "day": "Day 1, 15",
+              "dose": "1.2 mg/kg",
+              "duration": "Over 30 minutes",
+              "name": "Brentuximab Vedotin",
+              "note": "Max dose 120 mg.",
+              "phase": "Chemo",
+              "route": "IV"
+            },
+            {
+              "day": "Day 1, 15",
+              "dose": "375 mg/m²",
+              "duration": "Over 60 minutes",
+              "name": "Dacarbazine",
+              "note": "",
+              "phase": "Chemo",
+              "route": "IV"
+            }
+          ],
+          "protocolName": "A+AVD (Brentuximab Vedotin + AVD)",
+          "source": "eviQ"
         }
       ]
     }
@@ -1522,6 +1551,26 @@
             }
           ],
           "protocolName": "Azacitidine SC",
+          "source": "BC Cancer"
+        },
+        {
+          "NursesInfo": [
+            "<b>Monitor for Decitabine-induced neutropenia.</b>",
+            "<b>Ensure supportive care:</b> Transfusion support as needed.",
+            "Assess for infection daily."
+          ],
+          "drugs": [
+            {
+              "day": "Day 1 - 5",
+              "dose": "20 mg/m²",
+              "duration": "Over 1 hour",
+              "name": "Decitabine",
+              "note": "Repeat cycle every 4 weeks.",
+              "phase": "Chemo",
+              "route": "IV"
+            }
+          ],
+          "protocolName": "Decitabine",
           "source": "BC Cancer"
         }
       ]
@@ -1578,6 +1627,35 @@
           ],
           "protocolName": "CyBorD (Cyclophosphamide + Bortezomib + Dexamethasone) Weekly",
           "source": "eviQ Protocol 1562 / BC Cancer MYBORPRE"
+        },
+        {
+          "NursesInfo": [
+            "<b>VTE Prophylaxis:</b> Lenalidomide/Dexamethasone combination has a high risk for DVT/PE. Monitor for leg swelling or chest pain.",
+            "<b>Dose Adjustment:</b> Adjust Lenalidomide dose based on Creatinine Clearance (CrCl).",
+            "<b>Hematologic Monitoring:</b> Monitor for neutropenia and thrombocytopenia weekly."
+          ],
+          "drugs": [
+            {
+              "day": "Day 1 - 21",
+              "dose": "25 mg Daily",
+              "duration": "",
+              "name": "Lenalidomide",
+              "note": "Cycle is 28 days.",
+              "phase": "Chemo",
+              "route": "PO"
+            },
+            {
+              "day": "Day 1, 8, 15, 22",
+              "dose": "40 mg Weekly",
+              "duration": "",
+              "name": "Dexamethasone",
+              "note": "Decrease dose for patients >75 years to 20 mg.",
+              "phase": "Pre-Chemo",
+              "route": "PO"
+            }
+          ],
+          "protocolName": "Rd (Lenalidomide + Dexamethasone)",
+          "source": "BC Cancer"
         }
       ]
     },
@@ -1779,6 +1857,35 @@
           ],
           "protocolName": "R-CHOP (Rituximab + Cyclophosphamide + Doxorubicin + Vincristine + Prednisolone)",
           "source": "eviQ / NHS R-CHOP Protocol"
+        },
+        {
+          "NursesInfo": [
+            "<b>Infusion reaction:</b> High risk for Rituximab during first dose.",
+            "<b>TLS Risk:</b> High risk of tumor lysis. Hydrate well.",
+            "<b>Cytopenia:</b> Nadir expected between day 7-14."
+          ],
+          "drugs": [
+            {
+              "day": "Day 1",
+              "dose": "375 mg/m²",
+              "duration": "Over 4 hours",
+              "name": "Rituximab",
+              "note": "First dose as per graded infusion rate.",
+              "phase": "Chemo",
+              "route": "IV"
+            },
+            {
+              "day": "Day 1",
+              "dose": "1.4 mg/m²",
+              "duration": "Over 10 mins",
+              "name": "Vincristine",
+              "note": "Max dose 2 mg.",
+              "phase": "Chemo",
+              "route": "IV"
+            }
+          ],
+          "protocolName": "R-CVP (Rituximab + Cyclophosphamide + Vincristine + Prednisolone)",
+          "source": "BC Cancer"
         }
       ]
     }
