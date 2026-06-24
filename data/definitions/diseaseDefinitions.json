@@ -1,0 +1,101 @@
+{
+  "AML": {
+    "fullName": "Acute Myeloid Leukemia (AML)",
+    "definition": "A rapid-growing cancer where the bone marrow overproduces immature, non-functional white blood cells (myeloblasts). These blasts crowd out healthy cells, leading to severe anemia, high infection risk (neutropenia), and bleeding (thrombocytopenia).",
+    "diagnosticCriteria": [
+      "≥ 20% myeloid blasts in the bone marrow or peripheral blood.",
+      "Specific genetic mutations (e.g., RUNX1::RUNX1T1, CBFB::MYH11, mutated NPM1), regardless of blast percentage. (Note: t(15;17) / PML::RARA is excluded as it strictly defines APL).",
+      "Myeloid Sarcoma: A tissue biopsy proving blasts have formed a localized solid tumor mass."
+    ],
+    "sources": "WHO (2022) & ICC (2022) Classifications."
+  },
+  "APL": {
+    "fullName": "Acute Promyelocytic Leukemia (APL)",
+    "definition": "A rare, aggressive, but highly curable subtype of acute leukemia where the bone marrow overproduces abnormal, immature white blood cells called promyelocytes. These cells release substances that cause severe, life-threatening blood clotting and bleeding disorders, making immediate treatment a medical emergency.",
+    "diagnosticCriteria": [
+      "Genetic Confirmation: The presence of the t(15;17)(q24.1;q21.2) chromosomal translocation or the PML::RARA fusion gene.",
+      "Morphology: Bone marrow or peripheral blood typically shows abnormal promyelocytes packed with heavy granules and multiple Auer rods."
+    ],
+    "sources": "WHO (2022) & ICC (2022) Classifications, NCCN Guidelines."
+  },
+  "ALL": {
+    "fullName": "Acute Lymphoblastic Leukemia (B-ALL / General ALL)",
+    "definition": "A fast-growing cancer of the blood and bone marrow where the body overproduces immature lymphoid cells (lymphoblasts), specifically of the B-cell lineage. These abnormal cells crowd out healthy blood cells and have a high tendency to spread to the central nervous system (CNS).",
+    "diagnosticCriteria": [
+      "≥ 20% lymphoblasts in the bone marrow or peripheral blood.",
+      "Lineage Confirmation: Flow cytometry confirming B-cell surface markers (e.g., CD19, CD22, CD79a)."
+    ],
+    "sources": "WHO (2022) & ICC (2022) Classifications."
+  },
+  "T-ALL": {
+    "fullName": "T-Cell Acute Lymphoblastic Leukemia (T-ALL)",
+    "definition": "A highly aggressive subtype of ALL where the abnormal lymphoblasts originate from T-cells. It frequently presents in adolescents and young adults (especially males) and is notorious for forming a large tumor mass in the chest (mediastinal/thymic mass) that can cause severe airway or blood vessel compression.",
+    "diagnosticCriteria": [
+      "≥ 20% lymphoblasts in the bone marrow or peripheral blood.",
+      "Lineage Confirmation: Flow cytometry confirming T-cell markers (e.g., cytoplasmic CD3, CD7).",
+      "Clinical Hallmark: Often accompanied by a biopsy-proven mediastinal mass on imaging, even if bone marrow involvement is low."
+    ],
+    "sources": "WHO (2022) & ICC (2022) Classifications, NCCN Guidelines."
+  },
+  "CML": {
+    "fullName": "Chronic Myeloid Leukemia (CML)",
+    "definition": "A slow-growing cancer of the blood and bone marrow caused by an acquired genetic mutation. It causes a massive overproduction of mature but abnormal white blood cells. If not managed properly with targeted daily pills (TKIs), it will eventually speed up and transform into a life-threatening acute leukemia (Blast Phase).",
+    "diagnosticCriteria": [
+      "Genetic Confirmation (Mandatory): Blood or bone marrow tests must show the Philadelphia chromosome (t(9;22)), which creates the BCR::ABL1 fusion gene.",
+      "Blood Profile: A highly elevated white blood cell count showing a full spectrum of myeloid cells (from immature blasts to fully mature cells)."
+    ],
+    "sources": "WHO (2022) Classification, European LeukemiaNet (ELN) Recommendations, NCCN Guidelines."
+  },
+  "CLL": {
+    "fullName": "Chronic Lymphocytic Leukemia (CLL)",
+    "definition": "A slow-growing blood cancer where the body makes too many abnormal, mature-looking B-lymphocytes (a type of white blood cell). Unlike acute leukemias, these cells don't multiply rapidly, but they live too long and slowly build up in the blood, bone marrow, and lymph nodes, causing swollen glands and a weakened immune system.",
+    "diagnosticCriteria": [
+      "Quantitative Threshold: A sustained presence of ≥ 5,000 monoclonal B-lymphocytes per microliter (mcL) in the blood for at least 3 months.",
+      "Flow Cytometry (Mandatory): The abnormal cells must display a specific \"fingerprint\" of cell surface markers to prove they are CLL clones (specifically co-expressing CD5, CD19, CD23, and weak CD20)."
+    ],
+    "sources": "International Workshop on Chronic Lymphocytic Leukemia (iwCLL) Guidelines, WHO (2022) Classification, NCCN Guidelines."
+  },
+  "MM": {
+    "fullName": "Multiple Myeloma (MM)",
+    "definition": "A cancer of the plasma cells (the specialized white blood cells that normally produce antibodies to fight infection). These abnormal cells multiply uncontrollably in the bone marrow and secrete a toxic, useless antibody called an \"M-protein.\" This protein can cause severe kidney damage, while the cancer cells themselves aggressively break down surrounding bone tissue, leading to severe bone pain and frequent fractures.",
+    "diagnosticCriteria": [
+        "Plasma Cell Threshold: ≥ 10% abnormal (clonal) plasma cells in the bone marrow, OR a tissue biopsy proving a solid plasma cell tumor (plasmacytoma).",
+        "Myeloma-Defining Events: To confirm the disease is active and requires treatment, the patient must also exhibit at least one sign of organ damage or a high-risk biomarker. These are widely remembered by the acronyms CRAB and SLiM:",
+        "C: Calcium elevation (hypercalcemia)",
+        "R: Renal dysfunction or failure",
+        "A: Anemia",
+        "B: Bone lesions (osteolytic lesions or pathological fractures visible on imaging)",
+        "SLiM: ≥ 60% bone marrow plasma cells, a serum free light chain ratio ≥ 100, or > 1 focal bone lesion found on an MRI."
+    ],
+    "sources": "WHO (2022) Classification, International Myeloma Working Group (IMWG) Criteria, NCCN Guidelines."
+  },
+  "HL": {
+    "fullName": "Hodgkin Lymphoma (HL)",
+    "definition": "A highly curable cancer of the lymphatic system (the body's disease-fighting network). It usually begins in the lymph nodes of the neck or chest. Its defining feature is the presence of giant, abnormal, mutated B-lymphocytes called Reed-Sternberg cells. Unlike other lymphomas, HL usually spreads in a very orderly, predictable way from one group of lymph nodes to the next.",
+    "diagnosticCriteria": [
+      "Tissue Biopsy (Mandatory): An excisional biopsy of an enlarged lymph node showing the classic, \"owl-eye\" appearance of Reed-Sternberg cells surrounded by a mix of inflammatory cells.",
+      "Immunohistochemistry: The abnormal cells must be tested under a microscope to confirm a specific protein fingerprint (they are typically positive for CD15 and CD30, but negative for CD45)."
+    ],
+    "sources": "WHO (2022) Classification, NCCN Guidelines."
+  },
+  "NHL": {
+    "fullName": "Non-Hodgkin Lymphoma (NHL)",
+    "definition": "A broad and diverse group of blood cancers that also start in the lymphatic system, but do not contain Reed-Sternberg cells. NHL can originate from B-cells, T-cells, or Natural Killer (NK) cells. It behaves much less predictably than Hodgkin Lymphoma, often spreading randomly to different lymph nodes and outside organs (like the stomach, skin, or brain). NHL ranges from very slow-growing (indolent) to extremely fast-growing (aggressive).",
+    "diagnosticCriteria": [
+      "Tissue Biopsy (Mandatory): An excisional biopsy of an enlarged lymph node or affected organ showing an uncontrolled, malignant growth of lymphocytes. (Fine Needle Aspiration is usually not enough for a diagnosis).",
+      "Subtype Identification: Because there are over 60 distinct types of NHL (such as Diffuse Large B-Cell Lymphoma or Follicular Lymphoma), extensive tissue staining (immunohistochemistry) or flow cytometry is absolutely required to identify the exact cell lineage and genetic makeup before treatment can begin."
+    ],
+    "sources": "WHO (2022) Classification, NCCN Guidelines."
+  },
+  "MDS": {
+    "fullName": "Myelodysplastic Syndromes / Neoplasms (MDS)",
+    "definition": "MDS is a group of blood cancers where the bone marrow acts like a defective factory. It produces poorly formed, immature blood cells that die prematurely or fail to function correctly. This results in an empty bloodstream with dangerously low counts of healthy red cells, white cells, and platelets. Patients are often heavily dependent on blood transfusions and carry a high risk of the disease speeding up and transforming into Acute Myeloid Leukemia (AML).",
+    "diagnosticCriteria": [
+      "Unexplained Cytopenias: Persistent low blood counts (anemia, neutropenia, or thrombocytopenia) that cannot be explained by other causes like iron or vitamin B12 deficiency.",
+      "Morphological Dysplasia (Mandatory): A bone marrow biopsy must show that ≥ 10% of the cells in at least one blood cell lineage are visibly distorted, abnormal, or \"dysplastic\" under a microscope.",
+      "Blast Percentage: The bone marrow must contain < 20% blasts. (If the blast count reaches 20% or higher, the diagnosis officially changes from MDS to AML).",
+      "Genetic Confirmation: The presence of specific chromosomal abnormalities (such as a missing piece of chromosome 5, known as del(5q)) or clonal mutations strongly supports the diagnosis and helps determine the risk level."
+    ],
+    "sources": "WHO (2022) Classification of Haematolymphoid Tumours, International Consensus Classification (ICC, 2022), NCCN Guidelines."
+  }
+}

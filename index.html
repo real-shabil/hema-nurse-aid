@@ -98,7 +98,16 @@
         <div class="section" id="type">
             <button class="back-btn" onclick="navigateToSection('leukemia')">← Back</button>
             <h2 id="typeTitle"></h2>
+
+            <div class="disease-tabs" style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid var(--color-border); padding-bottom: 10px;">
+                <button id="tab-protocols" class="tab-btn active" onclick="switchDiseaseTab('protocols')" style="background-color: var(--color-primary); color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 600;">Chemo Protocols</button>
+                <button id="tab-definitions" class="tab-btn" onclick="switchDiseaseTab('definitions')" style="background-color: transparent; color: var(--color-text-main); border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 600;">Disease Profile</button>
+            </div>
+
             <div id="protocolList" class="protocols-container"></div>
+
+            <div id="definitionContent" class="protocols-container" style="display: none;">
+                </div>
         </div>
 
 

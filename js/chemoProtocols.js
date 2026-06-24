@@ -5,6 +5,7 @@
 window.openLeukemiaType = openLeukemiaType;
 
 let CHEMO_PROTOCOLS = null;
+let CURRENT_DISEASE_TYPE = null;
 
 /* =========================================================
    SAFE MESSAGE
@@ -18,9 +19,6 @@ function createMessageElement(className, message) {
     return wrapper;
 }
 
-/* =========================================================
-   SECURITY UTILITIES
-   ========================================================= */
 function safeHtmlStr(str) {
     if (str === null || str === undefined) return "";
     return String(str)
@@ -92,6 +90,12 @@ function openLeukemiaType(type, options = {}) {
 
     const titleEl = document.getElementById("typeTitle");
     const list = document.getElementById("protocolList");
+
+    CURRENT_DISEASE_TYPE = type;
+
+    if (typeof switchDiseaseTab === "function") {
+        switchDiseaseTab("protocols");
+    }
 
     if (titleEl) titleEl.innerText = `${type} Protocols`;
 
@@ -649,8 +653,222 @@ function renderProtocolSearchResults(results, options = {}) {
 }
 
 /* =========================================================
+   TAB SWITCHING LOGIC
+   ========================================================= */
+/* =========================================================
+   TAB SWITCHING LOGIC
+   ========================================================= */
+function switchDiseaseTab(tabName) {
+    const protocolContent = document.getElementById("protocolList");
+    const definitionContent = document.getElementById("definitionContent");
+    const btnProtocols = document.getElementById("tab-protocols");
+    const btnDefinitions = document.getElementById("tab-definitions");
+
+    // Safety check: stop if elements are missing
+    if (!protocolContent || !definitionContent || !btnProtocols || !btnDefinitions) return;
+
+    if (tabName === "protocols") {
+        protocolContent.style.display = "block";
+        definitionContent.style.display = "none";
+
+        btnProtocols.classList.add("active");
+        btnProtocols.style.backgroundColor = "var(--color-primary-teal)"; 
+        btnProtocols.style.color = "white";
+
+        btnDefinitions.classList.remove("active");
+        btnDefinitions.style.backgroundColor = "transparent";
+        btnDefinitions.style.color = "var(--color-text-main)";
+    } 
+    else if (tabName === "definitions") {
+        protocolContent.style.display = "none";
+        definitionContent.style.display = "block";
+
+        btnDefinitions.classList.add("active");
+        btnDefinitions.style.backgroundColor = "var(--color-primary-teal)"; 
+        btnDefinitions.style.color = "white";
+
+        btnProtocols.classList.remove("active");
+        btnProtocols.style.backgroundColor = "transparent";
+        btnProtocols.style.color = "var(--color-text-main)";
+
+        if (CURRENT_DISEASE_TYPE) {
+            renderDiseaseDefinition(CURRENT_DISEASE_TYPE);
+        }
+    }
+}
+
+/* =========================================================
+   FETCH AND RENDER DISEASE DEFINITIONS (SAFE DOM METHOD)
+   ========================================================= */
+function renderDiseaseDefinition(type) {
+    const defContent = document.getElementById("definitionContent");
+    defContent.textContent = "";
+
+    const loadingMessage = document.createElement("p");
+    loadingMessage.style.padding = "20px";
+    loadingMessage.style.textAlign = "center";
+    loadingMessage.style.color = "var(--color-text-muted)";
+    loadingMessage.textContent = "⏳ Loading Disease Profile...";
+    defContent.appendChild(loadingMessage);
+
+    fetch("data/definitions/diseaseDefinitions.json")
+        .then(response => response.json())
+        .then(data => {
+            defContent.textContent = "";
+            let keysToFetch = (type === "ALL" && data["T-ALL"]) ? [type, "T-ALL"] : [type];
+            let foundData = false;
+
+            keysToFetch.forEach(key => {
+                const diseaseData = data[key];
+                if (!diseaseData) return;
+                foundData = true;
+
+                const card = document.createElement("div");
+                card.className = "info-card";
+                card.style.marginTop = "10px";
+                card.style.marginBottom = "20px";
+                card.style.textAlign = "left";
+                card.style.border = "1px solid var(--color-border-card)";
+
+                // Title Section with PDF Button
+                const titleContainer = document.createElement("div");
+                titleContainer.style.display = "flex";
+                titleContainer.style.justifyContent = "space-between";
+                titleContainer.style.alignItems = "flex-start";
+
+                const title = document.createElement("h3");
+                title.style.color = "var(--color-primary-teal)";
+                title.textContent = diseaseData.fullName;
+                titleContainer.appendChild(title);
+
+                const pdfBtn = document.createElement("button");
+                pdfBtn.textContent = "💾";
+                pdfBtn.title = "Download PDF";
+                pdfBtn.style.cssText = "background:none; border:none; cursor:pointer; font-size:1.2rem; padding:4px;";
+                pdfBtn.onclick = () => exportDefinitionAsPDF(diseaseData);
+                titleContainer.appendChild(pdfBtn);
+                card.appendChild(titleContainer);
+
+                // Definition
+                const defP = document.createElement("p");
+                defP.style.color = "var(--color-text-main)";
+                defP.textContent = "Definition: " + diseaseData.definition;
+                card.appendChild(defP);
+
+                // Criteria
+                const critHeader = document.createElement("p");
+                critHeader.style.fontWeight = "bold";
+                critHeader.textContent = "Diagnostic Criteria:";
+                card.appendChild(critHeader);
+
+                const critList = document.createElement("ul");
+                diseaseData.diagnosticCriteria.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    critList.appendChild(li);
+                });
+                card.appendChild(critList);
+
+                // Sources
+                const sourceDiv = document.createElement("div");
+                sourceDiv.className = "info-panel";
+                sourceDiv.textContent = "Sources: " + diseaseData.sources;
+                card.appendChild(sourceDiv);
+
+                defContent.appendChild(card);
+            });
+        });
+}
+            
+/* =========================================================
    PDF EXPORT - FIXED BLANK PDF ISSUE
    ========================================================= */
+function exportDefinitionAsPDF(data) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF("p", "mm", "a4");
+
+    // CONFIGURATION
+    const margin = 15;
+    const pageWidth = 210;
+    const availableWidth = pageWidth - (margin * 2); // 180mm
+    const lineHeight = 6;
+
+    // 1. SYMBOL & TEXT CLEANER
+    // This forces strict character handling so "≥" doesn't become "e"
+    const clean = (str) => {
+        if (!str) return "";
+        return String(str)
+            .replace(/≥/g, ">=")
+            .replace(/≤/g, "<=")
+            .replace(/\u2265/g, ">=") // Handle unicode variations
+            .replace(/\u2264/g, "<=");
+    };
+
+    // 2. HEADER
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.setTextColor(0, 77, 64);
+    doc.text(clean(data.fullName), margin, 20);
+
+    // 3. DEFINITION SECTION
+    let y = 35;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    doc.text("Definition:", margin, y);
+    y += 7;
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.setTextColor(50);
+    
+    // Split and render definition
+    const defLines = doc.splitTextToSize(clean(data.definition), availableWidth);
+    doc.text(defLines, margin, y);
+    y += (defLines.length * lineHeight) + 10;
+
+    // 4. DIAGNOSTIC CRITERIA SECTION
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("Diagnostic Criteria:", margin, y);
+    y += 8;
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.setTextColor(50);
+
+    data.diagnosticCriteria.forEach(crit => {
+        const itemText = "• " + clean(crit);
+        
+        // Identify indentation for sub-items (CRAB/SLiM items)
+        const isSubItem = /^(C:|R:|A:|B:|SLiM:)/.test(crit);
+        const currentMargin = isSubItem ? margin + 8 : margin;
+        const currentWidth = isSubItem ? availableWidth - 8 : availableWidth;
+
+        const lines = doc.splitTextToSize(itemText, currentWidth);
+        
+        // PAGE BREAK LOGIC
+        if (y + (lines.length * lineHeight) > 280) {
+            doc.addPage();
+            y = 20;
+        }
+
+        doc.text(lines, currentMargin, y);
+        y += (lines.length * lineHeight);
+    });
+
+    // 5. FOOTER / SOURCES
+    y += 10;
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(9);
+    doc.setTextColor(120);
+    const sourceLines = doc.splitTextToSize("Sources: " + clean(data.sources), availableWidth);
+    doc.text(sourceLines, margin, y);
+
+    // Save
+    doc.save(`${data.fullName.replace(/[^a-z0-9]/gi, '_')}.pdf`);
+}
+
 function exportProtocolAsPDF(protocol, type, phase, triggeringButton) {
     if (!window.jspdf || !window.jspdf.jsPDF) {
         alert("jsPDF library not loaded.");
